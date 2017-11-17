@@ -1,0 +1,90 @@
+<apex:page action="{!doInit}" standardController="Account" extensions="AccountExt">
+    <div id="pageLayout" style="display: none;">
+        <apex:detail relatedList="true" showChatter="true" rendered="{!isShowAccount}" inlineEdit="false" /> <!--PD-11813 -->
+    </div>
+    
+    <script type="text/javascript">
+        if ({!isShowAccountName} == true) {
+            var headingElem = document.getElementsByClassName('pageDescription');
+          
+            for (var j=0; j < headingElem.length; j++) {
+                    headingElem[j].innerHTML = '';
+
+            }
+            
+            var hideChatter = document.getElementsByClassName('linkText');
+          
+            for (var k=0; k < hideChatter.length; k++) {
+                    hideChatter[k].innerHTML = '';
+
+            }
+            var hideTopics = document.getElementsByClassName('view topic-widgetWithInfoBubble');
+          
+            for (var l=0; l < hideTopics.length; l++) {
+                    hideTopics[l].innerHTML = '';
+
+            }
+            
+            hideTopics = document.getElementsByClassName('hideFeedLink');
+          
+            for (var l=0; l < hideTopics.length; l++) {
+                hideTopics[l].innerHTML = '';
+
+            }
+            
+            
+            hideTopics = document.getElementsByClassName('chatterfeedshell');
+          
+            for (var l=0; l < hideTopics.length; l++) {
+                hideTopics[l].innerHTML = '';
+
+            }
+            var nameElem = document.getElementsByTagName('td');
+            for (var i=0; i < nameElem.length; i++) {
+                 if (nameElem[i].innerHTML === 'Account Name') {
+                    nameElem[i].innerHTML = '';
+                    nameElem[i+1].innerHTML = '';
+                }
+                if (nameElem[i].innerHTML === 'Email') {
+                    nameElem[i].innerHTML = '';
+                    nameElem[i+1].innerHTML = '';
+                }
+                if (nameElem[i].innerHTML === 'メール') {
+                    nameElem[i].innerHTML = '';
+                    nameElem[i+1].innerHTML = '';
+                }
+                if (nameElem[i].innerHTML === 'Secondary Email') {
+                    nameElem[i].innerHTML = '';
+                    nameElem[i+1].innerHTML = '';
+                }
+                
+                if (nameElem[i].innerHTML === '取引先名') {
+                    nameElem[i].innerHTML = '';
+                    nameElem[i+1].innerHTML = '';
+                }
+                if (nameElem[i].innerHTML === '第二メールアドレス') {
+                    nameElem[i].innerHTML = '';
+                    nameElem[i+1].innerHTML = '';
+                }
+            }
+        }
+        if ({!isAppleOrDocomoAccount} == true) {
+            if (!Element.prototype.remove) {
+                Element.prototype.remove = function remove() {
+                    if (this.parentNode) {
+                        this.parentNode.removeChild(this);
+                    }
+                };
+            }
+            var hideAddDiscountButton = document.querySelectorAll('input[onclick*="AddDiscount"]');
+            for (var dItem=0; dItem < hideAddDiscountButton.length; dItem++) {
+                hideAddDiscountButton[dItem].remove();
+            }
+        }
+        
+        document.getElementById('pageLayout').style.display = "block";
+    </script>
+
+    
+    
+</apex:page>

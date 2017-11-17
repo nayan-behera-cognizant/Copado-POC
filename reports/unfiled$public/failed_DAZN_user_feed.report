@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>DAZNUserFeed__c.Status__c</field>
+    </columns>
+    <columns>
+        <field>DAZNUserFeed__c.ViewerId__c</field>
+    </columns>
+    <columns>
+        <field>DAZNUserFeed__c.DAZN_Id__c</field>
+    </columns>
+    <columns>
+        <field>DAZNUserFeed__c.Partner_Id__c</field>
+    </columns>
+    <columns>
+        <field>DAZNUserFeed__c.Partner_Registration_status__c</field>
+    </columns>
+    <columns>
+        <field>DAZNUserFeed__c.First_Name__c</field>
+    </columns>
+    <columns>
+        <field>DAZNUserFeed__c.Last_Name__c</field>
+    </columns>
+    <columns>
+        <field>DAZNUserFeed__c.Email__c</field>
+    </columns>
+    <currency>GBP</currency>
+    <filter>
+        <criteriaItems>
+            <column>DAZNUserFeed__c.Status__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Not Started</value>
+        </criteriaItems>
+        <language>en_GB</language>
+    </filter>
+    <format>Tabular</format>
+    <name>failed DAZN user feed</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$DAZNUserFeed__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>CUST_CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2017-02-15</startDate>
+    </timeFrameFilter>
+</Report>

@@ -1,0 +1,592 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Account Name JA --></label>
+        <name>Account_Name_JA__c</name>
+    </fields>
+    <fields>
+        <label><!-- Browser Information --></label>
+        <name>Browser_Information__c</name>
+    </fields>
+    <fields>
+        <label><!-- Campaign --></label>
+        <name>Campaign__c</name>
+        <relationshipLabel><!-- Cases --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Case First Response Time --></label>
+        <name>Case_First_Response_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Case PTC --></label>
+        <name>Case_PTC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cases REF --></label>
+        <name>Case_REF__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact us email --></label>
+        <name>Contact_us_email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Emails Received --></label>
+        <name>Emails_Received__c</name>
+    </fields>
+    <fields>
+        <label><!-- Emails Sent --></label>
+        <name>Emails_Sent__c</name>
+    </fields>
+    <fields>
+        <label><!-- Hour DACH --></label>
+        <name>Hour_DACH__c</name>
+    </fields>
+    <fields>
+        <label><!-- IsGuestUser --></label>
+        <name>IsGuestUser__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mass Response --></label>
+        <name>Mass_Response__c</name>
+        <picklistValues>
+            <masterLabel>Buffering, quality issue</masterLabel>
+            <translation><!-- Buffering, quality issue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GAMBA, EHIME</masterLabel>
+            <translation><!-- GAMBA, EHIME --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Issue Compensation</masterLabel>
+            <translation><!-- Issue Compensation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>J2 CATCH UP</masterLabel>
+            <translation><!-- J2 CATCH UP --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- New Case Comment --></label>
+        <name>New_Case_Comment__c</name>
+    </fields>
+    <fields>
+        <label><!-- Notification Country Code --></label>
+        <name>Notification_Country_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Notification Language Code --></label>
+        <name>Notification_Language_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Partner Id --></label>
+        <name>Partner_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Previous Customer Comments --></label>
+        <name>Previous_Customer_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Provider Type --></label>
+        <name>Provider_Type__c</name>
+        <picklistValues>
+            <masterLabel>DAZN</masterLabel>
+            <translation><!-- DAZN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Docomo</masterLabel>
+            <translation><!-- Docomo --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Non-member</masterLabel>
+            <translation><!-- Non-member --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Public Case Comments --></label>
+        <name>Public_Case_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Rating --></label>
+        <name>Rating__c</name>
+        <picklistValues>
+            <masterLabel>1</masterLabel>
+            <translation><!-- 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2</masterLabel>
+            <translation><!-- 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3</masterLabel>
+            <translation><!-- 3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4</masterLabel>
+            <translation><!-- 4 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>5</masterLabel>
+            <translation><!-- 5 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- SLA DACH --></label>
+        <name>SLA_DACH__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sub Type Formula --></label>
+        <name>Sub_Type_Formula__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sub-Type --></label>
+        <name>Sub_Type__c</name>
+        <picklistValues>
+            <masterLabel>2 week free trial</masterLabel>
+            <translation>2週間無料体験延長</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>About DAZN</masterLabel>
+            <translation>DAZNについて</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>About DAZN for docomo</masterLabel>
+            <translation>DAZN for docomo について</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Accepted payment methods</masterLabel>
+            <translation>決済手段</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Account, Payments &amp; Billing General Enquiry</masterLabel>
+            <translation><!-- Account, Payments &amp; Billing General Enquiry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Adaptive bit rate</masterLabel>
+            <translation>画質の自動変更について</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Annual Sub Cancellation</masterLabel>
+            <translation>日本では使用しません</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Annual Sub Refund Request</masterLabel>
+            <translation>日本では使用しません</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Annual Sub payment date clarification</masterLabel>
+            <translation>日本では使用しません</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>App doesn&apos;t launch</masterLabel>
+            <translation>アプリが起動しません</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>App takes a long time to launch</masterLabel>
+            <translation>アプリが長時間起動しません</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Audio quality issue</masterLabel>
+            <translation>音声の問題について</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Available content</masterLabel>
+            <translation>配信中もしくは配信予定を公表したコンテンツについて</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BILDplus escalation</masterLabel>
+            <translation><!-- BILDplus escalation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Buffering issues</masterLabel>
+            <translation>バッファリング問題</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Business contract request</masterLabel>
+            <translation>協業案件</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Can&apos;t register via app</masterLabel>
+            <translation>アプリ経由で会員登録できない場合</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cancellation</masterLabel>
+            <translation>退会希望</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Case Resolved Appreciation</masterLabel>
+            <translation>問題解決のお礼</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Catch Up General enquiry</masterLabel>
+            <translation><!-- Catch Up General enquiry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Charged by NFL for Game Pass</masterLabel>
+            <translation><!-- Charged by NFL for Game Pass --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Concurreny limits</masterLabel>
+            <translation>同時視聴について</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DAZN for business</masterLabel>
+            <translation>法人アカウント希望</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Delayed game</masterLabel>
+            <translation>ゲームの遅延</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Device Specific Log in Issue</masterLabel>
+            <translation><!-- Device Specific Log in Issue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Device specific Issue</masterLabel>
+            <translation>端末固有の問題について</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Error Message</masterLabel>
+            <translation>エラーメッセージ</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Feedback</masterLabel>
+            <translation><!-- Feedback --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finding DAZN app</masterLabel>
+            <translation>DAZNアプリの見つけ方</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Forgotten E-mail Address</masterLabel>
+            <translation>メールアドレスを忘れました</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Forgotten Password</masterLabel>
+            <translation>パスワードを忘れました</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Forgotten Username</masterLabel>
+            <translation><!-- Forgotten Username --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Free trial question</masterLabel>
+            <translation>無料視聴期間に関する質問</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Full-Match VOD content expired too quickly</masterLabel>
+            <translation>見逃し配信期間に関する苦情</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Geo-blocking query</masterLabel>
+            <translation>Geo-blockingの質問</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Geoblocking Query</masterLabel>
+            <translation><!-- Geoblocking Query --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>How to register</masterLabel>
+            <translation>会員登録について</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>How to register with docomo</masterLabel>
+            <translation>DAZN for docomoの登録について</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>How to use the app</masterLabel>
+            <translation>アプリ利用方法</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Illegal Restreaming Report</masterLabel>
+            <translation>違法アップロードの報告</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Incomplete game</masterLabel>
+            <translation>未完了コンテンツ</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Incorrectly billed</masterLabel>
+            <translation>誤った請求が来ています</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Invoice request</masterLabel>
+            <translation>領収書の希望</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>JLeague Feedback</masterLabel>
+            <translation>Jリーグに対する意見</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Live Event</masterLabel>
+            <translation><!-- Live Event --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Live Stream General enquiry</masterLabel>
+            <translation><!-- Live Stream General enquiry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Login General equiry</masterLabel>
+            <translation><!-- Login General equiry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Multiple Accounts</masterLabel>
+            <translation>重複登録</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Available on Site</masterLabel>
+            <translation>動画タイルがない</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not loading</masterLabel>
+            <translation><!-- Not loading --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other General Enquiry</masterLabel>
+            <translation><!-- Other General Enquiry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other Payment Method Requests</masterLabel>
+            <translation>未対応の支払方法への希望</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PS Beta Feedback</masterLabel>
+            <translation>PS Beta Feedback</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Partial subscribers</masterLabel>
+            <translation>Partialアカウントでサインイン</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Payment date</masterLabel>
+            <translation>支払日の質問</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Payment method is not accepted</masterLabel>
+            <translation>登録画面で決済できない</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pixilation</masterLabel>
+            <translation><!-- Pixilation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Platform Compatibility</masterLabel>
+            <translation>デバイス対応希望</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Platform Compatibility Query</masterLabel>
+            <translation><!-- Platform Compatibility Query --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Product feedback</masterLabel>
+            <translation>Productに対する意見</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Production feedback</masterLabel>
+            <translation>番組に対する意見</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quality Issue</masterLabel>
+            <translation><!-- Quality Issue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Question about Pause</masterLabel>
+            <translation>一時停止機能に関するお問い合わせ</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Question about bill</masterLabel>
+            <translation>日本では使用しません</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reactivating frozen account</masterLabel>
+            <translation>DAZNの利用再開について</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rebill Issue</masterLabel>
+            <translation><!-- Rebill Issue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Recommended devices</masterLabel>
+            <translation>利用できる端末</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Record Type Test</masterLabel>
+            <translation><!-- Record Type Test --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Refer to docomo</masterLabel>
+            <translation>docomoに転送</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Refund Request</masterLabel>
+            <translation>返金希望</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Registration process via app</masterLabel>
+            <translation>アプリから会員登録する方法</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Request to delete personal information</masterLabel>
+            <translation>個人情報削除希望</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Request to switch from Annual to Monthly Sub</masterLabel>
+            <translation>日本では使用しません</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Request to switch from Monthly to Annual Sub</masterLabel>
+            <translation>日本では使用しません</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rights feedback</masterLabel>
+            <translation>スポーツ権利に対する意見</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Schedule</masterLabel>
+            <translation>配信スケジュール</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Schedule/Content General Enquiry</masterLabel>
+            <translation><!-- Schedule/Content General Enquiry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Spam email</masterLabel>
+            <translation>スパムメール</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Spinning Circle</masterLabel>
+            <translation><!-- Spinning Circle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Supported country</masterLabel>
+            <translation>利用できる国について</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Switching to DAZN for docomo</masterLabel>
+            <translation>d4dに切り替え希望</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>System requirement</masterLabel>
+            <translation>推奨環境</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tests</masterLabel>
+            <translation>テスト</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unable to Sign In</masterLabel>
+            <translation>サインインできません</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unable to Subscribe</masterLabel>
+            <translation><!-- Unable to Subscribe --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unable to register</masterLabel>
+            <translation>会員登録できません</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unsupported devices</masterLabel>
+            <translation>利用できない端末</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Update Account Settings</masterLabel>
+            <translation>各種設定の変更依頼</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Update Payment Settings</masterLabel>
+            <translation>支払方法の変更依頼</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Update Personal Information</masterLabel>
+            <translation><!-- Update Personal Information --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VOD</masterLabel>
+            <translation><!-- VOD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Video doesn&apos;t start</masterLabel>
+            <translation>動画が始まりません</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Video not working</masterLabel>
+            <translation><!-- Video not working --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Video quality Issue</masterLabel>
+            <translation>画質の問題について</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wants free trial on a Monthly Sub</masterLabel>
+            <translation>日本では使用しません</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wrong content</masterLabel>
+            <translation>タイルと配信内容が異なる</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Case Owner --></label>
+        <lookupFilter>
+            <errorMessage><!-- Value does not exist or does not match filter criteria. --></errorMessage>
+        </lookupFilter>
+        <name>User_internal__c</name>
+        <relationshipLabel><!-- Cases --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- hourly report --></label>
+        <name>hourly_report__c</name>
+    </fields>
+    <fields>
+        <label><!-- メール平均送受信回数 --></label>
+        <name>mail__c</name>
+    </fields>
+    <recordTypes>
+        <label><!-- DFD Customer --></label>
+        <name>DFD_Customer</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- General Process --></label>
+        <name>General_Process</name>
+    </recordTypes>
+    <validationRules>
+        <errorMessage><!-- As a Customer Service Agent, you can only assign cases to Queues and not individual users. --></errorMessage>
+        <name>Agent_can_assign_case_to_Queue</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please enter valid Country and Language Codes --></errorMessage>
+        <name>Notification_CountryLanguage_Code</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Subject and Description must have content. --></errorMessage>
+        <name>Required_Field</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Add_To_Mass_Email_List --></label>
+        <name>Add_To_Mass_Email_List</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Assign_Case --></label>
+        <name>Assign_Case</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Assign_Country_Language --></label>
+        <name>Assign_Country_Language</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Escalate --></label>
+        <name>Escalate</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- On_Hold --></label>
+        <name>On_Hold</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Resolve --></label>
+        <name>Resolve</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Take_Ownership --></label>
+        <name>Take_Ownership</name>
+    </webLinks>
+</CustomObjectTranslation>

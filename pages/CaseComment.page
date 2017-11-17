@@ -1,0 +1,240 @@
+<apex:page standardController="case"  tabStyle="Case" extensions="CaseCommentExtCon" showHeader="true" >
+    <apex:includeScript value="/soap/ajax/26.0/connection.js"/> 
+    <apex:includeScript value="/support/console/41.0/integration.js"/>
+    <apex:form id="cform">  
+        
+        <apex:sectionHeader subtitle="Case {!cases.casenumber}" title="Comments" help="Case Comments Help page" />
+        <apex:pageBlock id="pbTemplate" mode="edit" Title="Template selection">
+            
+            <apex:pageBlockSection title="Template details" columns="1" >
+                
+                <apex:actionRegion >
+                    
+                    <!-- Select Email Template Folder:&nbsp; &nbsp; &nbsp;&nbsp;    -->
+                    <apex:pageBlockSectionItem >  
+                        <apex:outputLabel value="Select Email Template Folder "  styleClass="labelCol vfLabelColTextWrap  first "/> 
+                        <apex:selectList id="selectedEmailTemplateFolder" value="{!selectedEmailTemplateFolder}" multiselect="false" size="1" >
+                            <apex:selectOptions value="{!emailTemplateFolderOpts}" />
+                            <apex:actionSupport event="onchange" action="{!refreshEmailTemplateSection}" reRender="testPanel" status="actStatusId"/>
+                        </apex:selectList>
+                    </apex:pageBlockSectionItem>   
+                    <apex:actionStatus id="actStatusId" >
+                        <apex:facet name="start" >
+                            <img src="/img/loading.gif" />                    
+                        </apex:facet>
+                    </apex:actionStatus>
+                    <br/> <br/> <br/>
+                    <apex:pageBlockSectionItem >          
+                        <apex:outputPanel id="testPanel">
+                            
+                            
+                            <apex:outputLabel value="Select Email Template "  styleClass="labelCol vfLabelColTextWrap  Second"/>  &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
+                            <apex:selectList value="{!selectedEmailTemplate}" multiselect="false" size="1">
+                                <apex:selectOptions value="{!emailTemplateOpts}" />
+                                <apex:actionSupport event="onchange" action="{!copyEmailTemplateData}" reRender="testPanel,CaseBodyId,newDesc" status="actStatusTempId"/>
+                            </apex:selectList>
+                            <apex:actionStatus id="actStatusTempId" >
+                                <apex:facet name="start" >
+                                    <img src="/img/loading.gif" />                    
+                                </apex:facet>
+                            </apex:actionStatus>
+                            <br/>
+                        </apex:outputPanel>
+                        
+                    </apex:pageBlockSectionItem>
+                </apex:actionRegion>
+                
+            </apex:pageBlockSection>
+            
+        </apex:pageBlock>
+        <apex:pageMessages ></apex:pageMessages>
+        <apex:pageBlock id="pgBlock" mode="edit" title="Case Comment Edit" >
+            <apex:pageBlockButtons id="pbBtns">
+                <apex:commandButton value="Save" action="{!saveRecord}" oncomplete="testIsInConsole(); " reRender="cform,Refsh" status="actSaveStatusId" />
+                <apex:commandButton value="Cancel" action="{!cancelRecord}" oncomplete="testIsInConsole();" reRender="cform,Refsh"  status="actSaveStatusId"/>
+                <apex:actionStatus id="actSaveStatusId" >
+                    <apex:facet name="start" >
+                        <img src="/img/loading.gif" />                    
+                    </apex:facet>
+                </apex:actionStatus>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection title="Case Details" columns="1">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Subject</apex:outputLabel>
+                    <apex:outputField id="actNumber" value="{!cases.Subject}" />               
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Description</apex:outputLabel>
+                    <apex:outputField id="actNumber" value="{!cases.description}" />  
+                </apex:pageBlockSectionItem>  
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Status</apex:outputLabel>
+                    <!--<apex:inputField id="actNumber" value="{!cases.status}" /> --> 
+                    <apex:selectList value="{!caseStatusValue}" size="1">
+                        <apex:selectOptions value="{!CaseStatus}"></apex:selectOptions>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>       
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Comment Details" columns="1" id="commentDetails">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Public</apex:outputLabel>
+                    <apex:inputCheckbox value="{!cComment.IsPublished}" />
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Comment</apex:outputLabel>
+                    <apex:inputTextarea id="newDesc"  value="{!cComment.CommentBody}" rows="12" cols="100" style="position:relative;overflow: scroll;"   >
+                        <!-- <apex:outputLabel style="width: 550px;border: 1px solid #000;position:absolute;z-index: 10;top: 30%;right: inherit;padding:10px;overflow-y: scroll;height: 400px;" value="{!CaseThred}"  escape="false" />-->
+                    </apex:inputtextarea>
+                    
+                    
+                    <!-- <apex:outputLabel style="width: 500px;height: 50px;border: 1px solid #000;" value="{!CaseThred}">
+<textarea rows="10" cols="100" maxlength="120000">
+At w3schools.com you will learn how to make a website. We offer free tutorials in all web development technologies.
+</textarea>
+</apex:outputLabel>-->
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem rendered="{!if(LEN(CaseThred) > 0,True,false)}">
+                    <apex:outputLabel >Add case thread to public reply</apex:outputLabel>
+                    <apex:inputCheckbox selected="false" value="{!threadToInclude}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    
+                    <apex:inputTextArea value="{!CaseThred}" rows="30" cols="100" style="overflow: scroll; margin-left:18%;  margin-right:11%;" readonly="True" rendered="{!if(LEN(CaseThred) > 0,True,false)}" >
+                    </apex:inputtextarea>     
+                </apex:pageBlockSectionItem> 
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        <apex:pageBlock title="Previous Case Comments">
+            <apex:pageBlockTable value="{!CaseComments}" var="cc">
+                <apex:column value="{!cc.ccom.IsPublished}" headerValue="Public" />
+                <apex:column headerValue="Comment" >
+                    <b>Created By: <apex:outputLink value="/{!cc.ccom.CreatedBy.id}" id="theLink">{!cc.ccom.CreatedBy.name}</apex:outputLink>
+                        &nbsp; <apex:outputText value="({0,date,dd/MM/yyyy  h:mm a })">
+                        <apex:param value="{!cc.ccom.createddate }" />
+                        </apex:outputText>&nbsp;|Last Modified By:<apex:outputLink value="/{!cc.ccom.LastModifiedBy.id}" id="theLink1">{!cc.ccom.LastModifiedBy.name}</apex:outputLink>
+                        <apex:outputText value="({0,date,dd/MM/yyyy  h:mm a })">
+                            <apex:param value="{!cc.ccom.lastmodifieddate}" />
+                        </apex:outputText>&nbsp;<br/>
+                        <apex:outputText escape="false" id="halfstring" style="display:block;white-space:pre;"> {!cc.halfstring}</apex:outputText> 
+                        <apex:outputLabel id="fullstring" style="display:none" > {!cc.ccom.CommentBody}</apex:outputLabel> 
+                        
+                        
+                    </b>
+                </apex:column>
+                <apex:column headerValue="Action">
+                    <apex:outputLabel id="readMore"  rendered="{!if(len(cc.ccom.CommentBody) > 450 ,true,false)}" style="display:block"><a class="btn" onclick="ReadMore('{!$Component.halfstring}','{!$Component.fullstring}','{!$Component.readMore}', '{!$Component.ashowLess}')">ReadMore</a></apex:outputLabel>
+                    <apex:outputLabel id="ashowLess" style="display:none;"><a class="btn" onclick="ReadMore('{!$Component.halfstring}','{!$Component.fullstring}','{!$Component.readMore}','{!$Component.ashowLess}')"> ReadLess</a></apex:outputLabel>
+                </apex:column>
+            </apex:pageBlockTable>
+            
+        </apex:pageBlock>
+        
+    
+    
+    
+    <apex:outputPanel id="Refsh">
+        
+        <script type="text/javascript">
+        
+
+        var currentSubTabId; // set on page load
+        var currentPrimaryTabId; // set on page load
+        function testIsInConsole() {
+            var isError = {!Iserror};
+            if (sforce.console.isInConsole() && isError == false){
+                  testRefreshPrimaryTabById();
+            }else{
+                if(isError === false){
+                    window.top.location = '/{!caseID}';
+                }
+                
+            }
+        }
+      //This function is used to  close the sub tab and refresh the primary tab:Code starts 
+       //This function is used to close the Tab 
+         function doCloseTab() {
+            sforce.console.getEnclosingTabId(closeSubtab);
+        }      
+        var closeSubtab = function closeSubtab(result) {
+            var tabId = result.id;
+            sforce.console.closeTab(tabId);
+        };
+       
+    ///end of the close tab function
+    
+      var refreshSuccessVar = function refreshSuccess(result) 
+        { 
+        //Report whether refreshing the primary tab was successful 
+        if (result.success == true) 
+        { 
+        
+          doCloseTab();
+        } 
+        else 
+        { 
+       
+        } 
+        }; 
+        
+        var showTabIdVar = function showTabId(result) 
+        { 
+        var tabId = result.id; 
+        sforce.console.refreshPrimaryTabById(tabId, true, refreshSuccessVar, true); 
+        }; 
+        
+        function testRefreshPrimaryTabById() 
+        { 
+        sforce.console.getEnclosingPrimaryTabId(showTabIdVar); 
+        }  
+               
+    //code end
+        </script>
+    </apex:outputPanel>
+    <script type="text/javascript">
+    function ReadMore(obj,obj1,obj2,obj3){
+        
+        var el = document.getElementById(obj); 
+        var e2 = document.getElementById(obj1); 
+        var e3 = document.getElementById(obj2);
+        var e4 = document.getElementById(obj3); 
+        
+        
+        if ( el.style.display != 'none' ) {
+            el.style.display = 'none';
+            
+        }
+        else {
+            el.style.display = '';
+            
+        }    
+        if ( e2.style.display != 'none' ) {
+            e2.style.display = 'none';
+        }
+        else {
+            e2.style.display = '';
+        }
+        if ( e2.style.display != 'none' ) {
+            e3.style.display = 'none';
+        }
+        else {
+            e3.style.display = '';
+        }
+        if ( e3.style.display != 'none' ) {
+            e4.style.display = 'none';
+        }
+        else {
+            e4.style.display = '';
+        }
+        
+        
+    }
+    
+    </script>
+        
+    </apex:form>
+    <style type="text/css">
+        .bPageBlock.bEditBlock .pbBody .data2Col {
+        position: relative;
+        }
+    </style>
+</apex:page>

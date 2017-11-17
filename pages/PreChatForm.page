@@ -1,0 +1,48 @@
+<apex:page standardController="Account" extensions="PreChatExtension" showHeader="false" id="pgId">
+<body onload="initSubmit();">
+<!-- This script takes the endpoint URL parameter passed from the deployment page and makes it the action for the form -->
+<script type="text/javascript">
+     (function() {
+     function handlePageLoad() {
+       var endpointMatcher = new RegExp("[\\?\\&]endpoint=([^&#]*)");
+       document.getElementById('prechatForm').setAttribute('action',
+       decodeURIComponent(endpointMatcher.exec(document.location.search)[1]));
+     } if (window.addEventListener) {
+              window.addEventListener('load', handlePageLoad, false);
+   } else { window.attachEvent('onload', handlePageLoad, false);
+              }})();
+              
+              
+     
+</script>
+
+<form method="post" id="prechatForm">
+<input type='hidden' name='liveagent.prechat:EmailDetail' id='customField1' value="{!oCurrentUser.Email}" />
+
+<!-- Map liveagent.prechat:EmailDetail to Account's field PersonEmail -->
+<input type="hidden" name="liveagent.prechat.findorcreate.map:Account" value="PersonEmail,EmailDetail" />
+
+<!-- Specify to query for a matching Account records PersonEmail field based on the value of Email-->
+<input type="hidden" name="liveagent.prechat.findorcreate.map.doFind:Account"  value="PersonEmail,true" />
+
+<!-- Return results only if there is an exact match of PersonEmail-->
+<input type="hidden" name="liveagent.prechat.findorcreate.map.isExactMatch:Account" value="PersonEmail,true" />
+
+<!-- Show the Account when it is found -->
+<input type="hidden" name="liveagent.prechat.findorcreate.showOnCreate:Account" value="true" />
+
+<input type='submit' value=' ' id='prechat_submit' style="background-color:white;border-style: none;"/>
+
+</form> 
+<script>
+   function initSubmit(){
+   window.setTimeout(doSubmit, 500)
+}
+        
+function doSubmit(){
+    var btnSubmit = document.getElementById('prechat_submit');
+    btnSubmit.click();
+}  
+</script>
+</body>
+</apex:page>

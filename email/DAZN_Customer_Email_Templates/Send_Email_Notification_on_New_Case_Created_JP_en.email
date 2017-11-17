@@ -1,0 +1,9 @@
+Dear {!Case.Account},<br><br>
+
+Thank you very much for your inquiry. <br><br>
+
+We've received your inquiry ID: {!Case.CaseNumber} about {!Case.Type}.<br><br>
+
+A member of our Customer Support team will be in touch within 24 hours regarding your inquiry. You can be confident we'll contact you and there's no need to follow up within that time. In the meantime, you may find some helpful information here https://stag.dazn.com/help. <br><br>
+
+Ensuring that you enjoy DAZN is our priority. <br><br>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Skill xmlns="http://soap.sforce.com/2006/04/metadata">
+    <assignments>
+        <users>
+            <user>miki.taniyama@performgroup.com</user>
+            <user>sergey.koreshkov@codeswat.com</user>
+            <user>francisco.lee@performgroup.com</user>
+            <user>yura.jeong@performgroup.com</user>
+            <user>atsushi.kuse@dazn.com</user>
+            <user>wataru.ito@dazn.com</user>
+            <user>chika.kakazu@dazn.com</user>
+            <user>takumi.harada@dazn.com</user>
+            <user>sachiko.ogura@performgroup.com</user>
+            <user>satoshi.abe@dazn.com</user>
+            <user>takashi.munekawa@dazn.com</user>
+            <user>isao.oka@performgroup.com</user>
+            <user>elina.taira@dazn.com</user>
+            <user>toshiyuki.saito@dazn.com</user>
+            <user>ayaka.nibe@dazn.com</user>
+            <user>yohei.hyuga@dazn.com</user>
+            <user>jun.matsumoto@performgroup.com</user>
+            <user>kazue.matsumoto@dazn.com</user>
+            <user>kanako.kobayashi@performgroup.com</user>
+            <user>ai.morimatsu@dazn.com</user>
+            <user>takahiro.goto@dazn.com</user>
+            <user>yoshiya.ikedo@performgroup.com</user>
+            <user>daisuke.uramoto@performgroup.com</user>
+            <user>kenji.watanabe@dazn.com</user>
+            <user>kazuhiro.watanabe@dazn.com</user>
+            <user>fuyuka.seko@dazn.com</user>
+            <user>hideyuki.majima@dazn.com</user>
+            <user>ruri.ishii@dazn.com</user>
+            <user>shou.fukushima@dazn.com</user>
+            <user>yuko.baba@dazn.com</user>
+            <user>yuka.hatori@dazn.com</user>
+            <user>natsuki.suganuma@performgroup.com</user>
+            <user>atsuko.fujii@performgroup.com</user>
+            <user>setsuo.chikushi@dazn.com</user>
+            <user>naoya.suzuki@dazn.com</user>
+            <user>konomi.hasegawa@performgroup.com</user>
+            <user>naoko.monma@performgroup.com</user>
+            <user>shinichiro.iida@dazn.com</user>
+            <user>mitsuhiro.takashina@dazn.com</user>
+        </users>
+    </assignments>
+    <label>Generic JA</label>
+</Skill>

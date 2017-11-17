@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>DAZN User Device Feed</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>DAZN User Devices Feed</value>
+    </caseValues>
+    <fields>
+        <label><!-- DAZN User Feed --></label>
+        <name>DAZN_User_feed__c</name>
+        <relationshipLabel><!-- DAZN User Devices Feed (DAZN User Feed) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Date of Registration --></label>
+        <name>Date_of_Registration__c</name>
+    </fields>
+    <fields>
+        <label><!-- Device Id --></label>
+        <name>Device_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Device Registration Date --></label>
+        <name>Device_Registration_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Device Type --></label>
+        <name>Device_Type__c</name>
+        <picklistValues>
+            <masterLabel>Console</masterLabel>
+            <translation><!-- Console --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Desktop</masterLabel>
+            <translation><!-- Desktop --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mobile</masterLabel>
+            <translation><!-- Mobile --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TV</masterLabel>
+            <translation><!-- TV --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tablet</masterLabel>
+            <translation><!-- Tablet --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- IP address --></label>
+        <name>IP_address__c</name>
+    </fields>
+    <fields>
+        <label><!-- Operating System Name --></label>
+        <name>Operating_System_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Operating System Version --></label>
+        <name>Operating_System_Version__c</name>
+    </fields>
+    <fields>
+        <label><!-- User Agent --></label>
+        <name>User_Agent__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

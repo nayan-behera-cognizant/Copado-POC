@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Email to inform customer about supported devices</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>_Sitel DE Supported Devices</name>
+    <style>none</style>
+    <subject>Unterstützte Geräte</subject>
+    <textOnly>Hallo Sportsfreund,
+
+schön, dass du dich direkt an uns wendest. Wir wollen, dass du deinen Lieblingssport von überall und von möglichst vielen Geräten genießen kannst.
+
+Auf der folgenden Seite findest du eine Liste mit allen Geräten die wir im Moment und in der nahen Zukunft unterstützen werden:
+
+https://my.dazn.com/help/DE-de/what-devices-can-i-stream-dazn-on
+
+Antworte einfach direkt auf diese Mail, wenn noch Fragen offen geblieben sind.
+
+Viele Grüße,
+dein DAZN Team</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

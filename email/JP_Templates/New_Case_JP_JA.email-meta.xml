@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Notification when new case is Created</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>New Case -JP-JA</name>
+    <style>none</style>
+    <subject>【お問い合わせを承りました】DAZNからのご連絡 - {!Case.Thread_Id}</subject>
+    <textOnly>{!IF(Account.Partner_ID__c == &quot;&quot;,Account.FirstName, &quot;DAZN for docomo&quot;)}様
+
+この度は、お問い合わせいただきありがとうございます。
+
+お客様より &apos;{!Case.Type} {!Case.Sub_Type_Formula__c} {!Case.Sub_Type__c}&apos;についてお問い合わせを承りました。お客様のお問い合わせ番号は{!Case.CaseNumber} でございます。
+
+お客様お問い合わせ内容：&apos;{!Case.Description}&apos;。
+
+お問い合わせの件につきましては、あらためて弊社カスタマーサービス担当者より24時間以内に連絡致しますので、恐れ入りますが今しばらくお待ちくださいませ。
+
+担当者からの返答をお待ちの間に、弊社ヘルプページもアクセスいただければ幸いでございます（一部ご確認いただけない環境・状況もございます）。
+
+ご不便をおかけして申し訳ございませんが、少々お待ちいただけますようお願い申し上げます。
+
+
+プライバシーポリシー 
+https://my.dazn.com/help/jp-ja/privacy
+
+利用規約 
+https://my.dazn.com/help/jp-ja/terms
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

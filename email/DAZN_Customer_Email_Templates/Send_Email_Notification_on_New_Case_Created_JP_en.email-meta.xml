@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>New customer case submitted</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Send Email Notification on New Case Created JP_en</name>
+    <style>none</style>
+    <subject>We have received your inquiry】from DAZN</subject>
+    <textOnly>Dear {!Case.Account},
+
+Thank you very much for your inquiry.
+
+We&apos;ve received your inquiry ID: {!Case.CaseNumber} about {!Case.Type}.
+
+A member of our Customer Support team will be in touch within 24 hours regarding your inquiry. You can be confident we&apos;ll contact you and there&apos;s no need to follow up within that time. In the meantime, you may find some helpful information here https://stag.dazn.com/help.
+
+Ensuring that you enjoy DAZN is our priority.</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

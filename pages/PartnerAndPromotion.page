@@ -1,0 +1,48 @@
+<apex:page controller="AuthCallout" action="{!basicAuthCallout}" TabStyle="Account" showChat="false" sidebar="false">
+    <apex:stylesheet value="{!URLFOR($Resource.DAZN_VF_Assets, 'DAZN_VF_Assets/css/DAZN_partner.css')}" />
+    <apex:form >
+        <apex:pageBlock title="Availble Promos" mode="main-detail">
+            <apex:repeat value="{!lstOfAvailblePrmotionCode}" var="promos">
+                <apex:pageBlockSection columns="2" TItle="{!promos.PromotionType}" collapsible="false">
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel >Promo ID</apex:outputLabel>
+                        <apex:outputLabel >{!promos.TID}</apex:outputLabel>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel >Client Id</apex:outputLabel>
+                        <apex:outputLabel >{!promos.ClientID}</apex:outputLabel>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel >Country</apex:outputLabel>
+                        <apex:outputLabel >{!promos.Country}</apex:outputLabel>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel >PlatForm Id</apex:outputLabel>
+                        <apex:outputLabel >{!promos.PlatFormId}</apex:outputLabel>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel >Manufacture Id</apex:outputLabel>
+                        <apex:outputLabel >{!promos.manufactureid}</apex:outputLabel>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel >Promotion Type</apex:outputLabel>
+                        <apex:outputLabel >{!promos.PromotionType}</apex:outputLabel>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel >Exclusive</apex:outputLabel>
+                        <apex:repeat value="{!promos.lstOfExclusiveUsers}" var="Exl">
+                            <apex:outputLabel >{!Exl}</apex:outputLabel>    
+                        </apex:repeat>                    
+                    </apex:pageBlockSectionItem>
+                     <apex:pageBlockSectionItem >
+                        <apex:outputLabel >Users On Promotion</apex:outputLabel>
+                        <apex:repeat value="{!Summaries}" var="summary">
+                         {!summary.Quantity}<br/>
+                        </apex:repeat>                  
+                    </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+            </apex:repeat>
+         <apex:pageMessages ></apex:pageMessages>
+        </apex:pageBlock>    
+    </apex:form>
+</apex:page>

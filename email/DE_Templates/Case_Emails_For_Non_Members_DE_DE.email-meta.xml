@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Notification when case is created</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Case Emails For Non-Members -DE-DE</name>
+    <style>none</style>
+    <subject>Wir melden uns bei dir! (ID: {!Case.Thread_Id})</subject>
+    <textOnly>Hey Sportsfan,
+
+wir haben deine Anfrage mit der ID {!Case.CaseNumber} erhalten.
+
+Um die Wartezeit bis zu unserer Antwort zu überbrücken schau doch bitte einmal auf unserer Hilfeseite vorbei: https://my.dazn.com/help/DE-de. Dort findest du einige Informationen und Lösungsvorschläge für die gängigsten Probleme.
+
+Wenn du dein Problem auf diese Weise selbst lösen konntest, wäre es toll wenn du uns einfach kurz auf diese E-Mail antwortest und uns wissen lässt, dass du keine Hilfe mehr benötigst. Wir werden deinen Fall dann schließen ohne dir eine E-Mail zu schreiben.
+
+Sollten wir nichts von dir hören, wird sich das Support-Team innerhalb von 72 Stunden bei dir melden.
+
+Sportliche Grüße,
+dein DAZN Team
+
+Case Thread ID: {!Case.Thread_Id} 
+DATENSCHUTZ: https://my.dazn.com/help/de-de/privacy 
+NUTZUNGSBEDINGUNGEN: https://my.dazn.com/help/de-de/terms 
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

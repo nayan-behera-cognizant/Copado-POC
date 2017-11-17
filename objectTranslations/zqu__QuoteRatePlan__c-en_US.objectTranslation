@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Amendment Type --></label>
+        <name>zqu__AmendmentType__c</name>
+        <picklistValues>
+            <masterLabel>NewProduct</masterLabel>
+            <translation><!-- NewProduct --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RemoveProduct</masterLabel>
+            <translation><!-- RemoveProduct --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TermsAndConditions</masterLabel>
+            <translation><!-- TermsAndConditions --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UpdateProduct</masterLabel>
+            <translation><!-- UpdateProduct --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Product Rate Plan Zuora Id --></label>
+        <name>zqu__ProductRatePlanZuoraId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product Rate Plan --></label>
+        <name>zqu__ProductRatePlan__c</name>
+        <relationshipLabel><!-- Quote Rate Plans --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Quote Amendment --></label>
+        <name>zqu__QuoteAmendment__c</name>
+        <relationshipLabel><!-- Quote Rate Plans --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Quote Product Name --></label>
+        <name>zqu__QuoteProductName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Quote Rate Plan Zuora Id --></label>
+        <name>zqu__QuoteRatePlanZuoraId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Quote --></label>
+        <name>zqu__Quote__c</name>
+        <relationshipLabel><!-- Quote Rate Plans --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Subscription Rate Plan Zuora Id --></label>
+        <name>zqu__SubscriptionRatePlanZuoraId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Time Product Added --></label>
+        <name>zqu__Time_Product_Added__c</name>
+    </fields>
+</CustomObjectTranslation>

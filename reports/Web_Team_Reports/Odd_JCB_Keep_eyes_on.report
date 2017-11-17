@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Account.Account_Status__c</field>
+    </columns>
+    <columns>
+        <field>Zuora__CustomerAccount__c.Zuora__Batch__c</field>
+    </columns>
+    <columns>
+        <field>ACCOUNT.NAME</field>
+    </columns>
+    <columns>
+        <field>Zuora__CustomerAccount__c.Zuora__AccountNumber__c</field>
+    </columns>
+    <currency>GBP</currency>
+    <filter>
+        <criteriaItems>
+            <column>Zuora__CustomerAccount__c.Zuora__AccountNumber__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>A00089390,A00089972,A00090976,A00098915,A00100199,A00106442,A00088741,A00091363,A00094429,A00094530,A00095120,A00095425,A00106729,A00108959,A00089307,A00089438,A00094653,A00094831,A00094843,A00098189,A00088633,A00090036,A00091501,A00095089,A00095350,A00095382,A00095458,A00096244,A00102403,A00109454,A00089658,A00089793,A00095058,A00095193,A00096312,A00102571,A00109039,A00109336,A00095373,A00097560,A00097646,A00105687,A00088655,A00088730,A00089380,A00089645,A00089825,A00094235,A00094859,A00095022,A00095101,A00095198,A00095936,A00101195,A00108613,A00108990,A00089985,A00090432,A00090936,A00095223,A00095423,A00106772</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Tabular</format>
+    <name>Odd JCB - Keep eyes on</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>AccountCustomEntity$Zuora__CustomerAccount__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>DUE_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

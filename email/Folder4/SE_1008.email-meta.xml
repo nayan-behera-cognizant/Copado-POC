@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>false</available>
+    <description>10/8お客様へフォローメール完了の為無効へ（長谷川）</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>【10月8日】システムエラーのアフターケアー（ログイン）</name>
+    <style>none</style>
+    <subject>【DAZNカスタマーサービス】10月8日のログインに関する障害について</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

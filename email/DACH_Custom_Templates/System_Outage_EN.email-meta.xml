@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Mass Email - System Outage - EN</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>System Outage - EN</name>
+    <style>none</style>
+    <subject>{!Case.Subject} - {!Case.Thread_Id}</subject>
+    <textOnly>Hello {!Account.FirstName},
+
+You have contacted us to report problems with DAZN during the weekend.
+
+We’re really sorry you were not able to enjoy DAZN the way we want you to. We had some issues with one of our 3rd party suppliers which affected our service to you.
+
+You may have missed some live sport so in addition to our sincerest apology from the whole DAZN team we are adding an additional free week to your account.
+
+If you are still in your free trial month the free month will be extended by one week. If you are already past the free trial month the additional free week will kick in after the current paid period. Adding this free week will take us a couple of days but you should see the changes before the end of the week on your account page.
+
+If you have any additional questions you can visit our help pages and FAQ on https://my.dazn.com/help/ or you can contact us again from the same page or reply to this email.
+
+Best regards,
+Your DAZN Team</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

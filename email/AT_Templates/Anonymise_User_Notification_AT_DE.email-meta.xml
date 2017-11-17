@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Anonymise User Notification</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Anonymise User Notification -AT-DE</name>
+    <style>none</style>
+    <subject>Dein Benutzerkonto wurde gelöscht</subject>
+    <textOnly>Hallo {!Account.Cached_FirstName__c},
+
+vielen Dank für deine Anfrage.
+
+Wie gewünscht haben wir dein Benutzerkonto mit der E-Mail {!Account.Cached_Email__c} aus unserer Datenbank gelöscht.
+
+Wir wünschen dir alles Gute und hoffen dich in der Zukunft wieder begrüßen zu dürfen.
+
+Freundliche Grüße,
+Dein DAZN Team 
+
+DATENSCHUTZ: https://my.dazn.com/help/at-de/privacy 
+NUTZUNGSBEDINGUNGEN: https://my.dazn.com/help/at-de/terms</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

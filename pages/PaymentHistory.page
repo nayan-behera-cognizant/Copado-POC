@@ -1,0 +1,271 @@
+<apex:page controller="PaymentHistoryController"
+    showHeader="false"
+    action="{! navigateToErrorPage }"
+    cache="false"
+    expires="0"
+    standardStylesheets="false"
+    sidebar="false"
+    applyHtmlTag="false"
+    docType="html-5.0"
+    language="{! IF(BEGINS(UPPER($CurrentPage.parameters.lang), 'EN'), IF($CurrentPage.parameters.Country == 'CA', 'en_US', 'en_GB'), $CurrentPage.parameters.lang) }"
+>
+
+<apex:outputPanel id="paymentHistoryRerender">
+
+    <head>
+        <meta name="google-site-verification" content="1m_JV80vU3gln3KyYeAm5woixeUHQOvhrbGjS-0g6J0" />
+        <title>{!$Label.LS_PaymentHistorys_Title}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <link REL="SHORTCUT ICON" HREF="{!URLFOR($Resource.DAZN_favicon_default)}" />
+        <link REL="apple-touch-icon" sizes="57x57" HREF="{!URLFOR($Resource.DAZN_appletouchicon57_57 )}" />
+        <link REL="apple-touch-icon" sizes="60x60" HREF="{!URLFOR($Resource.DAZN_appletouchicon60_60 )}" />
+        <link REL="apple-touch-icon" sizes="72x72" HREF="{!URLFOR($Resource.DAZN_appletouchicon72_72 )}" />
+        <link REL="apple-touch-icon" sizes="76x76" HREF="{!URLFOR($Resource.DAZN_appletouchicon76_76 )}" />
+        <link REL="apple-touch-icon" sizes="114x114" HREF="{!URLFOR($Resource.DAZN_appletouchicon144_144 )}" />
+        <link REL="apple-touch-icon" sizes="120x120" HREF="{!URLFOR($Resource.DAZN_appletouchicon120_120 )}" />
+        <link REL="apple-touch-icon" sizes="144x144" HREF="{!URLFOR($Resource.DAZN_appletouchicon144_144 )}" />
+        <link REL="apple-touch-icon" sizes="152x152" HREF="{!URLFOR($Resource.DAZN_appletouchicon152_152 )}" />
+        <link REL="apple-touch-icon" sizes="180x180" HREF="{!URLFOR($Resource.DAZN_appletouchicon180_180 )}" />
+        <link REL="icon" type="image/png" HREF="{!URLFOR($Resource.DAZN_favicon_32_32 )}" sizes="32x32" />
+        <link REL="icon" type="image/png" HREF="{!URLFOR($Resource.DAZN_androidchrome192_192 )}" sizes="192x192" />
+        <link REL="icon" type="image/png" HREF="{!URLFOR($Resource.DAZN_favicon_96_96 )}" sizes="96x96" />
+        <link REL="icon" type="image/png" HREF="{!URLFOR($Resource.DAZN_favicon_16_16 )}" sizes="16x16" />
+        <link rel="mask-icon" href="{!URLFOR($Resource.DAZN_favicon_svg16_16 )}" color="#000" />
+        <link rel="icon" type="image/svg" sizes="any" href="{!URLFOR($Resource.DAZN_favicon_svg16_16 )}" />
+        <apex:includescript value="{!URLFOR($Resource.Version)}" />
+        <!--PD-8766 - To get version of the product from Static Resource-->
+        <!-- PD-8777 start -->
+        <c:GoogleAnalytics />
+        <!-- PD-8777 end -->
+        <!--PD-14139-->
+        <c:CheckingAccountType />
+        <!---->
+        <title>{!$Label.LS_MyAccount_Label_PaymentHistory}</title>
+
+        <!-- <c:FetchLanguageCookie myPageName="paymenthistory" areaToRefreshName="fPaymentHistory" /> -->
+        <!-- <c:FetchLanguage myPageName="paymenthistory" areaToRefreshName="" /> -->
+    </head>
+
+    <body class="payHistory">
+        <!-- Google Tag Manager -->
+        <c:GTMHeader sPageName="paymenthistory"></c:GTMHeader>
+        <!-- End Google Tag Manager -->
+
+        <apex:form id="fPaymentHistory">
+
+            <!-- Panel for Banner -->
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="row">
+                    <apex:outputPanel rendered="{!showbanner}">
+                        <div class="alert alert-warning bannerContainer" id="myAlert">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+                                    <h1 class="banner ">{!HTMLENCODE(sBannerHeader)}</h1>
+                                    <apex:outputText escape="false" value="{!HTMLENCODE(sBanner)}" styleClass="alertStat CustomLabels" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-md-12 signOutAllBtn">
+                                    <span class="form-fields--form-button-e53320ec primary frtBtn">
+                                            <apex:commandLink value="{!$Label.LS_Button_OK}" onclick="updatedataLayerAttribute(event)" action="{!closeBanner}" styleClass="wrapper btn txtUpperCase okBtn" reRender="fPaymentHistory"/>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </apex:outputPanel>
+                </div>
+            </div>
+            <!-- Panel for Banner for single device-->
+
+            <div class="container wrapPaymentHistory">
+                <c:LS_Header />
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                        <h4>{!$Label.LS_PaymentHistory_Title}</h4>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>{!$Label.LS_PaymentHistory_Label_Date}</th>
+                                        <th class="hidden-md hidden-lg" style="text-align:right;">{!$Label.LS_PaymentHistory_Label_Total}</th>
+                                        <th class="hidden-xs hidden-sm">{!$Label.LS_PaymentHistory_Label_Type}</th>
+                                        <th class="hidden-xs hidden-sm">{!$Label.LS_PaymentHistory_Label_PAYMENT_METHOD}</th>
+                                        <th class="hidden-xs hidden-sm">{!$Label.LS_PaymentHistory_Label_SubTotal}</th>
+                                        <th class="hidden-xs hidden-sm" style="text-align:left;">{!$Label.LS_PaymentHistory_Label_Total}</th>
+                                        <th class="hidden-xs hidden-sm" style="{!'text-align:left;padding-right: 0; width:10%;' + if(showDownloadLink == true, '', 'display: none;')}">
+                                            {!$Label.LS_PaymentHistory_Label_Invoice}
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <apex:repeat value="{!lstWrapPaymentHistory}" var="opayment" id="theRepeat">
+                                        <tr>
+                                            <th class="paddingLeft">
+                                                <div class="linepadding">{!opayment.effectiveDate}</div>
+                                            </th>
+                                            <th class="hidden-md hidden-lg" style="text-align:right;">
+                                                <div class="linepadding">{!opayment.amount}</div>
+                                            </th>
+                                            <th class="hidden-xs hidden-sm">
+                                                <div class="linepadding">{!opayment.phType}</div>
+                                            </th>
+
+                                            <th class="hidden-xs hidden-sm">
+                                                <div class="row">
+                                                    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" style="padding-right: 0">
+                                                        <apex:outputpanel rendered="{!opayment.paymentType == 'CreditCard'}">
+                                                            <span class="linepadding">{!opayment.cardType} {!opayment.cardNumber}</span>
+                                                        </apex:outputpanel>
+                                                        <apex:outputpanel rendered="{!opayment.paymentType == 'PayPal'}">
+                                                            <span class="linepadding">{!$Label.LS_PaymentHistory_Label_PayPal} {!opayment.paypalEmail}</span>
+                                                        </apex:outputpanel>
+                                                        <apex:outputpanel rendered="{!opayment.paymentType == 'BankTransfer'}">
+                                                            <span class="linepadding">{!$Label.LS_PaymentHistory_Label_Directdebit} {!opayment.bankAccountNumber}</span>
+                                                        </apex:outputpanel>
+                                                        <apex:outputpanel rendered="{!opayment.paymentType == 'Gift Code'}">
+                                                            <span class="linepadding">{!opayment.cardType} {!$Label.LS_PaymentHistory_Label_Gift_Code}</span>
+                                                        </apex:outputpanel>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                            <th class="hidden-xs hidden-sm">
+                                                <div class="linepadding">
+                                                    <apex:outputText value="{!opayment.amountWithoutTax}" />
+                                                    <span class="taxAmt"><apex:outputText value="{!opayment.taxAmount}" /></span>
+                                                </div>
+                                            </th>
+                                            <th class="hidden-xs hidden-sm" style="text-align: left;">
+                                                <div class="linepadding">
+                                                    <apex:outputText value="{!opayment.amount}" />
+                                                </div>
+                                            </th>
+                                            <th class="hidden-md hidden-lg iconTh">
+                                                <div class="showPanel">
+                                                    <i class="iconfont iconfont-ls_icon_arrow_small"></i>
+                                                </div>
+                                            </th>
+                                            <th class="hidden-xs hidden-sm" style="{!'text-align: left;padding-right: 0;' + if(showDownloadLink == true, '', 'display: none;')}">
+                                                <div class="linepadding">
+                                                    <apex:outputPanel rendered="{!opayment.showlLink}">
+                                                        <a href="{!opayment.linkDownload}" target="_blank" class="downloadLink"><span>{!$Label.LS_PaymentHistory_Label_Download_Invoice}</span><i class="icon-nav icon-nav-downloads"></i></a>
+                                                    </apex:outputPanel>
+                                                    <apex:outputPanel rendered="{!opayment.showlLink == false}">
+                                                        <span style="margin-left: 25px;">{!$Label.LS_Payment_History_without_dowload_link}</span>
+                                                    </apex:outputPanel>
+                                                </div>
+                                            </th>
+                                        </tr>
+                                        <tr class="hidden-md hidden-lg readMore">
+                                            <th colspan="6" style="padding: 0;">
+                                                <div class="col-xs-12 col-sm-12 showDiv">
+                                                    <div class="row">
+                                                        <div class="col-xs-8 header">
+                                                            <div class="row"><span>{!$Label.LS_PaymentHistory_Label_Type}</span></div>
+                                                        </div>
+                                                        <div class="col-xs-4 value">
+                                                            <div class="row"> <span>{!opayment.phType}</span></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-xs-6 header">
+                                                            <div class="row"><span>{!$Label.LS_PaymentHistory_Label_PAYMENT_METHOD}</span></div>
+                                                        </div>
+                                                        <div class="col-xs-6 payment value">
+                                                            <div class="row">
+                                                                <apex:outputpanel rendered="{!opayment.paymentType == 'CreditCard'}">
+                                                                    <span>{!opayment.cardType} {!opayment.cardNumber}</span>
+                                                                </apex:outputpanel>
+                                                                <apex:outputpanel rendered="{!opayment.paymentType == 'PayPal'}">
+                                                                    <span>{!$Label.LS_PaymentHistory_Label_PayPal} {!opayment.paypalEmail}</span>
+                                                                </apex:outputpanel>
+                                                                <apex:outputpanel rendered="{!opayment.paymentType == 'BankTransfer'}">
+                                                                    <span>{!$Label.LS_PaymentHistory_Label_Directdebit} {!opayment.bankAccountNumber}</span>
+                                                                </apex:outputpanel>
+                                                                <apex:outputpanel rendered="{!opayment.paymentType == 'Gift Code'}">
+                                                                    <span>{!$Label.LS_PaymentHistory_Label_Gift_Code}</span>
+                                                                </apex:outputpanel>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-xs-6 header">
+                                                            <div class="row"><span>{!$Label.LS_PaymentHistory_Label_SubTotal}</span></div>
+                                                        </div>
+                                                        <div class="col-xs-6 value">
+                                                            <div class="row">
+                                                                <span>
+                                                                     <apex:outputText value="{!opayment.amountWithoutTax}" />
+                                                                     <span class="taxAmt"><apex:outputText value="{!opayment.taxAmount}" /></span>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row" style="if(showDownloadLink == true, '', 'display: none;')}">
+                                                        <div class="col-xs-6 header">
+                                                            <div class="row"><span>{!$Label.LS_PaymentHistory_Label_Invoice}</span></div>
+                                                        </div>
+                                                        <div class="col-xs-6 value">
+                                                            <div class="row">
+                                                                <apex:outputPanel rendered="{!opayment.showlLink}">
+                                                                    <a href="{!opayment.linkDownload}" target="_blank" class="downloadLink"><span>{!$Label.LS_PaymentHistory_Label_Download_Invoice}</span><i class="icon-nav icon-nav-downloads"></i></a>
+                                                                </apex:outputPanel>
+                                                                 <apex:outputPanel rendered="{!opayment.showlLink == false}">
+                                                                    <span>{!$Label.LS_Payment_History_without_dowload_link}</span>
+                                                                </apex:outputPanel>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                        </tr>
+                                    </apex:repeat>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="hidden-xs hidden-sm col-md-1 col-lg-1">&nbsp;</div>
+                </div>
+            </div>
+            <div class="langSwitcher">
+                <c:LS_FooterCookie renderLangSwitcher="true" areaToRefreshName="paymentHistoryRerender" />
+                <!-- <c:LS_Footer renderLangSwitcher="true"/> -->
+            </div>
+            <script type="text/javascript">
+                var DAZN_paymentHistory = {
+                    languageLocaleKey: '{!oUser.LanguageLocaleKey}',
+                    showDownloadLink: '{!showDownloadLink}'
+                };
+
+                var selectedOption = '';
+                $(".showPanel").show();
+                $(document).on("click",".showPanel", function() {
+                    $(this).toggleClass( "active" );
+                    $(this).parents("tr").next("tr.readMore").toggleClass("activeTr").slideToggle('fast');
+                });
+                var sLang = DAZN_paymentHistory.languageLocaleKey;
+                // add lang class in body
+                if (sLang == 'ja') {
+                    $('body').addClass('langJa');
+                }
+                if (sLang == 'de') {
+                    $('body').addClass('langDe');
+                }
+            </script>
+        </apex:form>
+        <apex:includescript value="{!URLFOR($Resource.LS_JQuery)}" />
+        <apex:includescript value="{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/js/jquery.min.js')}" />
+        <apex:includescript value="{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/js/base-method-ember-styleguide.js')}" />
+        <apex:includescript value="{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/js/vendor.js')}" />
+        <!-- <apex:includescript value="{!URLFOR($Resource.DAZN_VF_Assets, 'DAZN_VF_Assets/js/DAZN_paymentHistory.js')}" /> -->
+        <!--<c:CookiesComponent rendered="{!if(((cookieCountry == 'Japan') || (cookieCountry == 'JP')),false,true)}" />-->
+        <apex:stylesheet value="{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/css/styles_v1.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.DAZN_VF_Assets, 'DAZN_VF_Assets/css/lib/navigation-fonts.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.DAZN_VF_Assets, 'DAZN_VF_Assets/css/DAZN_paymentHistory.css')}" />
+    </body>
+
+</apex:outputPanel>
+
+</apex:page>

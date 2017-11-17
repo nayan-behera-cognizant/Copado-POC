@@ -1,0 +1,1423 @@
+<apex:page controller="ChangePaymentMethodController" showHeader="false" cache="false" expires="0" standardStylesheets="false" sidebar="false" action="{! navigateUser }" applyHtmlTag="false" docType="html-5.0" language="{! IF(BEGINS(UPPER($CurrentPage.parameters.lang), 'EN'), IF($CurrentPage.parameters.Country == 'CA', 'en_US', 'en_GB'), $CurrentPage.parameters.lang) }">
+
+    <apex:outputPanel id="changePaymentMethodRerender">
+
+        <head>
+            <title>{!$Label.LS_ChangePaymentMethod_Title}</title>
+            <meta name="google-site-verification" content="1m_JV80vU3gln3KyYeAm5woixeUHQOvhrbGjS-0g6J0" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <apex:includescript value="{!URLFOR($Resource.DAZN_VF_Assets, 'DAZN_VF_Assets/js/lib/jquery-1.9.1.js') }" />
+            <script type="text/javascript" src="https://apisandboxstatic.zuora.com/Resources/282253/Hosted/lite/js/pidcrypt.js"></script>
+            <script type="text/javascript" src="https://apisandboxstatic.zuora.com/Resources/282253/Hosted/lite/js/pidcrypt_util.js"></script>
+            <script type="text/javascript" src="https://apisandboxstatic.zuora.com/Resources/282253/Hosted/lite/js/asn1.js"></script>
+            <script type="text/javascript" src="https://apisandboxstatic.zuora.com/Resources/282253/Hosted/lite/js/jsbn.js"></script>
+            <script type="text/javascript" src="https://apisandboxstatic.zuora.com/Resources/282253/Hosted/lite/js/rng.js"></script>
+            <script type="text/javascript" src="https://apisandboxstatic.zuora.com/Resources/282253/Hosted/lite/js/prng4.js"></script>
+            <script type="text/javascript" src="https://apisandboxstatic.zuora.com/Resources/282253/Hosted/lite/js/rsa.js"></script>
+            <script type="text/javascript" src="https://apisandboxstatic.zuora.com/Resources/282253/Include/mustache.min.js"></script>
+            <script type="text/javascript" src="https://apisandboxstatic.zuora.com/Resources/282253/Include/moment.min.js"></script>
+            <script type="text/javascript" src="https://apisandboxstatic.zuora.com/Resources/282253/Hosted/lite/js/jquery.caret.js"></script>
+            <apex:includescript value="{!URLFOR($Resource.DAZN_VF_Assets, 'DAZN_VF_Assets/js/lib/bootstrap.min.js') }" />
+            <apex:includescript value="{!URLFOR($Resource.DAZN_VF_Assets, 'DAZN_VF_Assets/js/lib/bootstrap-select.js') }" />
+            <apex:includescript value="{!URLFOR($Resource.Version)}" />
+            <!--PD-8766 - To get version of the product from Static Resource-->
+            <link REL="SHORTCUT ICON" HREF="{!URLFOR($Resource.DAZN_favicon_default)}" />
+            <link REL="apple-touch-icon" sizes="57x57" HREF="{!URLFOR($Resource.DAZN_appletouchicon57_57 )}" />
+            <link REL="apple-touch-icon" sizes="60x60" HREF="{!URLFOR($Resource.DAZN_appletouchicon60_60 )}" />
+            <link REL="apple-touch-icon" sizes="72x72" HREF="{!URLFOR($Resource.DAZN_appletouchicon72_72 )}" />
+            <link REL="apple-touch-icon" sizes="76x76" HREF="{!URLFOR($Resource.DAZN_appletouchicon76_76 )}" />
+            <link REL="apple-touch-icon" sizes="114x114" HREF="{!URLFOR($Resource.DAZN_appletouchicon144_144 )}" />
+            <link REL="apple-touch-icon" sizes="120x120" HREF="{!URLFOR($Resource.DAZN_appletouchicon120_120 )}" />
+            <link REL="apple-touch-icon" sizes="144x144" HREF="{!URLFOR($Resource.DAZN_appletouchicon144_144 )}" />
+            <link REL="apple-touch-icon" sizes="152x152" HREF="{!URLFOR($Resource.DAZN_appletouchicon152_152 )}" />
+            <link REL="apple-touch-icon" sizes="180x180" HREF="{!URLFOR($Resource.DAZN_appletouchicon180_180 )}" />
+            <link REL="icon" type="image/png" HREF="{!URLFOR($Resource.DAZN_favicon_32_32 )}" sizes="32x32" />
+            <link REL="icon" type="image/png" HREF="{!URLFOR($Resource.DAZN_androidchrome192_192 )}" sizes="192x192" />
+            <link REL="icon" type="image/png" HREF="{!URLFOR($Resource.DAZN_favicon_96_96 )}" sizes="96x96" />
+            <link REL="icon" type="image/png" HREF="{!URLFOR($Resource.DAZN_favicon_16_16 )}" sizes="16x16" />
+            <link rel="mask-icon" href="{!URLFOR($Resource.DAZN_favicon_svg16_16 )}" color="#000" />
+            <link rel="icon" type="image/svg" sizes="any" href="{!URLFOR($Resource.DAZN_favicon_svg16_16 )}" />
+            <!--PD-14139-->
+            <c:CheckingAccountType />
+            <!-- <c:FetchLanguage myPageName="changepaymentmethod" areaToRefreshName="cpmContent" /> -->
+        </head>
+
+        <body class="cpm">
+            <!-- Google Tag Manager -->
+            <c:GTMHeader sPageName="changepaymentmethod"></c:GTMHeader>
+            <!-- End Google Tag Manager -->
+
+            <apex:outputPanel id="cpmContent">
+
+                <apex:form id="frmCPM">
+                    <!-- Form for Server side operation -->
+                    <apex:actionFunction action="{!getPaymentMode}" name="setPaymentMode" rerender="pmtOpt">
+                        <apex:param name="PaymntMode" assignTo="{!strPmtMode}" value="" />
+                    </apex:actionFunction>
+                </apex:form>
+                <apex:pageblock id="idCPMPage">
+                    <div class="container wrapperChangePayment" id="maindiv">
+                        <apex:form >
+                            <c:LS_Header />
+                        </apex:form>
+                        <!-- Panel for Banner -->
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 absoluteTop">
+                                <apex:form >
+                                    <apex:outputPanel rendered="{!showbanner}" id="divBanner">
+                                        <div class="row alert alert-warning bannerContainer" id="myAlert">
+                                            <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 padding0">
+                                                <div class="banner">{!sBannerHeader}
+                                                </div>
+                                                <div class="banText">
+                                                    <span class="CPMCreditCard">{!sBanner}</span>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 foundryFontMedium manageWidth">
+                                                    <apex:outputPanel styleClass="ember-view ember-view form-fields--form-button-e53320ec form-fields--form-button-ae71fbed reverse primary">
+                                                        <apex:commandLink value="{!$Label.LS_Button_OK}" action="{!closeBanner}" styleClass="reverse wrapper btn txtUpperCase btn-text" />
+                                                    </apex:outputPanel>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </apex:outputPanel>
+                                </apex:form>
+                            </div>
+                        </div>
+                        <div class="row minHeight ember-view navigation--tab--tab-container-e520e399">
+                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 foundryFontMedium " id="title">
+                                <h4>{!$Label.LS_CHANGE_PAYMENT_METHOD_Title}</h4>
+                                <span class="icon-x2"></span>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 padding0">
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 margSec">
+                                    <apex:outputText value="{!strMessage}" id="idErrorMsg" styleclass="errMsg"></apex:outputText>
+                                    <div class="margBot25">
+                                        <!-- Current Payment Method Section Credit Card -->
+                                        <div id="CreditCardImage">
+                                            <div class="row">
+                                                <div class="currentPaymentLabelTxt">
+                                                    {!$Label.LS_Change_Payment_Method_Label_CURRENT_PAYMENT_METHOD}
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 creditLabelTxt">
+                                                    {!sCCType} {!sCurrentCCMaskNumber}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Current Payment Method Section Paypal -->
+                                        <div id="PaypalImage">
+                                            <div class="row">
+                                                <div class="currentPaymentLabelTxt">
+                                                    {!$Label.LS_Change_Payment_Method_Label_CURRENT_PAYMENT_METHOD}
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 payPalLabelTxt">
+                                                    {!$Label.LS_Change_Payment_Method_Label_Paypal_Account_Used}
+                                                </div>
+                                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 payPalLabelTxt">
+                                                    {!sCurrentPaypalEmail}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Current Payment Method Section Direct Debit -->
+                                        <div id="DirectDebitImage">
+
+                                            <div class="row">
+                                                <div class="currentPaymentLabelTxt">
+                                                    {!$Label.LS_Change_Payment_Method_Label_CURRENT_PAYMENT_METHOD}
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 creditLabelTxt">
+                                                    {!$Label.LS_PaymentHistory_Label_Directdebit} {!sCurrentBTAccountNumber}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- No Payment Method Section -->
+                                        <div id="NoPaymentMethod">
+                                            <h9 style="color:#807F76; font-size:80%">{!$Label.LS_Change_Payment_Method_Label_CURRENT_PAYMENT_METHOD}</h9>
+                                            <div class="row">
+                                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                    {!$Label.LS_PaymentMethodChange_No_Method_Found}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Gift Code Link -->
+                                    <apex:outputPanel rendered="{!showAddGiftCodeFlag}">
+                                        <div class="row margBot38 giftCode">
+                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                <apex:form >
+                                                    <apex:commandLink value="{!$Label.LS_Link_Add_Gift_Code}" action="{!redeemGiftCode}" styleClass="giftcode" />
+                                                </apex:form>
+                                            </div>
+                                        </div>
+                                    </apex:outputPanel>
+                                    <!-- Gift Code Link -->
+                                    <hr class="hrChange" />
+                                    <div class="clearfix"></div>
+                                    <!-- Payment methods section -->
+                                    <div class="row radio removePaddRight" id="pmtOpt">
+                                        <!-- Payment method option ul section -->
+                                        <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
+                                            <ul class="tab-nav">
+                                                <!--<div class="selector"></div>-->
+                                                <li id="liCreditCard" rerender="idCCPanel" class="ember-view tab-nav-item navigation--tab--tab-nav-6197325b active">
+                                                    <div class="ember-view form-fields--radio-button-0438d941 mobile" style="margin-left: -18px; margin-bottom:0px;">
+                                                        <input type="radio" name="paymentGrp" value="" id="" class="RadioOption" />
+                                                        <label class="listItem" for="">
+                                                    <span class="radio-selector-wrapper">
+                                                        <span class="radio-selector"></span>
+                                                    </span>
+                                                    {!$Label.LS_Credit_Card_Label_Change_Payment_Method} </label>
+                                                    </div>
+                                                    <div class="desktop"><span class="underLine">{!$Label.LS_Credit_Card_Label_Change_Payment_Method}</span></div>
+                                                </li>
+                                                <li id="liPaypal" class="ember-view tab-nav-item navigation--tab--tab-nav-6197325b">
+                                                    <div class="ember-view form-fields--radio-button-0438d941 mobile" style="margin-left: -18px; margin-bottom:0px;">
+                                                        <input type="radio" name="paymentGrp" value="" id="" class="RadioOption" />
+                                                        <label class="listItem" for="">
+                                                    <span class="radio-selector-wrapper">
+                                                        <span class="radio-selector"></span>
+                                                    </span>
+                                                    {!$Label.LS_Paypal_Label_Change_Payment_Method} </label>
+                                                    </div>
+                                                    <div class="desktop"><span class="underLine">{!$Label.LS_Paypal_Label_Change_Payment_Method}</span></div>
+                                                </li>
+                                                <li id="liDirectDebit" rerender="idDDPanel" class="ember-view tab-nav-item navigation--tab--tab-nav-6197325b">
+                                                    <div class="ember-view form-fields--radio-button-0438d941 margBot20 mobile" style="margin-left: -18px;margin-bottom:0px;">
+                                                        <input type="radio" name="paymentGrp" value="" id="" class="RadioOption" />
+                                                        <label class="listItem" for="">
+                                                    <span class="radio-selector-wrapper">
+                                                        <span class="radio-selector"></span>
+                                                    </span>
+                                                    {!$Label.LS_Direct_Debit_Label_Change_Payment_Method} </label>
+                                                    </div>
+                                                    <div class="desktop"><span class="underLine">{!$Label.LS_Direct_Debit_Label_Change_Payment_Method}</span></div>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                        <!-- Payment method detail ul section -->
+                                        <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
+                                            <ul class="tab-Content">
+                                                <form id="idCCFrm" name="PaymentCCForm" action="{!hostedPageURL}" method="post">
+                                                    <input id="hdnCCMethod" type="hidden" name="method" value="submitPage" />
+                                                    <input id="hdnCCPageId" type="hidden" name="id" value="{!zCCPageId}" />
+                                                    <input id="hdnCCTenantId" type="hidden" name="tenantId" value="{!zCCPageResponse.tenantId}" />
+                                                    <input id="hdnCCToken" type="hidden" name="token" value="{!zCCPageResponse.token}" />
+                                                    <input id="hdnCCSignature" type="hidden" name="signature" value="{!zCCPageResponse.signature}" />
+                                                    <input id="hdnCCHost" type="hidden" name="host" value="{!hostDomain}" />
+                                                    <input id="hdnCCKey" type="hidden" name="field_key" value="{!publicKey}" />
+                                                    <input id="hdnCCStyle" type="hidden" name="field_style" value="iframe" />
+                                                    <input id="hdnCCPassThrough1" type="hidden" name="field_passthrough1" value="{!zuoraAccountId}" />
+                                                    <input id="hdnCCAccountId" type="hidden" name="field_accountId" value="{!zuoraAccountId}" />
+                                                    <input id="hdnCCPG" type="hidden" name="paymentGateway" value="{!paymentGateway}" />
+                                                    <input id="hdnCCEmail" type="hidden" name="field_email" value="{!oUser.Email}" />
+                                                    <input id="hdnCCPassThrough2" type="hidden" name="field_passthrough2" value="CreditCard" />
+                                                    <input id="hdnCCPassThrough3" type="hidden" name="field_passthrough3" />
+                                                    <input id="hdnCCPassThrough4" type="hidden" name="field_passthrough4" />
+                                                    <input id="param_supportedTypes" type="hidden" name="param_supportedTypes" value="JCB" />
+                                                    <!-- Credit card detail section -->
+                                                    <li id="CreditCardPanel" class="ember-view navigation--tab--tab-content-ce1eef58 active">
+                                                        <input id="hdnCCFields" type="hidden" name="encrypted_fields" value="#field_creditCardNumber#field_cardSecurityCode#field_creditCardExpirationMonth#field_creditCardExpirationYear" />
+                                                        <input id="hdnCCValues" type="hidden" name="encrypted_values" value="" />
+                                                        <input id="hdnCCCardType" type="hidden" name="field_creditCardType" value="" />
+                                                        <apex:outputPanel rendered="{!isCCSecurityCheckPass}">
+                                                            <div class="row">
+                                                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 padding0 ">
+                                                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 margBot20">
+                                                                        <div class="ember-view form-fields--text-input-71621ee4 is-passive-content focus-out">
+                                                                            <div class="errorDiv">
+                                                                                <label class="label labelContainer"><span class="label-text spanMarg labelText labelSpanContainer ErrorSpan">
+                                                                        {!$Label.LS_ChangePaymentMethod_CreditCardHolderName}</span>
+                                                                        </label>
+                                                                            </div>
+                                                                            <div class="input-wrapper">
+                                                                                <input styleclass="form-control customFormInput" id="idCCHolderName" name="field_creditCardHolderName" />
+                                                                            </div>
+                                                                            <span class="error-message customErrorMessage marginBot" id="ccCardHolderNameValidation">
+                                                                <apex:outputText value="{!sCCHolderNameErrMsg}" id="idCCHolderNameErrMsg" styleclass="errMsg" />
+                                                            </span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 margBot20">
+                                                                        <div class="ember-view form-fields--text-input-71621ee4 is-passive-content focus-out">
+                                                                            <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 cardIcon displayCardSmall">
+                                                                                <div class="spanImagVisa col-xs-12 col-sm-12 col-md-12 col-lg-12"></div>
+                                                                            </div>
+                                                                            <div class="errorDiv">
+                                                                                <label class="label labelContainer cardType ">
+                                                                            <span class="label-text spanMarg labelText labelSpanContainer ErrorSpan">
+                                                                            <apex:outputText Value="{!$Label.LS_ChangePaymentMethod_Placeholder_CARD_NUMBER}"/></span>
+                                                                        </label>
+                                                                            </div>
+                                                                            <div class="row">
+                                                                                <div class=" col-xs-12 col-sm-7 col-md-7 col-lg-7">
+                                                                                    <div class="input-wrapper">
+                                                                                        <input encrypt="true" styleclass="form-control customFormInput" id="idCCCardNumber" maxlength="19" />
+                                                                                        <div class="lockIcon"></div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 cardIcon displayCardLarge">
+                                                                                    <div class="spanImagVisa col-xs-12 col-sm-12 col-md-12 col-lg-12"></div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <span class="error-message customErrorMessage CardError" id="ccCardNumberValidation">
+                                                                        <apex:outputText value="{!sCCNumErrMsg}" id="idCCNumErrMsg" styleclass="errMsg" />
+                                                                    </span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 marRightDropMonth">
+                                                                        <div class="ember-view form-fields--dropdown-menu-69e2a5c9" id="monthDropdown">
+                                                                            <div class="custom-dropdown">
+                                                                                <span class="label-title labelText labelSpanContainer ErrorSpan">{!$Label.LS_ChangePaymentMethod_Placeholder_MM}</span>
+                                                                                <select id="idCCMonth" encrypt="true" class="selectMonthpicker">
+                                                                            <option value=""></option>
+                                                                            <apex:repeat value="{!Months}" var="m" id="theMRepeat">
+                                                                                <option class="dropdown-option" style="touch-action: manipulation; -ms-touch-action: manipulation">
+                                                                                    {!m}
+                                                                                </option>
+                                                                            </apex:repeat>
+                                                                        </select>
+                                                                                <span class="error-message customErrorMessage" id="ccExpiryMonthValidation">
+                                                                    <apex:outputText value="{!sCCEMErrMsg}" id="idCCEMErrMsg" styleclass="errMsg" />
+                                                                </span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 marRightDrop bottomMargin">
+                                                                        <div class="ember-view form-fields--dropdown-menu-69e2a5c9" id="yearDropdown">
+                                                                            <div class="custom-dropdown">
+                                                                                <span class="label-title labelText labelSpanContainer labelYear">&nbsp;</span>
+                                                                                <select id="idCCYear" encrypt="true" class="selectYearPicker">
+                                                                            <option value=""></option>
+                                                                            <apex:repeat value="{!Years}" var="y" id="theYRepeat">
+                                                                                <option class="dropdown-option" style="touch-action: manipulation; -ms-touch-action: manipulation">
+                                                                                    {!y}
+                                                                                </option>
+                                                                            </apex:repeat>
+                                                                        </select>
+                                                                                <span class="error-message customErrorMessage" id="ccExpiryYearValidation">
+                                                                    <apex:outputText value="{!sCCEYErrMsg}" id="idCCEYErrMsg" styleclass="errMsg" />
+                                                                </span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-xs-7 col-sm-3 col-md-3 col-lg-3 marRightDrop bottomccvMargin">
+                                                                        <div class="ember-view form-fields--text-input-71621ee4 is-passive-content focus-out">
+                                                                            <div class="errorDiv widthLess">
+                                                                                <label class="label labelContainer">
+                                                                            <span class="label-text spanMarg labelSpanContainer labelText padding5 displayDevice">
+                                                                        <apex:outputText Value="{!$Label.LS_ChangePaymentMethod_Placeholder_CVC}"/>
+                                                                    </span>
+                                                                        </label>
+                                                                            </div>
+                                                                            <div class="input-wrapper">
+                                                                                <input encrypt="true" styleclass="form-control customFormInput" id="idCCCVC" html-autocomplete="return false;" />
+                                                                            </div>
+                                                                            <span class="error-message customErrorMessage" id="ccCVCValidation">
+                                                                <apex:outputText value="{!sCCCVCErrMsg}" id="idCCCVCErrMsg" styleclass="errMsg" />
+                                                            </span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cpmlabelTxt margBotNote">
+                                                                        <!--span class="CPMCreditCardNote">{!sAcknowledgementOnSave}</span>-->
+                                                                        <apex:outputText styleClass="CPMCreditCardNote" value="{!$Label.LS_ChangePaymentMethodAcknowledgementOnSave}">
+                                                                            <apex:param value="{!$CurrentPage.parameters.Country}" />
+                                                                            <apex:param value="{!$CurrentPage.parameters.lang}" />
+                                                                        </apex:outputText>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div id="creditCardButton" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                                    <apex:outputPanel styleClass="ember-view form-fields--form-button-e53320ec primary">
+                                                                        <span class="wrapper">
+                                                        <input type="submit" id="theSaveCCChanges" value="{!$Label.LS_Button_Save}" onclick="return CCPaymentMethodOperation();" reRender="idErrorMsg, idCCFNErrMsg, idCCSNErrMsg, idCCNumErrMsg, idCCEMErrMsg, idCCEYErrMsg, idCCCVCErrMsg, idBTFNErrMsg, idBTSNErrMsg, idBTBANumErrMsg, idBTBANumErrMsg, idBTIBANErrMsg" Class="wrapper btn txtUpperCase customStyleBtn" />
+                                                    </span>
+                                                                    </apex:outputPanel>
+                                                                    <span class="customSpanStyle"><a href="/MyAccount" class="cancelLink">{!$Label.LS_Button_Cancel}</a></span>
+                                                                </div>
+                                                            </div>
+                                                        </apex:outputPanel>
+                                                        <apex:outputPanel rendered="{!isCCSecurityCheckPass == false}">
+                                                            <div class="row">
+                                                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 padding0 ">
+                                                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 margBot20">
+                                                                        {!sCCSecurityError}
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </apex:outputPanel>
+                                                    </li>
+                                                </form>
+                                                <form id="idDDFrm" name="PaymentDDForm" action="{!hostedPageURL}" method="post">
+                                                    <input id="hdnDDMethod" type="hidden" name="method" value="submitPage" />
+                                                    <input id="hdnDDPageId" type="hidden" name="id" value="{!zDDPageId}" />
+                                                    <input id="hdnDDTenantId" type="hidden" name="tenantId" value="{!zDDPageResponse.tenantId}" />
+                                                    <input id="hdnDDToken" type="hidden" name="token" value="{!zDDPageResponse.token}" />
+                                                    <input id="hdnDDSignature" type="hidden" name="signature" value="{!zDDPageResponse.signature}" />
+                                                    <input id="hdnDDHost" type="hidden" name="host" value="{!hostDomain}" />
+                                                    <input id="hdnDDKey" type="hidden" name="field_key" value="{!publicKey}" />
+                                                    <input id="hdnDDStyle" type="hidden" name="field_style" value="iframe" />
+                                                    <input id="hdnDDPassThrough" type="hidden" name="field_passthrough1" value="{!zuoraAccountId}" />
+                                                    <input id="hdnDDAccountId" type="hidden" name="field_accountId" value="{!zuoraAccountId}" />
+                                                    <input id="hdnDDPG" type="hidden" name="paymentGateway" value="{!paymentGateway}" />
+                                                    <input id="hdnDDEmail" type="hidden" name="field_email" value="{!oUser.Email}" />
+                                                    <input id="hdnDDCountry" type="hidden" name="field_country" value="{!oUser.Country}" />
+                                                    <input id="hdpbankTransferType" type="hidden" name="field_bankTransferType" value="SEPA" />
+                                                    <input id="hdnCCPassThrough2" type="hidden" name="field_passthrough2" value="DirectDebit" />
+                                                    <input id="hdnCCPassThrough3" type="hidden" name="field_passthrough3" />
+                                                    <input id="hdnCCPassThrough4" type="hidden" name="field_passthrough4" />
+                                                    <input id="param_supportedTypes" type="hidden" name="param_supportedTypes" value="JCB"/>
+                                                    <!-- Direct Debit detail section-->
+                                                    <li id="DirectDebitPanel" class="ember-view navigation--tab--tab-content-ce1eef58">
+                                                        <input id="hdnDDEncrptyedFields" type="hidden" name="encrypted_fields" value="#field_bankAccountNumber#field_bankAccountName" />
+                                                        <input id="hdnDDEncrptyedVal" type="hidden" name="encrypted_values" value="" />
+                                                        <apex:outputPanel rendered="{!isDDSecurityCheckPass}">
+                                                            <div class="row" style="padding:0;">
+                                                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 padding0">
+                                                                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 margBoth paddRight">
+                                                                        <div class="ember-view form-fields--text-input-71621ee4 is-passive-content focus-out">
+                                                                            <div class="errorDiv">
+                                                                                <label class="label labelContainer"><span class="label-text spanMarg labelText labelSpanContainer ErrorSpan"><apex:outputText Value="{!$Label.LS_ChangePaymentMethod_Label_AccountName}"/></span></label>
+                                                                            </div>
+                                                                            <div class="input-wrapper">
+                                                                                <input styleclass="form-control customFormInput" id="idDDAccountName" html-autocomplete="return false;" />
+                                                                            </div>
+                                                                            <span class="error-message customErrorMessage" id="ddAccountNameValidation">
+                                                                <apex:outputText value="{!sBTFNErrMsg}" id="idBTFNErrMsg" styleclass="errMsg" />
+                                                            </span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 margBoth paddLeft">
+                                                                        <div class="ember-view form-fields--text-input-71621ee4 is-passive-content focus-out">
+                                                                            <div class="errorDiv WidthMore">
+                                                                                <label class="label labelContainer"><span class="label-text spanMarg labelText labelSpanContainer ErrorSpan"><apex:outputText Value="{!$Label.LS_ChangePaymentMethod_Label_IBAN}"/></span></label>
+                                                                            </div>
+                                                                            <div class="input-wrapper">
+                                                                                <input styleclass="form-control customFormInput" id="idDDAccountNumber" html-autocomplete="return false;" />
+                                                                            </div>
+                                                                            <span class="error-message customErrorMessage" id="ddAccNumberValidation">
+                                                                <apex:outputText value="{!sBTBANumErrMsg}" id="idBTBANumErrMsg" styleclass="errMsg" />
+                                                            </span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cpmlabelTxt margBotNote">
+                                                                        <!--span class="CPMDirectDebitNote">{!sAcknowledgementOnSave}</span>-->
+                                                                        <apex:outputText styleClass="CPMDirectDebitNote" value="{!$Label.LS_ChangePaymentMethodAcknowledgementOnSave}">
+                                                                            <apex:param value="{!$CurrentPage.parameters.Country}" />
+                                                                            <apex:param value="{!$CurrentPage.parameters.lang}" />
+                                                                        </apex:outputText>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"> &nbsp;</div>
+                                                                <div id="directDebitButton" class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                                                                    <apex:outputPanel styleClass="ember-view form-fields--form-button-e53320ec primary">
+                                                                        <span class="wrapper">
+                                                            <input type="submit" id="theSaveDDChanges" value="{!$Label.LS_Button_Save}" onclick="return DDPaymentMethodOperation();" reRender="idErrorMsg, idCCFNErrMsg, idCCSNErrMsg, idCCNumErrMsg, idCCEMErrMsg, idCCEYErrMsg, idCCCVCErrMsg, idBTFNErrMsg, idBTSNErrMsg, idBTBANumErrMsg, idBTBANumErrMsg, idBTIBANErrMsg , idConfirmCountryErrMsg" Class="wrapper btn txtUpperCase customStyleBtn" />
+                                                        </span>
+                                                                    </apex:outputPanel>
+                                                                    <span class="customSpanStyle"><a href="/MyAccount" class="cancelLink">{!$Label.LS_Button_Cancel}</a></span>
+                                                                </div>
+                                                            </div>
+                                                        </apex:outputPanel>
+                                                        <apex:outputPanel rendered="{!isDDSecurityCheckPass == false}">
+                                                            <div class="row">
+                                                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 padding0 ">
+                                                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 margBot20">
+                                                                        {!sDDSecurityError}
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </apex:outputPanel>
+                                                    </li>
+                                                </form>
+                                                <apex:form >
+                                                    <!-- Paypal detail section -->
+                                                    <li id="PaypalPanel" class="ember-view navigation--tab--tab-content-ce1eef58">
+                                                        <div class="row margBottom30">
+                                                            <div id="paypalFootNote" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                                <apex:outputText styleClass="CPMPayPalNote" value="{!$Label.LS_ChangePaymentMethod_Footer_PaypalFootNote}" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div id="paypalButton" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                                <apex:outputPanel styleClass="ember-view form-fields--form-button-e53320ec primary">
+                                                                    <apex:commandLink id="ContinueToPaypalButton" action="{!redirectToPaypal}" styleClass="wrapper btn txtUpperCase customStyleBtnPaypal">{!$Label.LS_ChangePaymentMethod_Button_CONTINUE_TO_PAYPAL}<img src="{!URLFOR($Resource.DAZN_VF_Assets,'DAZN_VF_Assets/images/pp-logo-100px.png')}" /></apex:commandLink>
+                                                                    <div id="preloadSpinner"></div>
+                                                                </apex:outputPanel>
+                                                                <span class="customSpanStyle cancelPaypal"><apex:commandLink id="idPPCancelLink" value="{!$Label.LS_Button_Cancel}" action="{!onCancelOperation}" styleClass="cancelLink cancelPaypal"/></span>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </apex:form>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    <apex:form >
+                        <div class="langSwitcher">
+                            <c:LS_FooterCookie renderLangSwitcher="true" areaToRefreshName="changePaymentMethodRerender" />
+                        </div>
+                    </apex:form>
+                    <apex:stylesheet value="{!$Resource.LS_MyAccount_Css}" />
+                    <apex:stylesheet value="{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/css/base-method-ember-styleguide.css')}" />
+                    <apex:stylesheet value="{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/css/vendor.css')}" />
+                    <apex:stylesheet value="{!URLFOR($Resource.DAZN_VF_Assets, 'DAZN_VF_Assets/css/lib/bootstrap.min.css')}" />
+                    <apex:stylesheet value="{!URLFOR($Resource.DAZN_VF_Assets, 'DAZN_VF_Assets/css/lib/bootstrap-select.min.css')}" />
+                    <apex:stylesheet value="{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/css/styles_v1.css')}" />
+                    <apex:stylesheet value="{!URLFOR($Resource.DAZN_VF_Assets, 'DAZN_VF_Assets/css/changepaymentmethod.css')}" />
+                </apex:pageblock>
+                <script type="text/javascript">
+                    var Custom_Label = {
+                        LanguageLocaleKey: '{!oUser.LanguageLocaleKey}',
+                        CountryCode: '{!oUser.CountryCode}',
+                        LS_changePayment_Month: '{!$Label.LS_changePayment_Month}',
+                        LS_changePayment_Year: '{!$Label.LS_changePayment_Year}',
+                        LS_ChangePaymentMethod_ErrMsg_CCHolderName: "{!$Label.LS_ChangePaymentMethod_ErrMsg_CCHolderName}",
+                        LS_ChangePaymentMethod_ErrMsg_CCNumber: "{!$Label.LS_ChangePaymentMethod_ErrMsg_CCNumber}",
+                        LS_ChangePaymentMethod_ErrMsg_CCMonth: "{!$Label.LS_ChangePaymentMethod_ErrMsg_CCMonth}",
+                        LS_ChangePaymentMethod_ErrMsg_ExpiryDate: "{!$Label.LS_ChangePaymentMethod_ErrMsg_ExpiryDate}",
+                        LS_ChangePaymentMethod_ErrMsg_CCYear: "{!$Label.LS_ChangePaymentMethod_ErrMsg_CCYear}",
+                        LS_ChangePaymentMethod_ErrMsg_CVC: "{!$Label.LS_ChangePaymentMethod_ErrMsg_CVC}",
+                        LS_ChangePaymentMethod_ErrMsg_AccountName: "{!$Label.LS_ChangePaymentMethod_ErrMsg_AccountName}",
+                        LS_ChangePaymentMethod_DirectDebit_ErrMsg_Country_Not_Matched: "{!$Label.LS_ChangePaymentMethod_DirectDebit_ErrMsg_Country_Not_Matched}",
+                        LS_ChangePaymentMethod_ErrMsg_AccountNum: "{!$Label.LS_ChangePaymentMethod_ErrMsg_AccountNum}",
+                        currentPaymentMethod: "{!currentPaymentMethod}",
+                        ccPaymentMethodName: "{!ccPaymentMethodName}",
+                        ppPaymentMethodName: "{!ppPaymentMethodName}",
+                        ddPaymentMethodName: "{!ddPaymentMethodName}",
+                        showDD: {!showDD
+                        },
+                        showCC: {!showCC
+                        },
+                        showPP: {!showPP
+                        },
+                        strPmtMode: "{!strPmtMode}",
+                        sCurrentMonth: '{!sCurrentMonth}',
+                        sCurrentYear: '{!sCurrentYear}'
+                    };
+
+                    /* Zuora input decription  js.*/
+                    jQuery.noConflict();
+                    var ZCRT = function() {
+                        var public_key_template = "-----BEGIN PUBLIC KEY-----\n$K-----END PUBLIC KEY-----";
+
+                        return {
+                            certParser: function(cert) {
+                                var lines = cert.split('\n');
+                                var read = false;
+                                var b64 = false;
+                                var end = false;
+                                var flag = '';
+                                var retObj = {};
+                                retObj.info = '';
+                                retObj.salt = '';
+                                retObj.iv;
+                                retObj.b64 = '';
+                                retObj.aes = false;
+                                retObj.mode = '';
+                                retObj.bits = 0;
+                                for (var i = 0; i < lines.length; i++) {
+                                    flag = lines[i].substr(0, 9);
+                                    if (i == 1 && flag != 'Proc-Type' && flag.indexOf('M') == 0) //unencrypted cert?
+                                        b64 = true;
+                                    switch (flag) {
+                                        case '-----BEGI':
+                                            read = true;
+                                            break;
+                                        case 'Proc-Type':
+                                            if (read)
+                                                retObj.info = lines[i];
+                                            break;
+                                        case 'DEK-Info:':
+                                            if (read) {
+                                                var tmp = lines[i].split(',');
+                                                var dek = tmp[0].split(': ');
+                                                var aes = dek[1].split('-');
+                                                retObj.aes = (aes[0] == 'AES') ? true : false;
+                                                retObj.mode = aes[2];
+                                                retObj.bits = parseInt(aes[1]);
+                                                retObj.salt = tmp[1].substr(0, 16);
+                                                retObj.iv = tmp[1];
+                                            }
+                                            break;
+                                        case '':
+                                            if (read)
+                                                b64 = true;
+                                            break;
+                                        case '-----END ':
+                                            if (read) {
+                                                b64 = false;
+                                                read = false;
+                                            }
+                                            break;
+                                        default:
+                                            if (read && b64)
+                                                retObj.b64 += pidCryptUtil.stripLineFeeds(lines[i]);
+                                    }
+                                }
+                                return retObj;
+                            },
+
+                            encrypt: function(iframed) {
+                                // Concat the encrypted fields's name
+                                var encrypted_fields = "";
+                                var encrypted_values = "";
+
+                                jQuery("input[encrypt='true']").each(function() {
+                                    encrypted_fields = encrypted_fields + "#" + jQuery(this).prop('name');
+                                    // remove extra blank space before encryption 
+                                    encrypted_values = encrypted_values + "#" + jQuery(this).val().replace(/ /g, "");
+                                });
+
+                                jQuery("select[encrypt='true']").each(function() {
+                                    encrypted_fields = encrypted_fields + "#" + jQuery(this).prop('name');
+                                    encrypted_values = encrypted_values + "#" + jQuery(this).val().replace(/ /g, "");
+                                });
+
+                                var encKey = jQuery("input[name='field_key']")[0].value;
+                                if (encrypted_fields.length > 0) {
+                                    jQuery("input[id='encrypted_fields']").val(encrypted_fields);
+                                    if (!disableHPMEncryption) {
+                                        // encrypt required.
+                                        jQuery("input[id='encrypted_values']").val(ZCRT.encryptText(encrypted_values, encKey));
+                                    } else {
+                                        // no encrypt required.
+                                        jQuery("input[id='encrypted_values']").val(encrypted_values);
+                                    }
+                                }
+
+                                if (iframed) {
+                                    return;
+                                } else {
+                                    // Get the parameters as an array
+                                    var values = jQuery('#HostedPageForm').serializeArray();
+                                    jQuery.each(values, function(i, field) {
+                                        var fieldName = field.name;
+                                        if (encrypted_fields.indexOf(fieldName) > -1) {
+                                            // scratch the encrypted fields
+                                            field.value = '';
+                                        }
+                                    });
+                                    // Convert to URL-encoded string
+                                    var fValues = jQuery.param(values);
+
+                                    return fValues;
+                                }
+                            },
+
+                            encryptText: function(text, key) {
+                                try {
+                                    if (key) {
+                                        var public_key_1024;
+                                        if (key.indexOf("-----BEGIN") > -1) {
+                                            public_key_1024 = key;
+                                        } else {
+                                            public_key_1024 = public_key_template.replace('$K', key);
+                                        }
+
+
+                                        var params = ZCRT.certParser(public_key_1024);
+                                        var key = pidCryptUtil.decodeBase64(params.b64);
+                                        var rsa = new pidCrypt.RSA();
+
+                                        // ASN1 parsing
+                                        var asn = pidCrypt.ASN1.decode(pidCryptUtil.toByteArray(key));
+
+                                        var tree = asn.toHexTree();
+
+                                        // setting the public key for encryption with retrieved ASN.1 tree
+                                        rsa.setPublicKeyFromASN(tree);
+
+
+                                        var crypted = rsa.encrypt(text);
+
+                                        var fromHex = pidCryptUtil.encodeBase64(pidCryptUtil.convertFromHex(crypted));
+
+                                        var ciphertext = pidCryptUtil.fragment(fromHex, 64);
+
+                                        return ciphertext;
+                                    }
+                                } catch (e) {}
+                                return text;
+                            }
+                        };
+                    }();
+
+                    function showPaypalMethodOnPaypalCancellation() {
+                        showPaypalPanel();
+                    }
+                    $(".giftcode").attr("name", "giftcode");
+                    document.anchors["giftcode"].removeAttribute("href");
+                    //$(document).ready(function(){
+                    var sLang = Custom_Label.LanguageLocaleKey;
+                    var sCountry = Custom_Label.CountryCode;
+                    $(".customStyleBtnPaypal").click(function() {
+                        $(this).parent().addClass("selfLoad");
+                    });
+
+                    if (sLang == 'ja') {
+                        $('body').addClass('langJa');
+                    }
+                    if (sLang == 'de') {
+                        $('body').addClass('langDe');
+                    }
+                    if (sCountry == 'CH') {
+                        $('body').addClass('langCh');
+                    }
+
+                    $(".selectMonthpicker").selectpicker({
+                        dropupAuto: false,
+                        noneSelectedText: Custom_Label.LS_changePayment_Month,
+                        template: {
+                            caret: '<i class="iconfont iconfont-ls_icon_arrow_small" style="touch-action: manipulation; -ms-touch-action: manipulation"></i>'
+                        },
+                        iconBase: '',
+                        tickIcon: ''
+                    }).change(function(e) {
+                        $('div#monthDropdown').addClass('selected');
+                        validateCCExpiryMonth();
+                    });
+                    $(".selectYearPicker").selectpicker({
+                        dropupAuto: false,
+                        noneSelectedText: Custom_Label.LS_changePayment_Year,
+                        template: {
+                            caret: '<i class="iconfont iconfont-ls_icon_arrow_small" style="touch-action: manipulation; -ms-touch-action: manipulation"></i>'
+                        },
+                        iconBase: '',
+                        tickIcon: ''
+                    }).change(function(e) {
+                        $('div#yearDropdown').addClass('selected');
+                        validateCCExpiryYear();
+                    });
+
+
+                    $('#CreditCardImage').css('display', 'none');
+                    $('#CreditCardPanel').css('display', 'none');
+                    $('#creditCardButton').css('display', 'none');
+                    $('#PaypalImage').css('display', 'none');
+                    $('#PaypalPanel').css('display', 'none');
+                    $('#paypalButton').css('display', 'none');
+                    $('#DirectDebitImage').css('display', 'none');
+                    $('#DirectDebitPanel').css('display', 'none');
+                    $('#directDebitButton').css('display', 'none');
+                    $('#liDirectDebit').css('display', 'none');
+                    $('#liCreditCard').css('display', 'none');
+                    $('#liPaypal').css('display', 'none');
+                    $('#PaymentMethodNote').css('display', 'none');
+                    $('#NoPaymentMethod').css('display', 'none');
+
+
+                    switch (Custom_Label.currentPaymentMethod) {
+                        case Custom_Label.ccPaymentMethodName:
+                            $('#CreditCardImage').css('display', 'inline-block');
+                            $('#PaymentMethodNote').css('display', 'inline-block');
+                            $('#PaypalImage').css('display', 'none');
+                            $('#DirectDebitImage').css('display', 'none');
+                            break;
+                        case Custom_Label.ppPaymentMethodName:
+                            $('#PaypalImage').css('display', 'inline-block');
+                            $('#PaymentMethodNote').css('display', 'inline-block');
+                            $('#CreditCardImage').css('display', 'none');
+                            $('#DirectDebitImage').css('display', 'none');
+                            break;
+                        case Custom_Label.ddPaymentMethodName:
+                            $('#DirectDebitImage').css('display', 'inline-block');
+                            $('#PaymentMethodNote').css('display', 'inline-block');
+                            $('#CreditCardImage').css('display', 'none');
+                            $('#PaypalImage').css('display', 'none');
+                            break;
+                        default:
+                            $('#NoPaymentMethod').css('display', 'inline-block');
+                            $('#CreditCardImage').css('display', 'none');
+                            $('#PaypalImage').css('display', 'none');
+                            $('#DirectDebitImage').css('display', 'none');
+                            $('#PaymentMethodNote').css('display', 'none');
+                            break;
+                    }
+
+                    if (Custom_Label.showDD == true) {
+                        if (sCountry != 'CH') {
+                            $("#liDirectDebit").css('display', 'inline-block');
+                        }
+                    }
+                    if (Custom_Label.showCC == true) {
+                        $("#liCreditCard").css('display', 'inline-block');
+                    }
+                    if (Custom_Label.showPP == true) {
+                        $("#liPaypal").css('display', 'inline-block');
+                    }
+
+
+                    if (Custom_Label.CountryCode == "DE") {
+                        showDirectDebitPanel();
+                    } else {
+                        showCreditCardPanel();
+                    }
+
+
+
+
+                    $('.CPMCreditCardNote').html($('.CPMCreditCardNote').text());
+                    $('.CPMDirectDebitNote').html($('.CPMDirectDebitNote').text());
+                    $('.CPMPayPalNote').html($('.CPMPayPalNote').text());
+                    $('.CPMSubscriptionNote').html($('.CPMSubscriptionNote').text());
+
+
+                    $("#PaypalPanel span.CPMPayPalNote a").css("color", "#FFFFFF !important");
+
+                    $("#liCreditCard").click(function() {
+                        $("#PaypalPanel").hide();
+                        $("#DirectDebitPanel").hide();
+                        $(".tab-nav").find(".RadioOption").attr('checked', false);
+                        $(".tab-nav").find(".form-fields--radio-button-0438d941").removeClass('selected');
+                        $(this).find(".RadioOption").attr('checked', 'checked');
+                        $(this).find(".form-fields--radio-button-0438d941").addClass('selected');
+                        showCreditCardPanel();
+                    });
+
+                    $("#liPaypal").click(function() {
+                        $("#CreditCardPanel").hide();
+                        $("#DirectDebitPanel").hide();
+                        $(".tab-nav").find(".RadioOption").attr('checked', false);
+                        $(".tab-nav").find(".form-fields--radio-button-0438d941").removeClass('selected');
+                        $(this).find(".RadioOption").attr('checked', 'checked');
+                        $(this).find(".form-fields--radio-button-0438d941").addClass('selected');
+                        showPaypalPanel();
+                    });
+
+                    $("#liDirectDebit").click(function() {
+                        $("#CreditCardPanel").hide();
+                        $("#PaypalPanel").hide();
+                        $(".tab-nav").find(".RadioOption").attr('checked', false);
+                        $(".tab-nav").find(".form-fields--radio-button-0438d941").removeClass('selected');
+                        $(this).find(".RadioOption").attr('checked', 'checked');
+                        $(this).find(".form-fields--radio-button-0438d941").addClass('selected');
+                        showDirectDebitPanel();
+                    });
+
+                    $("#checkboxWrapper").click(function() {
+                        if ($(this).parent().hasClass('selected')) {
+                            $(this).parent().removeClass('selected');
+                            $("#confirmCountryCheckbox").attr('checked', false);
+                        } else {
+                            $(this).parent().addClass('selected');
+                            $("#confirmCountryCheckbox").attr('checked', true);
+                        }
+                    });
+
+
+                    var divBanner = $("[id$=divBanner]");
+                    if (divBanner.length > 0) {
+                        $("[id$=ContinueToPaypalButton]").css("pointer-events", "none");
+                        $("[id$=idPPCancelLink]").css("pointer-events", "none");
+                        $("#liCreditCard").css("pointer-events", "none");
+                        $("#liDirectDebit").css("pointer-events", "none");
+                        $("#liPaypal").css("pointer-events", "none");
+                    }
+
+
+                    var first = $("#liCreditCard");
+                    var middle = $("#liPaypal");
+                    var last = $("#liDirectDebit");
+
+                    if (($('#hdnDDCountry').val() == "Switzerland")) {
+                        middle.appendTo(first.parent());
+                    } else
+                    if ($('#hdnDDCountry').val() == "Germany") {
+                        first.prependTo(last.parent());
+                        last.prependTo(last.parent());
+                    } else {
+                        middle.appendTo(first.parent());
+                    }
+
+
+                    $('[id*="idCCHolderName"]').focusout(function() {
+                        validateCCHolderName();
+                    });
+
+                    $('[id*="idCCCardNumber"]').focusout(function() {
+                        validateCCNumber();
+                    });
+
+                    $('[id*="idCCCardNumber"]').keyup(function() {
+                        var cc = $(this).val().split(" ").join("");
+                        if (cc.length > 0) {
+                            if (cc.match(/^(34|37)/)) {
+                                if (cc.length > 15) {
+                                    cc = cc.substring(0, 15);
+                                }
+                                if (cc.length == 5) cc = cc.replace(/\b(\d{4})(\d{1})\b/, '$1 $2');
+                                if (cc.length == 6) cc = cc.replace(/\b(\d{4})(\d{2})\b/, '$1 $2');
+                                if (cc.length == 7) cc = cc.replace(/\b(\d{4})(\d{3})\b/, '$1 $2');
+                                if (cc.length == 8) cc = cc.replace(/\b(\d{4})(\d{4})\b/, '$1 $2');
+                                if (cc.length == 9) cc = cc.replace(/\b(\d{4})(\d{5})\b/, '$1 $2');
+                                if (cc.length == 10) cc = cc.replace(/\b(\d{4})(\d{6})\b/, '$1 $2');
+                                if (cc.length == 11) cc = cc.replace(/\b(\d{4})(\d{6})(\d{1})\b/, '$1 $2 $3');
+                                if (cc.length == 12) cc = cc.replace(/\b(\d{4})(\d{6})(\d{2})\b/, '$1 $2 $3');
+                                if (cc.length == 13) cc = cc.replace(/\b(\d{4})(\d{6})(\d{3})\b/, '$1 $2 $3');
+                                if (cc.length == 14) cc = cc.replace(/\b(\d{4})(\d{6})(\d{4})\b/, '$1 $2 $3');
+                                if (cc.length == 15) cc = cc.replace(/\b(\d{4})(\d{6})(\d{5})\b/, '$1 $2 $3');
+                            } else if (cc.match(/^(18|21|30|31|33|35|2|4|5|6)/)) {
+                                if (cc.length > 16) {
+                                    cc = cc.substring(0, 16);
+                                }
+                                cc = cc.match(new RegExp('.{1,4}', 'g')).join(" ");
+                            } else {
+                                if (cc.length > 16) {
+                                    cc = cc.substring(0, 16);
+                                }
+                            }
+                        }
+                        $(this).val(cc);
+                    });
+
+                    $('[id*="idCCMonth"]').focusin(function() {
+                        $('.bootstrap-select').addClass('open');
+                        $('.bootstrap-select dropdown-toggle').attr('aria-expanded', true);
+                    });
+
+                    $('[id*="idCCMonth"]').focusout(function() {
+                        $('.bootstrap-select').removeClass('open');
+                        $('.bootstrap-select dropdown-toggle').attr('aria-expanded', false);
+                        validateCCExpiryMonth();
+                    });
+
+                    $("#monthDropdown").mouseleave(function() {
+                        $('.bootstrap-select').removeClass('open');
+                        $('.bootstrap-select dropdown-toggle').attr('aria-expanded', false);
+                    });
+
+                    $('[id*="idCCYear"]').focusin(function() {
+                        $('.bootstrap-select').addClass('open');
+                        $('.bootstrap-select dropdown-toggle').attr('aria-expanded', true);
+                    });
+
+                    $('[id*="idCCYear"]').focusout(function() {
+                        $('.bootstrap-select').removeClass('open');
+                        $('.bootstrap-select dropdown-toggle').attr('aria-expanded', false);
+                        validateCCExpiryYear();
+                    });
+
+                    $("#yearDropdown").mouseleave(function() {
+                        $('.bootstrap-select').removeClass('open');
+                        $('.bootstrap-select dropdown-toggle').attr('aria-expanded', false);
+
+                    });
+
+                    $('[id*="idCCCVC"]').focusout(function() {
+                        validateCCCVC();
+                    });
+
+                    $('[id*="idCCCVC"]').keyup(function() {
+                        var cvc = $(this).val();
+                        if (cvc.length > 0) {
+                            var cc = $('[id*="idCCCardNumber"]').val().trim().replace(/\s/g, '');
+                            var reqCVCCount;
+                            if (cc.length > 0) {
+                                var sCardType = determineCreditCardType(cc);
+                                if (sCardType == 'Visa' || sCardType == 'MasterCard' || sCardType == 'JCB') {
+                                    reqCVCCount = 3;
+                                } else if (sCardType == 'AmericanExpress') {
+                                    reqCVCCount = 4;
+                                }
+
+                                if (cvc.length > reqCVCCount) {
+                                    cvc = cvc.substring(0, reqCVCCount);
+                                }
+                            }
+                        }
+                        $(this).val(cvc);
+                    });
+
+                    $('[id*="idDDAccountName"]').focusout(function() {
+                        validateDDAccountName();
+                    });
+
+                    $('[id*="idDDAccountNumber"]').focusout(function() {
+                        validateDDAccountNumber();
+                    });
+                    //});
+
+                    function showCreditCardPanel() {
+                        $("#liPaypal").removeClass("active");
+                        $("#PaypalPanel").removeClass('active');
+                        $('#paypalButton').css('display', 'none');
+
+                        $("#liDirectDebit").removeClass("active");
+                        $("#DirectDebitPanel").removeClass('active');
+                        $('#directDebitButton').css('display', 'none');
+
+                        $("#liPaypal .RadioOption").attr('checked', false);
+                        $("#liPaypal .form-fields--radio-button-0438d941").removeClass('selected');
+
+                        $("#liDirectDebit .RadioOption").attr('checked', false);
+                        $("#liDirectDebit .form-fields--radio-button-0438d941").removeClass('selected');
+
+                        $("#liCreditCard").addClass('active');
+                        $('.tab-Content').addClass('minimumHeight');
+                        $("#liCreditCard").siblings().css({
+                            left: '6.5%',
+                            right: '74.5%'
+                        });
+                        $("#CreditCardPanel").css('display', 'inline-block');
+                        $("#CreditCardPanel").addClass('active');
+                        $('#creditCardButton').css('display', 'inline-block');
+                        $("#liCreditCard .RadioOption").attr('checked', 'checked');
+                        $("#liCreditCard .form-fields--radio-button-0438d941").addClass('selected');
+                        setPaymentMode("CreditCard");
+                    }
+
+                    function showPaypalPanel() {
+                        $("#liCreditCard").removeClass("active");
+                        $("#CreditCardPanel").removeClass('active');
+                        $('#creditCardButton').css('display', 'none');
+
+                        $("#liDirectDebit").removeClass("active");
+                        $("#DirectDebitPanel").removeClass('active');
+                        $('#directDebitButton').css('display', 'none');
+
+                        $("#liCreditCard .RadioOption").attr('checked', false);
+                        $("#liCreditCard .form-fields--radio-button-0438d941").removeClass('selected');
+
+                        $("#liDirectDebit .RadioOption").attr('checked', false);
+                        $("#liDirectDebit .form-fields--radio-button-0438d941").removeClass('selected');
+
+                        $("#liPaypal").addClass('active');
+                        $('.tab-Content').removeClass('minimumHeight');
+                        $("#liPaypal").siblings().css({
+                            left: '43%',
+                            right: '44%'
+                        });
+                        $("#PaypalPanel").css('display', 'inline-block');
+                        $("#PaypalPanel").addClass('active');
+                        $('#paypalButton').css('display', 'inline-block');
+                        $("#liPaypal .RadioOption").attr('checked', 'checked');
+                        $("#liPaypal .form-fields--radio-button-0438d941").addClass('selected');
+                        setPaymentMode("Paypal");
+
+                    }
+
+                    function showDirectDebitPanel() {
+                        $("#liCreditCard").removeClass("active");
+                        $("#CreditCardPanel").removeClass('active');
+                        $('#creditCardButton').css('display', 'none');
+
+                        $("#liPaypal").removeClass("active");
+                        $("#PaypalPanel").removeClass('active');
+                        $('#paypalButton').css('display', 'none');
+
+                        $("#liPaypal .RadioOption").attr('checked', false);
+                        $("#liPaypal .form-fields--radio-button-0438d941").removeClass('selected');
+
+                        $("#liCreditCard .RadioOption").attr('checked', false);
+                        $("#liCreditCard .form-fields--radio-button-0438d941").removeClass('selected');
+
+                        $("#liDirectDebit").addClass('active');
+                        $('.tab-Content').removeClass('minimumHeight');
+                        $("#liDirectDebit").siblings().css({
+                            left: '72%',
+                            right: '8%'
+                        });
+                        $("#DirectDebitPanel").css('display', 'inline-block');
+                        $("#DirectDebitPanel").addClass('active');
+                        $('#directDebitButton').css('display', 'inline-block');
+                        $("#liDirectDebit .RadioOption").attr('checked', 'checked');
+                        $("#liDirectDebit .form-fields--radio-button-0438d941").addClass('selected');
+                        setPaymentMode("DirectDebit");
+                    }
+
+
+                    function determineCreditCardType(value) {
+                        if (isAmex(value)) {
+                            return "AmericanExpress";
+                        } else if (isVisa(value)) {
+                            return "Visa";
+                        } else if (isMC(value)) {
+                            return "MasterCard";
+                        } else if (isJCB(value)) {
+                            return "JCB";
+                        } else {
+                            return "";
+                        }
+                    }
+
+
+                    function isAmex(cc) {
+                        if (cc && (cc.match(/^(34|37)[0-9]{13}$/g))) {
+                            return true
+                        }
+                        return (false);
+                    }
+
+
+                    function isVisa(cc) {
+                        if (cc) {
+                            if (cc.match(/^(4026|417500|4405|4508|4844|4913|4917)/)) {
+                                if (cc.length != 16) {
+                                    return false;
+                                } else {
+                                    return true;
+                                }
+                            } else if (cc.match(/^4[0-9]{12}$/g) || cc.match(/^4[0-9]{13}$/g) || cc.match(/^4[0-9]{14}$/g) || cc.match(/^4[0-9]{15}$/g)) {
+                                return true;
+                            }
+                            return false;
+                        }
+                        return (false);
+                    }
+
+
+                    function isMC(cc) {
+                        if (cc && (cc.match(/^5[1-5][0-9]{14}(?:\d{3})?$/g) || cc.match(/^2[2-7][0-9]{14}(?:\d{3})?$/g) ||
+                                cc.match(/^(?:5018|5020|5038|5612|5893|6304|6759|6761|6762|6763|6041|6390)[0-9]{12}$/g)) ||
+                            cc.match(/^(6)/)) {
+                            return true
+                        }
+                        return (false);
+                    }
+
+
+
+                    function isJCB(cc) {
+                        if (cc && cc.match(/^(21|18|3088|3096|3112|3158|3337|35[2-8][0-9])/)) {
+                            return true;
+                        }
+                        return false;
+                    }
+
+
+
+                    function validateCCHolderName() {
+                        $('#ccCardHolderNameValidation').html('');
+                        $('#ccCardHolderNameValidation').parent().addClass('is-passive focus-out').removeClass('is-error');
+                        var sCCHolderName = $('[id*="idCCHolderName"]').val().trim();
+                        if (sCCHolderName.length <= 0 || sCCHolderName.match(/([~,`,!,@,#,$,%,^,&,*,(,),_,+,{,},|,:,;,",<,>,?,*,-,+,£])/) ||
+                            sCCHolderName.match(/[\u3000-\u303F]|[\u3040-\u309F]|[\u30A0-\u30FF]|[\uFF00-\uFFEF]|[\u4E00-\u9FAF]|[\u2605-\u2606]|[\u2190-\u2195]|\u203B/g) ||
+                            sCCHolderName.match(/[а-яА-Я]+/ig)) {
+                            $('#ccCardHolderNameValidation').html(Custom_Label.LS_ChangePaymentMethod_ErrMsg_CCHolderName);
+                            $('#ccCardHolderNameValidation').parent().removeClass('is-passive focus-out').addClass('is-error');
+                            return false;
+                        }
+                        return true;
+                    }
+
+                    // luhn test
+                    var luhn10 = function(a, b, c, d, e) {
+                        for (d = +a[b = a.length - 1], e = 0; b--;)
+                            c = +a[b], d += ++e % 2 ? 2 * c % 10 + (c > 4) : c;
+                        return !(d % 10)
+                    };
+
+                    // Validate Credit Card Number
+                    function validateCCNumber() {
+                        $('#ccCardNumberValidation').html('');
+                        $('#ccCardNumberValidation').parent().addClass('is-passive focus-out').removeClass('is-error');
+                        var sCCCardNo = $('[id*="idCCCardNumber"]').val().trim();
+                        sCCCardNo = sCCCardNo.replace(/\s/g, '');
+
+                        // check basic validation.
+                        if (sCCCardNo.length <= 0 || !sCCCardNo.match('^[0-9\b]+$')) {
+                            $('#ccCardNumberValidation').html(Custom_Label.LS_ChangePaymentMethod_ErrMsg_CCNumber);
+                            $('#ccCardNumberValidation').parent().removeClass('is-passive focus-out').addClass('is-error');
+                            return false;
+                        }
+
+                        //check luhn algorithm
+                        if (luhn10(sCCCardNo) == false) {
+                            $('#ccCardNumberValidation').html(Custom_Label.LS_ChangePaymentMethod_ErrMsg_CCNumber);
+                            $('#ccCardNumberValidation').parent().removeClass('is-passive focus-out').addClass('is-error');
+                            return false;
+                        }
+                        return true;
+                    }
+
+                    // Validate Credit Card Expiry Month and Year
+                    function validateCCExpiryMonth() {
+                        $('#ccExpiryMonthValidation').html('');
+                        $('#ccExpiryMonthValidation').parent().addClass('is-passive focus-out').removeClass('is-error');
+                        $('div#monthDropdown').parent().removeClass('errStateOfDrpDwn');
+                        var sCCExpiryMonth = $('div#monthDropdown span.filter-option').html().trim();
+                        $('input[id=idCCExpiryMonth]').val(sCCExpiryMonth);
+                        if (sCCExpiryMonth.length <= 0 || !sCCExpiryMonth.match('^[0-9\b]+$') || sCCExpiryMonth < 1 || sCCExpiryMonth > 12) {
+                            $('div#monthDropdown').removeClass('selected');
+                            $('#ccExpiryMonthValidation').html(Custom_Label.LS_ChangePaymentMethod_ErrMsg_CCMonth);
+                            $('#ccExpiryMonthValidation').parent().removeClass('is-passive focus-out').addClass('is-error');
+                            $('div#monthDropdown').parent().addClass('errStateOfDrpDwn');
+                            return false;
+                        }
+                        var sCCExpiryYear = $('div#yearDropdown span.filter-option').html().trim();
+                        //Note: Year drop-down default value is &nbsp;, matching &nbsp; is not working, therefore character length check implemented.  
+                        if (sCCExpiryYear.length == 4) {
+                            var sCurrentMonth = Custom_Label.sCurrentMonth;
+                            sCurrentMonth = sCurrentMonth < 10 ? '0' + sCurrentMonth : sCurrentMonth;
+                            if ((sCCExpiryMonth < sCurrentMonth) && (parseInt(sCCExpiryYear) <= parseInt(Custom_Label.sCurrentYear))) {
+                                $('div#monthDropdown').removeClass('selected');
+                                $('#ccExpiryMonthValidation').html(Custom_Label.LS_ChangePaymentMethod_ErrMsg_ExpiryDate);
+                                $('#ccExpiryMonthValidation').parent().removeClass('is-passive focus-out').addClass('is-error');
+                                $('div#monthDropdown').parent().addClass('errStateOfDrpDwn');
+                                return false;
+                            } else
+                            if ((sCCExpiryMonth < sCurrentMonth) && (parseInt(sCCExpiryYear) < parseInt(Custom_Label.sCurrentYear))) {
+                                $('#ccExpiryYearValidation').html(Custom_Label.LS_ChangePaymentMethod_ErrMsg_ExpiryDate);
+                                $('#ccExpiryYearValidation').parent().removeClass('is-passive focus-out').addClass('is-error');
+                                $('div#yearDropdown').parent().addClass('errStateOfDrpDwn');
+                                return false;
+                            } else {
+                                $('#ccExpiryMonthValidation').html('');
+                                $('#ccExpiryMonthValidation').parent().addClass('is-passive focus-out').removeClass('is-error');
+                                $('div#monthDropdown').parent().removeClass('errStateOfDrpDwn');
+                                $('#ccExpiryYearValidation').html('');
+                                $('#ccExpiryYearValidation').parent().addClass('is-passive focus-out').removeClass('is-error');
+                                $('div#yearDropdown').parent().removeClass('errStateOfDrpDwn');
+                                $('div#monthDropdown').addClass('selected');
+                            }
+                        }
+                        return true;
+                    }
+
+                    // Validate Credit Card Expiry Month and Year
+                    function validateCCExpiryYear() {
+                        $('#ccExpiryYearValidation').html('');
+                        $('#ccExpiryYearValidation').parent().addClass('is-passive focus-out').removeClass('is-error');
+                        $('div#yearDropdown').parent().removeClass('errStateOfDrpDwn');
+                        var sCCExpiryYear = $('div#yearDropdown span.filter-option').html().trim();
+                        $('input[id=idCCExpiryYear]').val(sCCExpiryYear);
+                        if (sCCExpiryYear.length <= 0 || !sCCExpiryYear.match('^[0-9\b]+$') || parseInt(sCCExpiryYear) < parseInt(Custom_Label.sCurrentYear)) {
+                            $('div#yearDropdown').removeClass('selected');
+                            $('#ccExpiryYearValidation').html(Custom_Label.LS_ChangePaymentMethod_ErrMsg_CCYear);
+                            $('#ccExpiryYearValidation').parent().removeClass('is-passive focus-out').addClass('is-error');
+                            $('div#yearDropdown').parent().addClass('errStateOfDrpDwn');
+                            return false;
+                        }
+                        var sCCExpiryMonth = $('div#monthDropdown span.filter-option').html().trim();
+                        //Note: Year drop-down default value is &nbsp;, matching &nbsp; is not working, therefore character length check implemented.  
+                        if (sCCExpiryMonth.length == 2) {
+                            var sCurrentMonth = Custom_Label.sCurrentMonth;
+                            sCurrentMonth = sCurrentMonth < 10 ? '0' + sCurrentMonth : sCurrentMonth;
+                            if ((sCCExpiryMonth < sCurrentMonth) && (parseInt(sCCExpiryYear) <= parseInt(Custom_Label.sCurrentYear))) {
+                                $('div#monthDropdown').removeClass('selected');
+                                $('#ccExpiryMonthValidation').html(Custom_Label.LS_ChangePaymentMethod_ErrMsg_ExpiryDate);
+                                $('#ccExpiryMonthValidation').parent().removeClass('is-passive focus-out').addClass('is-error');
+                                $('div#monthDropdown').parent().addClass('errStateOfDrpDwn');
+                                return false;
+                            } else
+                            if ((sCCExpiryMonth < sCurrentMonth) && (parseInt(sCCExpiryYear) < parseInt(Custom_Label.sCurrentYear))) {
+                                $('div#monthDropdown').removeClass('selected');
+                                $('#ccExpiryYearValidation').html(Custom_Label.LS_ChangePaymentMethod_ErrMsg_ExpiryDate);
+                                $('#ccExpiryYearValidation').parent().removeClass('is-passive focus-out').addClass('is-error');
+                                $('div#yearDropdown').parent().addClass('errStateOfDrpDwn');
+                                return false;
+                            } else {
+                                $('#ccExpiryMonthValidation').html('');
+                                $('#ccExpiryMonthValidation').parent().addClass('is-passive focus-out').removeClass('is-error');
+                                $('div#monthDropdown').parent().removeClass('errStateOfDrpDwn');
+                                $('#ccExpiryYearValidation').html('');
+                                $('#ccExpiryYearValidation').parent().addClass('is-passive focus-out').removeClass('is-error');
+                                $('div#yearDropdown').parent().removeClass('errStateOfDrpDwn');
+                                $('div#monthDropdown').addClass('selected');
+                            }
+                        }
+                        return true;
+                    }
+
+                    // allowed cvc length
+                    var iCVCLen = {
+                        Visa: 3,
+                        MasterCard: 3,
+                        AmericanExpress: 4,
+                        JCB: 3
+                    }
+
+                    // Validate Credit Card CVC.
+                    function validateCCCVC() {
+                        $('#ccCVCValidation').html('');
+                        $('#ccCVCValidation').parent().addClass('is-passive focus-out').removeClass('is-error');
+                        var sCCCVC = $('[id*="idCCCVC"]').val();
+                        var sCCCardNo = $('[id*="idCCCardNumber"]').val().trim();
+                        var sCardType = determineCreditCardType(sCCCardNo.replace(/\s/g, ''));
+                        if (sCCCVC.length <= 0 || !sCCCVC.match('^[0-9\b]+$') || sCCCVC.length != iCVCLen[sCardType]) {
+                            $('#ccCVCValidation').html(Custom_Label.LS_ChangePaymentMethod_ErrMsg_CVC);
+                            $('#ccCVCValidation').parent().removeClass('is-passive focus-out').addClass('is-error');
+                            return false;
+                        }
+                        return true;
+                    }
+
+                    // Create Credit Card Payment method in Zuora.
+                    function CCPaymentMethodOperation() {
+                        if (validateCCHolderName() && validateCCNumber() && validateCCExpiryMonth() && validateCCExpiryYear() && validateCCCVC()) {
+                            var sCCExpMonth = $('div#monthDropdown span.filter-option').html().trim();
+                            var sCCExpYear = $('div#yearDropdown span.filter-option').html().trim();
+                            var sCCCardNo = $('[id*="idCCCardNumber"]').val().trim().replace(/\s/g, '');
+                            var sCCCVC = $('[id*="idCCCVC"]').val();
+                            var sCardType = determineCreditCardType(sCCCardNo);
+                            $('[id*="hdnCCCardType"]').val(sCardType);
+                            $('[id*="hdnCCPassThrough3"]').val(sCardType);
+                            var encrypted_values = '#' + sCCCardNo + '#' + sCCCVC + '#' + sCCExpMonth + '#' + sCCExpYear;
+                            var encryptedVal = ZCRT.encryptText(encrypted_values, $('[id*="hdnCCKey"]').val());
+                            console.log("encrypted_values: " + encrypted_values);
+                            console.log("encryptedVal: " + encryptedVal);
+                            $('[id*="hdnCCValues"]').val(encryptedVal);
+                            $('[id*="hdnCCPassThrough4"]').val(sCCCardNo.substring(sCCCardNo.length - 4, sCCCardNo.length));
+                            return true;
+                        }
+                        return false;
+                    }
+
+                    // Validate First Name for Bank Transfer
+                    function validateDDAccountName() {
+                        $('#ddAccountNameValidation').html('');
+                        $('#ddAccountNameValidation').parent().addClass('is-passive focus-out').removeClass('is-error');
+                        var sBTAccountName = $('[id*="idDDAccountName"]').val().trim();
+                        if (sBTAccountName.length <= 0 || sBTAccountName.match(/([~,`,!,@,#,$,%,^,&,*,(,),_,+,{,},|,:,;,",<,>,?,*,-,+,£])/) ||
+                            sBTAccountName.match(/[\u3000-\u303F]|[\u3040-\u309F]|[\u30A0-\u30FF]|[\uFF00-\uFFEF]|[\u4E00-\u9FAF]|[\u2605-\u2606]|[\u2190-\u2195]|\u203B/g) ||
+                            sBTAccountName.match(/[а-яА-Я]+/ig)) {
+                            $('#ddAccountNameValidation').html(Custom_Label.LS_ChangePaymentMethod_ErrMsg_AccountName);
+                            $('#ddAccountNameValidation').parent().removeClass('is-passive focus-out').addClass('is-error');
+                            return false;
+                        }
+                        return true;
+                    }
+
+                    // Array for IBAN country.
+                    var ibanLen = {
+                        NO: 15,
+                        BE: 16,
+                        DK: 18,
+                        FI: 18,
+                        FO: 18,
+                        GL: 18,
+                        NL: 18,
+                        MK: 19,
+                        SI: 19,
+                        AT: 20,
+                        BA: 20,
+                        EE: 20,
+                        KZ: 20,
+                        LT: 20,
+                        LU: 20,
+                        CR: 21,
+                        CH: 21,
+                        HR: 21,
+                        LI: 21,
+                        LV: 21,
+                        BG: 22,
+                        BH: 22,
+                        DE: 22,
+                        GB: 22,
+                        GE: 22,
+                        IE: 22,
+                        ME: 22,
+                        RS: 22,
+                        AE: 23,
+                        GI: 23,
+                        IL: 23,
+                        AD: 24,
+                        CZ: 24,
+                        ES: 24,
+                        MD: 24,
+                        PK: 24,
+                        RO: 24,
+                        SA: 24,
+                        SE: 24,
+                        SK: 24,
+                        VG: 24,
+                        TN: 24,
+                        PT: 25,
+                        IS: 26,
+                        TR: 26,
+                        FR: 27,
+                        GR: 27,
+                        IT: 27,
+                        MC: 27,
+                        MR: 27,
+                        SM: 27,
+                        AL: 28,
+                        AZ: 28,
+                        CY: 28,
+                        DO: 28,
+                        GT: 28,
+                        HU: 28,
+                        LB: 28,
+                        PL: 28,
+                        BR: 29,
+                        PS: 29,
+                        KW: 30,
+                        MU: 30,
+                        MT: 31
+                    }
+
+                    // Validate IBAN
+                    function isValid(iban) {
+                        iban = iban.replace(/\s/g, '')
+                        if (!iban.match(/^[\dA-Z]+$/)) return false
+                        var len = iban.length
+                        if (len != ibanLen[iban.substr(0, 2)]) return false
+                        iban = iban.substr(4) + iban.substr(0, 4)
+                        for (var s = '', i = 0; i < len; i += 1) s += parseInt(iban.charAt(i), 36)
+                        for (var m = s.substr(0, 15) % 97, s = s.substr(15); s; s = s.substr(13)) m = (m + s.substr(0, 13)) % 97
+                        return m == 1
+                    }
+
+                    // Validate IBAN Country
+                    function isValidDDCountry(iban, countrycode) {
+                        iban = iban.replace(/\s/g, '')
+                        if (!iban.match(/^[\dA-Z]+$/)) return false
+                        if (countrycode != iban.substr(0, 2)) return false
+                        return true;
+                    }
+
+                    // Validate Account Number.
+                    function validateDDAccountNumber() {
+                        $('#ddAccNumberValidation').html('');
+                        $('#ddAccNumberValidation').parent().addClass('is-passive focus-out').removeClass('is-error');
+                        var sBTAccNo = $('[id*="idDDAccountNumber"]').val();
+                        var sCountryCode = Custom_Label.CountryCode;
+                        if (!isValidDDCountry(sBTAccNo, sCountryCode)) {
+                            $('#ddAccNumberValidation').html(Custom_Label.LS_ChangePaymentMethod_DirectDebit_ErrMsg_Country_Not_Matched);
+                            $('#ddAccNumberValidation').parent().removeClass('is-passive focus-out').addClass('is-error');
+                            return false;
+                        }
+                        if (!isValid(sBTAccNo)) {
+                            $('#ddAccNumberValidation').html(Custom_Label.LS_ChangePaymentMethod_ErrMsg_AccountNum);
+                            $('#ddAccNumberValidation').parent().removeClass('is-passive focus-out').addClass('is-error');
+                            return false;
+                        }
+                        return true;
+                    }
+
+                    function DDPaymentMethodOperation() {
+                        if (validateDDAccountName() && validateDDAccountNumber()) {
+                            var sAccountName = $('[id*="idDDAccountName"]').val().trim();
+                            var sBankAccountNumber = $('[id*="idDDAccountNumber"]').val().replace(/\s/g, '').trim();
+                            var encrypted_values = '#' + sBankAccountNumber + '#' + sAccountName;
+                            var encryptedVal = ZCRT.encryptText(encrypted_values, $('[id*="hdnDDKey"]').val());
+                            $('[id*="hdnDDEncrptyedVal"]').val(encryptedVal);
+                            $('[id*="hdnDDPassThrough4"]').val(sBankAccountNumber.substring(sBankAccountNumber.length - 4, sBankAccountNumber.length));
+                            return true;
+                        }
+                        return false;
+                    }
+                </script>
+            </apex:outputPanel>
+            <!-- <apex:includescript value="{!URLFOR($Resource.DAZN_VF_Assets, 'DAZN_VF_Assets/js/changepaymentmethod.js') }" /> -->
+        </body>
+
+    </apex:outputPanel>
+
+</apex:page>

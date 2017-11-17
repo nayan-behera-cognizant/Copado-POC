@@ -1,0 +1,23 @@
+<apex:page controller="InvoicePDFPageController" sidebar="false" showHeader="false">
+	
+	<iframe id="ManualFrame" frameborder="0"   style="border:0"></iframe>
+    <apex:includescript value="{!URLFOR($Resource.LS_JQuery)}" />
+    
+    <script>
+	    $(function () {
+	    	if ('{!doc}' != 'issue') {
+	    		setManualFrame();
+	    	}else {
+	    		window.location ='{!linkError}';
+	    	}
+            dataLayer.push({'event':'inPageError','error':{'code':'500','type':'Actionable Error','message':'{!JSENCODE(GTMError)}','action':'PopUp'}}); //Added as part of PD-6921
+       });
+
+	    function setManualFrame() {
+	    	$("#ManualFrame").attr("height", screen.height);
+	        $("#ManualFrame").attr("width", screen.width);
+	        $("#ManualFrame").attr("src", "data:application/pdf;base64,{!doc}" ); 
+	    }
+	</script>
+    <c:GTMHeader sPageName="paymenthistory"></c:GTMHeader>
+</apex:page>

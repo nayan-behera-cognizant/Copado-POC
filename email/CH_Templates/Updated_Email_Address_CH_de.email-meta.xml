@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Updated Email Address -CH-de</name>
+    <style>none</style>
+    <subject>Your Email Address has been Updated</subject>
+    <textOnly>DAZN
+
+
+Hey {Username},
+
+die E-Mail-Adresse deines DAZN-Kontos wurde geändert. Unter dieser Adresse werden wir dich in Zukunft kontaktieren.
+
+Du hast diese Änderung nicht veranlasst oder hast weitere Fragen? Dann wende dich an unseren Kundenservice, der hilft gerne weiter.
+
+Dein DAZN-Team
+
+DATENSCHUTZ  |  NUTZUNGSBEDINGUNGEN  |  ABMELDEN</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

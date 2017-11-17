@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Template to inform users about the refund for the incorrect charged amount</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Payment Problem - EN</name>
+    <style>none</style>
+    <subject>{!Case.Subject} - {!Case.Thread_Id}</subject>
+    <textOnly>Hello {!Account.FirstName},
+
+Due to a processing error we have taken a payment incorrectly on your account.
+
+We would like to apologise, and reassure you that refunds will be made directly. However, for some customers the refund can take up to 2 weeks due to banking clearing procedures, but you should see the refund in your chosen payment method before then.
+We sincerely apologise for any inconvenience this may have caused. If you have any additional questions you can visit our help pages and FAQ on https://my.dazn.com/help/ or you can reply to this email.
+
+Best regards,
+Your DAZN Team</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

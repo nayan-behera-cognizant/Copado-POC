@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Code --></label>
+        <name>zqu__Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Deleted --></label>
+        <name>zqu__Deleted__c</name>
+    </fields>
+    <fields>
+        <label><!-- Description --></label>
+        <name>zqu__Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Feature Name --></label>
+        <name>zqu__FeatureName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>zqu__Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Zuora Id --></label>
+        <name>zqu__ZuoraId__c</name>
+    </fields>
+    <recordTypes>
+        <label><!-- Default --></label>
+        <name>Default</name>
+    </recordTypes>
+    <webLinks>
+        <label><!-- Back_To_Feature_List --></label>
+        <name>zqu__Back_To_Feature_List</name>
+    </webLinks>
+</CustomObjectTranslation>

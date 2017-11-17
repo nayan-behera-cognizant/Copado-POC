@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>大量な１次返信の際に送信する為、担当名は無し。</description>
+    <encodingKey>ISO-2022-JP</encodingKey>
+    <name>高リバッファ</name>
+    <style>none</style>
+    <subject>DAZNカスタマーサービスでございます。</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

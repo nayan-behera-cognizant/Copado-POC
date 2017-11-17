@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>License Alert</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>License Alerts</value>
+    </caseValues>
+    <fields>
+        <label><!-- Consumed --></label>
+        <name>Consumed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Consumed in percentage --></label>
+        <name>Consumed_in_percentage__c</name>
+    </fields>
+    <fields>
+        <label><!-- Name of License --></label>
+        <name>Name_of_License__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total License for Record --></label>
+        <name>Total_License_for_Record__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

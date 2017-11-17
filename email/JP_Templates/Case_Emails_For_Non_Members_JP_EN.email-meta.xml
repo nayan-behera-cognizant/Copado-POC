@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Case Emails For Non-Members -JP-EN</name>
+    <style>none</style>
+    <subject>【We have received your inquiry】from DAZN - {!Case.Thread_Id}</subject>
+    <textOnly>Dear Customer,
+
+Thank you for your interest in DAZN.
+
+We&apos;ve received your inquiry ID: {!Case.CaseNumber} from {!Contact.Email}.
+
+A member of our Customer Support team will be in touch within 24 hours regarding your inquiry. In the meantime, you may find some helpful information from our help page (https://my.dazn.com/Help).
+
+Thank you for your patience.
+
+
+Privacy Policy 
+https://my.dazn.com/help/jp-en/privacy
+
+Terms of Use 
+https://my.dazn.com/help/jp-en/terms
+
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

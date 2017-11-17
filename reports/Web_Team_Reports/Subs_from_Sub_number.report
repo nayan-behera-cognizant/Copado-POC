@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>Zuora__Subscription__c.Zuora__Zuora_Id__c</field>
+    </columns>
+    <columns>
+        <field>Zuora__Subscription__c.Zuora__Status__c</field>
+    </columns>
+    <columns>
+        <field>FK_NAME</field>
+    </columns>
+    <currency>GBP</currency>
+    <filter>
+        <booleanFilter>1 OR 2</booleanFilter>
+        <criteriaItems>
+            <column>Zuora__Subscription__c.Zuora__SubscriptionNumber__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>A-S00025341,A-S00020255,A-S00020957,A-S00038305,A-S00021811,A-S00033192,A-S00022233,A-S00022277,A-S00022642,A-S00022569,A-S00033592,A-S00023707,A-S00023712,A-S00023966,A-S00024234,A-S00024358,A-S00024393,A-S00024493,A-S00027717,A-S00024634,A-S00024600,A-S00024662,A-S00025600,A-S00025837,A-S00026726,A-S00026757,A-S00027736,A-S00028288,A-S00029102,A-S00029601,A-S00029870,A-S00029910,A-S00029999,A-S00030009,A-S00030030,A-S00030984,A-S00031561,A-S00032405,A-S00032562,A-S00033041,A-S00034393,A-S00033147,A-S00033256,A-S00033314,A-S00033334,A-S00033707,A-S00033727,A-S00033791,A-S00034392,A-S00035433,A-S00036462,A-S00035953,A-S00036365,A-S00037986,A-S00038275,A-S00038430,A-S00038603,A-S00038924,A-S00039974,A-S00040232,A-S00040251,A-S00041893,A-S00059729,A-S00046270,A-S00048359,A-S00050073,A-S00052616,A-S00054357,A-S00055915,A-S00056040,A-S00056110,A-S00056325,A-S00056448,A-S00056420,A-S00056461,A-S00056596,A-S00056726,A-S00056818,A-S00057671,A-S00058707,A-S00058778,A-S00058875,A-S00059271</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Zuora__Subscription__c.Zuora__SubscriptionNumber__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>A-S00059590,A-S00059585,A-S00060115,A-S00060733,A-S00062310,A-S00064217,A-S00064222,A-S00076942,A-S00081096,A-S00112252,A-S00112254,A-S00142485,A-S00144947,A-S00147979,A-S00148027,A-S00153417,A-S00153588,A-S00153984,A-S00154021,A-S00154044,A-S00156810</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Tabular</format>
+    <name>Subs from Sub number</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$Zuora__Subscription__c@Zuora__Subscription__c.Zuora__Account__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Zuora__Subscription__c.Zuora__ContractAcceptanceDate__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

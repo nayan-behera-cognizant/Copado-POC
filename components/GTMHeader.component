@@ -1,0 +1,73 @@
+<apex:component controller="GTMHeaderController" >
+
+    <apex:attribute name="sPageName" assignTo="{! pageName }" description="Current page name" type="String" required="true"/>
+
+    <noscript>
+        <iframe src="//www.googletagmanager.com/ns.html?id={! JSENCODE($Setup.Google_Analytics_Settings__c.Google_Tag_Manager_Container_Id__c) }"
+        height="0" width="0" style="display:none;visibility:hidden">
+        </iframe>
+    </noscript>
+
+    <script>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})
+        (window,document,'script','dataLayer','{! JSENCODE($Setup.Google_Analytics_Settings__c.Google_Tag_Manager_Container_Id__c) }');
+    </script>
+
+    
+    <script type="text/javascript">
+        dataLayer = [];
+        var sURL = window.location.pathname.replace('/','');   
+        var sPreviousURL = document.referrer.split('/').splice(3).join('/');
+        var sPageName = '{!sPageName}';
+        var errorMsgDsply= '{!JSENCODE(errorMsgDsply)}';
+        /* using to avoid mulitiple data objects in layer -PD-9010 */
+        var strBoolean = true;
+        var strDispalyVersion = '{!strDispalyVersion}';    
+        dataLayer.push({'page':{'path':sURL,'isEmailReferral':'false','previousPath':sPreviousURL,'title':document.title}});
+        dataLayer.push({'application':{'type':'Web','version':strDispalyVersion}}); // Part of PD-8766
+        dataLayer.push({'device':{'UserAgent':navigator.userAgent}});
+
+        var dlCustomerID = '{! customerId }';
+        if (dlCustomerID !== undefined && dlCustomerID !== null && dlCustomerID !== '') {
+            dataLayer.push({'customerID':dlCustomerID});
+        }
+        var dlLanguage = '{! language }';
+        var dlTerritory = '{! territory }';
+        if (dlLanguage !== undefined && dlLanguage !== null && dlLanguage !== '' &&
+            dlTerritory !== undefined && dlTerritory !== null && dlTerritory !== '') {
+            dataLayer.push({'language':{'language':dlLanguage,'territory':dlTerritory}});
+        }
+        
+        // console.log("dataLayer in GTM header:", dataLayer);
+    
+        if (sPageName == 'InternalServerError') {
+            /* Making to avoid mulitiple data objects in layer -PD-9010 */
+            strBoolean = false;
+            dataLayer.push({'event':'inPageError','error':{'code':'500','type':'Actionable Error','message':"{!$label.LS_ErrorPage_Label_Internal_Server_Error_Message}",'action':'PopUp'}}); // Added as part of PD-6925, PD-6924 
+
+            //dataLayer.push({'event':'inPageError','error':{'code':'500','type':'Actionable Error','message':"{!JSENCODE(    errorMsgDsply)}",'action':'PopUp'}});
+        	
+        }
+
+        if (sPageName == 'PageNotFound') {
+            dataLayer.push({'event':'inPageError','error':{'code':'404','type':'Actionable Error','message':"    {!$label.LS_ErrorPage_Label_404_Message}",'action':'PopUp'}});
+        }
+        
+        /* Checking and pushing the message from Zuora call out fail message to Data Layer  */   
+        if (strBoolean == true && (errorMsgDsply != '' && errorMsgDsply != null)) {
+            //console.log("strBoolean: in  not internal" + strBoolean);
+            dataLayer.push({'event':'inPageError','error':{'code':'500','type':'Actionable Error','message':"{!JSENCODE(    errorMsgDsply)}",'action':'PopUp'}});
+        }
+
+        /* PD-2937  for My Account - Analytics*/
+
+        if (sPageName == 'myaccount' || sPageName == 'setPause' || sPageName == 'partnerAccount' || sPageName == 'signin' ||
+            sPageName == 'contactus' || sPageName == 'keepInTouch' || sPageName == 'pauseUpsell' || sPageName == 'changepaymentmethod'|| 
+            sPageName == 'paymenthistory' || sPageName == 'help' || sPageName == 'thanks' || sPageName == 'cancel' || sPageName == 'resubscribe' ||
+            sPageName == 'mylogin' ) {
+            dataLayer.push({'event':'virtualPageView'});
+        }
+    </script>
+
+</apex:component>

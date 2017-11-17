@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Rebuffering問題で不都合があったお客様への改善報告</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>【10月31日】Rebuffering問題</name>
+    <style>none</style>
+    <subject>【DAZNカスタマーサービス】視聴環境改善のご連絡</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

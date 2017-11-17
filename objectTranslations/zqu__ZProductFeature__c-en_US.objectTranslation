@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- ZFeature --></label>
+        <name>zqu__ZFeature__c</name>
+        <relationshipLabel><!-- ZProductFeatures --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- ZProduct --></label>
+        <name>zqu__ZProduct__c</name>
+        <relationshipLabel><!-- ZProductFeatures --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Zuora Id --></label>
+        <name>zqu__ZuoraId__c</name>
+    </fields>
+</CustomObjectTranslation>

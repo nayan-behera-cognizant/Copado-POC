@@ -1,0 +1,402 @@
+<apex:page action="{!doInit}" standardController="Case" tabStyle="case" extensions="CaseExtenCon" id="casePage">
+    <apex:includeScript value="/support/console/30.0/integration.js"/>
+    <apex:sectionHeader title="Case" subtitle="{!case.casenumber}"/>
+    <chatter:feedWithFollowers entityId="{!Case.id}" rendered="{!!isAccountDfD}"/>
+    
+    <div class="RLPanelShadow">
+        <div class="RLPanel" id="RLPanel" onblur="sfdcPage.relatedListPanel.hideRLDelayed(null, 100)" onfocus="sfdcPage.relatedListPanel.showRL()" onmouseout="sfdcPage.relatedListPanel.hideRLDelayed(null, 100)" onmouseover="sfdcPage.relatedListPanel.showRL()"><iframe frameborder="0" id="RLPanelFrame" name="RLPanelFrame" src="/emptyHtmlDoc.html" title="Hidden Frame - Ignore"></iframe></div></div><div class="listHoverLinks"><span class="invisibleMinHeight">|</span></div>
+    <script type="text/javascript">
+    try { sfdcPage.registerRelatedListPanel('RLPanel',false);} catch(e) {}
+    </script>
+    
+    <apex:form id="frm">      
+        <apex:pageBlock id="pb" mode="inlineEdit">
+            <apex:pageBlockButtons id="pbBUttons" >
+                <!-- <apex:commandButton action="{!save}" id="saveButton" value="Save"/>
+<apex:commandButton onclick="resetInlineEdit()" id="cancelButton" value="Cancel"/> -->
+                <apex:commandButton action="{!save}" value="Save" id="saveButton" style="display: none;"/>
+                <apex:commandButton action="{!cancel}" id="cancelButton" value="Cancel" style="display: none;"/>
+                <!-- <apex:commandButton onclick="resetInlineEdit()" id="cancelButton" value="Cancel" style="display: none;"/>-->
+                
+                <apex:commandButton action="{!edit}" id="editButton" value="Edit" />
+                <!-- <apex:commandButton value="Delete"/>
+<apex:commandButton value="Clone"/>  
+<apex:commandButton value="Close Case"/>-->
+                <apex:commandButton action="{!URLFOR($Action.Case.delete,Case.id,[retURL=Case])}" value="Delete" id="deleteButton" />
+                <apex:commandButton action="{!URLFOR($Action.Case.CloseCase,Case.id)}" value="Close Case" id="closeButton" />
+                <apex:commandButton action="{!URLFOR($Action.Case.Clone,Case.id)}" value="Clone" id="cloneButton" rendered="{!$Profile.Name == 'System Administrator'}" />
+                <!-- <apex:commandButton action="{!URLFOR($Action.Case.Share,Case.id)}" onComplete="openWindow()"  value="Sharing" id="shareButton"/>  --->
+                <apex:commandButton action="{!URLFOR($Action.Case.Resolve,Case.id)}" value="Resolve" id="resolveButton" /> 
+                <apex:commandButton action="{!URLFOR($Action.Case.Assign_Country_Language,Case.id)}" value="Assign Country & Language" id="assignButton" />
+                
+                <apex:commandButton action="{!takeOwnership}" value="Take Ownership" id="takeButton" />
+                <apex:commandButton action="{!updateToEscalate}" value="Escalate" id="escalateButton" rendered="{!!isAccountDfD}" />
+                <apex:commandButton value="Assign Case" id="assigncaseButton" rendered="{!!isAccountDfD}"  onclick="openAssignCaseSubTab();"/>
+                <apex:commandButton action="{!updateToOnHold}" value="On-Hold" id="onholdButton" rendered="{!!isAccountDfD}" />
+                
+            </apex:pageBlockButtons>
+            
+            <apex:pageBlockSection title="Case Details">
+               
+                
+                <!-- <apex:outputText label="Case Number" escape="False" value="{!case.CaseNumber} [{!LINKTO('View Hierarchy' , '/500?rlid=RelatedChildCaseList&hierarchy=1&fromroot=1',null, ['id'=case.Id]) }]" />-->
+                <apex:outputText label="Case Owner" escape="False" value="{!case.Owner.Name} [{!LINKTO('Change' ,'/' + LEFT(case.id,15) + '/a?retURL=' + URLFOR('/apex/' + $CurrentPage.Name, null, ['id'=case.id]), case.Id) }]" />
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Contact Phone</apex:outputLabel>
+                    <apex:outputField id="ContactPhone" value="{!case.ContactPhone}" />
+                    
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Parent Case</apex:outputLabel>
+                    <apex:outputField id="Parent" value="{!case.ParentId}" />
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem rendered="{!!isAccountDfD}">
+                    <apex:outputLabel >Contact Email </apex:outputLabel>
+                    <apex:outputField id="ContactEmail" value="{!case.ContactEmail}" />
+                </apex:pageBlockSectionItem>
+                <!-- <apex:pageBlockSectionItem >
+<apex:outputLabel >Case Number </apex:outputLabel>
+<apex:outputField id="CaseNumber" value="{!case.CaseNumber}" />               
+</apex:pageBlockSectionItem> -->
+                <apex:outputText label="Case Number" escape="False" value="{!case.CaseNumber} [{!LINKTO('View Hierarchy' , '/500?rlid=RelatedChildCaseList&hierarchy=1&fromroot=1',null, ['id'=case.Id]) }]" />
+                <apex:pageBlockSectionItem rendered="{!!isAccountDfD}">
+                    <apex:outputLabel >Contact Name</apex:outputLabel>
+                    <!--apex:outputField id="ContactName" value="{!case.ContactId}" /-->
+                    <apex:outputLink value="{!case.contactid}">{!case.contact.name}</apex:outputLink>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem rendered="{!!isAccountDfD}">
+                    <apex:outputLabel >Account Name</apex:outputLabel>
+                    <!--apex:outputField id="AccountName" value="{!case.Account.name}" /-->
+                    <apex:outputLink id="lastModifiedBy" value="{!case.Account.id}">{!case.account.name} </apex:outputlink>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Notification Country Code </apex:outputLabel>
+                    <apex:outputField id="NotificationCountryCode" value="{!case.Notification_Country_Code__c}" />
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Rating </apex:outputLabel>
+                    <apex:outputField id="Rating" value="{!case.Rating__c  }">
+                        <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" hideOnEdit="editButton, deleteButton, closeButton, cloneButton, resolveButton, assignButton, takeButton, escalateButton, assigncaseButton, onholdButton" event="ondblclick" changedStyleClass="myBoldClass" resetFunction="resetInlineEdit" /> </apex:outputField>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Notification Language Code </apex:outputLabel>
+                    <apex:outputField id="NotificationCountryCode" value="{!case.Notification_Language_Code__c}" />
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Mass Response </apex:outputLabel>
+                    <apex:outputField id="MassResponse" value="{!case.Mass_Response__c}" />
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Campaign </apex:outputLabel>
+                    <apex:outputField id="Campaign" value="{!case.Campaign__r.name}" />
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            
+            <div style="width:100%; height:2px; background: #aaaa55;"></div>
+            
+            <apex:pageBlockSection title="Additional Information">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Status </apex:outputLabel>
+                    <apex:outputField id="Status" value="{!case.Status}" />
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Type </apex:outputLabel>
+                    <apex:outputField id="Type" value="{!case.Type  }" />
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Case Origin </apex:outputLabel>
+                    <apex:outputField id="CaseOrigin" value="{!case.Origin}" />
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Sub-Type </apex:outputLabel>
+                    <apex:outputField id="SubType" value="{!case.Sub_Type__c}" />
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Priority </apex:outputLabel>
+                    <apex:outputField id="Priority" value="{!case.Priority}" />
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Browser Information </apex:outputLabel>
+                    <apex:outputField id="Browser" value="{!case.Browser_Information__c}" />
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            
+            <div style="width:100%; height:2px; background: #aaaa55;"></div>
+            
+            <apex:pageBlockSection title="Description Information">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Subject</apex:outputLabel>
+                    <apex:outputField id="Subject" value="{!case.Subject}" />
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                </apex:pageBlockSectionItem>
+                
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Date/Time Opened</apex:outputLabel>
+                    <apex:outputText id="DateTimeOpened" value="{!case.CreatedDate}" />
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Date/Time Closed </apex:outputLabel>
+                    <apex:outputtext id="DateTimeClosed" value="{!case.ClosedDate}" />
+                </apex:pageBlockSectionItem>
+                <apex:outputField id="Description" value="{!case.Description}" />
+                <apex:pageBlockSectionItem rendered="{!!isAccountDfD}">
+                    <apex:outputLabel >Web Email</apex:outputLabel>
+                    <apex:outputText id="WebEmail" value="{!case.SuppliedEmail}" />
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem rendered="{!!isAccountDfD}">
+                    <apex:outputLabel >Web Company </apex:outputLabel>
+                    <apex:outputtext id="WebCompany" value="{!case.SuppliedCompany}" />
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem rendered="{!!isAccountDfD}">
+                    <apex:outputLabel >Web Name</apex:outputLabel>
+                    <apex:outputText id="WebName" value="{!case.SuppliedName}" />
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem rendered="{!!isAccountDfD}">
+                    <apex:outputLabel >Web Phone </apex:outputLabel>
+                    <apex:outputtext id="WebPhone" value="{!case.SuppliedPhone}" />
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            
+            <div style="width:100%; height:2px; background: #aaaa55;"></div>
+            
+            <apex:pageBlockSection title="System Information" rendered="{!!isAccountDfD}">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Created By</apex:outputLabel>
+                    <apex:outputPanel layout="block">
+                        <apex:outputLink id="createdby" value="{!case.createdby.id}">{!case.Createdby.name} </apex:outputlink>,
+                        <apex:outputText value="{0,date,dd/MM/yyyy  h:mm a }">
+                            <apex:param value="{!case.createddate}" />
+                        </apex:outputText>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Last Modified By</apex:outputLabel>
+                    <apex:outputPanel layout="block">
+                        <apex:outputLink id="lastModifiedBy" value="{!case.lastModifiedby.id}">{!case.lastModifiedby.name} </apex:outputlink>,
+                        <apex:outputText value="{0,date,dd/MM/yyyy  h:mm a }">
+                            <apex:param value="{!case.lastmodifieddate}" />
+                        </apex:outputText>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        
+        <!--==========================================================-->
+        <!-- RELATED LISTS -->
+        <!--==========================================================-->
+        <div class="bRelatedList" id="casePage:emaillist">
+            <a name="casePage:emaillist_target"></a>
+            
+            <apex:pageBlock title="Emails" tabStyle="EmailMessage" id="caseEmailId">
+                
+                <apex:pageBlockButtons location="top">
+                    <apex:commandButton value="Send an Email" action="/email/author/emailauthor.jsp?retURL=/{!Case.Id}&p3_lkid={!Case.Id}&rtype=003&p2_lkid={!Case.ContactId}" styleClass="btn" />
+                </apex:pageBlockButtons>
+                <table class="list" border="0" cellspacing="0" cellpadding="0">
+                    <tbody>
+                        <tr class="headerRow">
+                            <th class="actionColumn" scope="col">Action</th>
+                            <th scope="col" class="zen-deemphasize">Status</th>
+                            <th scope="col" class=" zen-deemphasize">Subject</th>
+                            <th scope="col" class=" zen-deemphasize">Email Address </th>
+                            <th scope="col" class=" zen-deemphasize">Message Date</th>
+                        </tr>
+                        <apex:repeat value="{!EmailMessages}" var="em">
+                            
+                            <tr class="dataRow" onblur="if (window.hiOff){hiOff(this);}" onfocus="if (window.hiOn){hiOn(this);}" onmouseout="if (window.hiOff){hiOff(this);}" onmouseover="if (window.hiOn){hiOn(this);}">
+                                <td class="actionColumn">
+                                    <apex:outputLink value="/{!em.id}" styleClass="actionLink"> Reply </apex:outputLink>&nbsp;|&nbsp;   
+                                    <apex:commandLink action="/email/author/emailauthor.jsp?retURL=/{!Case.Id}&p23={!em.TextBody}&p6={!em.Subject}&p3_lkid={!Case.Id}&rtype=003&p2_lkid={!Case.ContactId}" styleClass="actionLink"> To All</apex:commandLink>&nbsp;|&nbsp;
+                                    <!-- <apex:outputLink value="/{!em.id}"> Del</apex:outputLink>&nbsp;|&nbsp;  retURL=/{!Case.Id}&-->
+                                    <apex:commandLink onclick="if(!confirm('Are you sure?')){return false;}" action="{!deleteRecEmail}" styleClass="actionLink"> Del 
+                                        <apex:param name="recordId" value="{!em.id}" assignTo="{!emId}" />
+                                    </apex:commandLink>&nbsp;|&nbsp;
+                                </td>
+                                <td scope="row" class=" dataCell">
+                                    {!em.Status}
+                                </td>
+                                <td scope="row" class=" dataCell">
+                                    <apex:outputLink value="/{!em.id}">
+                                        {!em.Subject}
+                                    </apex:outputLink>
+                                </td>
+                                
+                                <td scope="row" class=" dataCell">
+                                    
+                                    <div id="contentToToggle" style="display:{!if(isAccountDfD," none ","block ")};">
+                                        {!em.FromAddress}
+                                    </div>
+                                    <div id="contentToToggle" style="display:{!if(isAccountDfD," block ","none ")};">
+                                        ##########
+                                    </div>
+                                </td>
+                                
+                                <td scope="row" class=" dataCell">
+                                    {!em.MessageDate}
+                                </td>
+                            </tr>
+                        </apex:repeat>
+                    </tbody>
+                </table>
+            </apex:pageBlock>
+        </div>
+        <!-- <apex:actionFunction action="{!deleteRec}" name="deleteRec">
+<apex:param name="ccId" assignTo="{!ccId}" value="123"/>
+</apex:actionFunction>  -->
+        <script>
+        function deleteRecJS(record) {
+            var txt;
+            var r = confirm("Are you sure?");
+            if (r == true) {
+                deleteRec(record);
+            } else {
+            }
+        }
+        
+        function openAssignCaseSubTab(){
+                    
+           var url = '/apex/ChangeCaseOwner?Id={!Case.Id}'; 
+            if (sforce.console.isInConsole()) { 
+            srcUp(url);
+            } else { 
+            window.open(url,'_blank','height=600,width=800'); 
+            
+            }
+        
+        
+        
+        }
+        
+        
+        
+        
+        function testOpenSubtab() {
+            
+            if (sforce.console.isInConsole()){
+                //First find the ID of the primary tab to put the new subtab in
+                sforce.console.getEnclosingPrimaryTabId(openSubtab);
+            }
+            else{
+                window.open('/apex/CaseComment?parent_id={!Case.id}');
+            }
+        }
+        
+        var openSubtab = function openSubtab(result) {
+            sforce.console.openSubtab(result.id , "/apex/casecomment?parent_id={!Case.id}", true, 'External Page', null, openSuccess, null);
+        };
+        
+        var openSuccess = function openSuccess(result) {
+            //Report whether we succeeded in opening the subtab
+            if (result.success == true) {
+                // alert('subtab successfully opened');
+            } else {
+                console.log('subtab cannot be opened');
+            }
+        };         
+        
+        </script>
+        <div class="bRelatedList" id="casePage:caseCommentsList">
+            <a name="casePage:caseCommentsList_target"></a>
+            <apex:pageBlock title="Case Comments" tabStyle="case" id="casecId" mode="inlineEdit">
+                <apex:pageBlockButtons location="top">
+                    <!-- <apex:commandButton value="New" action='{!goToCaseComment}' oncomplete="testOpenSubtab();" styleClass="btn"/> -->
+                    <apex:commandButton value="New" onClick="testOpenSubtab();return false;"  styleClass="btn"/>
+                    <!--<apex:commandButton value="New"   action="{!goToCaseComment}" styleClass="btn"/>--->
+                </apex:pageBlockButtons>
+                <table class="list" border="0" cellspacing="0" cellpadding="0">
+                    <tbody>
+                        <tr class="headerRow">
+                            <th class="actionColumn" scope="col">Action</th>
+                            <th scope="col" class="booleanColumn zen-deemphasize">Public</th>
+                            <th scope="col" class=" zen-deemphasize">Comment</th>
+                        </tr>
+                        <apex:repeat value="{!CaseComments}" var="cc">
+                            <!-- ListRow -->
+                            <tr class="dataRow" onblur="if (window.hiOff){hiOff(this);}" onfocus="if (window.hiOn){hiOn(this);}" onmouseout="if (window.hiOff){hiOff(this);}" onmouseover="if (window.hiOn){hiOn(this);}">
+                                <td class="actionColumn">
+                                  <apex:outputLink rendered="{!systemAdminProfile}" value="/{!cc.id}/e?parent_id={!cc.ParentId}&retURL=%2F{!cc.ParentId}" styleClass="actionLink"> Edit &nbsp;|&nbsp;</apex:outputLink>
+                                    <apex:commandLink rendered="{!systemAdminProfile}" onclick="if(!confirm('Are you sure?')){return false;}" action="{!deleteRec}" styleClass="actionLink"> Del 
+                                        <apex:param name="recordId" value="{!cc.id}" assignTo="{!ccId}" />
+                                    &nbsp;|&nbsp;</apex:commandLink>
+                                    <apex:commandLink action="{!privatePub}" reRender="casecId" styleClass="actionLink"> Make Public
+                                        <apex:param name="recordId" value="{!cc.id}" assignTo="{!recordId}" />
+                                        <apex:param name="{!pubprivate}" value="{!cc.IsPublished}" assignTo="{!pubprivate}" />
+                                    </apex:commandLink>
+                                    
+                                </td>
+                                <apex:outputLabel rendered="{!if(cc.IsPublished == true,true,false)}">
+                                    <th scope="row" class=" dataCell  booleanColumn">
+                                        <img src="/img/checkbox_checked.gif" alt="Checked" width="21" height="16" class="checkImg" title="Checked" />
+                                    </th>
+                                </apex:outputLabel>
+                                <apex:outputLabel rendered="{!if(cc.IsPublished == false,true,false)}">
+                                    
+                                    <th scope="row" class=" dataCell  booleanColumn">
+                                        <img src="/img/checkbox_unchecked.gif" alt="Not Checked" width="21" height="16" class="checkImg" title="Not Checked" />
+                                    </th>
+                                </apex:outputLabel>
+                                <td class=" dataCell">
+                                    <b>   Created By: <apex:outputLink value="/{!cc.CreatedBy.id}" id="theLink">{!cc.CreatedBy.name}</apex:outputLink>
+                                        &nbsp; <apex:outputText value="({0,date,dd/MM/yyyy  h:mm a })">
+                                        <apex:param value="{!cc.createddate }" />
+                                        </apex:outputText>&nbsp;
+                                        
+                                        |Last Modified By:<apex:outputLink value="/{!cc.LastModifiedBy.id}" id="theLink1">{!cc.LastModifiedBy.name}</apex:outputLink>
+                                        <apex:outputText value="({0,date,dd/MM/yyyy  h:mm a })">
+                                            <apex:param value="{!cc.lastmodifieddate}" />
+                                        </apex:outputText>&nbsp;</b>
+                                    <br/><apex:outputField value="{!cc.CommentBody}" />
+                                </td>
+                                
+                                
+                            </tr>
+                        </apex:repeat>
+                    </tbody>
+                </table>
+                
+            </apex:pageBlock>
+        </div>
+        
+        
+    </apex:form>
+    
+    <apex:relatedList list="CombinedAttachments" id="attachments" />
+    <apex:relatedList list="OpenActivities" id="openAct"/> 
+    <apex:relatedList list="LiveChatTranscripts" id="livechat"/>
+    <apex:outputPanel rendered="true">
+        
+        <script type="text/javascript">
+        function testSetTabTitle() {
+            //Set the current tabs title
+            sforce.console.setTabTitle('{!Case.CaseNumber}');
+        }
+        var pageLoad = window.onload;
+        window.onload = function() {
+            if (pageLoad) {
+                pageLoad();
+            }
+            testSetTabTitle();
+            
+            sforce.console.setTabLink();
+            
+        }
+        
+        
+        
+        
+        try {
+            
+            sfdcPage.registerRelatedList('casePage:emaillist', '{!emailSize}', 'Emails', false, '', '',false,false,true, '');
+            sfdcPage.registerRelatedList('casePage:caseCommentsList', '{!caseCommentSize}', 'Case Comments', false, '', '',false,false,true, '');
+            sfdcPage.registerRelatedList('casePage:attachments', '', '', false, '', '',false,false,true, '');
+            sfdcPage.registerRelatedList('casePage:openAct', '', '', false, '', '',false,false,true, '');
+            sfdcPage.registerRelatedList('casePage:livechat', '', '', false, '', '',false,false,true, '');
+            
+        } catch (e) {}
+        
+        
+        </script>
+    </apex:outputPanel> 
+</apex:page>

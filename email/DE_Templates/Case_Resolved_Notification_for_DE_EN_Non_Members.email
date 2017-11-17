@@ -1,0 +1,439 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" hola_ext_inject="disabled">
+        <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>DAZN</title>
+        <!--<link rel="icon" href="http://www.goal.com/favicon.ico" type="image/gif">-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style type="text/css">
+/* Client-specific Styles */ #outlook a {
+	padding: 0;
+} /* Force Outlook to provide a "view in browser" button. */
+body {
+	width: 100% !important;
+	background-color: #F0F0F0;
+	margin: 0;
+	padding: 0;
+	-webkit-text-size-adjust: none;
+	-ms-text-size-adjust: none;
+}
+.ReadMsgBody {
+	width: 100%;
+}
+.ExternalClass {
+	width: 100%;
+} /* Force Hotmail to display emails at full width */
+body {
+	-webkit-text-size-adjust: none;
+	-ms-text-size-adjust: none;
+} /* Prevent Webkit and Windows Mobile platforms from changing default font sizes. */ /* Reset Styles */
+body {
+	margin: 0;
+	padding: 0;
+}
+#backgroundTable {
+	height: 100% !important;
+	margin: 0;
+	padding: 0;
+	width: 100% !important;
+}
+p {
+	margin: 1em 0;
+}
+h1 {
+	margin: 0px 0px 5px 0px;
+}
+
+table td {
+	border-collapse: collapse;
+}
+.yshortcuts, .yshortcuts a, .yshortcuts a:link, .yshortcuts a:visited, .yshortcuts a:hover, .yshortcuts a span {
+	color: black;
+	text-decoration: none !important;
+	border-bottom: none !important;
+	background: none !important;
+} /* Body text color for the New Yahoo. This example sets the font of Yahoo's Shortcuts to black. */
+table {
+	border-collapse: collapse;
+	mso-table-lspace: 0pt;
+	mso-table-rspace: 0pt;
+}
+a.disable-link {
+	pointer-events: none;
+	cursor: default;
+}
+.responsive-Subtable-2 {
+	margin-right: 0 !important;
+}
+.responsive-font {
+	font-family: Arial, Helvetica, sans-serif !important;
+	font-size: 11px !important;
+}
+.webhide {
+	display: none !important;
+}
+.noborder {
+	border-collapse: collapse !important;
+	width: 10px !important;
+	height: 10px !important;
+	font-size: 0px !important;
+	line-height: 0px !important;
+	padding: 0px !important;
+}
+.noborder2 {
+	border-collapse: collapse !important;
+	width: 180px !important;
+	height: auto !important;
+	font-size: 0px !important;
+	line-height: 0px !important;
+	padding: 0px !important;
+}
+.sectionspacer {
+	border-collapse: collapse !important;
+	width: 10px !important;
+	height: 10px !important;
+	font-size: 0px !important;
+	line-height: 0px !important;
+	padding: 0px !important;
+}
+.sectionspacer2 {
+	border-collapse: collapse !important;
+	width: 10px !important;
+	height: 10px !important;
+	font-size: 0px !important;
+	line-height: 0px !important;
+	padding: 0px !important;
+}
+.secdisplay img {
+	display: block !important;
+	font-size: 0px !important;
+	padding: 0 !important;
+	margin: 0 !important;
+}
+.botpadding {
+	padding-bottom: 15px;
+}
+ #buttonhover td:hover {
+    background-image: url("https://az687026.vo.msecnd.net/3697/button_anim3.gif");
+}
+</style>
+<style>
+  .img-swap:hover img,
+  * [lang~="x-img-swap"]:hover img{ 
+    max-height: 0px;
+    height:0px;
+  } 
+  	 .hoverTable{
+		width:185px !important; 
+		border-collapse:collapse; 
+	}
+	.hoverTable td{ 
+		padding:7px; 
+	}
+	/* Define the default color for all the table rows */
+	.hoverTable tr{
+		background: #000000;
+	}
+	/* Define the hover highlight color for the table row */
+    .hoverTable tr:hover {
+		background:url(https://az687026.vo.msecnd.net/3697/button_anim3.gif);
+	}
+</style>
+
+        <style type="text/css">
+            ul, li {
+            color:#000000 !important;
+            padding: 0 !important;
+            padding-left:0 !important;
+            margin: 2px 0px 0px 12px !important;
+            }
+            ul {
+            margin-bottom:0px !important;
+            padding-left:0 !important;
+            }
+        </style>
+        <!--Responsive codindg starts---->
+        <style>
+            @media only screen and (max-device-width: 480px), only screen and (max-width: 480px) {
+            img[class=responsive-logo] {
+            width: 15%;
+            max-width: 15% !important;
+            height: auto !important;
+            display:block !important;
+            padding:10px 0px !important;
+            }
+            img[class=responsive-image] {
+            width: 100%;
+            max-width: 100% !important;
+            height:auto !important;
+            display:block !important;
+            }
+            img[class=responsive-ad] {
+            width:100%;
+            max-width: 100% !important;
+            height:100%; !important;
+            display:block !important;
+            }
+            img[class=responsive-spacer] {
+            width: 96%;
+            max-width: 100% !important;
+            height: 100% !important;
+            display:block !important;
+            }
+            img[class=responsive-image2] {
+            width: 40% !important;
+            height: auto !important;
+            display:block !important;
+            }
+            img[class=responsive-mainimage] {
+            width: 100%;
+            max-width: 100% !important;
+            height: 100% !important;
+            display:block !important;
+            }
+            img[class=responsive-social] {
+            width: 50%;
+            max-width: 50% !important;
+            height: auto !important;
+            display:block !important;
+			padding:0px !important;
+            }
+            img[class=responsive-twit] {
+            width: 80%;
+            max-width: 80% !important;
+            height: auto !important;
+            display:block !important;
+            }
+            table[class=responsive-table] {
+            width: 100% !important;
+            }
+			table td[class=responsive-td] {
+            width: 100% !important;
+            }
+            table[class=responsive-table2] {
+            width: 80% !important;
+            float:right;
+            }
+            table td[class=webhide] {
+            width: 100%!important;
+            height: auto !important;
+            display:block !important;
+            margin-left:auto !important;
+            margin-right:auto !important;
+            }
+            table td[class=webhide2] {
+            width: 100%!important;
+            height: auto !important;
+            display:block !important;
+            margin-left:auto !important;
+            margin-right:auto !important;
+            padding-bottom:5px !important;
+            }
+            table td[class=spaceadjust] {
+            width: 100%!important;
+            height: auto !important;
+            display:block !important;
+            margin-left:auto !important;
+            margin-right:auto !important;
+            padding-bottom:5px !important;
+            }
+            img[class=mobile-view] {
+            width: 94%;
+            max-width: 100% !important;
+            height: auto !important;
+            display:block !important;
+            }
+            img[class=mobile-view2] {
+            width: 100%;
+            max-width: 100% !important;
+            height: auto !important;
+            display:block !important;
+            }
+            table td[class=mobilehide] {
+            width: 0% !important;
+            max-width: 0% !important;
+            height: 0 !important;
+            display:none !important;
+            padding: 0px !important;
+            }
+            table[class=mobilehide] {
+            width: 0% !important;
+            max-width: 0% !important;
+            height: 0 !important;
+            display:none !important;
+            padding: 0px !important;
+            }
+			table td[class=paddingfix]{
+				padding-left:35px !important;
+			}
+			table td[class=paddingfix2]{
+				padding-left:0px !important;
+				padding-right:10px !important;
+			}
+			*[class].paddingfix3{
+				
+				padding-bottom:200px !important;
+			}
+			table td[class=paddingfix4]{
+				padding-left:10px !important;
+				padding-right:10px !important;
+			}
+            table td[class=nopadding] {
+            padding:0px!important;
+            }
+			table td[class=nopaddingtop] {
+            padding:0px 0px 25px 0px!important;
+            }
+            ul li {
+            color:#00ac77;
+            margin: 2px 0px 0px -25px;
+            }
+            table td[class=heightsize2]
+            {
+            height:5px !important;
+            }
+            table[class=content-table-1] {
+            width: 100% !important;
+            }
+            td[class=block] {
+            display: block;
+            width: 100%;
+            }
+            td[class=mobilehide] {
+            width: 0% !important;
+            max-width: 0% !important;
+            height: 0 !important;
+            display:none !important;
+            padding: 0px !important;
+            }
+			td font[class=fontresize]{
+				font-size:90% !important;
+			}
+			td font[class=fontsize1]{
+				font-size:150% !important;
+			}
+			td font[class=fontsize2]{
+				font-size:80% !important;
+			}
+			td font[class=fontsize3]{
+				font-size:60% !important;
+			}
+			td font[class=fontsize4]{
+				font-size:80% !important;
+			}
+			 *[class].width390 {
+            width: 100%!important; }
+			 *[class].height448 {
+            height: 500px !important; }
+			*[class].height52 {
+            height: 50% !important;
+			padding-right:10px !important; 
+			padding-left:0px !important;
+			
+			}
+			*[class].paddingfixheadline{
+				padding-left:0px !important;
+				padding-right: 0px !important;
+			}
+			 *[class].bgcenter {
+            background-position: top!important;
+            background-size: 100% auto!important;
+            background-repeat: no-repeat!important;
+            }
+            }
+        </style>
+        <!--Responsive codindg ends---->
+        </head>
+<body style="-webkit-text-size-adjust:none;-ms-text-size-adjust:100%" bgcolor="#F0F0F0">
+        <div style="background:#F0F0F0;" align="center"><!--This code will help us to display Background on webmail clients--> 
+          <!-- View Online-->
+          <table bgcolor="#F0F0F0" class="responsive-table" width="600" height="20" align="center" border="0" cellpadding="2" cellspacing="0">
+          </table>
+          <!--View Online table ends here-->
+           <!-- Header Banner-->
+           
+           <table bgcolor="#000000" class="responsive-table" width="600" height="80" align="center" border="0" cellpadding="0" cellspacing="0">
+            <tbody>
+          
+              <tr>
+                <td style="font-family: Helvetica, Arial, sans-serif; font-size: 10px; color: #A0A0A0; padding-left:10px;" height="80" valign="middle" align="left" width="590"><a href="http://dazn.com"><img src="https://az687026.vo.msecnd.net/3697/dazn_logo_60.png" style="display:block;" border="0" class="responsive-logo" alt="DAZN Logo"></a></td>
+              </tr>
+              <tr>
+                <td height="33" bgcolor="#ffffff"></td>
+              </tr>
+            </tbody>
+          </table>
+          <!-- Header Banner ends here-->
+           <!-- Content Table starts here-->
+           
+           <table bgcolor="#ffffff" class="responsive-table" width="600" align="center" border="0" cellpadding="0" cellspacing="0">
+            <tbody>
+          	<tr>
+            	<td style="font-family: Helvetica, Arial, sans-serif; font-size: 12px; color: #000000;" align="left">
+                <table class="responsive-table" align="center" width="600" bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" style="display:block;">
+            <tbody>
+             
+              <tr>
+                <td style="font-family: Helvetica,Arial,sans-serif; font-size: 34px; color: rgb(0, 0, 0); font-weight: bold; padding: 0px 43px;"></td>
+              </tr>
+             
+              <tr>
+                <td style="font-family: Helvetica,Arial,sans-serif; font-size: 16px; color: rgb(0, 0, 0); padding: 0px 43px;" align="left">
+
+<!-- Body starts here -->
+Hello,<br><br>
+
+Two days ago we sent you an email about your enquiry ID: {!Case.CaseNumber}. We were looking forward to assisting further with your enquiry but have not heard back from you.<br><br>
+
+If your question has already answered there is no need to reply to this email and we will close your enquiry in 24 hours.<br><br>
+
+Best regards,<br>
+Your DAZN Team
+
+
+
+
+
+ </br>
+ </br>
+<hr>
+<br>
+  <center>Did you receive the help that you needed? </br></center>
+<br>
+<center>
+<a href="https://www.surveygizmo.com/s3/3713583/DAZN-Customer-Service-satisfaction-survey?snc=1500624565_5971b6b56bab82.42995019&sg_navigate=start&sglocale=en"><input type="button" value="YES"></a>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<a href="https://www.surveygizmo.com/s3/3713861/Customer-satisfaction-survey-DACH-negative?snc=1500624623_5971b6efba9125.00308484&sg_navigate=start&sglocale=en"><input type="button" value="NO">
+</center>
+
+
+
+
+
+
+<!-- Body ends here -->
+<br><br><font color="white" size="0">Case Thread ID: {!Case.Thread_Id}</font>
+</td>
+              </tr>
+              <tr>
+                <td height="33"></td>
+              </tr>
+            </tbody>
+          </table>
+                </td>
+            </tr>
+             
+              <tr>
+                <td  bgcolor="#F0F0F0" style="font-family: Helvetica, Arial, sans-serif; font-size: 10px; color: #F0F0F0;" height="25" valign="bottom" align="center"><a style="font-family: Helvetica, Arial, sans-serif; font-size: 12px; color: #A0A0A0;" href="https://my.dazn.com/help/de-en/privacy" target="_blank">Privacy Policy</a><font color="#A0A0A0">&nbsp;&nbsp;|&nbsp;&nbsp;</font><a style="font-family: Helvetica, Arial, sans-serif; font-size: 12px; color: #A0A0A0;" href="https://my.dazn.com/help/de-en/terms" target="_blank">Terms of Use</a></td>
+              </tr>
+               
+               <tr>
+                <td height="33" bgcolor="#F0F0F0"></td>
+              </tr>
+            </tbody>
+          </table>
+          <!-- Content Table ends here-->
+        </div>
+        <div style="display:none; white-space:nowrap; font:15px courier; color:#ffffff;">
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+</div>
+</body>
+</html>

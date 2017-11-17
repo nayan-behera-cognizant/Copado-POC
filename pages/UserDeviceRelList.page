@@ -1,0 +1,25 @@
+<apex:page standardController="Account" extensions="UserDeviceRelListController" tabStyle="User_Devices__c" showHeader="false" sidebar="false">
+
+  <apex:form id="userDevicesTable">
+    <apex:pageMessages />
+    <apex:pageBlock title="User Devices" mode="edit">
+       <apex:outputText rendered="{!AND(userDevices.size = 0, ISBLANK(errorMessage))}" value="{!$Label.DECoup_ErrMsg_No_devices_found_for_account}" />
+       <apex:pageMessage summary="{!errorMessage}" severity="error" strength="1" rendered="{!NOT(ISBLANK(errorMessage))}"/>
+         <apex:pageBlockTable value="{!userDevices}" var="userDevice" rendered="{!(userDevices.size != 0)}" >
+           <apex:column >
+                <apex:facet name="header">{!$Label.DECoup_Device_Id}</apex:facet>
+                <apex:outputText value="{!userDevice.deviceId}"/>
+           </apex:column>
+            <apex:column >
+                <apex:facet name="header">{!$Label.DECoup_Device_Type}</apex:facet>
+                <apex:outputText value="{!userDevice.deviceType}"/>
+           </apex:column> 
+           <apex:column >
+                <apex:facet name="header">{!$Label.DECoup_Registration_Date}</apex:facet>
+                <apex:outputText value="{!userDevice.registrationDate}"/>
+           </apex:column>
+         </apex:pageBlockTable>
+    </apex:pageBlock>
+  </apex:form>
+
+</apex:page>

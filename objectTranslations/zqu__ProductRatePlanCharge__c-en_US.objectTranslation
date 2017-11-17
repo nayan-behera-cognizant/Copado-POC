@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Accounting Code --></label>
+        <name>zqu__AccountingCode__c</name>
+    </fields>
+    <fields>
+        <label><!-- Apply Discount To One Time Charges --></label>
+        <name>zqu__Apply_Discount_To_One_Time_Charges__c</name>
+    </fields>
+    <fields>
+        <label><!-- Apply Discount To Recurring Charges --></label>
+        <name>zqu__Apply_Discount_To_Recurring_Charges__c</name>
+    </fields>
+    <fields>
+        <label><!-- Apply Discount To Usage Charges --></label>
+        <name>zqu__Apply_Discount_To_Usage_Charges__c</name>
+    </fields>
+    <fields>
+        <help><!-- The Default Quantity of the Rate Plan Charge. --></help>
+        <label><!-- Default Quantity --></label>
+        <name>zqu__DefaultQuantity__c</name>
+    </fields>
+    <fields>
+        <help><!-- Flag for soft deletion --></help>
+        <label><!-- Deleted --></label>
+        <name>zqu__Deleted__c</name>
+    </fields>
+    <fields>
+        <help><!-- The Description of the Rate Plan Charge. --></help>
+        <label><!-- Description --></label>
+        <name>zqu__Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Discount - Apply Type --></label>
+        <name>zqu__Discount_Apply_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Discount Level --></label>
+        <name>zqu__Discount_Level__c</name>
+        <picklistValues>
+            <masterLabel>Account</masterLabel>
+            <translation><!-- Account --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RatePlan</masterLabel>
+            <translation><!-- RatePlan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Subscription</masterLabel>
+            <translation><!-- Subscription --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- The List Price of the Rate Plan Charge. --></help>
+        <label><!-- List Price --></label>
+        <name>zqu__ListPrice__c</name>
+    </fields>
+    <fields>
+        <help><!-- The Maximum Quantity of the Rate Plan Charge. --></help>
+        <label><!-- Maximum Quantity --></label>
+        <name>zqu__MaxQuantity__c</name>
+    </fields>
+    <fields>
+        <help><!-- The Minimum Quantity of the Rate Plan Charge. --></help>
+        <label><!-- Minimum Quantity --></label>
+        <name>zqu__MinQuantity__c</name>
+    </fields>
+    <fields>
+        <help><!-- The Model of the Rate Plan Charge. --></help>
+        <label><!-- Model --></label>
+        <name>zqu__Model__c</name>
+        <picklistValues>
+            <masterLabel>Discount-Fixed Amount</masterLabel>
+            <translation><!-- Discount-Fixed Amount --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Discount-Percentage</masterLabel>
+            <translation><!-- Discount-Percentage --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Flat Fee</masterLabel>
+            <translation><!-- Flat Fee --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Overage</masterLabel>
+            <translation><!-- Overage --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Per Unit</masterLabel>
+            <translation><!-- Per Unit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tiered</masterLabel>
+            <translation><!-- Tiered --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tiered with Overage</masterLabel>
+            <translation><!-- Tiered with Overage --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Volume</masterLabel>
+            <translation><!-- Volume --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- The number of Periods that shall be Prepaid. --></help>
+        <label><!-- Prepaid Periods --></label>
+        <name>zqu__PrepaymentPeriods__c</name>
+    </fields>
+    <fields>
+        <label><!-- Price Table --></label>
+        <name>zqu__PriceTable__c</name>
+    </fields>
+    <fields>
+        <help><!-- The Rate Plan associated with this Rate Plan Charge. --></help>
+        <label><!-- Product Rate Plan --></label>
+        <name>zqu__ProductRatePlan__c</name>
+        <relationshipLabel><!-- Product Rate Plan Charges --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- The Recurring Period of the Rate Plan Charge. --></help>
+        <label><!-- Recurring Period --></label>
+        <name>zqu__RecurringPeriod__c</name>
+        <picklistValues>
+            <masterLabel>Annual</masterLabel>
+            <translation><!-- Annual --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Month</masterLabel>
+            <translation><!-- Month --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quarter</masterLabel>
+            <translation><!-- Quarter --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Semi-Annual</masterLabel>
+            <translation><!-- Semi-Annual --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Rev Rec Code --></label>
+        <name>zqu__RevRecCode__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tax Code --></label>
+        <name>zqu__TaxCode__c</name>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>zqu__Type__c</name>
+        <picklistValues>
+            <masterLabel>One-Time</masterLabel>
+            <translation><!-- One-Time --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Recurring</masterLabel>
+            <translation><!-- Recurring --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Usage</masterLabel>
+            <translation><!-- Usage --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- The Unit of Measure for this Rate Plan Charge. --></help>
+        <label><!-- UOM --></label>
+        <name>zqu__UOM__c</name>
+    </fields>
+    <fields>
+        <label><!-- Up To How Many Periods --></label>
+        <name>zqu__Upto_How_Many_Periods__c</name>
+    </fields>
+    <fields>
+        <label><!-- UOM --></label>
+        <name>zqu__ZUnitOfMeasure__c</name>
+        <relationshipLabel><!-- Unit Of Measure --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Uom Id --></label>
+        <name>zqu__ZUom_Id__c</name>
+    </fields>
+    <fields>
+        <help><!-- The Zuora Id (external primary key) of this Rate Plan Charge. --></help>
+        <label><!-- Zuora Id --></label>
+        <name>zqu__ZuoraId__c</name>
+    </fields>
+</CustomObjectTranslation>

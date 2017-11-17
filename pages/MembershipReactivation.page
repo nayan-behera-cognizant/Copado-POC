@@ -1,0 +1,160 @@
+<apex:page controller="MembershipReactivationController" showHeader="false" standardStylesheets="false">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <apex:includescript value="{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/js/jquery.min.js')}"/>
+    <apex:includescript value="{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/js/base-method-ember-styleguide.js')}"/>
+    <apex:includescript value="{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/js/vendor.js')}"/>
+    <apex:includescript value="{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/js/ember.js')}"/>
+    
+    <apex:stylesheet value="{!$Resource.LS_MyAccount_Css}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/css/styles.css')}" />
+    <apex:stylesheet value="{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/css/base-method-ember-styleguide.css')}" />
+    <apex:stylesheet value="{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/css/vendor.css')}" />    
+    
+    <style>
+        a {
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: none;
+        }
+        .labelTxt {
+            color: #AAA;
+        }
+        .edit-button {
+            font-weight: 600;
+        }
+        .custStyleBtn {
+            background-color: #fff;
+            border-radius: 0;
+            color: #000;
+            font-size: 1em !important;
+            padding-top: 15px !important;
+            width: 250px !important;
+        }
+        .divMargin {
+            margin-bottom: 40px;
+         }
+         .margBot20 {
+                margin-bottom: 20px;
+            }
+        @media screen and (max-width: 768px) {            
+            .custStyleBtn {
+                font-size: 0.875em !important;
+                width: 160px !important;
+            }
+            .edit-button {
+                font-size: 12px;
+            }
+            .MTSubAdjust{
+                padding:0px;
+        		margin-top:20px;
+            }
+        #helpHomeWrapper .BCSeperator{
+        width:100%;
+        }
+         .wrapMemberActivation #helpHomeWrapper{
+        padding-right:0px;
+        }
+        .wrapMemberActivation .navMyAcc{
+            margin:20px auto 30px auto;
+            }
+        }
+        @media screen and (min-width: 760px) {
+            body, html {
+                font-size: 16px;
+            }
+        }
+        /*Css fixes date:23-02-2016*/
+        @media screen and (min-width:768px) and (max-width:991px){
+         .MTSubAdjust{
+                padding:0px;
+        		margin-top:20px;
+            }
+         .wrapMemberActivation .navMyAcc{
+            margin:20px auto 30px auto;
+            }
+        
+        }
+        
+        .wrapperSubscribe{
+            margin-top:20px;
+        }
+        .margBot15{
+        margin-bottom:15px;
+        }
+        .navMyAcc{
+            border-bottom:1px solid #fff;
+            margin:0px auto 30px auto;
+            display:inline-block;
+            }
+       
+       /*Css fixes date:23-02-2016*/
+    </style>
+</head>
+
+    <apex:form >
+        <div class="container wrapMemberActivation">
+            <c:LS_Header />
+            <div class="col-md-12 padding0 wrapperSubscribe">
+                <div class="col-md-4 col-lg-4 padding0">
+                    <label for="input-id" class="foundryFontMedium">{!$Label.LS_MembershipReactivation_Label_ReactivateMembership}</label>
+                </div>
+                <div class="col-md-8 col-lg-8 divMargin MTSubAdjust" id="idmsgReactivateSubscription">
+                    <div>
+                        <apex:outputText escape="false" value="{!strReactivationMsg}"></apex:outputText>
+                        <br/><br/>
+                    </div>                    
+                </div>
+            </div>
+            <!--<div class="row divMargin">
+                <div class="col-md-4 col-lg-4"></div>
+                <div class="col-md-8 col-lg-8" id="idmsgReactivateSubscription">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 labelTxt">
+                            {!$Label.LS_MyAccount_Label_PaymentMethod}
+                        </div>
+                    </div>
+                    <div class="row">
+                       <!-- <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                            <b><apex:outputText rendered="{!paymentDetails != null && paymentDetails.Zuora__Type__c=='CreditCard'}" >{!$Label.LS_Credit_Card_Label_Change_Payment_Method}</apex:outputText></b>
+                            <b><apex:outputText value="{!$Label.LS_MyAccount_Label_Paypal}" rendered="{!paymentDetails != null && paymentDetails.Zuora__Type__c=='PayPal'}"></apex:outputText></b>
+                            <b><apex:outputText value="{!$Label.LS_MyAccount_Label_DirectDebit}" rendered="{!paymentDetails != null && paymentDetails.Zuora__Type__c=='BankTransfer'}"></apex:outputText></b>
+                        </div>-->
+                        <!--<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                            <apex:outputpanel styleClass="row" rendered="{!paymentDetails != null && paymentDetails.Zuora__Type__c=='CreditCard'}">
+                                <div><b><apex:outputText rendered="{!paymentDetails != null && paymentDetails.Zuora__Type__c=='CreditCard'}"> 
+                                    {!paymentDetails.Zuora__CreditCardType__c} {!if(paymentDetails != null, sCCMaskNumber, '')}
+                                    </apex:outputText></b></div>                                
+                            </apex:outputpanel> 
+                            <apex:outputpanel styleClass="row" rendered="{!paymentDetails != null && paymentDetails.Zuora__Type__c=='BankTransfer'}">
+                                <b>{!$Label.LS_PaymentHistory_Label_Directdebit} {!if(paymentDetails != null, sCurrentBTAccountNumber, '')}</b>
+                            </apex:outputpanel> 
+                            <apex:outputpanel styleClass="row" rendered="{!paymentDetails != null && paymentDetails.Zuora__Type__c=='PayPal'}">
+                                <b>{!sCurrentPaypalEmail}</b>
+                            </apex:outputpanel>              
+                        </div>                                    
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 txtUpperCase foundryFontMedium" style="text-align:right">
+                            <apex:commandLink value="{!$Label.LS_Button_Edit}" action="{!navigationHandler}" styleClass="edit-button link-unique">
+                                <apex:param value="ChangePaymentMethod" name="PageName"/>
+                            </apex:commandLink>                                      
+                        </div>
+                    </div>
+                </div>
+            </div>-->
+            
+            <div class="row pull-right margBot15">
+                <!--<div class="col-md-4 col-lg-4"></div>-->
+                <div class="col-md-8 col-lg-8 margBot20">                        
+                    <apex:outputPanel styleClass="ember-view form-fields--form-button-e53320ec primary">
+                        <apex:commandLink id="idReactivateMemberBtn" value="{!$Label.LS_MyAccount_Button_ConfirmReactivate}" action="{!ReactivateMembership}" styleClass="wrapper btn txtUpperCase custStyleBtn"/>
+                    </apex:outputPanel>
+                </div>
+            </div>
+            <c:LS_Footer />
+        </div>
+        
+    </apex:form>
+</apex:page>

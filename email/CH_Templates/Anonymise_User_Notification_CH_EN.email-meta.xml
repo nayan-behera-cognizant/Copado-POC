@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Anonymise User Notification</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Anonymise User Notification -CH-EN</name>
+    <style>none</style>
+    <subject>Your account has been deleted</subject>
+    <textOnly>Hello {!Account.Cached_FirstName__c}, 
+
+Thank you for contacting us. 
+
+As requested we have deleted your account from our database. 
+
+We wish you all the best and hope to see you again in the future. 
+
+Kind regards, 
+Your DAZN team 
+
+Privacy Policy: https://my.dazn.com/help/ch-en/privacy 
+Terms of Use: https://my.dazn.com/help/ch-en/terms</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>登録出来ないとお問い合わせがあったが、確認するとFree Trialで登録済。</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>登録できない→無事完了</name>
+    <style>none</style>
+    <subject>【DAZNカスタマーサービス】お問い合わせありがとうございます。</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

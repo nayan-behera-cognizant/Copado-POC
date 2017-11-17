@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Skill xmlns="http://soap.sforce.com/2006/04/metadata">
+    <assignments>
+        <users>
+            <user>dboth002@ec.sitel.com.livesport</user>
+            <user>dpiet001@ec.sitel.com.livesport</user>
+            <user>fpatz001@ec.sitel.com.livesport</user>
+            <user>gwypy001@ec.sitel.com.livesport</user>
+            <user>hbuch004@ec.sitel.com.livesport</user>
+            <user>jbeye003@ec.sitel.com.livesport</user>
+            <user>kandr017@ec.sitel.com.livesport</user>
+            <user>kilian.kouschil@sitel.com.livesport</user>
+            <user>knoet001@ec.sitel.com.livesport</user>
+            <user>mmurz001@ec.sitel.com.livesport</user>
+            <user>mvill227@ec.sitel.com.livesport</user>
+            <user>mknoe001@ec.sitel.com.livesport</user>
+            <user>mstop001@ec.sitel.com.livesport</user>
+            <user>nferc001@ec.sitel.com.livesport</user>
+            <user>rweis003@ec.sitel.com.livesport</user>
+            <user>skies003@ec.sitel.com.livesport</user>
+            <user>vtont002@ec.sitel.com.livesport</user>
+            <user>zhass001@ec.sitel.com.livesport</user>
+            <user>sergey.koreshkov@codeswat.com</user>
+        </users>
+    </assignments>
+    <label>Generic DE</label>
+</Skill>

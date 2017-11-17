@@ -1,0 +1,53 @@
+{!Case.Account_Name_JA__c}様 
+
+この度はお問い合わせいただきまして、誠にありがとうございます。 
+DAZN（ダ・ゾーン）カスタマーサービスの{!Case.OwnerLastName}と申します。 
+
+お問い合わせいただきました内容につきましてご案内させていただきます。 
+
+-------【お問合せ内容】----------------------- 
+{!Case.Description} 
+-------------------------------------------- 
+
+恐れ入りますが、PS3、PS4に関しましては対応準備中となっております。
+また、Apple TV、Chromecastに関しましては今後の対応予定は現在未定となっております。 
+
+貴重なご意見としてサービス向上に役立たせていただき、DAZNをお楽しみいただけるデバイスが追加された際は 
+サイト内ヘルプページにて情報を掲載させていだきます。 
+
+ヘルプページURL：https://my.dazn.com/help/JP-ja/about-recommended-devices
+
+尚、DAZNの推奨環境は以下の通りになります。
+※海外製の端末で一部視聴ができないものがあります。あらかじめご了承ください。
+
+■WEB OS
+・Windows8.1、Windows10、MacOSX以上のデバイス
+
+■WEBブラウザ
+・最新バージョンの「Google Chrome、Firefox、Safari、Internet Explorer」
+Firefoxをご利用の際は、Silverlightをインストールしてください。
+
+■MOB（アプリ）
+・iOS ： 8.0以上のデバイス
+※HDMI変換アダブタを使用した視聴について、現在、対応準備中となっております。お楽しみいただこうとしていたお客様にはご不便をおかけしてしまい大変申し訳ございません。
+・Android ： 5.0以上のデバイス
+
+■AmazonFireTV / AmazonFire TV Stick
+・AmazonAppStoreからDAZNアプリのダウンロードをお願いいたします
+
+■スマートテレビ、
+・AndroidTV (SONY、TOSHIBA、SHARPなど)
+※TOSHIBA,SHARPはもう少しお待ちください！！
+・LG Smart TV webOS
+・LG Smart TV (2013+)
+・Panasonic Smart TV (2014+)
+・Panasonic Firefox OS
+・SONY BRAVIA TV (まもなく対応予定)
+
+その他にご不明な点等ございましたらお気軽にお問い合わせくださいませ。 
+
+今後ともよりよいサービスの提供につとめてまいりますので、 
+引き続きDAZNをご愛顧賜りますよう、宜しくお願い申し上げます。 
+
+DAZNカスタマーサービス 
+{!Case.OwnerLastName}

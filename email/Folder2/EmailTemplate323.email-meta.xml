@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>UTF-8</encodingKey>
+    <name>【非会員】退会後、個人情報は消去されますか？</name>
+    <style>none</style>
+    <subject>【DAZNカスタマーサービス】お問い合わせありがとうございます</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

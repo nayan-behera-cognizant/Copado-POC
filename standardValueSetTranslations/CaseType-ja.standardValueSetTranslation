@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSetTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <valueTranslation>
+        <masterLabel>Catch Up Issue</masterLabel>
+        <translation>見逃し配信に関する問題</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Content, app and functionality</masterLabel>
+        <translation>コンテンツやアプリ、機能について</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Feedback</masterLabel>
+        <translation>DAZNに対するご意見</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Getting started in registration</masterLabel>
+        <translation>ご利用開始前の手引き</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Live Stream Issue</masterLabel>
+        <translation>ライブ動画に関する問題</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Log in issue</masterLabel>
+        <translation>ログインに関する問題</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>My Account and payment</masterLabel>
+        <translation>アカウントや支払いに関する質問</translation>
+    </valueTranslation>
+</StandardValueSetTranslation>

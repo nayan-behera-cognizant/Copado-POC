@@ -1,0 +1,16 @@
+Hello {!Case.Account_Name_JA__c}, 
+
+Thank you very much for contacting us regarding payment methods.
+
+Currently, we only accept credit card or debit card that issued in Japan (VISA, American Express, JCB, MASTER CARD).
+
+We are sorry for the inconvenience.. We are trying to making other payment methods available.
+We hope you will find the payment methods you can use.
+
+If there are any questions on payment methods or request, please let us know at any time.
+We will be happy to be of your help.
+
+Thank you and kind regards, 
+
+{!Case.OwnerLastName}
+Your DAZN team

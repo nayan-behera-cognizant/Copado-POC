@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Email response to inform customers that the login and sign up issues have been resolved</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>_Sitel DE Login Issue Resolve</name>
+    <style>none</style>
+    <subject>Einlog- und Anmeldeprobleme</subject>
+    <textOnly>Hallo Sportsfreund,
+
+Vielen Dank für deine Nachricht zu den Einlog- und Anmeldeproblemen. Wir haben in den letzten Wochen sehr viel getestet, damit beim Start von DAZN alles komplett reibungslos ablaufen wird.
+
+Wie du leider gemerkt hast, gab es dennoch ein Problem, aber unsere Techniker haben es bereits geschafft das Problem zu lösen und du solltest dich nun wieder ohne Probleme anmelden oder registrieren können.
+
+Wir möchten uns bei dir für diese Unannehmlichkeiten entschuldigen und freuen uns darauf zusammen mit dir in den nächsten Wochen bei den spannenden Sportevents mitfiebern zu können.
+
+Solltest du weitere Fragen an uns haben, dann sind wir gerne weiterhin für dich da.
+
+Schöne Grüße
+Dein DAZN Team</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

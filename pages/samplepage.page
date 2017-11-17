@@ -1,0 +1,9 @@
+<apex:page controller="SamplePageCon">
+<apex:form >
+ 
+ <apex:pageBlock >
+ <apex:pageMessages />
+ </apex:pageBlock>
+</apex:form>
+ {!cases.account.Partner_ID__c}
+</apex:page>

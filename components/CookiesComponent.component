@@ -1,0 +1,215 @@
+<apex:component controller="LS_FooterComponentController" >
+   <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale = 1.0" />
+        <apex:stylesheet value="{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/css/base-method-ember-styleguide.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/css/vendor.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/css/styles.css')}" />
+        <apex:includescript value="{!URLFOR($Resource.AngularJs,'angular.min.js')}"/>
+        <apex:includescript value="{!URLFOR($Resource.AngularJs,'angular-sanitize.min.js')}"/>
+        <apex:includescript value="{!URLFOR($Resource.AngularJs,'angular-route.min.js')}"/>
+        <apex:includescript value="{!URLFOR($Resource.LS_JQuery)}"/>
+        <apex:includescript value="{!URLFOR($Resource.Jqueryforcookie)}"/>
+
+        <style type="text/css">
+        /* sticky footer*/
+        body {
+            padding-bottom: 65px;
+        }
+        body.langJa {
+            padding-bottom: 80px;
+        }
+        .cookieFooterbg {
+            bottom: 0;
+            position: fixed;
+            width: 100%;
+            background-color: #ffffff;
+            z-index: 999999;
+            left: 0;
+            right: 0;
+            overflow: visible;
+            height: 80px;
+        }
+        .cookieFooter {
+            padding: 15px 1px 20px;
+        }
+        
+        .cookieFooter p {
+              font-family: Helvetica, Arial;
+              font-size: 16px;
+              /*line-height: 1.1;*/
+              color: #5d5d5d;
+              margin-top: 1em;
+        }
+        .cookieFooter a {
+              font-family: Helvetica, Arial;
+              font-size: 16px;
+              line-height: 1.1;
+              color: #5d5d5d;
+              border-bottom: 1px solid #5d5d5d;
+              text-decoration: none;
+        }
+        .cookieFooter a.learn-more:hover {
+              color: #5d5d5d !important;
+        }
+            .cookieFooter .form-fields--form-button-e53320ec.primary .wrapper::after, .cookieFooter .form-fields--form-button-e53320ec.primary .wrapper::before{
+                margin-top:-10px;
+            }
+            .cookieFooter .form-fields--form-button-e53320ec.primary .wrapper.custStyleBtn.closeBtn.desktop {
+                background-color: #1d1d1d;
+                font-family: "FoundryGridnik W01-Regular";
+                color: #ffffff !important;
+                letter-spacing: 0 !important;
+                text-decoration: none;
+                font-size: 16px  !important;
+                padding: 0  !important;
+                line-height: 28px !important;
+                text-align: center;
+                border-radius: 0px;
+                width: 90px  !important;
+                height: 35px !important;
+                text-transform: uppercase;
+                float: right;
+                border: 4px solid #1d1d1d !important; 
+                border-bottom: 0 none;
+                height: auto;
+                margin: 0;
+            }
+            .langDe .cookieFooter .form-fields--form-button-e53320ec.primary .wrapper.custStyleBtn.closeBtn.desktop {
+                width: 130px  !important;
+            }
+            .cookieFooter .form-fields--form-button-e53320ec.primary  .closeBtn.mobile {
+                display: none;
+            }
+            .cookieFooter .form-fields--form-button-e53320ec.primary .wrapper:before {
+                border-left: 10px solid #ffffff;
+            }
+            .cookieFooter .form-fields--form-button-e53320ec.primary .wrapper:after {
+                border-right: 10px solid #ffffff;
+            }
+            .cookieFooter a:hover {
+                text-decoration: none;
+            }
+            
+            @media screen and (min-width:320px) and (max-width:599px) {
+                .cookieFooter .form-fields--form-button-e53320ec.primary .wrapper.custStyleBtn.closeBtn.desktop {
+                    display: none;
+                }
+                .cookieFooter .form-fields--form-button-e53320ec.primary .closeBtn.mobile { 
+                   display: block;
+                    width: 26px;
+                    height: 37.8px;
+                    border-bottom: 0 none;
+                    font-weight: bold;
+                    color: #000000;
+                    font-size: 18px;
+                }
+                .cookieFooter p, .cookieFooter a {
+                    font-size: 14px;
+                    line-height: 1.3;
+                    margin-top: 0;
+                }
+                .cookieFooter {
+                    background-color: #ffffff;
+                    padding: 15px 1px 16px;
+                }
+                .cookieFooter .form-fields--form-button-e53320ec.primary {
+                    padding: 0;
+                }
+                .cookieFooter .form-fields--form-button-e53320ec.col-xs-1 {
+                    width: 8.33333333% !important;
+                    height: auto;
+                    margin-bottom: 0;
+                }
+                .cookieFooterbg {
+                    height: 100px;
+                }
+                body.langJa .cookieFooterbg {
+                    height: 125px;
+                }
+                body.langJa, body {
+                    padding-bottom: 100px;
+                }
+            }  
+            
+            @media screen and (min-width: 600px) and (max-width: 1024px) {
+                .cookieFooterbg {
+                    height: 90px;
+                }
+                .cookieFooter .form-fields--form-button-e53320ec.col-sm-4 {
+                    width: 33.33333333% !important;
+                    height: auto;
+                    margin-bottom: 0;
+                    display: inline-block;
+                    vertical-align: middle;
+                    float: none;
+                }
+                .cookieFooter .col-sm-8 {
+                    width: 66% !important;
+                    float: none;
+                    display: inline-block;
+                    vertical-align: middle;
+                }
+                .cookieFooter p {
+                    margin-top: 0;
+                    margin-bottom: 0;
+                }
+            } 
+            
+            @media screen and (min-width: 1025px) {
+                .cookieFooter .form-fields--form-button-e53320ec.col-lg-2 {
+                    width: 16.66666667%  !important;
+                    height: auto;
+                    margin-bottom: 0;
+                }
+            }
+            
+            @media screen and (min-width:1120px) {
+                .cookieFooter {
+                    width: 1000px;
+                    margin: auto;
+                }
+                body.langJa .cookieFooter {
+                    width: 1100px;
+                }
+                .cookieFooter .col-lg-10, .cookieFooter .col-lg-2 {
+                    padding: 0;
+                }
+                .cookieFooter p {
+                    margin-top: 10px;
+                }
+                .cookieFooter .form-fields--form-button-e53320ec.primary {
+                    margin-top: 5px;
+                    float: right;
+                }
+            }
+</style>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                var cookie_status = $.cookie("terms_Accepted");
+                if(cookie_status) {
+                    $(".cookieFooterbg").hide();
+                    $('body').css("padding-bottom", "0");
+                    $("body").addClass("containerLogin");
+                } 
+            });
+            closeBanner = function () {
+                $(".cookieFooterbg").hide();
+                $.cookie("terms_Accepted", "cookie_setted");
+                $('body').css("padding", "0");
+                $(".container-fluid").addClass("containerLogin");
+            }
+        </script>
+    </head>
+    <div class="cookieFooterbg">
+        <div class="cookieFooter">
+            <div class="col-xs-11 col-sm-8 col-lg-10">
+                <p>{!$Label.LS_Cookie_Message} <a href="{!privacyURL}" class="learn-more">{!$Label.LS_Cookie_link_learnMore}</a>.</p>
+            </div>
+            <div class="col-xs-1 col-sm-4 col-lg-2 form-fields--form-button-e53320ec primary">
+                <a href="javascript:void(0);" class="btn txtUpperCase custStyleBtn wrapper closeBtn desktop" onclick="closeBanner();">{!$Label.LS_Cookie_Button_Close}</a>
+                <a href="javascript:void(0);" class="closeBtn mobile" onclick="closeBanner();">{!$Label.LS_Cookie_btn_mobile_close}</a>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</apex:component>

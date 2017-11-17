@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>見逃し配信の期限、ジオブロック、リリースあるのにスケジュールにない件、課金周りのバグに関する問合せ用</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>権利・課金・タイル関連</name>
+    <style>none</style>
+    <subject>【DAZNカスタマーサービス】お問い合わせありがとうございます。</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LiveChatAgentConfig xmlns="http://soap.sforce.com/2006/04/metadata">
+    <assignments>
+        <profiles>
+            <profile>admin</profile>
+            <profile>customer service team management</profile>
+            <profile>customer service team member</profile>
+            <profile>customer service team member_jp</profile>
+            <profile>surge cs agent</profile>
+        </profiles>
+    </assignments>
+    <autoGreeting>Welcome {!LiveAgent_VisitorName} to LIVESPORT Private Exchange</autoGreeting>
+    <capacity>5</capacity>
+    <criticalWaitTime>60</criticalWaitTime>
+    <customAgentName>DAZN</customAgentName>
+    <enableAgentFileTransfer>true</enableAgentFileTransfer>
+    <enableAgentSneakPeek>true</enableAgentSneakPeek>
+    <enableAssistanceFlag>false</enableAssistanceFlag>
+    <enableAutoAwayOnDecline>false</enableAutoAwayOnDecline>
+    <enableAutoAwayOnPushTimeout>false</enableAutoAwayOnPushTimeout>
+    <enableChatConferencing>true</enableChatConferencing>
+    <enableChatMonitoring>true</enableChatMonitoring>
+    <enableChatTransferToAgent>true</enableChatTransferToAgent>
+    <enableChatTransferToButton>true</enableChatTransferToButton>
+    <enableChatTransferToSkill>true</enableChatTransferToSkill>
+    <enableLogoutSound>true</enableLogoutSound>
+    <enableNotifications>true</enableNotifications>
+    <enableRequestSound>true</enableRequestSound>
+    <enableSneakPeek>true</enableSneakPeek>
+    <enableVisitorBlocking>false</enableVisitorBlocking>
+    <enableWhisperMessage>true</enableWhisperMessage>
+    <label>LIVESPORT Agents</label>
+    <supervisorDefaultAgentStatusFilter>Online</supervisorDefaultAgentStatusFilter>
+    <supervisorDefaultSkillFilter>Generic_En_CA</supervisorDefaultSkillFilter>
+    <supervisorSkills>
+        <skill>Generic_DE</skill>
+        <skill>Generic_En_CA</skill>
+        <skill>Generic_En_DE</skill>
+        <skill>Generic_En_JP</skill>
+        <skill>Generic_Fr</skill>
+        <skill>Generic_JA</skill>
+    </supervisorSkills>
+    <transferableButtons>
+        <button>LIVESPORT_Chat_CA</button>
+        <button>LIVESPORT_Chat_En_CA</button>
+        <button>LIVESPORT_Chat_En_JP</button>
+        <button>LIVESPORT_Chat_JA</button>
+        <button>LIVESPORT_Chat_En_DE</button>
+        <button>LIVESPORT_Chat_DE</button>
+    </transferableButtons>
+    <transferableSkills>
+        <skill>Generic_DE</skill>
+        <skill>Generic_En_CA</skill>
+        <skill>Generic_En_DE</skill>
+        <skill>Generic_En_JP</skill>
+        <skill>Generic_Fr</skill>
+        <skill>Generic_JA</skill>
+    </transferableSkills>
+</LiveChatAgentConfig>

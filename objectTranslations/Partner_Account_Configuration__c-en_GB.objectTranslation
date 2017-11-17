@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Partner Account Configuration</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Partner Account Configuration</value>
+    </caseValues>
+    <fields>
+        <label><!-- Can Change Payment Method --></label>
+        <name>Can_Change_Payment_Method__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cancel Subscription URL Large --></label>
+        <name>Cancel_Subscription_URL_Large__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cancel Subscription URL Medium --></label>
+        <name>Cancel_Subscription_URL_Medium__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cancel Subscription URL Small --></label>
+        <name>Cancel_Subscription_URL_Small__c</name>
+    </fields>
+    <fields>
+        <label><!-- Change Payment method URL --></label>
+        <name>Change_Payment_method_URL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Change password email --></label>
+        <name>Change_password_email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Double opt in email --></label>
+        <name>Double_opt_in_email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Email Editable --></label>
+        <name>Email_Editable__c</name>
+    </fields>
+    <fields>
+        <label><!-- First Name Editable --></label>
+        <name>First_Name_Editable__c</name>
+    </fields>
+    <fields>
+        <label><!-- Forgot your password URL --></label>
+        <name>Forgot_your_password_URL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Name Editable --></label>
+        <name>Last_Name_Editable__c</name>
+    </fields>
+    <fields>
+        <label><!-- Manage Account URL Large --></label>
+        <name>Manage_Account_URL_Large__c</name>
+    </fields>
+    <fields>
+        <label><!-- Manage Account URL Medium --></label>
+        <name>Manage_Account_URL_Medium__c</name>
+    </fields>
+    <fields>
+        <label><!-- Manage Account URL Small --></label>
+        <name>Manage_Account_URL_Small__c</name>
+    </fields>
+    <fields>
+        <label><!-- Name change email --></label>
+        <name>Name_change_email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Page Name --></label>
+        <name>Page_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Partner Type --></label>
+        <name>Partner_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payment History URL --></label>
+        <name>Payment_History_URL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payment failure email --></label>
+        <name>Payment_failure_email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payment success email --></label>
+        <name>Payment_success_email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Show Device Section --></label>
+        <name>Show_Device_Section__c</name>
+    </fields>
+    <fields>
+        <label><!-- Show Language Section --></label>
+        <name>Show_Language_Section__c</name>
+    </fields>
+    <fields>
+        <label><!-- Show Marketing Opt In Section --></label>
+        <name>Show_Marketing_Opt_In_Section__c</name>
+    </fields>
+    <fields>
+        <label><!-- Show Personal Details --></label>
+        <name>Show_Personal_Details__c</name>
+    </fields>
+    <fields>
+        <label><!-- Show Subscription --></label>
+        <name>Show_Subscription__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sign Out Of All Devices Allowed --></label>
+        <name>Sign_Out_Of_All_Devices_Allowed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Subscription Type Heading Text-Ja --></label>
+        <name>Subscription_Type_Heading_Text_Ja__c</name>
+    </fields>
+    <fields>
+        <label><!-- Subscription Type Heading Text --></label>
+        <name>Subscription_Type_Heading_Text__c</name>
+    </fields>
+    <fields>
+        <label><!-- Subscription Type Sub Heading Text-Ja --></label>
+        <name>Subscription_Type_Sub_Heading_Text_Ja__c</name>
+    </fields>
+    <fields>
+        <label><!-- Subscription Type Sub Heading Text --></label>
+        <name>Subscription_Type_Sub_Heading_Text__c</name>
+    </fields>
+    <fields>
+        <label><!-- Updated payment method email --></label>
+        <name>Updated_payment_method_email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Welcome Email --></label>
+        <name>Welcome_Email__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

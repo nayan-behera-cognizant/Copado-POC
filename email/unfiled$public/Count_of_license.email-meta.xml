@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Count of license</name>
+    <style>none</style>
+    <subject>System generated alert: You have consumed {!License_Alert__c.Consumed_in_percentage__c}% of your {!License_Alert__c.Name} in Salesforce {!Organization.Name}</subject>
+    <textOnly>Hello Ops team   This is the system generated notification for Salesforce licenses Consumption.   This alert is related to License type : {!License_Alert__c.Name}   Total Available {!License_Alert__c.Name}: {!License_Alert__c.00N260000011dbM}  Total Consumed till date  : {!License_Alert__c.Consumed__c}  Percentage Consumed   : {!License_Alert__c.Consumed_in_percentage__c} (%)   This alert is generated from Salesforce {!Organization.Name}   Regards  Salesforce Admin</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

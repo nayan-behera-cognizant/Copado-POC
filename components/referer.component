@@ -1,0 +1,3 @@
+<apex:component controller="RefererCon">
+     <apex:attribute name="pageNameAct" assignTo="{!pageNameReferer }" description="Current page name" type="String" required="true"/>
+</apex:component>

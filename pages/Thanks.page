@@ -1,0 +1,339 @@
+<apex:page controller="ThanksController"
+    contentType="text/html; charset=utf-8"
+    showHeader="false"
+    language="{! IF(BEGINS(UPPER($CurrentPage.parameters.lang), 'EN'), IF($CurrentPage.parameters.Country == 'CA', 'en_US', 'en_GB'), $CurrentPage.parameters.lang) }"
+    standardStylesheets="false"
+    sidebar="false"
+    applyHtmlTag="false"
+    docType="html-5.0"
+>
+
+<c:FetchLanguageCookie myPageName="thanks" areaToRefreshName="thanksRerender" />
+<apex:outputPanel id="thanksRerender">
+
+  <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <title>{!$Label.LS_Thanks_Title}</title>
+      <meta name="google-site-verification" content="1m_JV80vU3gln3KyYeAm5woixeUHQOvhrbGjS-0g6J0" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="description" content="{!$Label.LS_Thanks_Description}" />
+      <meta name="keywords" content="{!$Label.LS_Thanks_Keywords}" />
+      <apex:includescript value="{!URLFOR($Resource.LS_JQuery)}"/>
+      <apex:includescript value="{!URLFOR($Resource.AngularJs,'angular.min.js')}"/>  
+      <link REL="SHORTCUT ICON" HREF="{!URLFOR($Resource.DAZN_favicon_default)}" />
+      <link REL="apple-touch-icon" sizes="57x57" HREF="{!URLFOR($Resource.DAZN_appletouchicon57_57 )}" />
+      <link REL="apple-touch-icon" sizes="60x60" HREF="{!URLFOR($Resource.DAZN_appletouchicon60_60 )}" />
+      <link REL="apple-touch-icon" sizes="72x72" HREF="{!URLFOR($Resource.DAZN_appletouchicon72_72 )}" />
+      <link REL="apple-touch-icon" sizes="76x76" HREF="{!URLFOR($Resource.DAZN_appletouchicon76_76 )}" />
+      <link REL="apple-touch-icon" sizes="114x114" HREF="{!URLFOR($Resource.DAZN_appletouchicon144_144 )}" />
+      <link REL="apple-touch-icon" sizes="120x120" HREF="{!URLFOR($Resource.DAZN_appletouchicon120_120 )}" />
+      <link REL="apple-touch-icon" sizes="144x144" HREF="{!URLFOR($Resource.DAZN_appletouchicon144_144 )}" />
+      <link REL="apple-touch-icon" sizes="152x152" HREF="{!URLFOR($Resource.DAZN_appletouchicon152_152 )}" />
+      <link REL="apple-touch-icon" sizes="180x180" HREF="{!URLFOR($Resource.DAZN_appletouchicon180_180 )}" />
+      <link REL="icon" type="image/png" HREF="{!URLFOR($Resource.DAZN_favicon_32_32 )}"  sizes="32x32"/>
+      <link REL="icon" type="image/png" HREF="{!URLFOR($Resource.DAZN_androidchrome192_192 )}"  sizes="192x192" />
+      <link REL="icon" type="image/png" HREF="{!URLFOR($Resource.DAZN_favicon_96_96 )}"  sizes="96x96" />
+      <link REL="icon" type="image/png" HREF="{!URLFOR($Resource.DAZN_favicon_16_16 )}"  sizes="16x16" /> 
+      <link rel="mask-icon" href="{!URLFOR($Resource.DAZN_favicon_svg16_16 )}"  color="#000" />
+      <link rel="icon" type="image/svg" sizes="any" href="{!URLFOR($Resource.DAZN_favicon_svg16_16 )}" />
+    </head>
+    <body>
+        <!-- Google Tag Manager -->
+        <c:GTMHeader sPageName="thanks"></c:GTMHeader>
+        <!-- End Google Tag Manager -->
+        
+        <apex:form >
+            <div >
+            <div class="container">
+                <c:LS_HelpHeader />
+                <hr class="hrMenu marginBottom20"/>
+                
+                <div class="row">
+                    <div class="col-lg-4 hidden-sm hidden-xs hidden-md">&nbsp;</div>
+                    <div class="col-lg-7 col-md-10 col-xs-12">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 divThanks">
+                            <h1 class ="thanks">
+                                {!$Label.LS_Thanks_Label_Thanks}
+                            </h1>
+                            <div class = "row textpara">
+                                <apex:outputText value="{!thanksInfoMsg}" escape="false" /> <!--Modified as part of PD-13525 -->
+                            </div>
+                        </div>
+                        <div class="text-right confirmBtns row">
+                            <div class="margTop1 col-sm-3 col-md-3 col-lg-3 col-xs-5 floatRight marginRightBtn">
+                                <apex:outputPanel styleClass="ember-view form-fields--form-button-e53320ec primary">
+                                    <apex:commandLink value="{!$Label.LS_Thanks_Label_Home}" id="GoHomeButton" action="{!redirectToHome}" styleClass="wrapper btn txtUpperCase custStyleBtn" />
+                                </apex:outputPanel>
+                            </div>
+                            <div class="membershipLink col-sm-7 col-md-7 col-lg-7 col-xs-7 floatRight">
+                                <span class="customSpanStyle">
+                                    <apex:outputLink value="{! '/help/' + $CurrentPage.parameters.Country + '-' + $CurrentPage.parameters.lang }" styleClass="cancelLink" >
+                                        {!$Label.LS_HELP_BACKTOHELP}
+                                    </apex:outputLink>
+                                </span>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+            <c:LS_Help_Footer myPageName="thanks" />
+            <c:LS_FooterCookie renderLangSwitcher="false" areaToRefreshName="thanksRerender" />
+            </div>
+        </apex:form>
+        <c:CookiesComponent />
+
+        <script type="text/javascript">
+            var sLang = '{!oUser.LanguageLocaleKey}',
+            strLanguage = '{!strLanguage}',
+            sLangS = sLang.split("_")[0];
+            var countryName = '{!sCountry}'.toLowerCase();
+            if ((sLangS.toLowerCase() === "ja" && countryName === "jp") || (sLangS.toLowerCase() === "en" && countryName === "jp")) {
+                $("#helpFooter").addClass("helpFooterSection");
+                $(".footerSec").removeClass("pull-right").addClass("pull-left");
+            } else {
+                $("#helpFooter").removeClass("helpFooterSection");
+                $(".footerSec").addClass("pull-right").removeClass("pull-left");
+            }
+            if (sLang == 'ja' || strLanguage === "ja"){
+                // add lang class in body
+                $('body').addClass('langJa');
+            }
+            if (sLang == 'de' || strLanguage === "de") {
+                // add lang class in body
+                $('body').addClass('langDe');
+            }
+            if (countryName == 'jp' || countryName == 'japan') {
+               $(".cookieFooterbg").hide(); 
+               $('body').css("padding-bottom", "0");
+            } else {
+               $(".cookieFooterbg").show(); 
+               $('body').css("padding-bottom", "65px");
+            }
+
+            var meta = document.getElementsByTagName("meta");
+            for (var i = 0; i < meta.length; i++) {
+                if (meta[i].name.toLowerCase() == "description") {
+                    meta[i].content = "Added by javascript";
+                }
+            }
+        </script>
+
+        <apex:stylesheet value="{!$Resource.LS_MyAccount_Css}"/>
+        <apex:stylesheet value="{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/css/base-method-ember-styleguide.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/css/vendor.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/css/styles_v1.css')}" />
+        
+        <style>
+            @font-face {
+                font-family: FoundryGridnikMedium;
+                src: url("{!URLFOR($Resource.LS_Fonts, 'fonts/e166cc28-0998-4899-95b7-a7e10c43f5b4.woff')}") format('woff'),
+                     url("{!URLFOR($Resource.LS_Fonts, 'fonts/e5fe4185-5567-4a59-92fb-932786fb141a.ttf')}") format('ttf'),
+            }
+            .foundryFontMedium{
+                font-family: "FoundryGridnik W01-Medium";
+            }
+            @font-face {
+                font-family: FoundryGridnikRegular;
+                src: url("{!URLFOR($Resource.LS_Fonts, 'fonts/0a356e3d-6631-41d7-947c-97ee6fa9bdb3.woff')}") format('woff'),
+                     url("{!URLFOR($Resource.LS_Fonts, 'fonts/e5fe4185-5567-4a59-92fb-932786fb141a.ttf')}") format('ttf'),
+            }
+            .foundryFontRegular{
+                font-family: "FoundryGridnik W01-Regular";
+            }
+            body{
+                font-family: "FoundryGridnik W01-Medium";
+            }
+            .panel-body {
+                background-color: black;
+            }
+            .btn-primary {
+                color: black;
+                background-color: white;
+                border-color: black;
+            }
+            body{
+                background-color:black;
+                color:white;
+            }
+            .btn-primary:hover {
+                color: black;
+                background-color: white;
+                border-color: black;
+            }
+            h3 {
+                text-decoration: underline;
+            }
+            a.navHelp  { 
+              color: white;
+              font-size: 20px !important;
+              text-decoration:none;
+              font-weight:bold !important;
+            }
+            a{
+                color: White;
+                text-decoration: none;
+            }
+            .jumbotron {
+                background-color: transparent;
+            }
+            .container .container.foundryFontMedium {
+                padding-left: 0;
+                padding-right: 0;
+                width: auto;
+            }
+            a.cancelLink{
+              color: white;
+                font-weight: normal;
+                margin: 0 10px;
+                text-decoration: none;
+                font-family: "FoundryGridnik W01-Regular";
+                font-size: 14px;
+                border-bottom: 1px solid #ffffff;
+            }
+            .form-fields--form-button-e53320ec.primary .wrapper.custStyleBtn {
+                background-color: #fff;
+                font-family: "FoundryGridnik W01-Medium";
+                color: #1d1d1d !important;
+                letter-spacing: 0;
+                text-decoration: none;
+                font-size: 16px;
+                padding: 0 !important;
+                line-height: 41px;
+                border-radius: 0px;
+            }
+            .thanks{
+                font-size:4.0em;
+                font-weight:bold;
+                margin-left: -15px;
+            }
+            .hrMenu { 
+                display: block;
+                margin-top: 0.5em;
+                margin-bottom: 0.5em;
+                margin-left: auto;
+                margin-right: auto;
+                border-width: 1px;
+                border-color: grey;
+            } 
+            .marginBottom20{margin-bottom:2px}
+            .email{
+                display:none ! important;
+            }
+            .divBackToHelp {
+                margin-top: 100px;
+                margin-left: -25px;
+            }
+            .textpara {
+                font-size:16px;
+                margin-bottom: 63.9px;
+            }
+            .customBtn {
+                background-color: #fff;
+                border-radius: 0;
+                color: #000;
+                text-align: center;
+            }
+            .custStyleBtn {
+                background-color: #fff;
+                border-radius: 0px;
+                color: #000;
+                font-size: 1em;
+                padding-top: 15px !important;
+                text-decoration: none;
+                width: 133px !important;
+            }
+            .text-right {
+                text-align: right;
+            }
+            a.cancelLink {
+                margin-right: 1.5em;
+                margin-top: 1em;
+                display: inline-block;
+            }
+            .floatRight {
+                float: right;
+            }
+            .updateHrGrey {
+                margin-top: 0 !important;
+            }
+            .hrSectionGrey {
+                border-bottom: 1px solid grey !important;
+            }
+            .footerUpdated .liveAgentSec .customLbl:hover {
+                text-decoration: none !important;
+            }
+            .hrSectionGrey.updateHrGrey {
+                width: 100%;
+                margin-left: 0 !important;
+                padding: 0 !important;
+            }
+            .row.padding0.helpFooterHr .col-xs-12 {
+                width: auto;
+                float: none;
+                margin: 0;
+            }
+            .helpFooterHr {
+                display: none;
+            }
+            .confirmBtns  {
+                clear: both;
+            }
+            a:focus, a:hover, .helpDocomoLink:hover {
+                color: #ffffff !important; 
+            }
+            @media screen and (min-width : 320px) and (max-width : 759px) {
+                .thanks {
+                    margin-top: 7px;
+                    font-size: 36px;
+                }
+                
+                .textpara {
+                    font-size:14px;
+                } 
+                a.cancelLink { 
+                    font-size: 12px;
+                }
+                .helpFooterHrDiv {
+                    padding: 0 15px;
+                }
+                .custStyleBtn {
+                    width: 82px !important;
+                }
+                a.cancelLink {
+                    margin-right: 0;
+                }
+                .floatRight.marginRightBtn {
+                    width: auto;
+                }
+                .confirmBtns {
+                    margin-bottom: 10em;
+                }
+            }
+            
+            @media screen and (min-width : 760px) {
+                .thanks {
+                    font-size: 48px;
+                }
+                .footerUpdated {
+                    margin-top: 20px;
+                    margin-bottom: 10px;
+                }
+                .confirmBtns {
+                    margin-bottom: 10em;
+                }
+            }
+            @media screen and (max-width: 1199px) and (min-width: 760px) {
+                
+            }
+            
+            @media screen and (min-width: 1200px) {
+                .marginRightBtn {
+                    margin-right: 5em;
+                }
+            }
+        </style>
+    </body>
+
+</apex:outputPanel>
+
+</apex:page>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Skill xmlns="http://soap.sforce.com/2006/04/metadata">
+    <assignments>
+        <users>
+            <user>patric.stolpe@performgroup.com.livesport</user>
+            <user>yura.jeong@performgroup.com</user>
+            <user>wataru.ito@dazn.com</user>
+            <user>sachiko.ogura@performgroup.com</user>
+            <user>takashi.munekawa@dazn.com</user>
+            <user>elina.taira@dazn.com</user>
+            <user>ayaka.nibe@dazn.com</user>
+            <user>yuka.hatori@dazn.com</user>
+            <user>natsuki.suganuma@performgroup.com</user>
+            <user>naoya.suzuki@dazn.com</user>
+        </users>
+    </assignments>
+    <label>Generic En JP</label>
+</Skill>

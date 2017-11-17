@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataCategoryGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <dataCategory>
+        <dataCategory>
+            <label>General</label>
+            <name>General</name>
+        </dataCategory>
+        <dataCategory>
+            <label>DAZN</label>
+            <name>DAZN</name>
+        </dataCategory>
+        <dataCategory>
+            <label>DAZN for Docomo</label>
+            <name>DAZN_for_Docomo</name>
+        </dataCategory>
+        <label>All</label>
+        <name>All</name>
+    </dataCategory>
+    <description>to say if the article is a general , DAZN specific or Docomo specific article</description>
+    <label>Provider Type</label>
+    <objectUsage>
+        <object>KnowledgeArticleVersion</object>
+    </objectUsage>
+</DataCategoryGroup>

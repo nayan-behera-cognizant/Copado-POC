@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>API Log</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>API Logs</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- API Logs --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Call out end point --></label>
+        <name>Call_out_end_point__c</name>
+    </fields>
+    <fields>
+        <label><!-- Call out type --></label>
+        <name>Call_out_type__c</name>
+        <picklistValues>
+            <masterLabel>Inbound</masterLabel>
+            <translation><!-- Inbound --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Outbound</masterLabel>
+            <translation><!-- Outbound --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Process ID --></label>
+        <name>Process_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Request --></label>
+        <name>Request__c</name>
+    </fields>
+    <fields>
+        <help><!-- Response code received from external app --></help>
+        <label><!-- Response Code --></label>
+        <name>Response_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Response --></label>
+        <name>Response__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Failed with errors</masterLabel>
+            <translation><!-- Failed with errors --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Failed with time out</masterLabel>
+            <translation><!-- Failed with time out --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Success</masterLabel>
+            <translation><!-- Success --></translation>
+        </picklistValues>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>User License Configuration</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>User License Configuration</value>
+    </caseValues>
+    <fields>
+        <label><!-- Contact Id --></label>
+        <name>Contact_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Email TemplateId --></label>
+        <name>Email_TemplateId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Email --></label>
+        <name>Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Link to DAZN --></label>
+        <name>Link_to_DAZN__c</name>
+    </fields>
+    <fields>
+        <label><!-- Percent for Community License --></label>
+        <name>Percent_for_Community_License__c</name>
+    </fields>
+    <fields>
+        <label><!-- Percent for Salesfore License --></label>
+        <name>Percent_for_Salesfore_License__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Community Licenses --></label>
+        <name>Total_Community_Licenses__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Standard License --></label>
+        <name>Total_Standard_License__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

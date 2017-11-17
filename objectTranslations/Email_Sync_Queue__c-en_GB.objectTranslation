@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Email Sync Queue</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Email Sync Queues</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account Currency --></label>
+        <name>Account_Currency__c</name>
+        <picklistValues>
+            <masterLabel>CHF</masterLabel>
+            <translation><!-- CHF --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EUR</masterLabel>
+            <translation><!-- EUR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>JPY</masterLabel>
+            <translation><!-- JPY --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Account Status --></label>
+        <name>Account_Status__c</name>
+        <picklistValues>
+            <masterLabel>Active Grace</masterLabel>
+            <translation><!-- Active Grace --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Active Paid</masterLabel>
+            <translation><!-- Active Paid --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Apple</masterLabel>
+            <translation><!-- Apple --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Blocked</masterLabel>
+            <translation><!-- Blocked --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Expired</masterLabel>
+            <translation><!-- Expired --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Expired Marketing</masterLabel>
+            <translation><!-- Expired Marketing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Free Trial</masterLabel>
+            <translation><!-- Free Trial --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Frozen</masterLabel>
+            <translation><!-- Frozen --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Partial</masterLabel>
+            <translation><!-- Partial --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Paused</masterLabel>
+            <translation><!-- Paused --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- Email Sync Queues --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- All Email Preferences --></label>
+        <name>All_Email_Preferences__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dispatch ID --></label>
+        <name>Dispatch_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Email Name --></label>
+        <name>Email_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- First Name --></label>
+        <name>First_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Free Trial End Date --></label>
+        <name>Free_Trial_End_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Gift Code Expiry Date --></label>
+        <name>Gift_Code_Expiry_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Hard Offer Date --></label>
+        <name>Hard_Offer_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Double Opt in --></label>
+        <name>Is_Double_Opt_in__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Name --></label>
+        <name>Last_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Notification Country Code --></label>
+        <name>Notification_Country_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Notification Language Code --></label>
+        <name>Notification_Language_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Pause From --></label>
+        <name>Pause_From__c</name>
+    </fields>
+    <fields>
+        <label><!-- Pause Until --></label>
+        <name>Pause_Until__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payment Method Type --></label>
+        <name>Payment_Method_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Person Email --></label>
+        <name>Person_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Plan Details --></label>
+        <name>Plan_Details__c</name>
+    </fields>
+    <fields>
+        <label><!-- Rebill Date --></label>
+        <name>Rebill_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Failed</masterLabel>
+            <translation><!-- Failed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Started</masterLabel>
+            <translation><!-- Not Started --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Retried</masterLabel>
+            <translation><!-- Retried --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Subscription Amount --></label>
+        <name>Subscription_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Subscription End Date --></label>
+        <name>Subscription_End_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sync Error Msg --></label>
+        <name>Sync_Error_Msg__c</name>
+    </fields>
+    <fields>
+        <label><!-- Term Setting Type --></label>
+        <name>Term_Setting_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Type of Email --></label>
+        <name>Type_of_Email__c</name>
+        <picklistValues>
+            <masterLabel>Data Import</masterLabel>
+            <translation><!-- Data Import --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Triggered Dispatch</masterLabel>
+            <translation><!-- Triggered Dispatch --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Unsubscribe Language --></label>
+        <name>Unsubscribe_Language__c</name>
+    </fields>
+    <startsWith>Vowel</startsWith>
+</CustomObjectTranslation>

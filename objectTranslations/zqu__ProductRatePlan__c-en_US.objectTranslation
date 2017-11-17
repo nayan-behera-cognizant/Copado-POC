@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- OfferType --></label>
+        <name>OfferType__c</name>
+        <picklistValues>
+            <masterLabel>Credit</masterLabel>
+            <translation><!-- Credit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Discount</masterLabel>
+            <translation><!-- Discount --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FreeTrial</masterLabel>
+            <translation><!-- FreeTrial --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HardOffer</masterLabel>
+            <translation><!-- HardOffer --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Flag for soft deletion --></help>
+        <label><!-- Deleted --></label>
+        <name>zqu__Deleted__c</name>
+    </fields>
+    <fields>
+        <help><!-- The Description of the Rate Plan. --></help>
+        <label><!-- Description --></label>
+        <name>zqu__Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- EffectiveEndDateTEXT --></label>
+        <name>zqu__EffectiveEndDateTEXT__c</name>
+    </fields>
+    <fields>
+        <help><!-- The Effective End Date of the Rate Plan. --></help>
+        <label><!-- Effective End Date --></label>
+        <name>zqu__EffectiveEndDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- EffectiveStartDateTEXT --></label>
+        <name>zqu__EffectiveStartDateTEXT__c</name>
+    </fields>
+    <fields>
+        <help><!-- The Effective Start Date of the Rate Plan. --></help>
+        <label><!-- Effective Start Date --></label>
+        <name>zqu__EffectiveStartDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Price Summary --></label>
+        <name>zqu__Price_Summary__c</name>
+    </fields>
+    <fields>
+        <help><!-- The ZProduct associated with this Rate Plan. --></help>
+        <label><!-- ZProduct --></label>
+        <name>zqu__ZProduct__c</name>
+        <relationshipLabel><!-- Product Rate Plan --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- The Zuora Id (external primary key) of this Rate Plan. --></help>
+        <label><!-- ZuoraId --></label>
+        <name>zqu__ZuoraId__c</name>
+    </fields>
+</CustomObjectTranslation>

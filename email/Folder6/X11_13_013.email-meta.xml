@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>2017/5/25～インシデント（アンドロイド用）</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Androidエラー：11-12-012..11-65-013</name>
+    <style>none</style>
+    <subject>【DAZNカスタマーサービス】お問い合わせありがとうございます。</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

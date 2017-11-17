@@ -1,0 +1,11 @@
+Hi {!Case.Account}, 
+
+Thank you very much for your inquiry.
+
+Thank you for your inquiry ID: {!Case.CaseNumber} about {!Case.Type}.
+
+We hope your question was satisfactorily answered by our Customer Support team, and you're now using DAZN without any issues. We have now closed your inquiry ID:{!Case.CaseNumber} about {!Case.Type}. 
+
+If you are still having problems, there's some helpful information here https://stag.dazn.com/help. Or please contact Customer Support directly https://stag.dazn.com/contactus who are happy to help.
+
+Ensuring that you enjoy DAZN is our priority.

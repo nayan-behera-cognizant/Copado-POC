@@ -1,0 +1,1055 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>Apple_SetEndpoint</fullName>
+        <categories>PartnerAccountApple</categories>
+        <language>en_GB</language>
+        <protected>false</protected>
+        <shortDescription>Apple_SetEndpoint</shortDescription>
+        <value>https://docomoproxy.performgroup.com/lms.apl99.spmode.ne.jp/MailMagazine/xmlrpc</value>
+    </labels>
+    <labels>
+        <fullName>DFD_404</fullName>
+        <categories>d4d, my account, cannot fetch marketing pref</categories>
+        <language>en_GB</language>
+        <protected>false</protected>
+        <shortDescription>Marketing string on my acct when marketing cannot be retrieved from docomo</shortDescription>
+        <value>Please tick this box if you would like to receive email communications from DAZN for docomo. It may take 5 minutes for changes to be reflected. (Error code: 1-74-404)</value>
+    </labels>
+    <labels>
+        <fullName>DFD_BulkContentLengh</fullName>
+        <language>en_GB</language>
+        <protected>false</protected>
+        <shortDescription>DFD_BulkContentLengh</shortDescription>
+        <value>1024</value>
+    </labels>
+    <labels>
+        <fullName>DFD_BulkEndPoint</fullName>
+        <language>en_GB</language>
+        <protected>false</protected>
+        <shortDescription>DFD_BulkEndPoint</shortDescription>
+        <value>https://docomoproxy.performgroup.com/lms.apl01.spmode.ne.jp/DefMagazine</value>
+    </labels>
+    <labels>
+        <fullName>DFD_HOST</fullName>
+        <language>en_GB</language>
+        <protected>false</protected>
+        <shortDescription>DFD_HOST</shortDescription>
+        <value>docomoproxy.performgroup.com</value>
+    </labels>
+    <labels>
+        <fullName>DFD_PORT_Docomo</fullName>
+        <categories>PartnerAccountDocomo</categories>
+        <language>en_GB</language>
+        <protected>false</protected>
+        <shortDescription>DFD_PORT</shortDescription>
+        <value>443</value>
+    </labels>
+    <labels>
+        <fullName>DFD_ReturnError</fullName>
+        <language>en_GB</language>
+        <protected>false</protected>
+        <shortDescription>DFD_ReturnError</shortDescription>
+        <value>Please return in 24h to update your email preferences with DAZN for Docomo (error code : 1-74-40)</value>
+    </labels>
+    <labels>
+        <fullName>Gift_Code_field</fullName>
+        <categories>GiftCodeHistory</categories>
+        <language>en_GB</language>
+        <protected>false</protected>
+        <shortDescription>Gift Code field</shortDescription>
+        <value>Gift Code</value>
+    </labels>
+    <labels>
+        <fullName>LS_Account_Status_Blocked</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LS Account Status Blocked</shortDescription>
+        <value>Blocked</value>
+    </labels>
+    <labels>
+        <fullName>LS_Button_Continue</fullName>
+        <categories>D4d, no personal details on sign in page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LS Button Continue</shortDescription>
+        <value>GO TO SIGN IN</value>
+    </labels>
+    <labels>
+        <fullName>LS_CancelSubscription_ErrMsg_CancellationBeforeGiftCodeEndDate</fullName>
+        <language>en_GB</language>
+        <protected>false</protected>
+        <shortDescription>LS_CancelSubscription_ErrMsg_CancellationBeforeGiftCodeEndDate</shortDescription>
+        <value>You can&apos;t use immediate cancel before the gift code end date, you will need to use standard cancellation.</value>
+    </labels>
+    <labels>
+        <fullName>LS_CancelSubscription_Label_Reason</fullName>
+        <categories>CancelSubscription</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LS CancelSubscription Label Reason</shortDescription>
+        <value>Enter the reason for cancellation</value>
+    </labels>
+    <labels>
+        <fullName>LS_CaseFeedBack_Ok</fullName>
+        <language>en_GB</language>
+        <protected>false</protected>
+        <shortDescription>LS CaseFeedBack Ok</shortDescription>
+        <value>Ok</value>
+    </labels>
+    <labels>
+        <fullName>LS_ChangeEmail_InfoMsg_EmailIDChanged</fullName>
+        <categories>MyAccount</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LS ChangeEmail InfoMsg EmailIDChanged</shortDescription>
+        <value>Your email is updated</value>
+    </labels>
+    <labels>
+        <fullName>LS_ChangePaymentMethodStatus_FailureMsg_InvalidCountry</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LS ChangePaymentMethodStatus FailureMsg InvalidCountry</shortDescription>
+        <value>Paypal billing country do not match with your country.</value>
+    </labels>
+    <labels>
+        <fullName>LS_ChangePaymentMethod_Label_IBAN</fullName>
+        <categories>ChangePaymentMethod</categories>
+        <language>en_GB</language>
+        <protected>false</protected>
+        <shortDescription>LS ChangePaymentMethod Label IBAN</shortDescription>
+        <value>IBAN</value>
+    </labels>
+    <labels>
+        <fullName>LS_ChangePaypalPaymentMethodStatus_Failure</fullName>
+        <categories>changepaymentmethod</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LS ChangePaypalPaymentMethodStatus Failure</shortDescription>
+        <value>SOMETHING WENT WRONG</value>
+    </labels>
+    <labels>
+        <fullName>LS_Change_Payment_Method_Status_Title</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LS Change Payment Method Status Title</shortDescription>
+        <value>Change Payment Method Status</value>
+    </labels>
+    <labels>
+        <fullName>LS_Communicator_Payment_Success_Email_Task_Subject</fullName>
+        <categories>Communicator</categories>
+        <language>en_GB</language>
+        <protected>false</protected>
+        <shortDescription>LS Communicator Payment Success Email Task Subject</shortDescription>
+        <value>Payment success email sent successfully.</value>
+    </labels>
+    <labels>
+        <fullName>LS_ContactUs_Label_Select</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LS ContactUs Label Select</shortDescription>
+        <value>Select</value>
+    </labels>
+    <labels>
+        <fullName>LS_ContactUs_Select_Provider</fullName>
+        <categories>ContactUS</categories>
+        <language>en_GB</language>
+        <protected>false</protected>
+        <shortDescription>LS ContactUs Select Provider</shortDescription>
+        <value>Do you have a DAZN account?</value>
+    </labels>
+    <labels>
+        <fullName>LS_ContactViaEmail_Info_ResetPassword</fullName>
+        <categories>Help</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LS ContactViaEmail Info Reset Password</shortDescription>
+        <value>Changing your password regularly is a good idea.So we&apos;ve made &lt;br/&gt;
+it easy to do. Or may be you&apos;ve forgotten your password.Don&apos;t &lt;br/&gt;
+worry it&apos;s easy to reset too.</value>
+    </labels>
+    <labels>
+        <fullName>LS_Discount_has_been_given</fullName>
+        <categories>Discount</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LS Discount has been given</shortDescription>
+        <value>has been given</value>
+    </labels>
+    <labels>
+        <fullName>LS_EmailPreference_Label_ErrorMessage</fullName>
+        <categories>EmailPreferenceUI</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LS EmailPreference Label ErrorMessage</shortDescription>
+        <value>Customer is Already Unsubscribe.</value>
+    </labels>
+    <labels>
+        <fullName>LS_Help_Label_CatchUpIssue_QualityIssue</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LS Help Label CatchUpIssue QualityIssue</shortDescription>
+        <value>Quality Issue</value>
+    </labels>
+    <labels>
+        <fullName>LS_Help_Label_LoginIssue_DeviceSpecificIssue</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LS Help Label LoginIssue DeviceSpecificIssue</shortDescription>
+        <value>I have a device specific login issue</value>
+    </labels>
+    <labels>
+        <fullName>LS_Help_Label_LoginIssue_ForgottenPassword</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LS Help Label LoginIssue ForgottenPassword</shortDescription>
+        <value>i forgot my password</value>
+    </labels>
+    <labels>
+        <fullName>LS_Help_Label_LoginIssue_ForgottenUserName</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LS Help Label LoginIssue ForgottenUserName</shortDescription>
+        <value>I forgot my user name</value>
+    </labels>
+    <labels>
+        <fullName>LS_InternalServerError_Title</fullName>
+        <categories>ErrorPage</categories>
+        <language>en_GB</language>
+        <protected>false</protected>
+        <shortDescription>LS InternalServerError Title</shortDescription>
+        <value>SOMETHING WENT WRONG</value>
+    </labels>
+    <labels>
+        <fullName>LS_MYACC_TERMED_FREE_TRIAL_SOFT_CANCEL_NO_GF_SUBHEADING</fullName>
+        <categories>My Account Gift Codes</categories>
+        <language>en_GB</language>
+        <protected>false</protected>
+        <shortDescription>LS_MYACC_TERMED_FREE_TRIAL_SOFT_CANCEL_NO_GF_SUBHEADING</shortDescription>
+        <value>&lt;P&gt;Your subscription has been cancelled and no payment will be taken. You can still watch sports on DAZN until [Gift_Code_End_Date__c]&lt;/P&gt;</value>
+    </labels>
+    <labels>
+        <fullName>LS_Maintenance_Title</fullName>
+        <categories>Maintenance</categories>
+        <language>en_GB</language>
+        <protected>false</protected>
+        <shortDescription>LS Maintenance Title</shortDescription>
+        <value>Maintenance</value>
+    </labels>
+    <labels>
+        <fullName>LS_MyAccount_BannerBody_CancelRequestFailure</fullName>
+        <language>en_GB</language>
+        <protected>false</protected>
+        <shortDescription>LS_MyAccount_BannerBody_CancelRequestFailure</shortDescription>
+        <value>Sorry we were unable to process your resume at the moment, please try later.</value>
+    </labels>
+    <labels>
+        <fullName>LS_MyAccount_Button_KeepMyDaznActive</fullName>
+        <categories>Pause My Account</categories>
+        <language>en_GB</language>
+        <protected>false</protected>
+        <shortDescription>LS_MyAccount_Button_KeepMyDaznActive</shortDescription>
+        <value>KEEP MY DAZN ACTIVE</value>
+    </labels>
+    <labels>
+        <fullName>LS_MyAccount_Cancelling_Subscription_Info_Apple</fullName>
+        <categories>PartnerAccountApple</categories>
+        <language>en_GB</language>
+        <protected>false</protected>
+        <shortDescription>LS_MyAccount_Cancelling_Subscription_Info Apple</shortDescription>
+        <value>Cancelling your subscription can take up to 24 hours.</value>
+    </labels>
+    <labels>
+        <fullName>LS_MyAccount_Cancelling_Subscription_Info_Docomo</fullName>
+        <categories>PartnerAccountDocomo</categories>
+        <language>en_GB</language>
+        <protected>false</protected>
+        <shortDescription>LS_MyAccount_Cancelling_Subscription_Info</shortDescription>
+        <value>Cancelling your subscription can take up to 24 hours.</value>
+    </labels>
+    <labels>
+        <fullName>LS_MyAccount_ErrMsg_Provide_Password</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LS MyAccount ErrMsg Provide Password</shortDescription>
+        <value>Please provide a password</value>
+    </labels>
+    <labels>
+        <fullName>LS_MyAccount_ErrMsg_Valid_Surname_Apple</fullName>
+        <categories>PartnerAccountApple</categories>
+        <language>en_GB</language>
+        <protected>false</protected>
+        <shortDescription>LS MyAccount ErrMsg Valid Surname Apple</shortDescription>
+        <value>Provide valid last name</value>
+    </labels>
+    <labels>
+        <fullName>LS_MyAccount_Label_Firstname_Docomo</fullName>
+        <categories>PartnerAccountDocomo</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LS MyAccount Label Firstname</shortDescription>
+        <value>FIRST NAME</value>
+    </labels>
+    <labels>
+        <fullName>LS_MyAccount_Label_MyDevices</fullName>
+        <categories>MyAccount</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LS MyAccount Label MyDevices</shortDescription>
+        <value>SIGNED IN DEVICES</value>
+    </labels>
+    <labels>
+        <fullName>LS_MyAccount_Label_MyDevices_Docomo</fullName>
+        <categories>PartnerAccountDocomo</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LS MyAccount Label MyDevices</shortDescription>
+        <value>DEVICES</value>
+    </labels>
+    <labels>
+        <fullName>LS_MyAccount_Label_My_Details</fullName>
+        <categories>MyAccount</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LS MyAccount Label My Details</shortDescription>
+        <value>PERSONAL DETAILS</value>
+    </labels>
+    <labels>
+        <fullName>LS_MyAccount_Label_Paid_Member_Banner</fullName>
+        <categories>MyAccount</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LS MyAccount Label Paid Member Banner</shortDescription>
+        <value>We are processing your account cancellation and will confirm via email once your account is cancelled. You can reactivate the account any time by clicking the resubscribe button below.</value>
+    </labels>
+    <labels>
+        <fullName>LS_MyAccount_Label_Registered_Apple</fullName>
+        <categories>PartnerAccountApple</categories>
+        <language>en_GB</language>
+        <protected>false</protected>
+        <shortDescription>LS MyAccount Label Registered Apple</shortDescription>
+        <value>Registered</value>
+    </labels>
+    <labels>
+        <fullName>LS_MyAccount_Label_Surname_Apple</fullName>
+        <categories>PartnerAccountApple</categories>
+        <language>en_GB</language>
+        <protected>false</protected>
+        <shortDescription>LS MyAccount Label Surname Apple</shortDescription>
+        <value>Last Name</value>
+    </labels>
+    <labels>
+        <fullName>LS_MyAccount_Language_Japanese_Label</fullName>
+        <categories>MyAccount</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LS MyAccount Language Japanese Label</shortDescription>
+        <value>日本語</value>
+    </labels>
+    <labels>
+        <fullName>LS_MyAccount_ParamValue_Email</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LS MyAccount ParamValue Email</shortDescription>
+        <value>Email</value>
+    </labels>
+    <labels>
+        <fullName>LS_MyLogin_Login_Issue_Banner_Blocked_User_Message_DfD</fullName>
+        <categories>MyAccount</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LS_MyLogin_Login_Issue_Banner_Blocked_User_Message DfD</shortDescription>
+        <value>There was a problem signing you in.</value>
+    </labels>
+    <labels>
+        <fullName>LS_PaymentHistory_Label_Ending</fullName>
+        <categories>PaymentHistory</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LS PaymentHistory Label Ending</shortDescription>
+        <value>**** **** ****</value>
+    </labels>
+    <labels>
+        <fullName>LS_PaymentHistory_Label_Total</fullName>
+        <categories>MyAccount</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LS PaymentHistory Label Total</shortDescription>
+        <value>Total</value>
+    </labels>
+    <labels>
+        <fullName>LS_PaymentMethodChange_Paypal_cancel_Msg</fullName>
+        <categories>ChangePaymentMethod</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LS PaymentMethodChange Paypal cancel Msg</shortDescription>
+        <value>Your payment could not be validated. Please check your details and try again. Remember, you must use a payment method from the country you are in. Questions? Contact us - my.dazn.com/ContactUs</value>
+    </labels>
+    <labels>
+        <fullName>LS_Payment_Setteled</fullName>
+        <categories>Refund</categories>
+        <language>en_GB</language>
+        <protected>false</protected>
+        <shortDescription>LS_Payment_Setteled</shortDescription>
+        <value>payment  been settled hence no refund can be created.</value>
+    </labels>
+    <labels>
+        <fullName>LS_Reactivate_subscription_ErrMsg</fullName>
+        <language>en_GB</language>
+        <protected>false</protected>
+        <shortDescription>LS Reactivate subscription ErrMsg</shortDescription>
+        <value>Sorry, there was a problem with reactivating at this time. Please try again or contact Customer Services.</value>
+    </labels>
+    <labels>
+        <fullName>LS_SearchTitle</fullName>
+        <categories>Search Page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LS_SearchTitle</shortDescription>
+        <value>Search</value>
+    </labels>
+    <labels>
+        <fullName>LS_SetPause_event_month</fullName>
+        <categories>Set Pause</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LS SetPause event month</shortDescription>
+        <value>&lt;ul&gt; 
+&lt;li&gt;Stanley Cup final&lt;/li&gt; 
+&lt;li&gt;NBA Finals&lt;/li&gt; 
+&lt;li&gt;Coppa Italia Final&lt;/li&gt; 
+&lt;li&gt;Handball Bundesliga ends&lt;/li&gt; 
+&lt;/ul&gt;</value>
+    </labels>
+    <labels>
+        <fullName>LS_Signout_Singel_Device_Console</fullName>
+        <language>en_GB</language>
+        <protected>false</protected>
+        <shortDescription>LS Signout Singel Device Console</shortDescription>
+        <value>SIGN OUT OF Console?</value>
+    </labels>
+    <labels>
+        <fullName>LS_Thanks_InfoMsg_CustomerServiceCentreJP</fullName>
+        <categories>Thanks</categories>
+        <language>en_GB</language>
+        <protected>false</protected>
+        <shortDescription>LS_Thanks_InfoMsg_CustomerServiceCentreJP</shortDescription>
+        <value>Your message has been sent to our customer service centre.&lt;br/&gt;
+We will try to get back to you within 24 hours. Please be advised that because we have 24-hour customer service, you may receive a response during non-business hours.&lt;br/&gt;&lt;br/&gt; 
+If your enquiry is related to issues or questions about J-league, please look at our &lt;u&gt;&lt;a href=&quot;https://my.dazn.com/help/JP-en/frequently-asked-questions-about-j-league&quot;&gt;J-league FAQ&lt;/a&gt;&lt;/u&gt; page.
+A copy of your query has also been sent to your email address as confirmation.&lt;br/&gt;&lt;br/&gt;</value>
+    </labels>
+    <labels>
+        <fullName>LS_UnSubscribe_Banner_Heading</fullName>
+        <categories>DocomoOptOutEmails</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LS UnSubscribe Banner Heading</shortDescription>
+        <value>SOMETHING WENT WRONG</value>
+    </labels>
+    <labels>
+        <fullName>LS_Why_Label_Cancel_Membership_Active_Paid_GF_Monthly</fullName>
+        <categories>My Account Gift Codes</categories>
+        <language>en_GB</language>
+        <protected>false</protected>
+        <shortDescription>LS_Why_Label_Cancel_Membership_Active_Paid_GF_Monthly</shortDescription>
+        <value>&lt;P&gt;Your subscription has been cancelled and no further payment will be taken. You can still watch sports on DAZN until {0}.&lt;/P&gt;</value>
+    </labels>
+    <labels>
+        <fullName>LS_Why_Label_Tell_Us_Why_Are_You_Leaving</fullName>
+        <categories>Why</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LS Why Label Tell Us Why Are You Leaving</shortDescription>
+        <value>Tell us why you are leaving</value>
+    </labels>
+    <labels>
+        <fullName>LS_Zuora_ConnectionError_Apple</fullName>
+        <categories>PartnerAccountApple</categories>
+        <language>en_GB</language>
+        <protected>false</protected>
+        <shortDescription>LS_Zuora_ConnectionError Apple</shortDescription>
+        <value>Sorry, there was a problem with Zuora at this time or connectivity problem with Zuora.</value>
+    </labels>
+    <labels>
+        <fullName>LS_Zuora_ConnectionError_Docomo</fullName>
+        <categories>PatnerAccountDocomo</categories>
+        <language>en_GB</language>
+        <protected>false</protected>
+        <shortDescription>LS_Zuora_ConnectionError</shortDescription>
+        <value>Sorry, there was a problem with Zuora at this time or connectivity problem with Zuora.</value>
+    </labels>
+    <labels>
+        <fullName>LS_paymentmethod_description_apple</fullName>
+        <categories>PartnerAccountApple</categories>
+        <language>en_GB</language>
+        <protected>false</protected>
+        <shortDescription>LS_paymentmethod_description_apple</shortDescription>
+        <value>To change your payment method or cancel your subscription you will be taken to Apple</value>
+    </labels>
+    <labels>
+        <fullName>Record_Type_id_Person_Account_For_Unblock</fullName>
+        <language>en_GB</language>
+        <protected>false</protected>
+        <shortDescription>Person Account For Unblock</shortDescription>
+        <value>01224000000B676AAC</value>
+    </labels>
+    <labels>
+        <fullName>Task_Description_2</fullName>
+        <categories>PauseEmailService</categories>
+        <language>en_GB</language>
+        <protected>false</protected>
+        <shortDescription>Task Description 2</shortDescription>
+        <value>Workflow for std cancellation was successful/completed in Zuora</value>
+    </labels>
+    <labels>
+        <fullName>What_s_On_Rail_Header</fullName>
+        <categories>DAZNUI, railHeader</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>daznui_browseui_railHeaderScheduled</shortDescription>
+        <value>WHAT&apos;S ON</value>
+    </labels>
+    <labels>
+        <fullName>browseui_railHeaderCompetition</fullName>
+        <categories>DAZNUI, BROWSEUI</categories>
+        <language>en_GB</language>
+        <protected>false</protected>
+        <shortDescription>daznui_browseui_railHeaderCompetition</shortDescription>
+        <value>Competition</value>
+    </labels>
+    <labels>
+        <fullName>daznui_apple_landing_restorepurchase</fullName>
+        <categories>DAZNUI, Restore Purchase</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>daznui_apple_landing_restorepurchase</shortDescription>
+        <value>Restore purchase</value>
+    </labels>
+    <labels>
+        <fullName>daznui_browseui_ourFavouritesHeader</fullName>
+        <categories>DAZNUI, browseui</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BrowseUI - Our Favourites Header</shortDescription>
+        <value>DAZN PICKS</value>
+    </labels>
+    <labels>
+        <fullName>daznui_browseui_railHeaderScheduled</fullName>
+        <categories>DAZNUI, browseui</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BrowseUI - Whats On Header v2</shortDescription>
+        <value>What&apos;s On</value>
+    </labels>
+    <labels>
+        <fullName>daznui_browseui_tileLabelLastDays</fullName>
+        <categories>DAZNUI, signup</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>daznui_browseui_tileLabelLastDays</shortDescription>
+        <value>Last %{day}</value>
+    </labels>
+    <labels>
+        <fullName>daznui_browseui_tileLabelWatchLiveAt</fullName>
+        <categories>DAZNUI, Browse</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>daznui_browseui_tileLabelWatchLiveAt</shortDescription>
+        <value>WATCH LIVE at %{time}</value>
+    </labels>
+    <labels>
+        <fullName>daznui_calendar_FebruaryNumber</fullName>
+        <categories>DAZNUI, Payment, Month, TV</categories>
+        <language>en_GB</language>
+        <protected>false</protected>
+        <shortDescription>February Month Value on TV Keyboard</shortDescription>
+        <value>02</value>
+    </labels>
+    <labels>
+        <fullName>daznui_calendar_JuneFullName</fullName>
+        <categories>DAZNUI</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>daznui_calendar_JuneFullName</shortDescription>
+        <value>JUNE</value>
+    </labels>
+    <labels>
+        <fullName>daznui_cancelsubscription_missingSportsAdvice</fullName>
+        <categories>DAZNUI, cancelsubscription</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Cancel Subscription - Missing Sports Advice</shortDescription>
+        <value>Check out the What&apos;s On row on the &lt;a href=&quot;https://dazn.com&quot; class=&quot;keepMembership &quot;&gt;DAZN homepage&lt;/a&gt; for the latest content available</value>
+    </labels>
+    <labels>
+        <fullName>daznui_error_10011_primaryButton</fullName>
+        <categories>DAZNUI, App upsell full page takeover</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Primary button for app upsell full page takeover</shortDescription>
+        <value>OPEN APP</value>
+    </labels>
+    <labels>
+        <fullName>daznui_error_10017_primaryButton</fullName>
+        <categories>DAZNUI, error</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>daznui_error_10017_primaryButton</shortDescription>
+        <value>OK</value>
+    </labels>
+    <labels>
+        <fullName>daznui_error_10018_tv</fullName>
+        <categories>DAZNUI, Forgot email, Error</categories>
+        <language>en_GB</language>
+        <protected>false</protected>
+        <shortDescription>Email not found on forgot email page</shortDescription>
+        <value>We can&apos;t find your email address. Please try again or contact Customer Support - my.dazn.com/contactus</value>
+    </labels>
+    <labels>
+        <fullName>daznui_error_10044_header</fullName>
+        <categories>DAZNUI, error</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>daznui_error_10044_header</shortDescription>
+        <value>PROBLEM WITH PAIRING</value>
+    </labels>
+    <labels>
+        <fullName>daznui_error_10050</fullName>
+        <categories>DAZNUI, mislError</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>daznui_error_10050</shortDescription>
+        <value>Your email or password is incorrect. Please try again.</value>
+    </labels>
+    <labels>
+        <fullName>daznui_error_10052_messageEnabledSignUp</fullName>
+        <categories>DAZNUI, No D4d subscription on account</categories>
+        <language>en_GB</language>
+        <protected>false</protected>
+        <shortDescription>No D4d subscription on account</shortDescription>
+        <value>Your account does not have a DAZN for docomo subscription. Sign up to start a 31 day free trial.</value>
+    </labels>
+    <labels>
+        <fullName>daznui_error_10063</fullName>
+        <categories>daznui</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Playbacl</shortDescription>
+        <value>There is a problem with your account and we were unable to continue. Try signing back in again. If the problem persists, please contact Customer Services.</value>
+    </labels>
+    <labels>
+        <fullName>daznui_error_10084</fullName>
+        <language>en_GB</language>
+        <protected>false</protected>
+        <shortDescription>daznui_error_10084</shortDescription>
+        <value>Your billing PayPal country is %{billingCountry}. Your free trial starts today. From %{billingDate} you will pay %{billingRate} monthly. Cancel monthly. Remember to check your email to confirm that you’d like to receive updates about what’s on DAZN.</value>
+    </labels>
+    <labels>
+        <fullName>daznui_error_10090_primaryButton</fullName>
+        <language>en_GB</language>
+        <protected>false</protected>
+        <shortDescription>daznui_error_10090_primaryButton</shortDescription>
+        <value>Try Again</value>
+    </labels>
+    <labels>
+        <fullName>daznui_error_3010_TermsOfUseUnavailable</fullName>
+        <categories>DAZNUI, error</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error 3010 - Terms of Use fails to load</shortDescription>
+        <value>There&apos;s a problem opening the Terms of Use at the moment. Please try again shortly.</value>
+    </labels>
+    <labels>
+        <fullName>daznui_error_3012_CardNotApproved</fullName>
+        <categories>DAZNUI, error</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error 3012 - Card payment failed due to card not approved by issuer</shortDescription>
+        <value>Please use a different payment method. If you continue having problems, contact [Customer Support](%{supportLink}).</value>
+    </labels>
+    <labels>
+        <fullName>daznui_error_liveasvod_body</fullName>
+        <categories>daznui, error</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message for when a target can&apos;t play LiveAsVod</shortDescription>
+        <value>The full event is on its way. Check back here in 24 hours</value>
+    </labels>
+    <labels>
+        <fullName>daznui_exitapp_confirmation</fullName>
+        <categories>DAZNUI, Exit App Overlay</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Exit App Overlay</shortDescription>
+        <value>EXIT</value>
+    </labels>
+    <labels>
+        <fullName>daznui_footer_impressum</fullName>
+        <categories>DAZNUI, About DAZN DE footer</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>About DAZN DE footer</shortDescription>
+        <value>IMPRINT</value>
+    </labels>
+    <labels>
+        <fullName>daznui_freetrial_message</fullName>
+        <categories>DAZNUI, freetrial</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Free Trial Message</shortDescription>
+        <value>Your free month trial starts today. From %{billingDate}, pay %{billingRate} per month. Your subscription is cancellable monthly.</value>
+    </labels>
+    <labels>
+        <fullName>daznui_freetrial_message_12m</fullName>
+        <categories>DAZNUI, freetrial</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>daznui_freetrial_message_12m</shortDescription>
+        <value>Your free year starts today. From %{billingDate}, pay %{billingRate} per month. Your subscription is cancellable monthly.</value>
+    </labels>
+    <labels>
+        <fullName>daznui_freetrial_message_part2</fullName>
+        <categories>DAZNUI, freetrial</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>daznui_freetrial_message_part2</shortDescription>
+        <value>pay</value>
+    </labels>
+    <labels>
+        <fullName>daznui_invalidPage_errorMessage</fullName>
+        <categories>DAZNUI, message, 404 home</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message for 404</shortDescription>
+        <value>This page cannot be found.</value>
+    </labels>
+    <labels>
+        <fullName>daznui_keyboard_jpnSwitch</fullName>
+        <categories>DAZNUI, keyboard</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>daznui_keyboard_jpnSwitch</shortDescription>
+        <value>JPN</value>
+    </labels>
+    <labels>
+        <fullName>daznui_landing_contentDate</fullName>
+        <categories>DAZNUI, landing</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Landing - Example Fixture Date</shortDescription>
+        <value>Starts Saturday 12th January</value>
+    </labels>
+    <labels>
+        <fullName>daznui_landing_mobile2button</fullName>
+        <categories>DAZNUI, landing</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Landing - Start Your Free Month (mobile treatment 2)</shortDescription>
+        <value>START YOUR FREE MONTH</value>
+    </labels>
+    <labels>
+        <fullName>daznui_landing_pricedescription</fullName>
+        <categories>DAZNUI, LANDING</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Landing Page - Price Description</shortDescription>
+        <value>MONTHLY INC TAX, CANCEL ANYTIME, ONE MONTH FREE TRIAL</value>
+    </labels>
+    <labels>
+        <fullName>daznui_mislError_10504_secondaryButton</fullName>
+        <categories>DAZNUI, error</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>daznui_mislError_10504_secondaryButton</shortDescription>
+        <value>CANCEL</value>
+    </labels>
+    <labels>
+        <fullName>daznui_mislError_10799</fullName>
+        <categories>DAZNUI, mislError</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>daznui_mislError_10799</shortDescription>
+        <value>Your password cannot be reset right now.  Please try again or contact Customer Support.</value>
+    </labels>
+    <labels>
+        <fullName>daznui_myaccount_activePaidText</fullName>
+        <categories>DAZNUI, myaccount</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>My Account - Active Paid Text</shortDescription>
+        <value>Your subscription will automatically renew on Day/Month/Year and you&apos;ll be charged XX.XX per month.</value>
+    </labels>
+    <labels>
+        <fullName>daznui_myaccount_communicationText</fullName>
+        <categories>DAZNUI, myaccount</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>My Account - Communication Text</shortDescription>
+        <value>Send me information, updates and alerts about DAZN by email - including marketing communications.</value>
+    </labels>
+    <labels>
+        <fullName>daznui_myaccount_directDebit</fullName>
+        <categories>DAZNUI, myaccount</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>My Account - Direct Debit</shortDescription>
+        <value>DIRECT DEBIT</value>
+    </labels>
+    <labels>
+        <fullName>daznui_myaccount_newPassword</fullName>
+        <categories>DAZNUI, myaccount</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>My Account - Enter New Password</shortDescription>
+        <value>NEW  PASSWORD</value>
+    </labels>
+    <labels>
+        <fullName>daznui_myaccount_subscriptionHeader</fullName>
+        <categories>DAZNUI, myaccount</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>My Account - Subscription Header</shortDescription>
+        <value>SUBSCRIPTION</value>
+    </labels>
+    <labels>
+        <fullName>daznui_myaccountpaymentcard_cvc</fullName>
+        <categories>DAZNUI, myaccountpaymentcard</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>My Account Payment Card - CVC</shortDescription>
+        <value>CVC</value>
+    </labels>
+    <labels>
+        <fullName>daznui_passwordReset_back</fullName>
+        <categories>DAZNUI, passwordReset</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Password Reset - Back To Sign In</shortDescription>
+        <value>BACK TO SIGN IN</value>
+    </labels>
+    <labels>
+        <fullName>daznui_passwordReset_emailAddress</fullName>
+        <categories>DAZNUI, passwordreset</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>daznui_passwordReset_emailAddress</shortDescription>
+        <value>Email address</value>
+    </labels>
+    <labels>
+        <fullName>daznui_pausedUser_myAccount</fullName>
+        <categories>DAZNUI, Pause, Restart early</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Pause, Restart early, go to my account</shortDescription>
+        <value>My account</value>
+    </labels>
+    <labels>
+        <fullName>daznui_pausedUser_submitSublabel_DACH</fullName>
+        <categories>DAZNUI, Pause, Restart, button subtext</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Pause, Restart, button subtext</shortDescription>
+        <value>WITH OBLIGATION TO PAY</value>
+    </labels>
+    <labels>
+        <fullName>daznui_payment_giftCodeTitle</fullName>
+        <categories>Massive</categories>
+        <language>en_GB</language>
+        <protected>false</protected>
+        <shortDescription>daznui_  payment_giftCodeTitle</shortDescription>
+        <value>GIFT CODE</value>
+    </labels>
+    <labels>
+        <fullName>daznui_payment_startWatchingHO</fullName>
+        <categories>DAZNUI, payment</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Payment - Start Watching Hard Offer</shortDescription>
+        <value>START WATCHING</value>
+    </labels>
+    <labels>
+        <fullName>daznui_paymentcard_cardNumber</fullName>
+        <categories>DAZNUI, paymentcard</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Card Payment - Card Number</shortDescription>
+        <value>CARD NUMBER</value>
+    </labels>
+    <labels>
+        <fullName>daznui_paymentcard_cvc</fullName>
+        <categories>DAZNUI, paymentcard</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Card Payment - CVC</shortDescription>
+        <value>CVC</value>
+    </labels>
+    <labels>
+        <fullName>daznui_paymentcard_cvvTv</fullName>
+        <categories>DAZNUI, signup, TV</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CVV hint on tv</shortDescription>
+        <value>CVV</value>
+    </labels>
+    <labels>
+        <fullName>daznui_paymentcard_enterValidCreditCardNumber</fullName>
+        <categories>DAZNUI, paymentcard</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Payment Card - Enter Valid Number</shortDescription>
+        <value>Invalid card number</value>
+    </labels>
+    <labels>
+        <fullName>daznui_paymentcard_expiryMonth</fullName>
+        <categories>DAZNUI, paymentcard</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Card Payment - Expiry Month</shortDescription>
+        <value>EXPIRY DATE</value>
+    </labels>
+    <labels>
+        <fullName>daznui_paymentcard_lastName</fullName>
+        <categories>DAZNUI, paymentcard</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Payment Card - Last Name</shortDescription>
+        <value>LAST NAME</value>
+    </labels>
+    <labels>
+        <fullName>daznui_playerMetadata_preview</fullName>
+        <categories>DAZNUI, playerMetadata</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>daznui_playerMetadata_preview</shortDescription>
+        <value>PREVIEW</value>
+    </labels>
+    <labels>
+        <fullName>daznui_railMenu_settings</fullName>
+        <categories>DAZNUI, railMenu</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>daznui_railMenu_settings</shortDescription>
+        <value>SETTINGS</value>
+    </labels>
+    <labels>
+        <fullName>daznui_rememberEmail_backToSignIn</fullName>
+        <categories>DAZNUI, rememberEmail</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>daznui_rememberEmail_backToSignIn</shortDescription>
+        <value>BACK TO SIGN IN</value>
+    </labels>
+    <labels>
+        <fullName>daznui_schedule_titleDate</fullName>
+        <categories>DAZNUI, Schedule</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>daznui_schedule_titleDate</shortDescription>
+        <value>%{day} %{dayNumberWithSuffix} %{month}</value>
+    </labels>
+    <labels>
+        <fullName>daznui_schedule_titleNext</fullName>
+        <categories>DAZNUI, Schedule</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>daznui_schedule_titleNext</shortDescription>
+        <value>Next %{day}</value>
+    </labels>
+    <labels>
+        <fullName>daznui_signin_forgotsigninlabel</fullName>
+        <categories>DAZNUI, signin</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Sign In - Forgot Sign In Label</shortDescription>
+        <value>Forgot email or password?</value>
+    </labels>
+    <labels>
+        <fullName>daznui_signup_changepass_monthly</fullName>
+        <categories>DAZNUI</categories>
+        <language>en_GB</language>
+        <protected>false</protected>
+        <shortDescription>daznui_signup_changepass_monthly</shortDescription>
+        <value>[Change to monthly subscription.](%{change_plan}%)</value>
+    </labels>
+    <labels>
+        <fullName>daznui_signup_message_month</fullName>
+        <categories>Massive</categories>
+        <language>en_GB</language>
+        <protected>false</protected>
+        <shortDescription>daznui_signup_message_month</shortDescription>
+        <value>Access top sports for %{billingRate} per month with one month free. You’ll pay monthly in arrears and your first payment will be taken on %{billingDate}. Cancel anytime.  [Change subscription.](/account/payment-plan)</value>
+    </labels>
+    <labels>
+        <fullName>daznui_signup_message_month_noOfferSelection</fullName>
+        <categories>DAZNUI, signup, Create Account</categories>
+        <language>en_GB</language>
+        <protected>false</protected>
+        <shortDescription>daznui_signup_message_month_noOfferSelection</shortDescription>
+        <value>Access top sports for %{billingRate} per month with one month free. You’ll pay monthly in arrears and your first payment will be taken on %{billingDate}. Cancel anytime.</value>
+    </labels>
+    <labels>
+        <fullName>daznui_signup_message_part1</fullName>
+        <categories>DAZNUI, signup</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>daznui_signup_message_part1</shortDescription>
+        <value>Your free month starts today. From</value>
+    </labels>
+    <labels>
+        <fullName>daznui_signup_terms_acceptbutton_frozenuser_dach</fullName>
+        <categories>DAZNUI, signup</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>daznui_signup_terms_acceptbutton_frozenuser_dach</shortDescription>
+        <value>Accept with obligation to pay after registration</value>
+    </labels>
+    <labels>
+        <fullName>daznui_signup_titleMessage</fullName>
+        <categories>DAZNUI, signup</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Sign Up - Title Message</shortDescription>
+        <value>Your free month trial starts today. From $1 you will pay $2 (inc JCT) monthly until cancelled.</value>
+    </labels>
+    <labels>
+        <fullName>daznui_signupaccountemailcheck_header</fullName>
+        <categories>DAZNUI, signup</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Sign up - Account With Email Checkbox - Header</shortDescription>
+        <value>CREATE ACCOUNT</value>
+    </labels>
+    <labels>
+        <fullName>daznui_signupaccountemailcheck_submitbutton</fullName>
+        <categories>DAZNUI, signupaccountemailcheck</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Sign up - Account With Email Checkbox - Submit</shortDescription>
+        <value>CONTINUE</value>
+    </labels>
+    <labels>
+        <fullName>daznui_signuppayment_textlink</fullName>
+        <categories>DAZNUI, signuppayment</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Sign Up Payment Information - Textlink</shortDescription>
+        <value>Terms of Use and Privacy Policy</value>
+    </labels>
+    <labels>
+        <fullName>error_10073</fullName>
+        <categories>Massive</categories>
+        <language>en_GB</language>
+        <protected>false</protected>
+        <shortDescription>error_10073</shortDescription>
+        <value>Invalid user (shown when user is not entitled to redeem gift codes)</value>
+    </labels>
+    <labels>
+        <fullName>paymentPlanSelector_monthlyButtonText</fullName>
+        <categories>Massive</categories>
+        <language>en_GB</language>
+        <protected>false</protected>
+        <shortDescription>paymentPlanSelector_monthlyButtonText</shortDescription>
+        <value>SELECT</value>
+    </labels>
+</CustomLabels>

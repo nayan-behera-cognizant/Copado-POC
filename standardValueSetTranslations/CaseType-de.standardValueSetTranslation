@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSetTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <valueTranslation>
+        <masterLabel>Catch Up Issue</masterLabel>
+        <translation>Re-Live Problem</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Content, app and functionality</masterLabel>
+        <translation><!-- Content, app and functionality --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Feedback</masterLabel>
+        <translation><!-- Feedback --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Getting started in registration</masterLabel>
+        <translation><!-- Getting started in registration --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Live Stream Issue</masterLabel>
+        <translation>Live-Stream Problem</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Log in issue</masterLabel>
+        <translation><!-- Log in issue --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>My Account and payment</masterLabel>
+        <translation><!-- My Account and payment --></translation>
+    </valueTranslation>
+</StandardValueSetTranslation>

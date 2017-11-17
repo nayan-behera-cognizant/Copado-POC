@@ -1,0 +1,5 @@
+<apex:page controller="RefundProcessController" >
+  <!-- End Default Content REMOVE THIS -->
+  <apex:pageMessages ></apex:pageMessages>
+
+</apex:page>

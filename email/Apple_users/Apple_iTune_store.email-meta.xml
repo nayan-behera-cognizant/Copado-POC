@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>false</available>
+    <description>Apple退会方法の新テンプレが出来たので一旦使用中止します（飯田）</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>【AppleTV限定】視聴期間が残っている間の退会と再購読はどこから？（iTune storeから設定頂く）</name>
+    <style>none</style>
+    <subject>【DAZNカスタマーサービス】お問い合わせ頂きありがとうございます</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

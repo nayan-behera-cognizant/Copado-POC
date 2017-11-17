@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConnectedApp xmlns="http://soap.sforce.com/2006/04/metadata">
+    <contactEmail>mark.hewis@performgroup.com</contactEmail>
+    <description>The Perform Massive App gives you access to access and manage your data.</description>
+    <ipRanges>
+        <end>185.14.87.74</end>
+        <start>185.14.87.74</start>
+    </ipRanges>
+    <ipRanges>
+        <end>52.192.48.53</end>
+        <start>52.192.48.53</start>
+    </ipRanges>
+    <label>Perform_Massive_LSQA</label>
+    <oauthConfig>
+        <callbackUrl>https://login.salesforce.com/services/oauth2/success</callbackUrl>
+        <consumerKey>3MVG9lcxCTdG2VbtWAnBLcHTY.w1SJ1JAdJvkm1MtzHtpXSIbM.Opalbk2DkeI8SQOoSVGilXJtI5_D1QNmnb</consumerKey>
+        <scopes>Basic</scopes>
+        <scopes>Api</scopes>
+        <scopes>Web</scopes>
+        <scopes>Full</scopes>
+        <scopes>CustomApplications</scopes>
+        <scopes>RefreshToken</scopes>
+        <scopes>CustomPermissions</scopes>
+    </oauthConfig>
+</ConnectedApp>

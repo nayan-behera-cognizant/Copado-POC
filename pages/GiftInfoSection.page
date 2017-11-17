@@ -1,0 +1,41 @@
+<apex:page standardController="Account" extensions="GiftInfoSectionController" tabStyle="Account" showHeader="false" sidebar="false">
+    <apex:form id="theForm">
+		<apex:pageBlock id="thePageBlock" mode="maindetail">
+			<apex:pageMessages id="pageMessages" />
+			<apex:pageBlockSection id="firstBlockSection" collapsible="false" columns="2" rendered="true">
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="{!$Label.LS_PaymentHistory_Label_Gift_Code}"/>
+					<apex:outputText value="{!giftInfo.giftCode}"/>
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="{!$Label.LS_Gift_Info_Label_Gift_Code_Start_Date}"/>
+					<apex:outputText value="{!giftInfo.giftCodeStartDate}"/>
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="{!$Label.LS_Gift_Info_Label_Gift_Code_Campaign_ID}"/>
+					<apex:outputText value="{!giftInfo.giftCodeCampaignID}"/>
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="{!$Label.LS_Gift_Info_Label_Gift_Code_End_Date}"/>
+					<apex:outputText value="{!giftInfo.giftCodeEndDate}"/>
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="{!$Label.LS_Gift_Info_Label_Gift_Code_Status}"/>
+					<apex:outputText value="{!giftInfo.giftCodeStatus}"/>
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="{!$Label.LS_Gift_Info_Label_Free_Trial_End_Date}"/>
+					<apex:outputText value="{!giftInfo.freeTrialEndDate}"/>
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="{!$Label.LS_Gift_Info_Label_NumGiftPeriods}"/>
+					<apex:outputText value="{!giftInfo.numGiftPeriods}"/>
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="{!$Label.LS_Gift_Info_Label_NumFreeTrials}"/>
+					<apex:outputText value="{!giftInfo.numFreeTrials}"/>
+				</apex:pageBlockSectionItem>
+			</apex:pageBlockSection>
+		</apex:pageBlock>
+	</apex:form>
+</apex:page>

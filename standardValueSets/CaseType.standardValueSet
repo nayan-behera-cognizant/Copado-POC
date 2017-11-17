@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>true</sorted>
+    <standardValue>
+        <fullName>Catch Up Issue</fullName>
+        <default>false</default>
+        <label>Catch Up Issue</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Content, app and functionality</fullName>
+        <default>true</default>
+        <label>Content, app and functionality</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Feedback</fullName>
+        <default>false</default>
+        <label>Feedback</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Getting started in registration</fullName>
+        <default>false</default>
+        <label>Getting started in registration</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Live Stream Issue</fullName>
+        <default>false</default>
+        <label>Live Stream Issue</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Log in issue</fullName>
+        <default>false</default>
+        <label>Log in issue</label>
+    </standardValue>
+    <standardValue>
+        <fullName>My Account and payment</fullName>
+        <default>false</default>
+        <label>My Account and payment</label>
+    </standardValue>
+</StandardValueSet>

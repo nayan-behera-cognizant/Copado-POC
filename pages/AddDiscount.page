@@ -1,0 +1,44 @@
+<apex:page showHeader="true" sidebar="false" standardController="Account" extensions="AddDiscountController" title="{!$Label.LS_AddDiscount_Title}">
+	<head>
+		<apex:includescript value="{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/js/jquery.min.js')}"/>
+		<script type="text/javascript">
+			function disableButtons(label) {
+				$('.pbButton > .btn, .pbButtonb > .btn').toggleClass('btnDisabled').prop('disabled',true).val(label);
+			}
+			function enableButtons() {
+				$('.pbButton > .btn, .pbButtonb > .btn').each(function() {
+					var buttonName = $(this).attr('name');
+					if ($(this).attr('name').indexOf('cancelButton') != -1) {
+						buttonName = ' ' + '{!$Label.LS_Cancel_Title}' + ' ';
+					} 
+					if ($(this).attr('name').indexOf('submit') != -1) {
+						buttonName = ' ' + '{!$Label.LS_CancelSubscription_Button_Submit}' + ' ';
+					}
+					$(this).removeClass('btnDisabled').prop('disabled', false).val(buttonName);
+				});
+			}
+		</script>
+	</head>
+	<apex:form id="theForm">
+		<apex:sectionHeader title="{!$ObjectType.Account.Label}" subtitle="{!$Label.LS_AddDiscount_Title}"/>
+		<apex:pageBlock id="thePageBlock" mode="edit">
+			<apex:pageBlockButtons id="buttons">
+				<apex:actionStatus id="saveStatus" onstart="disableButtons('{!$Label.LS_AddDiscount_Processing}');" onstop="enableButtons();"/> 
+				<apex:commandButton id="submit" action="{!submit}" status="saveStatus" value=" {!$Label.LS_CancelSubscription_Button_Submit} " reRender="theForm, pageMessages" rendered="{!!isErrorMode}"/>
+				<apex:commandButton id="cancelButton" action="{!cancel}" value=" {!$Label.LS_Cancel_Title} " status="saveStatus"/>
+			</apex:pageBlockButtons>
+			<apex:pageMessages id="pageMessages" />
+			<apex:pageBlockSection id="firstBlockSection" title="{!$Label.LS_AddDiscount_Discount}" collapsible="false" columns="1" rendered="{!!isErrorMode}">
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="{!$Label.LS_AddDiscount_Months}" />
+					<apex:outputPanel styleClass="requiredInput" layout="block">
+						<apex:outputPanel styleClass="requiredBlock" layout="block" />
+						<apex:selectList value="{!selectedMonth}" size="1">
+							<apex:selectOptions value="{!discountLst}" />
+						</apex:selectList>
+					</apex:outputPanel>
+				</apex:pageBlockSectionItem>
+			</apex:pageBlockSection>
+		</apex:pageBlock>
+	</apex:form>
+</apex:page>

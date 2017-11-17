@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>SFのお問合せに中途採用オファーメールを受信したときの返信用</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>中途採用オファーメールへの返答</name>
+    <style>none</style>
+    <subject>【DAZNカスタマーサービス】お問い合わせありがとうございます。</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

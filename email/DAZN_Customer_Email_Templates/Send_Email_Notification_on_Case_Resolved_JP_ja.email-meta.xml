@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Case status changes to resolved</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Send Email Notification on Case Resolved JP_ja</name>
+    <style>none</style>
+    <subject>【お問い合わせのご状況】DAZNからのご連絡</subject>
+    <textOnly>○○様、 {!Case.Account}
+
+この度はお問い合わせいただきありがとうございます。
+
+お客様よりお問い合わせいただいたご質問に関しては、担当者より回答をさせていただいております。現在問題なく弊社のDAZNサービスをご利用いただけておりましたら幸いです。
+
+もし問題なくご利用いただけておりましたら、恐れ入りますがこちらのメールにご返信いただけますでしょうか。そちらをもちましてお問い合わせ番号{!Case.CaseNumber} about {!Case.Type}を対応完了とさせていただけば幸いに存じます。
+
+未だお客様のお問い合わせについてご満足できる回答がなされていない場合、下記のリンクにアクセスいただき必要な情報をご確認いただくか （https://stag.dazn.com/help）、カスタマーサービススタッフのチャットサービス（https://stag.dazn.com/contactus）に直接お問い合わせいただきますようお願い申し上げます。</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

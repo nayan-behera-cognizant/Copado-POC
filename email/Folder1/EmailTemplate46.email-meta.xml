@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>false</available>
+    <description>10/13各デバイス毎もテンプレ有のため無効へ（長谷川）</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>対応予定未定デバイス</name>
+    <style>none</style>
+    <subject>【DAZNカスタマーサービス】お問合せありがとうございます</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

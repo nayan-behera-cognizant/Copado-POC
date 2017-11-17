@@ -1,0 +1,6 @@
+<apex:page controller="zqu.SubscriptionConfirmationController" action="{!onload}">
+	<c:Notification successTitle="{!$Label.zqu__CONFIRMATION}" failureTitle="{!$Label.zqu__ERROR_PAGE_SUBMISSION}" />
+	<apex:form >
+		<c:QuoteDetail theQuoteId="{!$CurrentPage.parameters.id}"/>
+	</apex:form>
+</apex:page>

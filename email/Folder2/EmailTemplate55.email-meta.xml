@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>UTF-8</encodingKey>
+    <name>【匿名化】アカウント情報の削除完了メール</name>
+    <style>none</style>
+    <subject>【DAZNカスタマーサービス】ご登録情報の削除が完了いたしました</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

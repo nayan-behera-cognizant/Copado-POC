@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Updated Email Address -CA-fr Old Email Address</name>
+    <style>none</style>
+    <subject>Votre adresse courriel a été mise à jour.</subject>
+    <textOnly>Bonjour {!Target_User.FirstName},
+
+Votre adresse courriel été mise à jour sur votre compte DAZN. Nous utiliserons cette adresse pour vous contacter à partir de maintenant.
+
+Si vous n’avez pas changé votre adresse courriel ou si vous avez la moindre question, veuillez contacter notre soutien à la clientèle qui se fera un plaisir de vous aider.
+
+Cordialement,
+Votre équipe DAZN
+
+Suivi du cas : {!Case.Thread_Id} 
+Politique de confidentialité : https://my.dazn.com/help/ca-fr_CA/privacy
+Conditions d&apos;utilisation : https://my.dazn.com/help/ca-fr_CA/terms</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

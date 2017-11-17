@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <description>This custom setting is created to check the countries for which Gift code is Enabled</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>IsGiftCodeAvailable__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>This is Boolean to check whether the Gift code is available for this country or not</description>
+        <externalId>false</externalId>
+        <label>IsGiftCodeAvailable</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <label>CountryListForGiftCode</label>
+    <visibility>Public</visibility>
+</CustomObject>

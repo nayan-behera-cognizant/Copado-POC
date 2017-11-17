@@ -1,0 +1,258 @@
+<apex:component controller="LS_Help_FooterComponentController">
+
+    <apex:attribute name="myPageName" description="current page name" type="String" required="true" />
+
+    <head>
+        <style type="text/css">
+            .helpHr {
+                border-bottom: 1px solid #808080;
+                border-top: 0px;
+                margin-bottom: 0;
+            }
+            .helpFooter {
+                margin-top: 20px;
+                margin-bottom: 13px;
+                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            }
+            .iconfont-ls_icon_email3 {
+                font-size: 35px;
+            }
+            .iconfont-ls_icon_email3:before {
+                cursor: pointer;
+            }
+            .helpFooter .iconfont-ls_icon_faq {
+                display: inline-block !important;
+                font-size: 35px;
+            }
+            .helpFooter .conIconContainer {
+                display: inline-block;
+                left: 5px;
+                margin-top: 7px;
+                font-weight: bold;
+                position: relative;
+                color: #aaa;
+                font-size: 18px;
+                top: 8px;
+                font-family: "FoundryGridnik W01-Medium";
+            }
+            html body.langJa .helpFooter .conIconContainer {
+                display: inline-block;
+                left: 0px;
+            }
+            
+            .helpFooter .iconfont-ls_icon_livechat:before {
+                font-size: 40px;
+            }
+            .sp1Icon {
+                position: relative;
+                top: -8px;
+                left: 0px;
+            }
+            .sp2Icon {
+                position: relative;
+                top: -8px;
+                left: -6px;
+            }
+            .helpDocomoLink {
+                font-size: 14px;
+                font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            }
+            
+            #helpFooter a:focus, #helpFooter a:hover, span.contactusLink:hover, 
+            span.contactusLink:focus,span.liveChat:focus, span.liveChat:hover {
+               color: #fff;
+               text-decoration: underline; 
+            }
+            .seeAllFaq {
+                margin-left: 5px;
+            }
+            .liveChat {
+                margin-top: 10px;
+                display: inline-block;
+                font-size: 14px;
+            }
+            .seeAllFaq a {
+                text-transform: uppercase;
+                font-size: 14px;
+            }
+            .langJa .seeAllFaq a {
+                font-size: 12px;
+            }
+            span.contactusLink {
+                font-size: 14px;
+            }
+            
+            @media screen and (min-width: 320px) and (max-width:759px) {
+                .helpFooter .iconfont-ls_icon_livechat:before {
+                    font-size: 30px;
+                    margin-top: 4px;
+                    display: inline-block;
+                }
+                .helpFooter .iconfont-ls_icon_faq {
+                    font-size: 30px;
+                }
+                .helpFooter .iconfont-ls_icon_email3 {
+                    font-size: 30px;
+                }
+                .helpFooter {
+                    margin-top: 12px;
+                    margin-bottom: 15px;
+                }
+                .helpHr {
+                    width: auto;
+                    margin: 0 15px;
+                }
+                .daznDocomoLink {
+                    margin-left: 5px;
+                    margin-bottom: 10px;
+                }
+                span.contactusLink {
+                    display: inline-block;
+                    margin-top: 5px;
+                    margin-left: 8px;
+                }
+                .seeAllFaq {
+                    margin-top: -4px;
+                }
+                .liveChat {
+                    margin-left: 5px;
+                }
+                .contactUsLink {
+                    margin-top: 5px;
+                }
+                .seeAllFaq a {
+                    margin-left: 3px;
+                }
+                .langJa .seeAllFaq a {
+                    margin-left: 0;
+                }
+            }
+            
+            @media screen and (min-width: 760px) {
+                span.contactusLink {
+                    margin-top: 9px;
+                    display: inline-block;
+                    margin-left: 5px;
+                }
+            }
+            
+            @media screen and (min-width: 760px) and (max-width:1199px) {
+                .daznDocomoLink {
+                    margin-bottom: 1em;
+                    margin-left: 5px;
+                }
+            }
+        </style>
+    </head>
+    
+    <script type='text/javascript'>
+        isClicked = function() {
+            if ($(".iconfont-ls_icon_livechat").hasClass("disabled")) {
+                return false;
+            } else {
+                $(".iconfont-ls_icon_livechat").addClass("disabled");
+                return true;
+            }
+        }
+    </script>
+
+    <hr class="helpHr" />
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 helpFooter" id="helpFooter">
+                <div class="row">
+                    <!-- Japanese Docomo -->
+                    <apex:outputPanel rendered="{! $CurrentPage.parameters.Country == 'JP' }">
+                        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 daznDocomoLink">
+                            <a href="{! '/help/' + $CurrentPage.parameters.Country + '-' + $CurrentPage.parameters.lang + '/DAZN-for-Docomo' }" class="helpDocomoLink">{!$Label.LS_help_dazn_docomo_link}</a>
+                            <span class="conIconContainer"><span class="sp1Icon">&gt;</span><span class="sp2Icon">&gt;</span></span>
+                        </div>
+                    </apex:outputPanel>
+                    <!-- See All FAQ's -->
+                    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                        <apex:outputPanel >
+                            <!-- See All FAQ section -->
+                            <div class="pull-left">
+                                <span class="iconfont iconfont-ls_icon_faq"></span>
+                            </div>
+                            <div class="pull-left seeAllFaq">
+                                <a href="{! '/help/' + $CurrentPage.parameters.Country + '-' + $CurrentPage.parameters.lang + '/FAQ' }" class="">
+                                    {! faqLinkLabel }
+                                    <div class="conIconContainer">
+                                        <span class="sp1Icon">&gt;</span><span class="sp2Icon">&gt;</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </apex:outputPanel>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 contactUsLink pull-right">
+                        <div class="row">
+                            <!-- Message US section -->
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <apex:outputPanel id="EmailLink" rendered="{! showEmailLink }">
+                                    <a href="/contactus" class="pull-left">
+                                        <span class="pull-left">
+                                            <span class="icon-x2"><span class="iconfont iconfont-ls_icon_email3"></span></span>
+                                        </span>
+                                        <apex:outputText value="{!$Label.LS_Help_Label_Email}" escape="false" styleClass="contactusLink" />
+                                    </a>
+                                </apex:outputPanel>
+                            </div>
+                            <!-- Live Agent section -->
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pullRight">
+                                <apex:outputPanel id="deLiveChatButton" rendered="{! showLiveChat }">
+                                    <span class="icon-x2">
+                                        <span class="iconfont iconfont-ls_icon_livechat" id="{! 'liveagent_button_online_' + liveChatButtonId }" style="display: none; cursor: pointer" onclick="startChat()">
+                                            <span class="liveChat">
+                                                {!$Label.LS_Help_Label_LiveChat}
+                                            </span>
+                                        </span>
+                                    </span>
+                                    <span class="icon-x2">
+                                        <span class="iconfont iconfont-ls_icon_livechat" id="{! 'liveagent_button_offline_' + liveChatButtonId }" style="display: none;">
+                                            <span class="liveChat">
+                                                {!$Label.LS_Help_Label_LiveChat}
+                                            </span>
+                                        </span>
+                                    </span>
+                                    <script type="text/javascript">
+                                        jQuery.loadScript = function (url, callback) {
+                                            jQuery.ajax({
+                                                url: url,
+                                                dataType: 'script',
+                                                success: callback,
+                                                async: true
+                                            });
+                                        }
+            
+                                        delete liveagent;
+                                        delete liveAgentDeployment;
+            
+                                        $.loadScript('https://c.la1-c1-par.salesforceliveagent.com/content/g/js/40.0/deployment.js', function() {
+            
+                                            liveagent.init('{! $Setup.LiveChatSettings__c.URL__c }', '{! $Setup.LiveChatSettings__c.Deployment_Id__c }', '{! $Setup.LiveChatSettings__c.Org_Id__c }');
+            
+                                            window._laq = [];
+            
+                                            window._laq.push(function() {
+                                                liveagent.showWhenOnline(
+                                                    '{! liveChatButtonId }',
+                                                    document.getElementById("{! 'liveagent_button_online_' + liveChatButtonId }")
+                                                );
+                                                liveagent.showWhenOffline(
+                                                    '{! liveChatButtonId }',
+                                                    document.getElementById("{! 'liveagent_button_offline_' + liveChatButtonId }")
+                                                );
+                                            });
+                                        });
+                                </script>
+                                </apex:outputPanel>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+        </div>
+        </div>
+    </div>
+</apex:component>

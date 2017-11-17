@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>DAZN Help Redirect</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>DAZN Help Redirect</value>
+    </caseValues>
+    <fields>
+        <label><!-- CountryISOCode --></label>
+        <name>CountryISOCode__c</name>
+    </fields>
+    <fields>
+        <label><!-- Country --></label>
+        <name>Country__c</name>
+    </fields>
+    <fields>
+        <label><!-- Footer About Link Custom Label --></label>
+        <name>FooterAboutLinkCustomLabel__c</name>
+    </fields>
+    <fields>
+        <label><!-- Footer About Title Custom Label --></label>
+        <name>FooterAboutTitleCustomLabel__c</name>
+    </fields>
+    <fields>
+        <label><!-- IsDefaultCountry --></label>
+        <name>IsDefaultCountry__c</name>
+    </fields>
+    <fields>
+        <label><!-- IsDefaultLanguage --></label>
+        <name>IsDefaultLanguage__c</name>
+    </fields>
+    <fields>
+        <label><!-- Language Long Code --></label>
+        <name>LanguageLongCode__c</name>
+    </fields>
+    <fields>
+        <label><!-- Language --></label>
+        <name>Language__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>FK_NAME</field>
+    </columns>
+    <currency>GBP</currency>
+    <filter>
+        <criteriaItems>
+            <column>Zuora__Subscription__c.TrackingID__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>contains</operator>
+            <value>90a39456-4e6f-4d8c-b619-3d9744179062,0274515d-7b1d-40b7-ab57-c7c3b0d8baa7,68f3a62-e077-44e4-b8f5-d673ea50d4df,653ab25a-150e-4af7-8a33-4e47c6ba8ffb</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Tabular</format>
+    <name>Xbox Subs</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$Zuora__Subscription__c@Zuora__Subscription__c.Zuora__Account__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>CUST_CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2016-12-11</startDate>
+    </timeFrameFilter>
+</Report>

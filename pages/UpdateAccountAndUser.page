@@ -1,0 +1,16 @@
+<apex:page showHeader="false" sidebar="false" standardController="Account" extensions="UpdateAccountandUserNameNEmail" title="Update Account and user">
+    <apex:form > 
+        <apex:pageMessages ></apex:pageMessages>
+        <apex:pageBlock >
+            <apex:pageBlockSection title="Update Name and Email" columns="1"> 
+                <apex:inputText label="FirstName" value="{!FirstName}"/> 
+                <apex:inputText label="LastName" value="{!LastName}"/>
+                <apex:inputText label="Email" value="{!Email}"/> 
+                <apex:outputPanel id="idSaveButton" > 
+                    <apex:commandButton value="Save" action="{!SaveRecord}" style="margin-left: 180px; margin-right: 5px;" /> 
+                    <apex:commandButton value="Cancel" action="{!cancelAction}"  />
+                </apex:outputPanel> 
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

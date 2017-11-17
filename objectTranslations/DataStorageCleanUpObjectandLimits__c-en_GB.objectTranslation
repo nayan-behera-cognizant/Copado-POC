@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Data Storage Clean Up Object and limits</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Data Storage Clean Up Object and limits</value>
+    </caseValues>
+    <fields>
+        <label><!-- Number Of Months --></label>
+        <name>Number_Of_Months__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

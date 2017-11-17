@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>false</available>
+    <description>※過去配信スケジュールについての為無効へ（長谷川）</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>【バレーボール】 久光製薬　対 レクソナ　の配信見逃しないお詫びメール</name>
+    <style>none</style>
+    <subject>【DAZNカスタマーサービス】久光製薬　対 レクソナ戦の配信につきまして</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

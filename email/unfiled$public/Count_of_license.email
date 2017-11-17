@@ -1,0 +1,26 @@
+Hello Ops team 
+</br>
+</br>
+
+This is the system generated notification for Salesforce licenses Consumption.
+</br>
+</br>
+
+This alert is related to License type : <Strong>{!License_Alert__c.Name}</Strong>
+</br>
+</br>
+
+Total Available {!License_Alert__c.Name}: {!License_Alert__c.Total_License_for_Record__c} </br>
+
+Total Consumed till date  : {!License_Alert__c.Consumed__c} </br>
+
+Percentage Consumed   : {!License_Alert__c.Consumed_in_percentage__c} ( % ) </br> 
+</br>
+ 
+This alert is generated from Salesforce {!Organization.Name}. Org id is {!orgId}
+
+ </br>
+</br>
+Regards
+ </br>
+Salesforce Admin

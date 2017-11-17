@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <description>Depending on the values of what country user is in and the language his browser is set to for the particular url &apos;Name&apos; user will be redirected to the url specified in &apos;Long URL&apos;</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>Country_code__c</fullName>
+        <externalId>false</externalId>
+        <label>Country code</label>
+        <length>10</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Language_code__c</fullName>
+        <externalId>false</externalId>
+        <label>Language code</label>
+        <length>10</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Long_URL__c</fullName>
+        <externalId>false</externalId>
+        <label>Long URL</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Short_URL_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Short URL Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Help Short URLs</label>
+    <visibility>Public</visibility>
+</CustomObject>

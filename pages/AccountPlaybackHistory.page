@@ -1,0 +1,3 @@
+<apex:page action="{!doInit}" standardController="Account" extensions="AccountPlaybackHistoryController" sidebar="false" standardStylesheets="false" showHeader="false">
+    <apex:pagemessages />
+</apex:page>

@@ -1,0 +1,63 @@
+<apex:page showHeader="false" sidebar="false" standardController="Account" extensions="CancelSubscriptionExtension" title="Cancel Subscription">
+
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+        <apex:stylesheet value="{!URLFOR($Resource.DAZN_VF_Assets, 'DAZN_VF_Assets/css/DAZN_cancelSub.css')}" />
+    </head>
+    
+    <apex:form id="frmCancelSubscription">
+        <apex:actionFunction name="cancelSubscription" action="{!cancelSubscription}" reRender="frmCancelSubscription">
+            <apex:param id="myparam" assignTo="{!reasonForCncl}" name="cancelReason" value="" />
+        </apex:actionFunction>
+        <!--<apex:outputPanel rendered="{!(activeSubscriptions)}">-->
+        <apex:outputPanel >
+            <apex:pageBlock >
+                <!--apex:outputPanel rendered="{!showErrMsg}"-->
+                    <apex:pagemessages id="pgMsgs"></apex:pagemessages>
+                <!--/apex:outputPanel-->
+                <!--<apex:outputText id="errMsg" value="Please select Immediate / Standard from below options." styleClass="errMsg" />-->
+                <apex:outputPanel rendered="{!NOT(showErrMsg)}">
+                    <apex:pageBlockSection id="RadioBtnPBS" columns="1">
+                        <apex:selectRadio id="radioBtns" layout="pageDirection" style="margin-left: 435px;" value="{!cancellationType}">
+                            <apex:selectOption itemLabel="{!$Label.LS_CancelSubscription_Label_Immediate}" itemValue="Immediate"></apex:selectOption>
+                            <apex:selectOption itemLabel="{!$Label.LS_CancelSubscription_Label_Standard}" itemValue="Standard"></apex:selectOption>
+                        </apex:selectRadio>
+                    </apex:pageBlockSection>
+
+                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"> </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                        {!$Label.LS_CancelSubscription_Label_Reason}
+                        <select id="myDropDown" name="dropdown">
+                          <option value="1"><div>NONE</div></option>
+                          <option value="2"><div>{!$Label.LS_Why_Label_Technical_Issue}</div></option>
+                          <option value="3"><div>{!$Label.LS_Why_Label_Favourite_Sports_Not_Available}</div></option>
+                          <option value="4"><div>{!$Label.LS_Why_Label_Switch_Payment_Method}</div></option>
+                          <option value="5"><div>{!$Label.LS_Why_Label_Dont_Use_Service}</div></option>
+                          <option value="6"><div>{!$Label.LS_Why_Label_Moving_Abroad}</div></option>
+                          <option value="7"><div>{!$Label.LS_Why_Label_Others}</div></option>
+                        </select>
+                    </div>
+                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"> </div>
+                    <div>&nbsp;</div>
+                    <div>&nbsp;</div>
+                    <apex:outputPanel id="idSubmitButtonPanel" style="margin-left: 400px; margin-right: 5px;">
+                        <apex:commandButton action="null" rendered="{!showSubmitButton = false}" value="{!$Label.LS_CancelSubscription_Button_Submit}" styleClass="btnDisabled" disabled="true"/>
+                        <apex:commandButton action="{!CancelSubscription}" rendered="{!showSubmitButton}" value="{!$Label.LS_CancelSubscription_Button_Submit}" reRender="pgMsgs, idSubmitButtonPanel" styleClass="btnClass"/>
+                    </apex:outputPanel>
+                </apex:outputPanel>
+            </apex:pageBlock>
+        </apex:outputPanel>
+        <apex:includescript value="{!URLFOR($Resource.LS_JQuery)}" />
+        <apex:includescript value="{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/js/jquery.min.js')}" />
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <apex:includeScript value="/support/console/22.0/integration.js" />
+        <!-- Below script was used to set the page title -->
+        <script type="text/javascript">
+            var DAZN_cancelSub = {
+                paramname: '{!$CurrentPage.parameters.PARAMNAME}'
+            }
+        </script>
+        <apex:includeScript value="{!URLFOR($Resource.DAZN_VF_Assets, 'DAZN_VF_Assets/js/DAZN_cancelSub.js')}" />
+    </apex:form>
+</apex:page>

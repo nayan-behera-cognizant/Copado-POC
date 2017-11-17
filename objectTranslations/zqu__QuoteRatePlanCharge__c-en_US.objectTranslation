@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Apply Discount To One Time Charges --></label>
+        <name>zqu__Apply_Discount_To_One_Time_Charges__c</name>
+    </fields>
+    <fields>
+        <label><!-- Apply Discount To Recurring Charges --></label>
+        <name>zqu__Apply_Discount_To_Recurring_Charges__c</name>
+    </fields>
+    <fields>
+        <label><!-- Apply Discount To Usage Charges --></label>
+        <name>zqu__Apply_Discount_To_Usage_Charges__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bill Cycle Day --></label>
+        <name>zqu__BillCycleDay__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bill Cycle Type --></label>
+        <name>zqu__BillCycleType__c</name>
+        <picklistValues>
+            <masterLabel>ChargeTriggerDay</masterLabel>
+            <translation><!-- ChargeTriggerDay --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DefaultFromCustomer</masterLabel>
+            <translation><!-- DefaultFromCustomer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SpecificDayofMonth</masterLabel>
+            <translation><!-- SpecificDayofMonth --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SubscriptionStartDay</masterLabel>
+            <translation><!-- SubscriptionStartDay --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Billing Period Alignment --></label>
+        <name>zqu__BillingPeriodAlignment__c</name>
+        <picklistValues>
+            <masterLabel>AlignToCharge</masterLabel>
+            <translation><!-- AlignToCharge --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AlignToSubscriptionStart</masterLabel>
+            <translation><!-- AlignToSubscriptionStart --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AlignToTermStart</masterLabel>
+            <translation><!-- AlignToTermStart --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- ChargeType --></label>
+        <name>zqu__ChargeType__c</name>
+    </fields>
+    <fields>
+        <label><!-- Currency --></label>
+        <name>zqu__Currency__c</name>
+    </fields>
+    <fields>
+        <label><!-- Description --></label>
+        <name>zqu__Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Discount Level --></label>
+        <name>zqu__Discount_Level__c</name>
+        <picklistValues>
+            <masterLabel>Account</masterLabel>
+            <translation><!-- Account --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RatePlan</masterLabel>
+            <translation><!-- RatePlan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Subscription</masterLabel>
+            <translation><!-- Subscription --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Discount --></label>
+        <name>zqu__Discount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Effective Price --></label>
+        <name>zqu__EffectivePrice__c</name>
+    </fields>
+    <fields>
+        <label><!-- FeeType --></label>
+        <name>zqu__FeeType__c</name>
+        <picklistValues>
+            <masterLabel>Flat Fee</masterLabel>
+            <translation><!-- Flat Fee --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>n/a</masterLabel>
+            <translation><!-- n/a --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Included Units --></label>
+        <name>zqu__IncludedUnits__c</name>
+    </fields>
+    <fields>
+        <label><!-- List Price --></label>
+        <name>zqu__ListPrice__c</name>
+    </fields>
+    <fields>
+        <label><!-- List Total --></label>
+        <name>zqu__ListTotal__c</name>
+    </fields>
+    <fields>
+        <help><!-- Monthly Recurring Revenue --></help>
+        <label><!-- MRR --></label>
+        <name>zqu__MRR__c</name>
+    </fields>
+    <fields>
+        <label><!-- Model --></label>
+        <name>zqu__Model__c</name>
+    </fields>
+    <fields>
+        <label><!-- Period --></label>
+        <name>zqu__Period__c</name>
+        <picklistValues>
+            <masterLabel>Annual</masterLabel>
+            <translation><!-- Annual --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Month</masterLabel>
+            <translation><!-- Month --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quarter</masterLabel>
+            <translation><!-- Quarter --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Semi-Annual</masterLabel>
+            <translation><!-- Semi-Annual --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- MRR value calculated by previewing the quote from Zuora --></help>
+        <label><!-- MRR --></label>
+        <name>zqu__PreviewedMRR__c</name>
+    </fields>
+    <fields>
+        <help><!-- TCV value calculated by previewing the quote from Zuora --></help>
+        <label><!-- TCV --></label>
+        <name>zqu__PreviewedTCV__c</name>
+    </fields>
+    <fields>
+        <label><!-- Price Change Option --></label>
+        <name>zqu__PriceChangeOption__c</name>
+        <picklistValues>
+            <masterLabel>NoChange</masterLabel>
+            <translation><!-- NoChange --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SpecificPercentageValue</masterLabel>
+            <translation><!-- SpecificPercentageValue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UseLatestProductCatalogPricing</masterLabel>
+            <translation><!-- UseLatestProductCatalogPricing --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Price Increase Percentage --></label>
+        <name>zqu__PriceIncreasePercentage__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product Rate Plan Charge Zuora Id --></label>
+        <name>zqu__ProductRatePlanChargeZuoraId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product Rate Plan Charge --></label>
+        <name>zqu__ProductRatePlanCharge__c</name>
+        <relationshipLabel><!-- Quote Rate Plan Charges --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Quantity --></label>
+        <name>zqu__Quantity__c</name>
+    </fields>
+    <fields>
+        <label><!-- Quote Rate Plan Charge Zuora Id --></label>
+        <name>zqu__QuoteRatePlanChargeZuoraId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Quote Rate Plan --></label>
+        <name>zqu__QuoteRatePlan__c</name>
+        <relationshipLabel><!-- Quote Rate Plan Charges --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Specific Billing Period --></label>
+        <name>zqu__SpecificBillingPeriod__c</name>
+    </fields>
+    <fields>
+        <label><!-- Subscription Rate Plan Charge Zuora Id --></label>
+        <name>zqu__SubscriptionRatePlanChargeZuoraId__c</name>
+    </fields>
+    <fields>
+        <help><!-- Total Contract Value --></help>
+        <label><!-- TCV --></label>
+        <name>zqu__TCV__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total --></label>
+        <name>zqu__Total__c</name>
+    </fields>
+    <fields>
+        <help><!-- The date when the charge becomes effective, and billing begins. --></help>
+        <label><!-- Trigger Date --></label>
+        <name>zqu__TriggerDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Trigger Event --></label>
+        <name>zqu__TriggerEvent__c</name>
+        <picklistValues>
+            <masterLabel>ContractEffective</masterLabel>
+            <translation><!-- ContractEffective --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CustomerAcceptance</masterLabel>
+            <translation><!-- CustomerAcceptance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ServiceActivation</masterLabel>
+            <translation><!-- ServiceActivation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SpecificDate</masterLabel>
+            <translation><!-- SpecificDate --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- UOM --></label>
+        <name>zqu__UOM__c</name>
+    </fields>
+    <fields>
+        <label><!-- Upto How Many Periods --></label>
+        <name>zqu__Upto_How_Many_Periods__c</name>
+    </fields>
+    <validationRules>
+        <errorMessage><!-- Quantity must greater than 0 --></errorMessage>
+        <name>zqu__Quantity_must_greater_than_0</name>
+    </validationRules>
+</CustomObjectTranslation>

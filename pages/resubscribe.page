@@ -1,0 +1,154 @@
+<apex:page controller="MembershipReactivationController"
+    action="{!navigateToErrorPage}"
+    showHeader="false"
+    cache="true"
+    expires="1800"
+    standardStylesheets="false"
+    applyHtmlTag="false"
+    docType="html-5.0"
+    language="{! IF(BEGINS(UPPER($CurrentPage.parameters.lang), 'EN'), IF($CurrentPage.parameters.Country == 'CA', 'en_US', 'en_GB'), $CurrentPage.parameters.lang) }"
+>
+    <!--Add action Attribute for PD-7847 -->
+<apex:outputPanel id="resubscribeRerender">
+    <head>
+        <meta name="google-site-verification" content="1m_JV80vU3gln3KyYeAm5woixeUHQOvhrbGjS-0g6J0" />
+        <title>{!$Label.LS_Resubscribes_Title}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <apex:stylesheet value="{!$Resource.LS_MyAccount_Css}" />
+        <apex:stylesheet value="{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/css/styles.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/css/base-method-ember-styleguide.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/css/vendor.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.DAZN_VF_Assets, 'DAZN_VF_Assets/css/DAZN_resubscribe.css')}" />
+
+        <link REL="SHORTCUT ICON" HREF="{!URLFOR($Resource.DAZN_favicon_default)}" />
+        <link REL="apple-touch-icon" sizes="57x57" HREF="{!URLFOR($Resource.DAZN_appletouchicon57_57 )}" />
+        <link REL="apple-touch-icon" sizes="60x60" HREF="{!URLFOR($Resource.DAZN_appletouchicon60_60 )}" />
+        <link REL="apple-touch-icon" sizes="72x72" HREF="{!URLFOR($Resource.DAZN_appletouchicon72_72 )}" />
+        <link REL="apple-touch-icon" sizes="76x76" HREF="{!URLFOR($Resource.DAZN_appletouchicon76_76 )}" />
+        <link REL="apple-touch-icon" sizes="114x114" HREF="{!URLFOR($Resource.DAZN_appletouchicon144_144 )}" />
+        <link REL="apple-touch-icon" sizes="120x120" HREF="{!URLFOR($Resource.DAZN_appletouchicon120_120 )}" />
+        <link REL="apple-touch-icon" sizes="144x144" HREF="{!URLFOR($Resource.DAZN_appletouchicon144_144 )}" />
+        <link REL="apple-touch-icon" sizes="152x152" HREF="{!URLFOR($Resource.DAZN_appletouchicon152_152 )}" />
+        <link REL="apple-touch-icon" sizes="180x180" HREF="{!URLFOR($Resource.DAZN_appletouchicon180_180 )}" />
+        <link REL="icon" type="image/png" HREF="{!URLFOR($Resource.DAZN_favicon_32_32 )}" sizes="32x32" />
+        <link REL="icon" type="image/png" HREF="{!URLFOR($Resource.DAZN_androidchrome192_192 )}" sizes="192x192" />
+        <link REL="icon" type="image/png" HREF="{!URLFOR($Resource.DAZN_favicon_96_96 )}" sizes="96x96" />
+        <link REL="icon" type="image/png" HREF="{!URLFOR($Resource.DAZN_favicon_16_16 )}" sizes="16x16" />
+        <link rel="mask-icon" href="{!URLFOR($Resource.DAZN_favicon_svg16_16 )}"  color="#000" />
+        <link rel="icon" type="image/svg" sizes="any" href="{!URLFOR($Resource.DAZN_favicon_svg16_16 )}" /> 
+        <!--PD-8766 - To get version of the product from Static Resource-->
+        <apex:includescript value="{!URLFOR($Resource.Version)}" />
+        <!-- PD-8777 start -->
+        <c:GoogleAnalytics />
+        <!-- PD-8777 end -->
+        <!--PD-14139-->
+        <c:CheckingAccountType />
+        <!---->
+        <title>{!$Label.Ls_Resubscribe_Title}</title>
+
+        <!-- <c:FetchLanguage myPageName="resubscribe" areaToRefreshName="resubscribeFrm" /> -->
+    </head>
+
+    <body class="reSubscribe">
+        <!-- Google Tag Manager -->
+        <c:GTMHeader sPageName="resubscribe"></c:GTMHeader>
+        <!-- End Google Tag Manager -->
+        <apex:form id="resubscribeFrm">
+            <div class="container wrapMemberActivation">
+                <c:LS_Header />
+                <div class="col-xs-12">
+                    <div class="row wrapperSubscribe">
+                        <div class="col-md-4 col-lg-4 padding0">
+                            <label for="input-id" class="foundryFontMedium">{!$Label.LS_MembershipReactivation_Label_ReactivateMembership}</label>
+                        </div>
+                        <div class="col-md-8 col-lg-7 divMargin MTSubAdjust" id="idmsgReactivateSubscription">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 resubText">
+                                    <apex:outputText escape="false" value="{!strReactivationMsg}"></apex:outputText>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 col-lg-4 padding0 hidden-xs  hidden-sm">&nbsp;</div>
+                        <div class="col-md-8 col-lg-8 padding0 paddingLeft">
+                            <hr class="hrSection hrSectionGrey" />
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 col-lg-4 padding0 hidden-xs hidden-sm">&nbsp;</div>
+                        <div class="col-md-8 col-lg-7 divMargin MTSubAdjust" id="idmsgReactivateSubscription">
+                            <div class="row paymentMethod">
+                                <div class="col-sm-12 col-md-12 col-lg-12" id="idmsgReactivateSubscription">
+                                    <div class="labelTxt">
+                                        {!$Label.LS_MyAccount_Label_PaymentMethod}
+                                    </div>
+                                    <div class="paymentAcc">
+                                        <apex:outputpanel rendered="{!paymentDetails != null && paymentDetails.Zuora__Type__c=='CreditCard'}">
+                                            <p>
+                                                <apex:outputText rendered="{!paymentDetails != null && paymentDetails.Zuora__Type__c=='CreditCard'}">
+                                                    {!paymentDetails.Zuora__CreditCardType__c} {!if(paymentDetails != null, sCCMaskNumber, '')}
+                                                </apex:outputText>
+                                            </p>
+                                        </apex:outputpanel>
+                                        <apex:outputpanel rendered="{!paymentDetails != null && paymentDetails.Zuora__Type__c=='BankTransfer'}">
+                                            <p>{!$Label.LS_PaymentHistory_Label_Directdebit} {!if(paymentDetails != null, sCurrentBTAccountNumber, '')}</p>
+                                        </apex:outputpanel>
+                                        <apex:outputpanel rendered="{!paymentDetails != null && paymentDetails.Zuora__Type__c=='PayPal'}">
+                                            <p>{!sCurrentPaypalEmail}</p>
+                                        </apex:outputpanel>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="row margBot15">
+                                <div class="text-right confirmBtns">
+                                    <div class="margTop1 col-sm-5 col-md-5 col-lg-5 col-xs-12 floatRight">
+                                        <apex:outputPanel styleClass="ember-view form-fields--form-button-e53320ec primary">
+                                            <apex:commandLink id="idReactivateMemberBtn" value="{!$Label.LS_MyAccount_Button_ConfirmReactivate}" onclick="updatedataLayerAttribute(event)" action="{!ReactivateMembership}" styleClass="wrapper btn txtUpperCase custStyleBtn" />
+                                        </apex:outputPanel>
+                                    </div>
+                                    <div class="membershipLink col-sm-5 col-md-5 col-lg-5 col-xs-12 floatRight">
+                                        <span class="customSpanStyle">
+                                <apex:outputPanel styleClass="ember-view form-fields--form-button-e53320ec primary">
+                                    <apex:commandLink id="backToMyAccButton" value="{!$Label.LS_Resubscribe_Button_Label_No_Thanks}" onclick="updatedataLayerAttribute(event)" action="{!redirectToMyAccount}" styleClass="keepMembership"></apex:commandLink>
+                                </apex:outputPanel>
+                            </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="langSwitcher">
+                <c:LS_FooterCookie renderLangSwitcher="true" areaToRefreshName="resubscribeRerender" />
+            </div>
+
+            <!--c:LS_Footer renderLangSwitcher="false" /-->
+            <apex:includescript value="{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/js/jquery.min.js')}" />
+            <apex:includescript value="{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/js/base-method-ember-styleguide.js')}" />
+            <apex:includescript value="{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/js/vendor.js')}" />
+            <apex:includescript value="{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/js/ember.js')}" />
+            <script type="text/javascript">
+                var DAZN_resubscribe = {
+                    languageLocaleKey: '{!user.LanguageLocaleKey}'
+                };
+
+                var sLang = DAZN_resubscribe.languageLocaleKey;
+                if(sLang == 'ja'){
+                    $('body').addClass('langJa');
+                }
+                if (sLang == 'de') {
+                    $('body').addClass('langDe');
+                }
+            </script>
+            <!-- <apex:includescript value="{!URLFOR($Resource.DAZN_VF_Assets, 'DAZN_VF_Assets/js/DAZN_resubscribe.js')}" /> -->
+        </apex:form>
+        <c:CookiesComponent rendered="{!if(((cookieCountry == 'Japan') || (cookieCountry == 'JP')),false,true)}" />
+    </body>
+</apex:outputPanel>
+</apex:page>

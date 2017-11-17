@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Case status changed to closed due to elapsed time from resolved</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Send Email Notification on Case Closed JP_ja</name>
+    <style>none</style>
+    <subject>【ご質問に対するお礼】DAZNからのご連絡</subject>
+    <textOnly>○○様、 {!Case.Account}
+
+この度はお問い合わせいただき、ありがとうございました。
+
+お客様よりお問い合わせいただいたご質問について担当者より回答をさせていただきましたが、現在問題なく弊社のDAZNサービスをご利用いただけておりますでしょうか。
+
+お客様からこの度お問い合わせいただいたお問い合わせ番号{!Case.CaseNumber} about {!Case.Type}を対応完了とさせていただきます。
+
+その他ご質問がございましたら、弊社ヘルプセクションにアクセスいただき必要な情報をご確認いただくか（https://stag.dazn.com/help）、もしくは弊社カスタマーサービス（https://stag.dazn.com/contactus）に直接お問い合わせいただきますようお願い申し上げます。
+
+今後ともDAZNをご愛顧賜りますよう、よろしくお願い申し上げます。</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

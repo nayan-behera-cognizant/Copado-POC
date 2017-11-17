@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Notification when case is created</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>New Case -CH-EN</name>
+    <style>none</style>
+    <subject>We&apos;ll be in touch (ID: {!Case.Thread_Id})</subject>
+    <textOnly>Hello {!Account.FirstName},
+
+We&apos;ve received your enquiry ID: {!Case.CaseNumber}.
+
+While you wait for our Customer Support team to get back to you we would kindly invite you to visit our help pages at https://my.dazn.com/help/DE-en where you can find information and solutions to the most common problems.
+
+If you were able to resolve your issue it would be great if you reply to this email with a quick “I no longer need help” and we will close your enquiry without contacting you.
+
+Otherwise our Customer Support team will get in touch within 72 hours.
+
+Best regards,
+Your DAZN Team
+
+Case Thread ID: {!Case.Thread_Id}
+Privacy Policy: https://my.dazn.com/help/ch-en/privacy
+Terms of Use: https://my.dazn.com/help/ch-en/terms
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

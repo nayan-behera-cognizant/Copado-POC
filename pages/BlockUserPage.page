@@ -1,0 +1,25 @@
+<apex:page showHeader="false" sidebar="false"  Controller="BlockUserController">
+<!--PD-8766 - To get version of the product from Static Resource-->
+    <head>
+        <apex:includescript value="{!URLFOR($Resource.Version)}"/> 
+    </head> <!--End of PD-8766 --> 
+    <body class="reSubscribe"> 
+        <!-- Google Tag Manager -->
+        <c:GTMHeader sPageName="BlockUserPage"></c:GTMHeader>
+    </body>
+    <apex:Form >
+        <apex:pageBlock rendered="{!bShowPanel}">
+            <apex:selectList value="{!refundstatus}" multiselect="false" size="1" rendered="{!IF(Acc.Account_Status__c !=$Label.LS_Account_Status_Blocked  ,true,false)}" >
+                <apex:selectOption itemValue="Block and Refund" itemLabel="{!$Label.LS_Block_User_With_Refund}" rendered="{!IF(Acc.Account_Status__c =$Label.LS_Account_Status_Active_Paid  ,true,false)}"/>
+                <apex:selectOption itemValue="Block without Refund" itemLabel="{!$Label.LS_Block_User_Without_Refund}" />
+            </apex:selectList>
+            <div>&nbsp;</div>           
+            <apex:outputText value="Comments"/>
+            <p> <apex:inputTextarea value="{!Comment}"/>  </p>
+            <apex:commandButton value="Submit" action="{!save}"/>
+            <apex:outputPanel rendered="{!navigateError}">
+                <apex:pagemessages id="pgMsgs"></apex:pagemessages>
+            </apex:outputPanel>
+        </apex:pageBlock>
+    </apex:Form>
+</apex:page>

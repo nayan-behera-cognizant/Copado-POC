@@ -1,0 +1,481 @@
+<apex:page controller="SetPauseController"
+    showHeader="false"
+    cache="true"
+    expires="1800"
+    standardStylesheets="false"
+    applyHtmlTag="false"
+    docType="html-5.0"
+    action="{!calcNextBillingdate}"
+    language="{! IF(BEGINS(UPPER($CurrentPage.parameters.lang), 'EN'), IF($CurrentPage.parameters.Country == 'CA', 'en_US', 'en_GB'), $CurrentPage.parameters.lang) }"
+>
+
+<apex:outputPanel id="setPauseRerender">
+
+    <c:SubmittedForCancellationRedirect />
+
+    <head>
+        <title>{!$Label.LS_SetPause_Title}</title>
+        <meta content="width=device-width, initial-scale=1.0,maximum-scale = 1.0" name="viewport" />
+        <apex:stylesheet value="{!$Resource.LS_MyAccount_Css}" />
+        <apex:stylesheet value="{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/css/base-method-ember-styleguide.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/css/vendor.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/css/styles_v1.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.DAZN_VF_Assets, 'DAZN_VF_Assets/css/pauseSubscription.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.DAZN_VF_Assets, 'DAZN_VF_Assets/css/datepicker.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.DAZN_VF_Assets, 'DAZN_VF_Assets/css/datepicker_custom.css')}" />
+        <link REL="SHORTCUT ICON" HREF="{!URLFOR($Resource.DAZN_favicon_default)}" />
+        <link REL="apple-touch-icon" sizes="57x57" HREF="{!URLFOR($Resource.DAZN_appletouchicon57_57 )}" />
+        <link REL="apple-touch-icon" sizes="60x60" HREF="{!URLFOR($Resource.DAZN_appletouchicon60_60 )}" />
+        <link REL="apple-touch-icon" sizes="72x72" HREF="{!URLFOR($Resource.DAZN_appletouchicon72_72 )}" />
+        <link REL="apple-touch-icon" sizes="76x76" HREF="{!URLFOR($Resource.DAZN_appletouchicon76_76 )}" />
+        <link REL="apple-touch-icon" sizes="114x114" HREF="{!URLFOR($Resource.DAZN_appletouchicon144_144 )}" />
+        <link REL="apple-touch-icon" sizes="120x120" HREF="{!URLFOR($Resource.DAZN_appletouchicon120_120 )}" />
+        <link REL="apple-touch-icon" sizes="144x144" HREF="{!URLFOR($Resource.DAZN_appletouchicon144_144 )}" />
+        <link REL="apple-touch-icon" sizes="152x152" HREF="{!URLFOR($Resource.DAZN_appletouchicon152_152 )}" />
+        <link REL="apple-touch-icon" sizes="180x180" HREF="{!URLFOR($Resource.DAZN_appletouchicon180_180 )}" />
+        <link REL="icon" type="image/png" HREF="{!URLFOR($Resource.DAZN_favicon_32_32 )}" sizes="32x32" />
+        <link REL="icon" type="image/png" HREF="{!URLFOR($Resource.DAZN_androidchrome192_192 )}" sizes="192x192" />
+        <link REL="icon" type="image/png" HREF="{!URLFOR($Resource.DAZN_favicon_96_96 )}" sizes="96x96" />
+        <link REL="icon" type="image/png" HREF="{!URLFOR($Resource.DAZN_favicon_16_16 )}" sizes="16x16" />
+        <link rel="icon" type="image/svg" sizes="any" href="{!URLFOR($Resource.DAZN_favicon_svg16_16 )}" />
+        <link rel="mask-icon" href="{!URLFOR($Resource.DAZN_favicon_svg16_16 )}" color="#000" />
+
+        <!-- <c:FetchLanguageCookie myPageName="setpause" areaToRefreshName="setPauseForm" /> -->
+    </head>
+
+    <body>
+        <c:GTMHeader sPageName="setPause" />
+        <apex:form id="setPauseForm">
+            <apex:actionFunction name="searchEventDynamically" action="{!searchEventDynamically}" reRender="nonmajorEvents,majorEvents">
+                <apex:param name="eventDate" value="" assignTo="{! strEventDate }" />
+                <apex:param name="eventTime" value="" assignTo="{! strEventTime }" />
+            </apex:actionFunction>
+
+            <div class="pauseSub">
+                <div class="pauseSubHeader">
+                    <div class="col-xs-1 padding0">
+                        <apex:outputLink value="/pauseupsell" id="backButton" rendered="{!aboutToPauseFlag }">
+                            <apex:image url="{!URLFOR($Resource.DAZN_VF_Assets, 'DAZN_VF_Assets/images/icon-back.png')}" width="32" height="32" />
+                        </apex:outputLink>
+                        <apex:outputLink value="/myaccount" id="backButton1" rendered="{!pauseIsDoneFlag}">
+                            <apex:image url="{!URLFOR($Resource.DAZN_VF_Assets, 'DAZN_VF_Assets/images/icon-back.png')}" width="32" height="32" />
+                        </apex:outputLink>
+                    </div>
+                    <div class="col-xs-11 padding0">
+                        <h1>{!$Label.LS_SetPause_MainHeading}</h1>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="seperator"></div>
+                <div class="pauseSubContainer">
+                    <div class="datepickerContainer">
+                        <p class="billing-date">
+                            <apex:outputText value="{!$Label.LS_Setpause_billing_date_text} {!nextBillingDate}" escape="false" rendered="{!aboutToPauseFlag || pauseIsDoneFlag && !pauseDoneBillingDateFlag  }" />
+
+                            <apex:outputText value="{!$Label.LS_Setpause_billing_date_paused_text} {!nextBillingDate}" escape="false" rendered="{!pauseDoneBillingDateFlag }" /></p>
+
+                        <p class="FoundryGridnikBold pb4 select-date">{!$Label.LS_Setpause_Selectdate_msg}</p>
+                        <div class="datepicker-block">
+                            <div class="ember-view form-fields--text-input-71621ee4">
+                                <div class="input-wrapper">
+                                    <input type="text" class="form-control docs-date" name="date" placeholder="Pick a date" readonly="true" id="resumeDate" />
+                                    <i class="datepick_icon form-control-feedback"></i>
+                                    <apex:outputPanel id="majorEvents">
+                                    <apex:outputText value="{!majEventDescription}" escape="false" styleClass="input-text" rendered="{! majEventLst != null && majEventLst.size > 0 && majEventDescriptionflag}" />
+                                    </apex:outputPanel>
+                                </div>
+                            </div>
+                        </div>
+                        <apex:outputPanel id="nonmajorEvents">
+                            <apex:outputPanel rendered="{! OtherEventLst != null && OtherEventLst.size > 0 }" >
+                            <apex:outputText value="{!$Label.LS_SetPause_event_text}" escape="false" styleClass="setPauseEventText" />
+                            <apex:pageMessages />
+                            <ul class="eventDesc">
+                                <apex:repeat value="{!OtherEventLst}" var="oLst" >
+                                    <li>
+                                        <apex:outputText value="{!oLst.Localised_Event_description__c}" />
+                                    </li>
+                                </apex:repeat>
+                            </ul>
+                           </apex:outputPanel>
+                        </apex:outputPanel>
+                    </div>
+                    <!-- Flow 1 buttons START -->
+                    <apex:outputPanel rendered="{!aboutToPauseFlag}">
+                        <div class="pauseButtons">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-6 pauseBtn">
+                                    <span class="form-fields--form-button-e53320ec primary primaryBtn">
+                                        <!--apex:outputLink styleClass="wrapper pauseGoBtn" id="pause">
+                                            {!$Label.LS_Pause_upsell_Pause_Go_Button}
+                                        </apex:outputLink-->
+                                        <apex:outputText styleClass="wrapper pauseGoBtn" id="pause" value="{!$Label.LS_Pause_upsell_Pause_Go_Button}" />
+                                        <div id="preloadSpinner"></div>
+                                    </span>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 stayBtn">
+                                    <span class="form-fields--form-button-e53320ec primary primaryBtn">
+                                        <apex:outputLink value="/myaccount" styleClass="wrapper" id="stay">{!$Label.LS_Pause_upsell_Pause_No_Go_Button}</apex:outputLink>
+                                        <div id="preloadSpinner"></div>
+                                    </span>
+                                </div>
+                            </div>
+                            <apex:outputLink value="/cancel" styleClass="pauseLink" id="pauseLink">{!$Label.LS_Pause_upsell_Pause_Cancel_Sub_Button}</apex:outputLink>
+                        </div>
+                    </apex:outputPanel>
+                    <!-- Flow 1 buttons END -->
+                    <!-- Flow 2 buttons START -->
+                    <apex:outputPanel rendered="{!pauseIsDoneFlag}">
+                        <div class="pauseButtons">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-6 pauseBtn">
+                                    <span class="form-fields--form-button-e53320ec primary primaryBtn">
+                                        <!--apex:outputLink styleClass="wrapper" id="confirm">{!$Label.LS_MyAccount_Button_ConfirmRestartDate}</apex:outputLink-->
+                                        <apex:outputText styleClass="wrapper" id="confirm" value="{!$Label.LS_MyAccount_Button_ConfirmRestartDate}" />
+                                        <div id="preloadSpinner"></div>
+                                    </span>
+                                </div>
+                                <!-- Desktop View Start -->
+                                <div class="hidden-xs col-sm-6 stayBtn">
+                                    <span class="form-fields--form-button-e53320ec primary primaryBtn">
+                                        <!--apex:outputLink value="" styleClass="wrapper" id="keepActiveDesk">{!$Label.LS_MyAccount_Button_KeepMyDaznActive}</apex:outputLink-->
+                                        <apex:outputText styleClass="wrapper" id="keepActiveDesk" value="{!$Label.LS_MyAccount_Button_KeepMyDaznActive}" />
+                                        <div id="preloadSpinner"></div>
+                                    </span>
+                                </div>
+                                <!-- Desktop View End -->
+                            </div>
+                            <!-- Mobile View Start -->
+                            <div class="col-xs-12 hidden-sm hidden-md hidden-lg">
+                                <!--apex:outputLink value="" styleClass="pauseLink keepDaznLink" id="keepActiveMob">{!$Label.LS_MyAccount_Button_KeepMyDaznActive}</apex:outputLink-->
+                                <apex:outputLink styleClass="pauseLink keepDaznLink" id="keepActiveMob" value="{!$Label.LS_MyAccount_Button_KeepMyDaznActive}" />
+                            </div>
+                            <!-- Mobile View End -->
+                        </div>
+                    </apex:outputPanel>
+                    <!-- Flow 2 buttons END -->
+                </div>
+                <div class="langSwitcher">
+                    <c:LS_FooterCookie renderLangSwitcher="true" areaToRefreshName="setPauseRerender" />
+                </div>
+            </div>
+
+            <apex:includescript value="{!URLFOR($Resource.LS_JQuery)}" />
+            <apex:includescript value="{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/js/jquery.min.js')}" />
+
+            <script type="text/javascript">
+                $(".pauseBtn .wrapper").click(function(){
+                    $(this).parent().addClass("selfLoad");
+                });
+                $(".stayBtn .wrapper").click(function(){
+                    $(this).parent().addClass("selfLoad");
+                });
+
+                var setPause = {
+                    majEventDate: '{!majEventDateFormatted}',
+                    nonMajorEventCount: '{!nonMajorEventCount}',
+                    majLocalisedDate: '{!majEventLocalDate}',
+                    localisedFlag: true,
+                    majEventDesc: '{!majEventDescription}',
+                    countryName: '{!majEvent.Event_Country__c}',
+                    languageName: '{!majEvent.Country_language__c }',
+                    langName:  '{! $CurrentPage.parameters.lang }',
+                    billingDate: '{!formattedString}',
+                    componentPause: '{!$Component.pause}',
+                    componentAmendPause: '{!$Component.confirm}',
+                    nextDateForSetPause: '{!nextDateForSetPause}',
+                    aboutToPauseFlag: '{!aboutToPauseFlag}',
+                    majEventDescriptionflag: '{!majEventDescriptionflag}',
+                    pauseIsDoneFlag: '{!pauseIsDoneFlag}',
+                    showOtherEventsFlag: '{!showOtherEventsFlag}',
+                    pauseDoneBillingDateFlag: '{!pauseDoneBillingDateFlag}',
+                    pauseAction: '{! $CurrentPage.parameters.pauseAction }',
+                    suspendDate: '',
+                    resumeDate: '',
+                    eventDate: '',
+                    eventTime: ''
+                },
+                monthsShort, nextBillingDate, nextBillingMonth, nextBillingYear, partDate, getNewDate, formattedDate;
+                setPause.languageName = setPause.languageName.split('_')[0];
+                if (setPause.langName.toLowerCase() == "ja") {
+                    monthsShort = [];
+                } else if (setPause.langName.toLowerCase() == "de") {
+                    monthsShort = ['Jan', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
+                } else {
+                    monthsShort = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+                };
+                formattedDate = formatCustomDate(setPause.billingDate);
+                nextBillingDate = (formattedDate.getDate());
+                nextBillingMonth = (formattedDate.getMonth());
+                nextBillingYear = (formattedDate.getFullYear());
+
+                function formatCustomDate(date) {
+                    partDate = date.split("/");
+                    getNewDate = new Date(partDate[2], partDate[1] - 1, partDate[0]);
+                    formattedDate = new Date(getNewDate);
+                    return formattedDate;
+                }
+
+
+
+                if (setPause.aboutToPauseFlag.toLowerCase() == "true") {
+                    var goAheadBtn = document.getElementById('{! $Component.setPauseForm.pause }');
+                    var noWantToStayBtn = document.getElementById('{! $Component.setPauseForm.stay }');
+                    var wantToCancelBtn = document.getElementById('{! $Component.setPauseForm.pauseLink }');
+        
+                    //set pause buttons
+                    goAheadBtn.addEventListener("click", function() {
+                        dataLayer.push({
+                            "event": "buttonClick",
+                            "button": {
+                                "title": "{! $Label.LS_Pause_upsell_Pause_Go_Button }"
+                            }
+                        });
+                        processPause(setPause.pauseAction, setPause.suspendDate, setPause.resumeDate);
+                    });
+        
+                    noWantToStayBtn.addEventListener("click", function() {
+                        dataLayer.push({
+                            "event": "buttonClick",
+                            "button": {
+                                "title": "{! $Label.LS_Pause_upsell_Pause_No_Go_Button }"
+                            }
+                        });
+                    });
+        
+                    wantToCancelBtn.addEventListener("click", function() {
+                        dataLayer.push({
+                            "event": "buttonClick",
+                            "button": {
+                                "title": "{! $Label.LS_Pause_upsell_Pause_Cancel_Sub_Button }"
+                            }
+                        });
+                    });
+                } else {
+                    var confirmBtn = document.getElementById('{! $Component.setPauseForm.confirm }');
+                    var keepActiveDeskBtn = document.getElementById('{! $Component.setPauseForm.keepActiveDesk }');
+                    var keepActiveMobBtn = document.getElementById('{! $Component.setPauseForm.keepActiveMob }');
+        
+                    //edit pause buttons
+                    confirmBtn.addEventListener("click", function() {
+                        dataLayer.push({
+                            "event": "buttonClick",
+                            "button": {
+                                "title": "{! $Label.LS_MyAccount_Button_ConfirmRestartDate }"
+                            }
+                        });
+                        processPause(setPause.pauseAction, '', setPause.resumeDate);
+                    });
+        
+                    keepActiveDeskBtn.addEventListener("click", function() {
+                        dataLayer.push({
+                            "event": "buttonClick",
+                            "button": {
+                                "title": "{! $Label.LS_MyAccount_Button_KeepMyDaznActive }"
+                            }
+                        });
+                        processPause('cancel', '', '');
+                    });
+        
+                    keepActiveMobBtn.addEventListener("click", function() {
+                        dataLayer.push({
+                            "event": "buttonClick",
+                            "button": {
+                                "title": "{! $Label.LS_MyAccount_Button_KeepMyDaznActive }"
+                            }
+                        });
+                        processPause('cancel', '', '');
+                    });
+                }
+
+
+
+                $(function() {
+    'use strict';
+    var $date = $('.docs-date'),
+        majEventEndDate, formatMajEventEndDate, liCount, formatMajEventDate, formatBillingDate, billingMonth, majEventMonth, daysShort, months, dateFormat, finalDate, startDate,
+        datePick = false, billingYear, majEventYear;
+
+    if (setPause.langName.toLowerCase() == "ja") {
+        $('body').addClass("langJa");
+    }
+
+    // flag
+    setPause.aboutToPauseFlag = stringToBoolean(setPause.aboutToPauseFlag);
+    setPause.pauseDoneBillingDateFlag = stringToBoolean(setPause.pauseDoneBillingDateFlag);
+
+    function Format(singledigit) {
+        if (singledigit < 10) {
+            singledigit = '0' + singledigit;
+        }
+        return singledigit;
+    }
+
+    function finalDate() {
+        var finDate = $("[id*='resumeDate']").val();
+        resumeDateForSetPause(finDate);
+        return false;
+    }
+
+    function GetDateFormat(date) {
+        var month = (date.getMonth() + 1).toString();
+        month = month.length > 1 ? month : '0' + month;
+        var day = date.getDate().toString();
+        day = day.length > 1 ? day : '0' + day;
+        return date.getFullYear() + '-' + month + '-' + day;
+
+    }
+
+    function GetDateFormatWithSlash(date) {
+        var month = (date.getMonth() + 1).toString();
+        month = month.length > 1 ? month : '0' + month;
+        var day = date.getDate().toString();
+        day = day.length > 1 ? day : '0' + day;
+        return day + '/' + month + '/' + date.getFullYear();
+
+    }
+
+    function GetTime(date) {
+        return date.getHours().toString() + ',' + date.getMinutes().toString() + ',' + date.getSeconds().toString() + ',' + date.getMilliseconds().toString();
+    }
+
+
+    function stringToBoolean(flag) {
+        if (flag == "false") {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    billingMonth = parseInt(setPause.billingDate.split("/")[1]);
+    majEventMonth = parseInt(setPause.majEventDate.split("/")[1]);
+    billingYear = parseInt(setPause.billingDate.split("/")[2]);
+    majEventYear = parseInt(setPause.majEventDate.split("/")[2]);
+    if (billingMonth > majEventMonth && billingYear > majEventYear) {
+        formattedDate = formatCustomDate(setPause.billingDate);
+        setPause.majEventDate = (formattedDate.getDate() + 1) + '/' + (formattedDate.getMonth() + 1) + '/' + formattedDate.getFullYear();
+    } else if (billingMonth < majEventMonth  && billingYear < majEventYear) {
+        formattedDate = formatCustomDate(setPause.majEventDate);
+        setPause.majEventDate = (formattedDate.getDate()) + '/' + (formattedDate.getMonth() + 1) + '/' + formattedDate.getFullYear();
+    }
+    if (setPause.pauseDoneBillingDateFlag) {
+        var todayDate = new Date();
+        startDate = (todayDate.getDate() + 1) + '/' + (todayDate.getMonth() + 1) + '/' + todayDate.getFullYear();
+    } else {
+        formattedDate = formatCustomDate(setPause.billingDate);
+        startDate = (formattedDate.getDate() + 1) + '/' + (formattedDate.getMonth() + 1) + '/' + formattedDate.getFullYear();
+    }
+    //get End date i.e 4 months
+    formattedDate = formatCustomDate(setPause.billingDate);
+    formatMajEventEndDate = (formattedDate.getDate()) + '/' + (formattedDate.getMonth() + 5) + '/' + formattedDate.getFullYear();
+    //get Browser language       
+    if (setPause.langName.toLowerCase() == "ja") {
+        daysShort = ['日', '月', '火', '水', '木', '金', '土'];
+        months = ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'];
+        dateFormat = "YYYY/M/D";
+        formattedDate = formatCustomDate(setPause.majEventDate);
+        setPause.majEventDate = formattedDate.getFullYear() + '/' + (formattedDate.getMonth() + 1) + '/' + formattedDate.getDate();
+        formattedDate = formatCustomDate(formatMajEventEndDate);
+        formatMajEventEndDate = formattedDate.getFullYear() + '/' + (formattedDate.getMonth() + 1) + '/' + formattedDate.getDate();
+        formattedDate = formatCustomDate(setPause.billingDate);
+        startDate = formattedDate.getFullYear() + '/' + (formattedDate.getMonth() + 1) + '/' + (formattedDate.getDate() + 1);
+    } else if (setPause.langName.toLowerCase() == "de") {
+        daysShort = ['SO', 'MO', 'DI', 'MI', 'DO', 'FR', 'SA'];
+        months = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
+        dateFormat = "DD. MM YYYY";
+    } else {
+        daysShort = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+        months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        dateFormat = "D MM YYYY";
+    };
+    $date.on({
+        'show.datepicker': function(e) {
+            $(".datepicker-block .ember-view").addClass("datepicker-hide");
+        },
+        'hide.datepicker': function(e) {
+            $(".datepicker-block .ember-view").removeClass("datepicker-hide");
+        },
+        'pick.datepicker': function(e) {
+            finalDate = e.date;
+            var urlDate = GetDateFormat(e.date);
+            var actionParam;
+            var tmpActionParam = location.search.split('pauseAction=');
+            if (tmpActionParam !== undefined && tmpActionParam !== null && tmpActionParam[1] !== undefined && tmpActionParam[1] !== null) {
+                actionParam = tmpActionParam[1].split('&')[0];
+            }
+            setPause.suspendDate = setPause.nextDateForSetPause;
+            setPause.resumeDate = urlDate;
+            setPause.eventDate = GetDateFormat(e.date);
+            setPause.eventTime = GetTime(e.date);
+            console.log("setPause.eventTime: " + setPause.eventTime);
+            datePick ? showEventsDynamic() : '';
+            datePick = true;
+        }
+    }).datepicker({
+        autoPick: true,
+        weekStart: 0,
+        daysShort: daysShort,
+        months: months,
+        monthsShort: monthsShort,
+        format: dateFormat,
+        container: ".datepicker-block",
+        date: setPause.majEventDate,
+        startDate: startDate,
+        endDate: formatMajEventEndDate,
+        template: (
+            '<div class="datepicker-container">' +
+            '<div class="datepicker-panel" data-view="days picker">' +
+            '<ul class="month-heading">' +
+            '<li data-view="month prev" class="left-arrow"></li>' +
+            '<li data-view="month current"></li>' +
+            '<li data-view="month next" class="right-arrow"></li>' +
+            '</ul>' +
+            '<ul style="position:relative;">' +
+            '<li data-view="close"> </li>' +
+            '</ul>' +
+            '<ul data-view="week"></ul>' +
+            '<ul data-view="days"></ul>' +
+            '</div>' +
+            '</div>'
+        )
+    });
+});
+
+function showEventsDynamic() {
+    console.log("showEventsDynamic is being called");
+    searchEventDynamically(setPause.eventDate, setPause.eventTime);
+    console.log("searchEventDynamically is being called");
+}
+            </script>
+
+            <apex:includescript value="{!URLFOR($Resource.DAZN_VF_Assets, 'DAZN_VF_Assets/js/datepicker.js')}" />
+            <!-- <apex:includescript value="{!URLFOR($Resource.DAZN_VF_Assets, 'DAZN_VF_Assets/js/main.js')}" /> -->
+        </apex:form>
+        
+    </body>
+
+</apex:outputPanel>
+
+    <script type="text/javascript">
+        function processPause(pauseAction, suspendDate, resumeDate) {
+            Visualforce.remoting.Manager.invokeAction(
+                '{! $RemoteAction.SetPauseController.processPause }',
+                pauseAction,
+                suspendDate,
+                resumeDate,
+                '{! $CurrentPage.parameters.Country }',
+                '{! $CurrentPage.parameters.lang }',
+                function(result, event) {
+                    if (event.status) {
+                        document.location = window.location.origin + result;
+                    } else {
+                        console.log('>>>', result);
+                    }
+                },
+                { escape: false }
+            );
+        }
+    </script>
+
+</apex:page>

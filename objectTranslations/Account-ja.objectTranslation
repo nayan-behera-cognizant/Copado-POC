@@ -1,0 +1,612 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Account Flags --></label>
+        <name>Account_Flags__c</name>
+        <picklistValues>
+            <masterLabel>JP 2 Week Extension</masterLabel>
+            <translation><!-- JP 2 Week Extension --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Refunded for payment on FT signup from TV device</masterLabel>
+            <translation><!-- Refunded for payment on FT signup from TV device --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>temp flag</masterLabel>
+            <translation><!-- temp flag --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>アカウントのステータス</label>
+        <name>Account_Status__c</name>
+        <picklistValues>
+            <masterLabel>Active Grace</masterLabel>
+            <translation><!-- Active Grace --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Active Paid</masterLabel>
+            <translation><!-- Active Paid --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Apple</masterLabel>
+            <translation><!-- Apple --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Blocked</masterLabel>
+            <translation><!-- Blocked --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Expired</masterLabel>
+            <translation><!-- Expired --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Expired Marketing</masterLabel>
+            <translation><!-- Expired Marketing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Free Trial</masterLabel>
+            <translation><!-- Free Trial --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Frozen</masterLabel>
+            <translation><!-- Frozen --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Partial</masterLabel>
+            <translation><!-- Partial --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Paused</masterLabel>
+            <translation><!-- Paused --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>すべてのEメールプリファレンス</label>
+        <name>All_Email_Preferences__c</name>
+    </fields>
+    <fields>
+        <label><!-- AuthKey --></label>
+        <name>AuthKey__c</name>
+    </fields>
+    <fields>
+        <label><!-- AutorabitExtId__c --></label>
+        <name>AutorabitExtId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cached Email --></label>
+        <name>Cached_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cached FirstName --></label>
+        <name>Cached_FirstName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cached LastName --></label>
+        <name>Cached_LastName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Gift Code Campaign ID --></label>
+        <name>CampaignID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Gift Code Campaign Name --></label>
+        <name>Campaign_Id__c</name>
+    </fields>
+    <fields>
+        <label>退会済みのアカウント</label>
+        <name>Cancelled_Account__c</name>
+    </fields>
+    <fields>
+        <help><!-- Field to find out if the name and email of the account have been updated in zuora or not --></help>
+        <label><!-- Contact sync complete --></label>
+        <name>Contact_sync_complete__c</name>
+    </fields>
+    <fields>
+        <label><!-- D4D Web Email --></label>
+        <name>D4D_Web_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- DAZN Id --></label>
+        <name>DAZN_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- First Name --></label>
+        <name>DFD_First_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Name --></label>
+        <name>DFD_Last_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Disable Case closed emails --></label>
+        <name>Disable_Case_closed_emails__c</name>
+    </fields>
+    <fields>
+        <label><!-- Disable Case opened emails --></label>
+        <name>Disable_Case_opened_emails__c</name>
+    </fields>
+    <fields>
+        <label><!-- Disable Case reply emails --></label>
+        <name>Disable_Case_reply_emails__c</name>
+    </fields>
+    <fields>
+        <label><!-- Disable Email change emails --></label>
+        <name>Disable_Email_change_emails__c</name>
+    </fields>
+    <fields>
+        <label><!-- Disable Hard offer emails --></label>
+        <name>Disable_Hard_offer_emails__c</name>
+    </fields>
+    <fields>
+        <label><!-- Disable Name change emails --></label>
+        <name>Disable_Name_change_emails__c</name>
+    </fields>
+    <fields>
+        <label><!-- Disable Payment failed email --></label>
+        <name>Disable_Payment_failed_email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Disable Payment method updated emails --></label>
+        <name>Disable_Payment_method_updated_emails__c</name>
+    </fields>
+    <fields>
+        <label><!-- Disable Payment success email --></label>
+        <name>Disable_Payment_success_email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Disable Reset password emails --></label>
+        <name>Disable_Reset_password_emails__c</name>
+    </fields>
+    <fields>
+        <label><!-- Disable Welcome emails --></label>
+        <name>Disable_Welcome_emails__c</name>
+    </fields>
+    <fields>
+        <label><!-- Disable all transactional emails --></label>
+        <name>Disable_all_transactional_emails__c</name>
+    </fields>
+    <fields>
+        <label><!-- Disable immediate cancel email --></label>
+        <name>Disable_immediate_cancel_email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Disable password updated emails --></label>
+        <name>Disable_password_updated_emails__c</name>
+    </fields>
+    <fields>
+        <label><!-- Disable transaction emails --></label>
+        <name>Disable_transactional_emails__c</name>
+    </fields>
+    <fields>
+        <label><!-- Error In Contact sync --></label>
+        <name>Error_In_Contact_sync__c</name>
+    </fields>
+    <fields>
+        <label><!-- Free Trial End Date --></label>
+        <name>Free_Trial_End_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Free Trial Start Date --></label>
+        <name>Free_Trial_Start_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Gift Code End Date --></label>
+        <name>Gift_Code_End_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Gift Code Remaining Term --></label>
+        <name>Gift_Code_Remaining_Term__c</name>
+    </fields>
+    <fields>
+        <label><!-- Gift Code Start Date --></label>
+        <name>Gift_Code_Start_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Gift Code Status --></label>
+        <name>Gift_Code_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Gift Code --></label>
+        <name>Giftcode__c</name>
+    </fields>
+    <fields>
+        <label><!-- Hard Offer date --></label>
+        <name>Hard_Offer_date__c</name>
+    </fields>
+    <fields>
+        <label><!-- IP address --></label>
+        <name>IP_address__c</name>
+    </fields>
+    <fields>
+        <label><!-- IsReadyToSyncInCommunicator --></label>
+        <name>IsReadyToSyncInCommunicator__c</name>
+    </fields>
+    <fields>
+        <label><!-- IsReadyToSyncInZuora --></label>
+        <name>IsReadyToSyncInZuora__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Double OptIn --></label>
+        <name>Is_Double_OptIn__c</name>
+    </fields>
+    <fields>
+        <label><!-- LastInvoiceDate --></label>
+        <name>LastInvoiceDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Modified In Last 15 Min --></label>
+        <name>Modified_In_Last_15_Min__c</name>
+    </fields>
+    <fields>
+        <label><!-- NFL Opt In Change Date --></label>
+        <name>NFL_Opt_In_Change_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- NFL marketing --></label>
+        <name>NFL_marketing__c</name>
+    </fields>
+    <fields>
+        <label>注記</label>
+        <name>NOTE__c</name>
+    </fields>
+    <fields>
+        <label>次回請求日</label>
+        <name>Next_Charge_Date__c</name>
+    </fields>
+    <fields>
+        <label>通知の国コード</label>
+        <name>Notification_Country_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Notification Email --></label>
+        <name>Notification_Email__c</name>
+    </fields>
+    <fields>
+        <label>通知の言語コード</label>
+        <name>Notification_Language_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- NumFreeTrials --></label>
+        <name>NumFreeTrials__c</name>
+    </fields>
+    <fields>
+        <label><!-- NumGiftPeriods --></label>
+        <name>NumGiftPeriods__c</name>
+    </fields>
+    <fields>
+        <label><!-- Num Inactive Devices --></label>
+        <name>Num_Active_Devices__c</name>
+    </fields>
+    <fields>
+        <label><!-- Num Devices --></label>
+        <name>Num_Devices__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of Active Subs --></label>
+        <name>Number_of_Active_Subs__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of Cancelled Subs --></label>
+        <name>Number_of_Cancelled_Subs__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of Future Cancels --></label>
+        <name>Number_of_Future_Cancels__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of UserDevices --></label>
+        <name>Number_of_UserDevices__c</name>
+    </fields>
+    <fields>
+        <label><!-- Partner Email Preferences --></label>
+        <name>Partner_Email_Preferences__c</name>
+    </fields>
+    <fields>
+        <label><!-- Partner ID --></label>
+        <name>Partner_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Partner Ready to Sync --></label>
+        <name>Partner_Ready_to_Sync__c</name>
+    </fields>
+    <fields>
+        <label><!-- Partner Registration Status --></label>
+        <name>Partner_Registration_Status__c</name>
+        <picklistValues>
+            <masterLabel>Complete</masterLabel>
+            <translation><!-- Complete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Incomplete</masterLabel>
+            <translation><!-- Incomplete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Partner Sync Error --></label>
+        <name>Partner_Sync_Error__c</name>
+    </fields>
+    <fields>
+        <label><!-- PauseScheduled --></label>
+        <name>PauseScheduled__c</name>
+    </fields>
+    <fields>
+        <label><!-- Pause From --></label>
+        <name>Pause_From__c</name>
+    </fields>
+    <fields>
+        <label><!-- Pause Scheduled Time --></label>
+        <name>Pause_Scheduled_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Pause Scheduled --></label>
+        <name>Pause_Scheduled__c</name>
+    </fields>
+    <fields>
+        <label><!-- Pause Until --></label>
+        <name>Pause_Until__c</name>
+    </fields>
+    <fields>
+        <label>支払方法、末尾の数字、有効期限</label>
+        <name>Payment_Type_Last_Digits_and_Expiry_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Previous BCD --></label>
+        <name>Previous_BCD__c</name>
+    </fields>
+    <fields>
+        <label><!-- Previous Status --></label>
+        <name>Previous_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Reset Pwd Body 1 --></label>
+        <name>Reset_Pwd_Body_1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Reset Pwd Body 2 --></label>
+        <name>Reset_Pwd_Body_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Reset Pwd Body 3 --></label>
+        <name>Reset_Pwd_Body_3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Reset Pwd Body 4 --></label>
+        <name>Reset_Pwd_Body_4__c</name>
+    </fields>
+    <fields>
+        <label><!-- Reset Pwd Greeting --></label>
+        <name>Reset_Pwd_Greeting__c</name>
+    </fields>
+    <fields>
+        <label><!-- Reset Pwd Link 2 --></label>
+        <name>Reset_Pwd_Link_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Reset Pwd Signature --></label>
+        <name>Reset_Pwd_Signature__c</name>
+    </fields>
+    <fields>
+        <label><!-- Reset Pwd Subject --></label>
+        <name>Reset_Pwd_Subject__c</name>
+    </fields>
+    <fields>
+        <label><!-- Reset pwd Link 1 --></label>
+        <name>Reset_pwd_Link_1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retrieve Email --></label>
+        <name>Retrieve_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Secondary Email --></label>
+        <name>Secondary_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status Change Date --></label>
+        <name>Status_Change_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Submitted for cancellation --></label>
+        <name>Submitted_for_cancellation__c</name>
+    </fields>
+    <fields>
+        <label>サブスクリプション終了日</label>
+        <name>SubscriptionEndDate__c</name>
+    </fields>
+    <fields>
+        <label>サブスクリプション作成日</label>
+        <name>Subscription_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sync Error Msg --></label>
+        <name>Sync_Error_Msg__c</name>
+    </fields>
+    <fields>
+        <label><!-- TestUser --></label>
+        <name>TestUser__c</name>
+    </fields>
+    <fields>
+        <label><!-- Test formula --></label>
+        <name>Test_formula__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Number of Subscriptions --></label>
+        <name>Total_Number_of_Subscriptions__c</name>
+    </fields>
+    <fields>
+        <label><!-- UniqueEmail --></label>
+        <name>UniqueEmail__c</name>
+    </fields>
+    <fields>
+        <label><!-- UnsubscribeLink --></label>
+        <name>UnsubscribeLink__c</name>
+    </fields>
+    <fields>
+        <label><!-- Email --></label>
+        <name>ViewEmail__c</name>
+    </fields>
+    <fields>
+        <label><!-- Viewer ID --></label>
+        <name>Viewer_ID__c</name>
+    </fields>
+    <fields>
+        <label>有効</label>
+        <name>Zuora__Active__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Customer Priority --></label>
+        <name>Zuora__CustomerPriority__c</name>
+        <picklistValues>
+            <masterLabel>High</masterLabel>
+            <translation><!-- High --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Low</masterLabel>
+            <translation><!-- Low --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medium</masterLabel>
+            <translation><!-- Medium --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Number of Locations --></label>
+        <name>Zuora__NumberofLocations__c</name>
+    </fields>
+    <fields>
+        <label><!-- SLA Expiration Date --></label>
+        <name>Zuora__SLAExpirationDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- SLA Serial Number --></label>
+        <name>Zuora__SLASerialNumber__c</name>
+    </fields>
+    <fields>
+        <label><!-- SLA --></label>
+        <name>Zuora__SLA__c</name>
+        <picklistValues>
+            <masterLabel>Bronze</masterLabel>
+            <translation><!-- Bronze --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gold</masterLabel>
+            <translation><!-- Gold --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Platinum</masterLabel>
+            <translation><!-- Platinum --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Silver</masterLabel>
+            <translation><!-- Silver --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Upsell Opportunity --></label>
+        <name>Zuora__UpsellOpportunity__c</name>
+        <picklistValues>
+            <masterLabel>Maybe</masterLabel>
+            <translation><!-- Maybe --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- isInactiveRecordCreated --></label>
+        <name>isInactiveRecordCreated__c</name>
+    </fields>
+    <recordTypes>
+        <label><!-- Business Account --></label>
+        <name>Business_Account</name>
+    </recordTypes>
+    <validationRules>
+        <errorMessage><!-- The Account First Name  and Last Name cannot have numbers and it cannot be blank --></errorMessage>
+        <name>First_Name_Last_Name_validation</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You dont have an permission to update this field. Only Product Team members can update this field. --></errorMessage>
+        <name>TestUserCheck</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Anonymise_User_Head_Of_CS --></label>
+        <name>Anonymise_User_Head_Of_CS</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Block_User --></label>
+        <name>Block_User</name>
+    </webLinks>
+    <webLinks>
+        <label>退会する</label>
+        <name>Cancel_Subscription</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Check_Marketing_opt_in_status --></label>
+        <name>Check_Marketing_opt_in_status</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Customer_Playback_History --></label>
+        <name>Customer_Playback_History</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Discount --></label>
+        <name>Discount</name>
+    </webLinks>
+    <webLinks>
+        <label>Googleマップ</label>
+        <name>GoogleMaps</name>
+    </webLinks>
+    <webLinks>
+        <label>Googleニュース</label>
+        <name>GoogleNews</name>
+    </webLinks>
+    <webLinks>
+        <label>Google検索</label>
+        <name>GoogleSearch</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Promotions --></label>
+        <name>Promotions</name>
+    </webLinks>
+    <webLinks>
+        <label>コミュニティパスワードをリセットする</label>
+        <name>Reset_Community_Password</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Reset_D4D_account --></label>
+        <name>Reset_D4D_account</name>
+    </webLinks>
+    <webLinks>
+        <label>すべてのデバイスからサインアウトする</label>
+        <name>Sign_out_from_all_devices</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- UpdateUser_Account --></label>
+        <name>UpdateUser_Account</name>
+    </webLinks>
+    <webLinks>
+        <label>Z請求のデータと同期する</label>
+        <name>Zuora__Sync_Data_from_ZBilling</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- New_Quote --></label>
+        <name>zqu__New_Quote</name>
+    </webLinks>
+</CustomObjectTranslation>

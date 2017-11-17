@@ -1,0 +1,84 @@
+<apex:page standardController="EmailMessage" extensions="EmailMessageExt">
+	<div id="pageLayout" style="display: none;">
+		<apex:detail relatedList="true" showChatter="true" inlineEdit="true"/>
+	</div>	
+
+	<script type="text/javascript">
+    	if ({!isHideEmailAndName} == true) {
+    		var nameElem = document.getElementsByTagName('td');
+    		var searchElem;
+	    	for (var i=0; i < nameElem.length; i++) {
+	    		if (nameElem[i].innerHTML === 'Text Body' || nameElem[i].innerHTML === 'テキスト内容') {
+	    			searchElem = nameElem[i+1].childNodes;
+	    		}
+	    		if (nameElem[i].innerHTML === 'From Address') {
+	    			nameElem[i+1].innerHTML = '##########';
+	    		}
+	    		if (nameElem[i].innerHTML === 'From Name') {
+	    			nameElem[i+1].innerHTML = '##########';
+	    		}
+	    		if (nameElem[i].innerHTML === '送信元アドレス') {
+	    			nameElem[i+1].innerHTML = '##########';
+	    		}
+	    		if (nameElem[i].innerHTML === '差出人名') {
+	    			nameElem[i+1].innerHTML = '##########';
+	    		}
+	    		if (nameElem[i].innerHTML === 'To Address') {
+	    			nameElem[i+1].innerHTML = '##########';
+	    		}
+	    		
+	    	}
+
+	    	if (searchElem != null) {
+	    		var name = '{!nameText}';
+		    	var email = '{!emailText}';
+
+		    	var testChild = searchElem[0].getElementsByTagName('font');
+		    	var test;
+		    	if (testChild.length > 0) {
+					test = searchElem[0].childNodes;
+			    	test = test[0];
+		    	} else {
+		    		test = searchElem[0];
+		    	}
+		    	var str;
+			    if (name.indexOf(' ')) {
+			    	str = name.split(' ');
+			    }
+			    for (var i=0; i < str.length; i++) {
+			    	if (test.innerText.indexOf(str[i]) + 1) {
+				    	test.innerText = test.innerText.replace(str[i],'##########'); 
+				    }
+			    }
+			    	
+			    if (test.innerText.toLowerCase().indexOf(email) + 1) {
+			    	var re = new RegExp(email,"gi");
+			    	test.innerText = test.innerText.replace(re,'##########'); 
+			    }
+	    	}
+	    	
+    	}
+    	overrideButton();
+    	document.getElementById('pageLayout').style.display = "block";
+    	
+    	function overrideButton() {
+    		var nameElem = document.getElementsByName("reply")[0].onclick = function() {
+    			window.location.href = '/_ui/core/email/author/EmailAuthor?' 
+    									+ 'p3_lkid=' + '{!relatedToForReply}' 
+    									+ '&p6=' + '{!subjectForReply}' 
+    									+ '&p2_lkid=' + '{!toForReply}' 
+    									+ '&p23=' + '--------Original Message------------' + '{!textBodyForReply}';
+    		}
+    		var nameElem = document.getElementsByName("reply")[1].onclick = function() {
+    			window.location.href = '/_ui/core/email/author/EmailAuthor?' 
+    									+ 'p3_lkid=' + '{!relatedToForReply}' 
+    									+ '&p6=' + '{!subjectForReply}' 
+    									+ '&p2_lkid=' + '{!toForReply}' 
+    									+ '&p4=' + '{!ccForReplay}'
+    									+ '&p5=' + '{!bccForReplay}'
+    									+ '&p23=' + '{!JSENCODE(textBodyForReply)}';
+    		}
+    	}
+    </script>
+
+</apex:page>

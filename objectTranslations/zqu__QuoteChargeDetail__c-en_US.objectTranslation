@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <help><!-- A unique number that identifies the charge --></help>
+        <label><!-- Charge Number --></label>
+        <name>zqu__ChargeNumber__c</name>
+    </fields>
+    <fields>
+        <help><!-- Delta MRR value calculated by previewing the quote from Zuora --></help>
+        <label><!-- Delta MRR --></label>
+        <name>zqu__DeltaMRR__c</name>
+    </fields>
+    <fields>
+        <help><!-- Delta TCV value calculated by previewing the quote from Zuora --></help>
+        <label><!-- Delta TCV --></label>
+        <name>zqu__DeltaTCV__c</name>
+    </fields>
+    <fields>
+        <help><!-- MRR value calculated by previewing the quote from Zuora --></help>
+        <label><!-- MRR --></label>
+        <name>zqu__MRR__c</name>
+    </fields>
+    <fields>
+        <help><!-- The Zuora Id of the original Rate Plan Charge this charge corresponds to. --></help>
+        <label><!-- Original Id --></label>
+        <name>zqu__OriginalId__c</name>
+    </fields>
+    <fields>
+        <help><!-- The Zuora Id of the original Rate Plan this charge belongs to --></help>
+        <label><!-- Original Rate Plan Id --></label>
+        <name>zqu__OriginalRatePlanId__c</name>
+    </fields>
+    <fields>
+        <help><!-- The Product Rate Plan Charge this charge came from. --></help>
+        <label><!-- Product Rate Plan Charge --></label>
+        <name>zqu__ProductRatePlanCharge__c</name>
+        <relationshipLabel><!-- Quote Charge Details --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- The Product Rate Plan this charge comes from. --></help>
+        <label><!-- Product Rate Plan --></label>
+        <name>zqu__ProductRatePlan__c</name>
+        <relationshipLabel><!-- Quote Charge Details --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- The quote object this charge record belongs to. --></help>
+        <label><!-- Quote --></label>
+        <name>zqu__Quote__c</name>
+        <relationshipLabel><!-- Quote Charge Details --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- TCV value calculated by previewing the quote from Zuora --></help>
+        <label><!-- TCV --></label>
+        <name>zqu__TCV__c</name>
+    </fields>
+</CustomObjectTranslation>

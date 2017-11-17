@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value><!-- Invoice --></value>
+    </caseValues>
+    <fields>
+        <help><!-- The CRM account that the invoice is associated to. --></help>
+        <label>アカウント</label>
+        <name>Zuora__Account__c</name>
+        <relationshipLabel><!-- Invoices --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- The currency amount of the adjustment applied to the invoice. --></help>
+        <label>調整金額</label>
+        <name>Zuora__AdjustmentAmount__c</name>
+    </fields>
+    <fields>
+        <help><!-- Age Buckets for Aging Reports --></help>
+        <label>期間バケット</label>
+        <name>Zuora__Age_Bucket__c</name>
+    </fields>
+    <fields>
+        <help><!-- The total of the invoice before any taxes are applied. --></help>
+        <label>税抜金額</label>
+        <name>Zuora__AmountWithoutTax__c</name>
+    </fields>
+    <fields>
+        <help><!-- The balance due on the invoice after the value for the Amount field is applied. --></help>
+        <label>残高</label>
+        <name>Zuora__Balance2__c</name>
+    </fields>
+    <fields>
+        <help><!-- Zuora Invoice Balance.  This field is deprecated. --></help>
+        <label><!-- Balance (Deprecated) --></label>
+        <name>Zuora__Balance__c</name>
+    </fields>
+    <fields>
+        <label>請求先の担当者ID</label>
+        <name>Zuora__BillToId__c</name>
+    </fields>
+    <fields>
+        <help><!-- The Zuora billing account that the invoice is for. --></help>
+        <label>請求先アカウント</label>
+        <name>Zuora__BillingAccount__c</name>
+        <relationshipLabel><!-- Invoices --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Credit Balance Adjustment Amount --></label>
+        <name>Zuora__CreditBalanceAdjustmentAmount__c</name>
+    </fields>
+    <fields>
+        <help><!-- Invoice Description. --></help>
+        <label>説明</label>
+        <name>Zuora__Description__c</name>
+    </fields>
+    <fields>
+        <help><!-- The date by which the payment for this invoice is due. --></help>
+        <label>期日</label>
+        <name>Zuora__DueDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- This field holds the Zuora object ID, and is used as external ID for data synchronization between Salesforce and Zuora. --></help>
+        <label>外部ID</label>
+        <name>Zuora__External_Id__c</name>
+    </fields>
+    <fields>
+        <label>作成日</label>
+        <name>Zuora__GeneratedDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Generated On Date --></label>
+        <name>Zuora__Generated_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- The generation date of the invoice. --></help>
+        <label>請求日</label>
+        <name>Zuora__InvoiceDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- The amount of payments applied to the invoice. --></help>
+        <label>支払い金額</label>
+        <name>Zuora__PaymentAmount__c</name>
+    </fields>
+    <fields>
+        <help><!-- The payment term of the associated billing account. --></help>
+        <label>支払い期限</label>
+        <name>Zuora__PaymentTerm__c</name>
+    </fields>
+    <fields>
+        <label>支払い期限</label>
+        <name>Zuora__Payment_Term__c</name>
+        <relationshipLabel><!-- Invoices --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- The date when the invoice was posted. --></help>
+        <label>記帳日</label>
+        <name>Zuora__PostedDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- The date when the invoice was posted. --></help>
+        <label><!-- Posted On Date --></label>
+        <name>Zuora__Posted_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- Specifies the amount of a refund that applied against a payment on an earlier the invoice. --></help>
+        <label>払戻し額</label>
+        <name>Zuora__RefundedAmount__c</name>
+    </fields>
+    <fields>
+        <label>販売先 担当者ID</label>
+        <name>Zuora__SoldToId__c</name>
+    </fields>
+    <fields>
+        <help><!-- The status of the invoice in the system. This status is not the status of the payment of the invoice, just the status of the invoice itself. --></help>
+        <label><!-- Status --></label>
+        <name>Zuora__Status__c</name>
+    </fields>
+    <fields>
+        <help><!-- The date you want the invoice generated on. --></help>
+        <label>目標期日</label>
+        <name>Zuora__TargetDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- The total amount of the taxes applied to the invoice. --></help>
+        <label>税額</label>
+        <name>Zuora__TaxAmount__c</name>
+    </fields>
+    <fields>
+        <help><!-- The total amount of the invoice that is exempt from taxation. --></help>
+        <label>免税額</label>
+        <name>Zuora__TaxExemptAmount__c</name>
+    </fields>
+    <fields>
+        <help><!-- The amount of the invoice. --></help>
+        <label>合計金額</label>
+        <name>Zuora__TotalAmount__c</name>
+    </fields>
+    <fields>
+        <help><!-- The Invoice ID in the Zuora system. --></help>
+        <label>請求書ID</label>
+        <name>Zuora__ZuoraId__c</name>
+    </fields>
+    <fields>
+        <help><!-- The Zuora ID of the invoice. --></help>
+        <label>Zuora ID</label>
+        <name>Zuora__Zuora_Id__c</name>
+    </fields>
+    <nameFieldLabel><!-- Invoice Number --></nameFieldLabel>
+    <webLinks>
+        <label><!-- InvoicePDF --></label>
+        <name>Zuora__InvoicePDF</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Invoice_PDF --></label>
+        <name>Zuora__Invoice_PDF</name>
+    </webLinks>
+</CustomObjectTranslation>

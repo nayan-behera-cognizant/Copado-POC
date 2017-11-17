@@ -1,0 +1,324 @@
+<apex:page controller="myLoginController"
+    showHeader="false"
+    cache="true"
+    expires="1800"
+    standardStylesheets="false"
+    sidebar="false"
+    docType="html-5.0"
+    language="{! IF(BEGINS(UPPER($CurrentPage.parameters.lang), 'EN'), IF($CurrentPage.parameters.Country == 'CA', 'en_US', 'en_GB'), $CurrentPage.parameters.lang) }"
+    applyHtmlTag="false"
+    action="{! navigateUser }"
+>
+
+<c:FetchLanguageCookie myPageName="mylogin" areaToRefreshName="myLoginRerender" />
+<apex:outputPanel id="myLoginRerender">
+    <head>
+        <title>{!$Label.LS_mylogin_Title}</title>
+        <meta name="google-site-verification" content="1m_JV80vU3gln3KyYeAm5woixeUHQOvhrbGjS-0g6J0" />
+        <meta content="width=device-width, initial-scale=1.0,maximum-scale = 1.0" name="viewport" />
+        <meta name="description" content="{!$label.LS_Mylogin_Description}" />
+        <meta name="keywords" content="{!$label.LS_Mylogin_Keywords}" />
+        <apex:includescript value="{!URLFOR($Resource.LS_JQuery)}" />
+        <apex:includescript value="{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/js/jquery.min.js')}" />
+        <link REL="SHORTCUT ICON" HREF="{!URLFOR($Resource.DAZN_favicon_default)}" />
+        <link REL="apple-touch-icon" sizes="57x57" HREF="{!URLFOR($Resource.DAZN_appletouchicon57_57 )}" />
+        <link REL="apple-touch-icon" sizes="60x60" HREF="{!URLFOR($Resource.DAZN_appletouchicon60_60 )}" />
+        <link REL="apple-touch-icon" sizes="72x72" HREF="{!URLFOR($Resource.DAZN_appletouchicon72_72 )}" />
+        <link REL="apple-touch-icon" sizes="76x76" HREF="{!URLFOR($Resource.DAZN_appletouchicon76_76 )}" />
+        <link REL="apple-touch-icon" sizes="114x114" HREF="{!URLFOR($Resource.DAZN_appletouchicon144_144 )}" />
+        <link REL="apple-touch-icon" sizes="120x120" HREF="{!URLFOR($Resource.DAZN_appletouchicon120_120 )}" />
+        <link REL="apple-touch-icon" sizes="144x144" HREF="{!URLFOR($Resource.DAZN_appletouchicon144_144 )}" />
+        <link REL="apple-touch-icon" sizes="152x152" HREF="{!URLFOR($Resource.DAZN_appletouchicon152_152 )}" />
+        <link REL="apple-touch-icon" sizes="180x180" HREF="{!URLFOR($Resource.DAZN_appletouchicon180_180 )}" />
+        <link REL="icon" type="image/png" HREF="{!URLFOR($Resource.DAZN_favicon_32_32 )}" sizes="32x32" />
+        <link REL="icon" type="image/png" HREF="{!URLFOR($Resource.DAZN_androidchrome192_192 )}" sizes="192x192" />
+        <link REL="icon" type="image/png" HREF="{!URLFOR($Resource.DAZN_favicon_96_96 )}" sizes="96x96" />
+        <link REL="icon" type="image/png" HREF="{!URLFOR($Resource.DAZN_favicon_16_16 )}" sizes="16x16" />
+        <link rel="mask-icon" href="{!URLFOR($Resource.DAZN_favicon_svg16_16 )}" color="#000" />
+        <link rel="icon" type="image/svg" sizes="any" href="{!URLFOR($Resource.DAZN_favicon_svg16_16 )}" />
+        <apex:includescript value="{!URLFOR($Resource.Version)}" />
+        <!--PD-8766 - To get version of the product from Static Resource-->
+
+        <!-- <c:FetchLanguageCookie myPageName="mylogin" areaToRefreshName="fMylogin" /> -->
+    </head>
+
+    <body bgcolor="black">
+        <!-- Google Tag Manager -->
+        <c:GTMHeader sPageName="mylogin"></c:GTMHeader>
+        <apex:form id="fMylogin" html-autocomplete="off">
+             <div>
+                <!-- panel for banner -->
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="row">
+                        <apex:outputPanel rendered="{!showbanner}">
+                            <div class="alert alert-warning bannerContainer" id="myAlert">
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+                                    <apex:outputPanel rendered="{!isBlockedUser == false}">
+                                        <h1 class="banner">{!$Label.LS_Mylogin_Login_Issue_Banner_Header_Label}</h1>
+                                        <p class="alertStat CustomLabels">{!$Label.LS_MyLogin_Login_Issue_Banner_Message}</p>
+                                    </apex:outputPanel>
+                                    <apex:outputPanel rendered="{!isInvalidUser}">
+                                        <h1 class="banner">{!$Label.LS_Lockout_Heading}</h1>
+                                        <apex:outputText escape="false" value="{!$Label.LS_Lockout_Message}">
+                                            <apex:param value="{!$CurrentPage.parameters.lang}" />
+                                            <apex:param value="{!$CurrentPage.parameters.Country}" />
+                                        </apex:outputText>
+                                    </apex:outputPanel>
+                                    <apex:outputPanel rendered="{!isBlockedUser}">
+                                        <h1 class="banner">{!isBlockedUserMessageHeader}</h1>
+                                        <p class="alertStat CustomLabels">{!isBlockedUserMessageBanner}</p>
+                                    </apex:outputPanel>
+                                    <div class="form-fields--form-button-e53320ec primary frtBtn">
+                                        <apex:commandLink value="{!$Label.LS_Button_OK}" action="{!closeBanner}" styleClass="wrapper btn txtUpperCase okBtn" />
+                                    </div>
+                                </div>
+                            </div>
+                        </apex:outputPanel>
+                    </div>
+                </div>
+                <div class="container-fluid loginContainer">
+                    <div class="row">
+                        <div class="styleguide--page-wrapper-55709bc3">
+                            <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12 padding0 spanImagDiv">
+                                <apex:commandLink styleClass="spanImag spanImageUpdated" action="{!redirectToHomePage}" />
+                            </div>
+
+                            <div class="col-md-9 col-lg-8 col-sm-12 col-xs-12 padding0 marginLeft">
+                                <div class="label-heading">{!$Label.LS_Login_Signin}</div>
+                                <div class="loginSec">
+                                    <div class="styleguide--page-wrapper-55709bc3">
+                                        <apex:outputPanel rendered="{! $CurrentPage.parameters.flow == 'livechat' }">
+                                            <p>{! $Label.LS_MyLogin_LiveChatConfirmation }</p>
+                                        </apex:outputPanel>
+                                        <div class="emailFieldSec">
+                                            <apex:outputPanel id="idemailInput">
+                                                <div id="ember1037" class="ember-view form-fields--text-input-71621ee4 is-passive focus-out ">
+                                                    <label class="label">
+                                                        <span class="label-text">{!$Label.LS_MyAccount_EmailAddress}</span>
+                                                    </label>
+                                                    <div class="input-wrapper" style="margin-top: -9px;">
+                                                        <apex:inputText tabindex="1" styleclass="form-control customStyle customFormInput idemail121" value="{!emailaddress}" html-autocomplete="off" id="idemail121" onblur="return validateEmail();" />
+                                                    </div>
+                                                    <span class="error-message customErrorMessage" id="emailvalidation"></span>
+                                                </div>
+                                            </apex:outputPanel>
+                                        </div>
+                                        <div class="pwdFieldSec">
+                                            <apex:outputPanel id="idpwdInput">
+                                                <div id="ember1037" class="ember-view form-fields--text-input-71621ee4 is-passive focus-out">
+                                                    <label class="label">
+                                                        <span class="label-text">{!$Label.LS_MyAccount_Label_Password}</span>
+                                                    </label>
+                                                    <div class="input-wrapper" style="margin-top: -9px;,width:100%;">
+                                                        <apex:inputHidden id="passHidden" value="{! password }" />
+                                                        <input type="text" onfocus="this.type='password'" />
+                                                        <input tabindex="2" id="idEmailPwd" type="password" maxlength="25" size="40" autocomplete="off" styleclass="form-control customStyle customFormInput idEmailPwd" onblur="return validateEmailPassword();" name="password" oninput="setPass();" />
+                                                    </div>
+                                                    <span class="error-message customErrorMessage" id="emailPwdValidation"></span>
+                                                </div>
+                                            </apex:outputPanel>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="loginSec">
+                                    <div class="linksSec foundryFontMedium">
+                                        <a href="{!RememberEmailURL}" class="cancelLink" onclick="DataLayerSigninCapture('Forgot email')">{!$Label.LS_MyLogin_ForgotEmail}</a> {!$Label.LS_Mylogin_Or}
+                                        <a href="{!PasswordResetURL}" class="cancelLink" onclick="DataLayerSigninCapture('Forgot password')">{!$Label.LS_Mylogin_PasswordReset}</a>
+                                    </div>
+                                </div>
+                                <div class="loginSec loginSecBtn">
+                                    <div class="divwidth1 linksSec" ng-class="">
+                                        <apex:outputPanel id="idbtn">
+                                            <apex:outputPanel styleClass="ember-view form-fields--form-button-e53320ec primary">
+                                                  <a href="javascript:void(0);" class="wrapper btn customStyleBtn loginSubmit  {!IF(isInvalidUser ,'disabled', '')}">
+                                                    <apex:commandButton id="btnLogin" onclick="setAttr(); return validateNSaveEmailChanges('Sign in');" action="{!login}" value="{!$Label.LS_Login_Button_Login}" disabled="{!isInvalidUser}" />
+                                                 </a>
+                                            </apex:outputPanel>
+                                        </apex:outputPanel>
+                                    </div>
+                                </div>
+                                <div class="loginSec dAccLink">
+                                    <div class="linksSec foundryFontMedium">
+                                        <apex:outputPanel rendered="{!if(((cookieCountry == 'Japan') || (cookieCountry == 'ja')),true,false)}">
+                                            <a class="cancelLink" href="/signin">{! $Label.LS_Sign_in_docomo_link }</a>
+                                        </apex:outputPanel>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="langSwitcher">
+                    <c:LS_FooterCookie renderLangSwitcher="true" areaToRefreshName="myLoginRerender" />
+                </div>
+            </div>
+
+            <script type="text/javascript">
+                // storing backend variables in an object for use in js file
+                var DAZN_myLogin = {
+                    LS_MyAccount_ErrMsg_InvalidEmailID: "{!$Label.LS_MyAccount_ErrMsg_InvalidEmailID}",
+                    LS_MyAccount_ErrMsg_Provide_Password: "{!$Label.LS_MyAccount_ErrMsg_Provide_Password}",
+                    sCountry: '{!JSENCODE($CurrentPage.parameters.Country)}',
+                    strLanguage: "{!JSENCODE($CurrentPage.parameters.lang)}",
+                    cookieCountry: "{!HTMLENCODE(cookieCountry)}",
+                    paramLang: "{!JSENCODE($CurrentPage.parameters.lang)}",
+                    paramCountry: "{!JSENCODE($CurrentPage.parameters.Country)}",
+                    paramTitle: "{!JSENCODE($CurrentPage.parameters.title)}",
+                    paramSearchText: "{!JSENCODE($CurrentPage.parameters.searchText)}",
+                    trackingParam: "{!JSENCODE($CurrentPage.parameters.TrakingParams)}",
+                    url: "{!JSENCODE($CurrentPage.URL)}",
+                    passHidden: '{! $Component.fMylogin.passHidden }',
+                    isInvalidUser: {!isInvalidUser}
+                };
+
+                /* Method to validate Email */
+function validateEmail() {
+    var sEmail = $('[id*="idemail121"]').val();
+    $('#emailvalidation').parent().removeClass('is-error is-focus').addClass('is-passive');
+    $('#emailvalidation').html('');
+    if (!sEmail.match(/([\w-\.#!$%&'*+-/=?^_`{}|~]+)@([A-Za-z0-9_\-\.])+\.([a-zA-Z]{2,4})/)) {
+        $('#emailvalidation').html(DAZN_myLogin.LS_MyAccount_ErrMsg_InvalidEmailID);
+        $('#emailvalidation').parent().removeClass('is-passive focus-out').addClass('is-error');
+        return false;
+    }
+    return true;
+}
+
+function validateEmailPassword() {
+    var sEmailPwd = $('[id*="idEmailPwd"]').val().trim(),
+        regexJa = /[\u3000-\u303F]|[\u3040-\u309F]|[\u30A0-\u30FF]|[\uFF00-\uFFEF]|[\u4E00-\u9FAF]|[\u2605-\u2606]|[\u2190-\u2195]|\u203B/g,
+        regexDa = /[\u00C0-\u00FF]/g,
+        regexCyrillic = /[\u0400-\u04FF]/g;
+    $('#emailPwdValidation').parent().removeClass('is-error is-focus').addClass('is-passive');
+    $('#emailPwdValidation').html('');
+    if ($('[id*="idEmailPwd"]').val().trim().length == 0 || $('[id*="idEmailPwd"]').val().trim().length < 5 || !sEmailPwd.match((/^\S+$/)) || (regexJa.test(sEmailPwd) && sEmailPwd.match(/^(?=.*[A-z])(?=.*\d).*$/)) || (regexDa.test(sEmailPwd) && sEmailPwd.match(/^(?=.*[A-z])(?=.*\d).*$/)) || (regexCyrillic.test(sEmailPwd)&& sEmailPwd.match(/^(?=.*[A-z])(?=.*\d).*$/))) {
+        $('#emailPwdValidation').html(DAZN_myLogin.LS_MyAccount_ErrMsg_Provide_Password);
+        $('#emailPwdValidation').parent().removeClass('is-passive focus-out').addClass('is-error');
+        return false;
+    }
+    return true;
+}
+
+function validateNSaveEmailChanges(sTitle) {
+    DataLayerSigninCapture(sTitle);
+    if (validateEmail() && validateEmailPassword()) {
+        return true;
+    }
+    return false;
+}
+
+/*Function to get data when clicked on ForgotPassword*/
+function DataLayerSigninCapture(sTitle) {
+    dataLayer.push({
+        'event': 'buttonClick',
+        'button': {
+            'title': sTitle
+        }
+    });
+}
+
+function setAttr() {
+    document.getElementById('idEmailPwd').type = 'password';
+}
+
+function setPass() {
+    var v = document.getElementById(DAZN_myLogin.passHidden);
+    v.value = document.getElementById('idEmailPwd').value;
+}
+
+//$(document).ready(function() {
+    var countryName = DAZN_myLogin.sCountry.toLowerCase(),
+        sLang = DAZN_myLogin.strLanguage,
+        browserLang = navigator.language;
+    if (countryName == 'jp' || countryName == 'japan') {
+        $(".cookieFooterbg").hide();
+        $('body').css("padding-bottom", "0");
+        $(".dAccLink").removeClass("hidden");
+    } else {
+        $(".cookieFooterbg").show();
+        $('body').css("padding-bottom", "65px");
+        $(".dAccLink").addClass("hidden");
+    }
+    // fetchBrowserLanguage(browserLang);
+    // add lang class in body
+    if (sLang == 'ja') {
+        $('body').addClass('langJa');
+    }
+    if (sLang == 'de') {
+        $('body').addClass('langDe');
+    }
+
+    //Format HTML inside custom labels
+    $('.UNPWD').html($('.UNPWD').text());
+    $('.signup').html($('.signup').text());
+    $('[id*="idemail121"]').keydown(function(e) {
+        $(this).focus();
+        if (e.keyCode == 13) {
+            $('[id*="btnLogin"]').click();
+        }
+    });
+    $('[id*="idEmailPwd"]').keydown(function(e) {
+        if (e.keyCode == 13) {
+            $('[id*="btnLogin"]').click();
+        }
+    });
+    /*Grey out Login button untill Login fields are empty*/
+    //validate();
+    $('.emailFieldSec input,.pwdFieldSec input').change(validate);
+    /* Enter key code */
+    $(document).keypress(function(e) {
+        if (e.which == 13) {
+            $('[id*="btnLogin"]').click();
+        }
+    });
+
+    function validate() {
+        $('.pwdFieldSec input').keyup(function() {
+            if (($('[id*="idEmailPwd"]').val().trim().length > 4) && validateEmail())
+                $('a.loginSubmit').removeClass('emptySubmit');
+            else
+                $('a.loginSubmit').addClass('emptySubmit');
+        });
+    }
+    /* Invalid User */
+    if (DAZN_myLogin.isInvalidUser) {
+        if (localStorage.getItem("counter")) {
+            if (localStorage.getItem("counter") <= 0) {
+                var value = 900;
+            } else {
+                var value = localStorage.getItem("counter");
+            }
+        } else {
+            var value = 900;
+        }
+
+        var counter = function() {
+            if (value <= 0) {
+                $('[id*="btnLogin"]').attr("disabled", false);
+                $('[id*="btnLogin"]').parent().removeClass("disabled");
+                document.location.href = "/secur/logout.jsp";
+            } else {
+                value = parseInt(value) - 1;
+                localStorage.setItem("counter", value);
+            }
+        };
+        var interval = setInterval(function() {
+            counter();
+        }, 1000);
+    }
+//});
+            </script>
+        </apex:form>
+        
+        <apex:includescript value="{!URLFOR($Resource.DAZN_VF_Assets, 'DAZN_VF_Assets/js/DAZN_browserHistoryStealer.js') }" />
+        <c:CookiesComponent rendered="{!if(((cookieCountry == 'Japan') || (cookieCountry == 'ja')),false,true)}" />
+        <apex:stylesheet value="{!$Resource.LS_MyAccount_Css}" />
+        <apex:stylesheet value="{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/css/base-method-ember-styleguide.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/css/vendor.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/css/styles_v1.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.DAZN_VF_Assets, 'DAZN_VF_Assets/css/DAZN_myLogin.css')}" />
+    </body>
+
+</apex:outputPanel>
+
+</apex:page>

@@ -1,0 +1,31 @@
+<apex:component controller="FetchLanguageController" >
+
+    <apex:attribute name="myPageName" description="current page name" type="String" required="true" assignTo="{! strPageName }"/>
+    <apex:attribute name="areaToRefreshName" description="name of the area on the page, that need to be refreshed" type="String" required="true" />
+
+	<apex:form id="langForm" >
+        <apex:actionFunction name="fetchBrowserLanguage" action="{! fetchBrowserLanguage }" rerender="{! 'langForm' + ',' + areaToRefreshName }">
+            <apex:param name="strLang" value="" assignTo="{! strLang }"></apex:param>
+        </apex:actionFunction>
+    </apex:form>
+
+	<script type="text/javascript">
+        var flcLang = '{! JSENCODE($CurrentPage.parameters.lang) }';
+        var flcCountry = '{! JSENCODE($CurrentPage.parameters.country) }';
+        var pageName = '{! myPageName }'.toUpperCase();
+
+        if ((pageName !== 'INTERNALSERVERERROR' &&
+             pageName !== 'PAGENOTFOUND' &&
+             pageName !== 'DOCOMOSIGNIN') &&
+            (flcLang === undefined || flcLang === null || flcLang === '') &&
+            (flcCountry === undefined || flcCountry === null || flcCountry === '')) {
+            $("body").hide();
+        } else {
+            $("body").show();
+        }
+
+        var strLang = navigator.language || navigator.userLanguage;
+        fetchBrowserLanguage(strLang);
+    </script>
+
+</apex:component>

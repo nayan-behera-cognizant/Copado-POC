@@ -1,0 +1,26 @@
+<apex:page showHeader="false" sidebar="false" standardController="Case" extensions="CaseCountryLanguageUpdate" title="Assign Country & Language">
+    <apex:form id="caselangcountry"> 
+        <apex:pageMessages ></apex:pageMessages>
+        <apex:pageBlock >
+            <apex:pageBlockSection title="Assign country and Language" columns="1"> 
+                <apex:pageBlockSectionItem >
+                    {!$Label.LS_To_Select_Case_Country}
+                    <apex:selectList id="select_Country" value="{!SelectedCountryCode}" size="1">
+                        <apex:selectOptions value="{!Country}"/>
+                        <apex:actionSupport event="onchange" action="{!changeLang}" />
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    {!$Label.LS_To_Select_Case_Language}
+                    <apex:selectList id="select_Language" value="{!SelectedLanguageCode}" size="1" rendered="{!if(SelectedCountryCode!= null,true,false)}" >
+                        <apex:selectOptions value="{!lang}"/>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+                <apex:outputPanel id="idSaveButton" >
+                    <apex:commandButton value="Save" action="{!saveAndReturn}" style="margin-left: 180px; margin-right: 5px;"/>
+                    <apex:commandButton value="Cancel" action="{!cancelAction}" />
+                </apex:outputPanel> 
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

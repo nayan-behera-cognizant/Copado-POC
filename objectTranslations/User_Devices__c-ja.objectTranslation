@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value><!-- User Devices --></value>
+    </caseValues>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- User Devices --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Date Of Registration --></label>
+        <name>Date_Of_Registration__c</name>
+    </fields>
+    <fields>
+        <label><!-- Device Id --></label>
+        <name>Device_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Device Name --></label>
+        <name>Device_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Device Registration Date --></label>
+        <name>Device_Registration_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Device manufacturer --></label>
+        <name>Device_manufacturer__c</name>
+    </fields>
+    <fields>
+        <label><!-- Device version --></label>
+        <name>Device_version__c</name>
+    </fields>
+    <fields>
+        <label><!-- IP address --></label>
+        <name>IP_address__c</name>
+    </fields>
+    <fields>
+        <label><!-- Operating System Name --></label>
+        <name>Operating_System_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Operating System Version --></label>
+        <name>Operating_System_Version__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Active</masterLabel>
+            <translation><!-- Active --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>InActive</masterLabel>
+            <translation><!-- InActive --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Device Type --></label>
+        <name>Type__c</name>
+        <picklistValues>
+            <masterLabel>Console</masterLabel>
+            <translation>ゲーム機</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Desktop</masterLabel>
+            <translation>パソコン</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Laptop</masterLabel>
+            <translation><!-- Laptop --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mobile</masterLabel>
+            <translation>モバイル</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TV</masterLabel>
+            <translation>テレビ</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tablet</masterLabel>
+            <translation>タブレット</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- User Agent --></label>
+        <name>User_Agent__c</name>
+    </fields>
+    <nameFieldLabel><!-- Name --></nameFieldLabel>
+</CustomObjectTranslation>

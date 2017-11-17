@@ -1,0 +1,3 @@
+<apex:page standardController="case" extensions="CaseFeedbakRatingController" showHeader="false" action="{!served}">
+  
+</apex:page>

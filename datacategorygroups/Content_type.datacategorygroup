@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataCategoryGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <dataCategory>
+        <dataCategory>
+            <label>Customer Services</label>
+            <name>Customer_Services</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <label>DAZN_for_Docomo</label>
+                <name>DAZN_for_Docomo</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Getting Started</label>
+                    <name>Getting_Started_HP</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>TECHNICAL ISSUES</label>
+                    <name>Watching_DAZN_HP</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Content | App and Functionality</label>
+                    <name>Technical_issues_HP</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>ACCOUNT AND PAYMENT</label>
+                    <name>Manage_My_Account_HP</name>
+                </dataCategory>
+                <label>Homepage</label>
+                <name>Homepage</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Legal</label>
+                    <name>Legal</name>
+                </dataCategory>
+                <label>TnC, Privacy Policy</label>
+                <name>TnC_Privacy_Policy</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>System Update</label>
+                    <name>System_Update</name>
+                </dataCategory>
+                <label>System Updates</label>
+                <name>System_Updates</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Legal</label>
+                    <name>Legal_RC</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>FAQ</label>
+                    <name>FAQ_RC</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Getting Started</label>
+                    <name>Getting_Started_RC</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Watching Sport</label>
+                    <name>Watching_DAZN_RC</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Manage My Account</label>
+                    <name>Manage_My_Account_RC</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Troubleshooting</label>
+                    <name>Technical_Issues_RC</name>
+                </dataCategory>
+                <label>Related Article</label>
+                <name>Related_contents</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Payments Inquiry</label>
+                    <name>Payments_Inquiry</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Other Questions</label>
+                    <name>Other_Questions</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>FAQ</label>
+                    <name>FAQ</name>
+                </dataCategory>
+                <label>FAQs</label>
+                <name>FAQs</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Troubleshooting</label>
+                <name>Technical_issues</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Getting Started</label>
+                <name>Getting_Started</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Watching Sport</label>
+                <name>Watching_DAZN</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Manage My Account</label>
+                <name>Manage_My_Account</name>
+            </dataCategory>
+            <label>Public</label>
+            <name>Public</name>
+        </dataCategory>
+        <label>All</label>
+        <name>All</name>
+    </dataCategory>
+    <description>Category Group for content type.</description>
+    <label>Content type</label>
+    <objectUsage>
+        <object>KnowledgeArticleVersion</object>
+    </objectUsage>
+</DataCategoryGroup>

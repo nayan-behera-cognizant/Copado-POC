@@ -1,0 +1,18 @@
+<apex:page controller="SelectOptionController" sidebar="false" showHeader="false" >    
+<apex:Form id="TranscationPageform">
+    <apex:includescript value="{!URLFOR($Resource.DAZN_VF_Assets, 'DAZN_VF_Assets/js/DAZN_discount.js')}" />
+    <apex:pageBlock >  
+    <apex:outputLabel > Discount : </apex:outputLabel><br></br>
+    <apex:selectList size="1" value="{!selectedMonth}">
+      <apex:selectOptions value="{!discountLst}"/>
+    </apex:selectList> <br/>  <br/>  
+    <apex:commandbutton value="Submit" action="{!submit}" /> 
+    &nbsp;&nbsp;
+    <apex:commandbutton value="Cancel"  onComplete="winClose();"/>   
+    </apex:pageBlock>   
+    <apex:pageBlock title="Discount Information" id="region" rendered="{!flagForRecord}" >
+    <apex:outputText value="{!selectedValues}" id="region1"  style="color:Black"/><br></br>  
+    <apex:commandButton value="Ok" onComplete="winClose();"/> 
+   </apex:pageBlock>
+</apex:Form>
+</apex:page>

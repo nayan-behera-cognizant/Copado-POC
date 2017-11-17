@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>UTF-8</encodingKey>
+    <name>System Update JP ja</name>
+    <style>none</style>
+    <subject>重要: パスワード更新について</subject>
+    <textOnly>ベータ無料体験をご使用の皆様  技術的な問題により現在DAZNへのログインが出来ない事象が起きております。 恐れ入りますがこちらからEメールアドレスの入力をお願いします。 追ってリセットパスワードをご連絡します。 サービスに関して不明な点やお困りな点がございましたらヘルプページをご参照ください。 または、カスタマーサービス（受付時間：10時～22時）までお気軽にお問い合わせください。 引き続きDAZNをお楽しみください。 DAZNチーム一同
+
+プライバシーポリシー | 利用規約 
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

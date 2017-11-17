@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <description>Partner Account Configuration for all users which are partner users like users coming via Docomo or Amazon Pay etc.</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>Can_Change_Payment_Method__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Will salesforce implement the logic of changing payment method?</description>
+        <externalId>false</externalId>
+        <label>Can Change Payment Method</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Cancel_Subscription_URL_Large__c</fullName>
+        <description>URL for cancel subscription button for Large breakpoint, to be used when the Account status = Active Paid</description>
+        <externalId>false</externalId>
+        <label>Cancel Subscription URL Large</label>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Cancel_Subscription_URL_Medium__c</fullName>
+        <description>URL for cancel subscription button for Medium breakpoint, to be used when the Account status = Active Paid</description>
+        <externalId>false</externalId>
+        <label>Cancel Subscription URL Medium</label>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Cancel_Subscription_URL_Small__c</fullName>
+        <description>URL for cancel subscription button for Small breakpoint, to be used when the Account status = Active Paid</description>
+        <externalId>false</externalId>
+        <label>Cancel Subscription URL Small</label>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Change_Payment_method_URL__c</fullName>
+        <externalId>false</externalId>
+        <label>Change Payment method URL</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Change_password_email__c</fullName>
+        <externalId>false</externalId>
+        <label>Change password email</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Double_opt_in_email__c</fullName>
+        <externalId>false</externalId>
+        <label>Double opt in email</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Email_Editable__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Is the email field editable? 
+NOTE – this field for partner accounts displays the value of notification email field on Account, not the Person Email field.</description>
+        <externalId>false</externalId>
+        <label>Email Editable</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>First_Name_Editable__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Is the first name field editable on My Account page?</description>
+        <externalId>false</externalId>
+        <label>First Name Editable</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Forgot_your_password_URL__c</fullName>
+        <externalId>false</externalId>
+        <label>Forgot your password URL</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Last_Name_Editable__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Is the last name field editable on My Account page?</description>
+        <externalId>false</externalId>
+        <label>Last Name Editable</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Manage_Account_URL_Large__c</fullName>
+        <externalId>false</externalId>
+        <label>Manage Account URL Large</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Manage_Account_URL_Medium__c</fullName>
+        <externalId>false</externalId>
+        <label>Manage Account URL Medium</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Manage_Account_URL_Small__c</fullName>
+        <externalId>false</externalId>
+        <label>Manage Account URL Small</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Name_change_email__c</fullName>
+        <externalId>false</externalId>
+        <label>Name change email</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Page_Name__c</fullName>
+        <description>To indicate which VF page needs to be displayed for a partner type as specified in the field Partner Type</description>
+        <externalId>false</externalId>
+        <label>Page Name</label>
+        <length>255</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Partner_Type__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>The name of the Partner Type for which this my account page is for. This will be the same value as populated on the User type field on the Account.</description>
+        <externalId>false</externalId>
+        <label>Partner Type</label>
+        <length>255</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Payment_History_URL__c</fullName>
+        <description>The link for Payment history for DfD</description>
+        <externalId>false</externalId>
+        <label>Payment History URL</label>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Payment_failure_email__c</fullName>
+        <externalId>false</externalId>
+        <label>Payment failure email</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Payment_success_email__c</fullName>
+        <externalId>false</externalId>
+        <label>Payment success email</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Show_Device_Section__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Show or hide device section</description>
+        <externalId>false</externalId>
+        <label>Show Device Section</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Show_Language_Section__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Show or hide language section</description>
+        <externalId>false</externalId>
+        <label>Show Language Section</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Show_Marketing_Opt_In_Section__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Show or hide marketing opt in section</description>
+        <externalId>false</externalId>
+        <label>Show Marketing Opt In Section</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Show_Personal_Details__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Do we need to show the personal details section?</description>
+        <externalId>false</externalId>
+        <label>Show Personal Details</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Show_Subscription__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Do we need to show the subscription section?</description>
+        <externalId>false</externalId>
+        <label>Show Subscription</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Sign_Out_Of_All_Devices_Allowed__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Show or hide sign out of all devices</description>
+        <externalId>false</externalId>
+        <label>Sign Out Of All Devices Allowed</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Subscription_Type_Heading_Text_Ja__c</fullName>
+        <externalId>false</externalId>
+        <label>Subscription Type Heading Text-Ja</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Subscription_Type_Heading_Text__c</fullName>
+        <description>The static text to be shown for Subscription Type Heading</description>
+        <externalId>false</externalId>
+        <label>Subscription Type Heading Text</label>
+        <length>255</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Subscription_Type_Sub_Heading_Text_Ja__c</fullName>
+        <externalId>false</externalId>
+        <label>Subscription Type Sub Heading Text-Ja</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Subscription_Type_Sub_Heading_Text__c</fullName>
+        <description>The static text to be shown for Subscription Type sub Heading</description>
+        <externalId>false</externalId>
+        <label>Subscription Type Sub Heading Text</label>
+        <length>255</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Updated_payment_method_email__c</fullName>
+        <externalId>false</externalId>
+        <label>Updated payment method email</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Welcome_Email__c</fullName>
+        <externalId>false</externalId>
+        <label>Welcome Email</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Partner Account Configuration</label>
+    <visibility>Public</visibility>
+</CustomObject>

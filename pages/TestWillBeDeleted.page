@@ -1,0 +1,796 @@
+<apex:page showHeader="false"
+    applyHtmlTag="false"
+    cache="false"
+    expires="0"
+    standardStylesheets="false"
+    controller="TestWillBeDeleted"
+    language="{! IF(BEGINS(UPPER($CurrentPage.parameters.lang), 'EN'), IF($CurrentPage.parameters.Country == 'CA', 'en_US', 'en_GB'), $CurrentPage.parameters.lang) }"
+    docType="html-5.0"
+>
+
+<!-- <c:FetchLanguageCookie myPageName="help" areaToRefreshName="helpRerender" /> -->
+<!-- <apex:outputPanel id="helpRerender"> -->
+
+    <head>
+        <meta name="google-site-verification" content="1m_JV80vU3gln3KyYeAm5woixeUHQOvhrbGjS-0g6J0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta id="description" name="description" content="{!helpDescription}" />
+        <meta id="keywords" name="keywords" content="{!helpKeyWord}" />
+        <link REL="SHORTCUT ICON" HREF="{!URLFOR($Resource.DAZN_favicon_default)}" />
+        <link REL="apple-touch-icon" sizes="57x57" HREF="{!URLFOR($Resource.DAZN_appletouchicon57_57 )}" />
+        <link REL="apple-touch-icon" sizes="60x60" HREF="{!URLFOR($Resource.DAZN_appletouchicon60_60 )}" />
+        <link REL="apple-touch-icon" sizes="72x72" HREF="{!URLFOR($Resource.DAZN_appletouchicon72_72 )}" />
+        <link REL="apple-touch-icon" sizes="76x76" HREF="{!URLFOR($Resource.DAZN_appletouchicon76_76 )}" />
+        <link REL="apple-touch-icon" sizes="114x114" HREF="{!URLFOR($Resource.DAZN_appletouchicon144_144 )}" />
+        <link REL="apple-touch-icon" sizes="120x120" HREF="{!URLFOR($Resource.DAZN_appletouchicon120_120 )}" />
+        <link REL="apple-touch-icon" sizes="144x144" HREF="{!URLFOR($Resource.DAZN_appletouchicon144_144 )}" />
+        <link REL="apple-touch-icon" sizes="152x152" HREF="{!URLFOR($Resource.DAZN_appletouchicon152_152 )}" />
+        <link REL="apple-touch-icon" sizes="180x180" HREF="{!URLFOR($Resource.DAZN_appletouchicon180_180 )}" />
+        <link REL="icon" type="image/png" HREF="{!URLFOR($Resource.DAZN_favicon_32_32 )}" sizes="32x32" />
+        <link REL="icon" type="image/png" HREF="{!URLFOR($Resource.DAZN_androidchrome192_192 )}" sizes="192x192" />
+        <link REL="icon" type="image/png" HREF="{!URLFOR($Resource.DAZN_favicon_96_96 )}" sizes="96x96" />
+        <link REL="icon" type="image/png" HREF="{!URLFOR($Resource.DAZN_favicon_16_16 )}" sizes="16x16" />
+        <link rel="mask-icon" href="{!URLFOR($Resource.DAZN_favicon_svg16_16 )}"  color="#000" />
+        <link rel="icon" type="image/svg" sizes="any" href="{!URLFOR($Resource.DAZN_favicon_svg16_16 )}" />
+
+        <c:FetchLanguage myPageName="TestWillBeDeleted" areaToRefreshName="fHelp" />
+    </head>
+
+    <body class="helpPage">
+       <div class="helppageWrapper">
+        <!-- Google Tag Manager -->
+            <c:GTMHeader sPageName="help"></c:GTMHeader>
+            <!-- End Google Tag Manager -->
+            <apex:form id="frm">
+                <div ng-app="myApp" ng-controller="myCtrl" id="helpWrapper">
+                    <div class="helpPageContainer">
+                        <div class="container" id="helpHomeWrapper">
+                            <div class="row">
+                                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                    <apex:commandLink styleClass="spanImag spanImageUpdated" action="{!redirectToHomePage}" />
+                                </div>
+                                <div class="col-xs-5 col-sm-5 col-md-4 col-lg-4 foundryFontMedium txtAlignCtr padding0">
+                                    <a href="{!homePageURL}" class="backToHomeLink link-unique">{!HTMLENCODE($Label.LS_Help_Link_BackToHome)}</a>
+                                </div>
+                                <div class="col-xs-3 col-sm-3 col-md-4 col-lg-4 ">&nbsp;</div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="row">
+                                <div class="help col-md-12 col-sm-12 col-xs-12 margTop accHdr">
+                                    <a href="{{sURL+'/' +sCountrytoDisplay+'-'+sLanguagetoDisplay+sTrakingParams}}" class="navHelp">{!HTMLENCODE($Label.LS_Label_Help)}</a>
+                                    <span class="categorySeprator" ng-show="sDataCategory.length > 0">&gt;</span>
+                                    <span class="currentBCPiece">{{sDataCategory}}</span>
+                                    <span class="hrSection hrSectionGrey BCSeperator"></span>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="minDivHeight" id="div123">
+                                <!-- Search box Section -->
+                                <div class="row" ng-hide="bArticleSelected" id="divSearchbox" style="display:none;">
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inputMargin" id="articlesautocomplete">
+                                        <input ng-keypress="findAllArticles($event)" ng-model="sSearchText" ng-change="searchArticle()" autocomplete="off" class="form-control searchBox searchBoxFix" type="text" placeholder="{!HTMLENCODE($Label.LS_Help_Label_SearchText)}" />
+                                        <span class="iconfont iconfont-ls_icon_search fontSz40 searchBox"></span>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <!-- System Update Section -->
+                                <div id="mainHelpDiv" style="display:none;" class="row helpDiv" ng-hide="oSystemArticle==null || bArticleSelected || bArticleSearching ||bShowSearchArticle">
+                                     <div class="col-xs-12 col-sm-12 hidden-md hidden-lg UpdateLabel">
+                                        {!HTMLENCODE($Label.LS_Help_Label_SystemUpdate)}
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 SystemArticle margBot10">
+                                       <span ng-bind-html="oSystemArticle.Title"></span> <!---PD-11486 System update pulling from article title instead of Custom label-->
+                                         <!--<span>{!HTMLENCODE($Label.LS_Help_Label_SystemOutages)}</span>-->
+                                    </div>
+                                    <div class="col-xs-12 col-sm12 col-md-8 col-lg-8 txtArtSummary">
+                                        <span ng-bind-html="oSystemArticle.Summary"></span>
+                                    </div>
+                                    
+                                    <div class="hidden-xs hidden-sm col-md-2 col-lg-2">&nbsp;</div>
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                        <div ng-show="oSystemArticle.Content__c!=null">
+                                            <a href="{{sURL+ '/' +sCountrytoDisplay+'-'+sLanguagetoDisplay+'/'+oSystemArticle.UrlName+sTrakingParams}}" class="foundryFontMedium floatRight spanLink lnkContinue">{!HTMLENCODE($Label.LS_Help_Label_ContinueReading)}
+                                                <div class="conIconContainer displayContainer"><span class="sp1Icon">&#62;</span><span class="sp2Icon">&#62;</span></div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Suggested Articles -->
+                                <div class="row foundryFontMedium suggestedArticlesCon" ng-show="bArticleSearching && !bArticleSelected && !bShowSearchArticle && !bSeeAllFlag" id="divPredictiveSearch" style="display:none">
+                                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 fullWidth suggetionStyle">
+                                        {!HTMLENCODE($Label.LS_Help_Label_Suggestions)}
+                                    </div>
+                                    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 marginTop minHeight" ng-show="lstFilteredArticles.length>0">
+                                        <div ng-repeat="oArticle in lstFilteredArticles | unique: 'Id'">
+                                            <div class="spanLinkUpdated">
+                                                <a href="{{sURL+ '/' +sCountrytoDisplay+'-'+sLanguagetoDisplay+'/'+oArticle.UrlName}}" class="link-unique spanLink margTop0 suggetionStyle" ng-bind-html="oArticle.Title"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 marginTop minHeight" ng-show="lstFilteredArticles.length==0">
+                                        <span class="noArticle">{!HTMLENCODE($Label.LS_Help_NoArticleFound_Label)}</span>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div id="searchArticleDiv" style="display:none" class="row" ng-hide="bArticleSelected ||  bShowSearchArticle || bSeeAllURL">
+                                    <div class="col-xs-12 col-sm-12 col-lg-12">
+                                        <!-- Home Page Data Category Section -->
+                                        <div class="row">
+                                            <div ng-repeat="(key, value) in mapHomeCategories" ng-hide="bArticleSelected" class="articleDivs">
+                                                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 articleStyle">
+                                                    <div class="articleCol">
+                                                        <div class="iconSection">
+                                                            <span class="icon-x2 fontSz" ng-show="key=='Manage_My_Account_HP'"><span class="iconfont "></span></span>
+                                                            <span class="icon-x2 fontSz" ng-show="key=='Watching_DAZN_HP'"><span class="iconfont "></span></span>
+                                                            <span class="icon-x2 fontSz" ng-show="key=='Technical_issues_HP'"><span class="iconfont "></span></span>
+                                                            <span class="icon-x2 fontSz" ng-show="key=='Getting_Started_HP'"><span class="iconfont "></span></span>
+                                                        </div>
+                                                        <div class="foundryFontMedium textSection sectionDataHead mbSectionDataHead">
+                                                            <a href="{{sURL+ '/' +sCountrytoDisplay+'-'+sLanguagetoDisplay+'/'+ getSeeAllURL(mapAllCategories[key])+ sTrakingParams }}" class="link-unique spanLink" ng-bind-html="value"></a>
+                                                        </div>
+                                                        <div class="divPadding upPaddBottom">
+                                                            <hr class="hrSection" />
+                                                        </div>
+                                                        <div class="ArticleHeight">
+                                                            <div ng-repeat="oArticle in mapHomeArticles[key]" class="updatedLinkStyle">
+                                                                <div class="linkSection">
+                                                                    <a href="{{sURL+ '/' +sCountrytoDisplay+'-'+sLanguagetoDisplay+'/'+oArticle.UrlName + sTrakingParams}}" class="link-unique spanLink margArticle" ng-bind-html="oArticle.Title"></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <span class="txtUpperCase foundryFontMedium floatRight spanLink seeAllLink">
+                                                        <a href="{{sURL+ '/' +sCountrytoDisplay+'-'+sLanguagetoDisplay+'/'+ getSeeAllURL(mapAllCategories[key])+ sTrakingParams}}" class="link-unique spanLink lnkDc largeDevice mapArtcle">{{mapArticleSeeAllLabel[key]}}
+                                                           <div class="conIconContainer"><span class="sp1Icon">&#62;</span>
+                                                    <span class="sp2Icon">&#62;</span>
+                                                </div>
+                                                </a>
+    
+                                                <a href="{{sURL+ '/' +sCountrytoDisplay+'-'+sLanguagetoDisplay+'/'+ getSeeAllURL(mapAllCategories[key]) }}" class="link-unique spanLink lnkDc smallDevice">{!HTMLENCODE($Label.LS_Help_Link_See_All_Small_Device)}
+                                                           <div class="conIconContainer"><span class="sp1Icon">&#62;</span><span class="sp2Icon">&#62;</span></div>
+                                                        </a>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <!-- All Suggested Articles -->
+                            <div class="row foundryFontMedium suggestedArticlesCon" ng-show="!bArticleSearching && !bArticleSelected && bShowSearchArticle" id="divSuggestions" style="display:none;">
+                                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 fullWidth" style="font-weight: bold;">
+                                    {!HTMLENCODE($Label.LS_Help_Label_Suggestions)}
+                                </div>
+                                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 marginTop minHeight">
+                                    <div ng-repeat="oArticle in lstAllFilteredArticles | unique: 'Id'" ng-show="lstAllFilteredArticles.length>0">
+                                        <div class="spanLinkUpdated">
+                                            <a href="{{sURL+ '/' +sCountrytoDisplay+'-'+sLanguagetoDisplay+'/'+oArticle.UrlName}}" class="link-unique spanLink margTop20" ng-bind-html="oArticle.Title"></a>
+                                        </div>
+                                    </div>
+                                    <span class="noArticle" ng-show="lstAllFilteredArticles.length==0">{!HTMLENCODE($Label.LS_Help_NoArticleFoundForSearch_Label)}</span>
+                                </div>
+                            </div>
+                            <!-- See All Article Section-->
+                            <div class="row paddTop30 padBottom" ng-show="bSeeAllFlag && !bArticleSelected && !bShowSearchArticle" style="display:none;" id="divSeeAllArticles">
+                                <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 padding0">
+                                    <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10 iconSection updatedIconSection padding0">
+                                        <span class="icon-x2 fontSz" ng-show="sSelectedDataCategoryName=='FAQ'"><span class="iconfont iconfont-ls_icon_faq"></span></span>
+                                        <span class="icon-x2 fontSz" ng-show="sSelectedDataCategoryName=='DAZN_for_Docomo'"><span class="iconfont iconfont-ls_icon_faq"></span></span>
+                                        <span class="icon-x2 fontSz" ng-show="sSelectedDataCategoryName=='Manage_My_Account_HP'"><span class="iconfont iconfont-ls_icon_profile"></span></span>
+                                        <span class="icon-x2 fontSz" ng-show="sSelectedDataCategoryName=='Watching_DAZN_HP'"><span class="iconfont iconfont-ls_icon_watching"></span></span>
+                                        <span class="icon-x2 fontSz" ng-show="sSelectedDataCategoryName=='Technical_issues_HP'"><span class="iconfont iconfont-ls_icon_technical"></span></span>
+                                        <span class="icon-x2 fontSz" ng-show="sSelectedDataCategoryName=='Getting_Started_HP'"><span class="iconfont iconfont-ls_icon_start"></span></span>
+                                        <div class="padding0 mLineHeight txtMargLeft">{{sSelectedDataCategoryLabel}}</div>
+                                    </div>
+    
+                                </div>
+                                <div class="col-xs-12 col-sm-8 col-md-offset-1 col-lg-offset-1 col-md-8 col-lg-8 ">
+                                    <div ng-repeat="oArticle in lstAllArticles">
+                                        <div>
+                                            <a href="{{sURL+ '/' +sCountrytoDisplay+'-'+sLanguagetoDisplay+'/'+oArticle.UrlName+sTrakingParams}}" class="link-unique spanLink homeGetStartResult lnkDc" ng-bind-html="oArticle.Title"></a>
+                                        </div>
+                                    </div>
+                                    <div ng-show="sSelectedDataCategoryName=='DAZN_for_Docomo'">
+                                        <div class="row docomoCategory">
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                                                <hr class="marginHrSepe hrSectionGrey" />
+                                                <p class="categoryDocomo">{!$Label.LS_Help_Docomo_CategoryMsg} <span>{!$Label.LS_Help_Docomo_CategoryMsgNum}</span></p>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <!-- Selected Article -->
+                            <div ng-show="bArticleSelected" id="divSelectedArticle" style="display:none;">
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 foundryFontMedium margBot10 paddTop30">
+                                        <span ng-bind-html="oSelectedArticle.Title" class="questCustom"> </span>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 padding0">
+                                        <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 paddTopExp" ng-show="oSelectedArticle.Content__c!=null">
+                                            <p ng-bind-html="getHTML(oSelectedArticle.Content__c)" class="fontHStylePara margBot10"></p>
+                                            <apex:outputText ></apex:outputText>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 ">
+                                            <span ng-show="bArticleVoting||bShowThanksFeedback" class="helpTxtCutom"> {!HTMLENCODE($Label.LS_Help_Label_PostHelpful)} </span>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 marg30" ng-show="bShowThanksFeedback">
+                                            <div class="iconSection pull-left appMargBot" style="text-align: left;margin-left:-5px">
+                                                <span class="icon-x2"><span class="iconfont iconfont-ls_icon_check"></span></span>
+                                            </div>
+                                            <span class="helpThnksTxt"> {!HTMLENCODE($Label.LS_Help_ThanksFeedback_Label)} </span>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 marg30" ng-show="bArticleVoting">
+                                            <span class="ember-view form-fields--form-button-e53320ec primary col-xs-6">
+                                                            <a  href="#" class="btn txtUpperCase customStyleBtn wrapper" ng-click="VoteForArticle('Up',oSelectedArticle.KnowledgeArticleId)"> 
+                                                                {!HTMLENCODE($Label.LS_Button_Vote_Article_YES)}
+                                                            </a>
+                                                        </span>
+                                            <span class="ember-view form-fields--form-button-e53320ec primary col-xs-6">
+                                                            <a  href="#" class="btn txtUpperCase customStyleBtn wrapper floatChange" ng-click="VoteForArticle('Down',oSelectedArticle.KnowledgeArticleId)"> {!HTMLENCODE($Label.LS_Button_Vote_Article_No)}
+                                                            </a>
+                                                        </span>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                            <hr class="marginHrSepe hrSectionGrey" />
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="row padTopBottom10">
+                                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 txtUpperCase foundryFontMedium"><span class="questCustom fontSmall"> {{sRelatedArticleLabel}}</span>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 padding0 paddTop">
+                                        <div ng-repeat="(key,value) in lstRelatedArticles">
+                                            <div ng-repeat="oRelatedArticle in value">
+                                                <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+                                                    <a href="{{sURL+ '/' +sCountrytoDisplay+'-'+sLanguagetoDisplay+'/'+oRelatedArticle.leftArticle.UrlName+sTrakingParams}}" class="link-unique spanLink clsLinkQue lnkDc" ng-bind-html="oRelatedArticle.leftArticle.Title"></a>
+                                                </div>
+                                                <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+                                                    <a href="{{sURL+ '/' +sCountrytoDisplay+'-'+sLanguagetoDisplay+'/'+oRelatedArticle.rightArticle.UrlName+sTrakingParams}}" class="link-unique spanLink clsLinkQue lnkDc" ng-bind-html="oRelatedArticle.rightArticle.Title"></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <c:LS_Help_Footer myPageName="help" />
+                </div>
+                <div class="langSwitcher">
+                    <c:LS_Footer renderLangSwitcher="true" />
+                    <!-- <c:LS_FooterCookie renderLangSwitcher="true" areaToRefreshName="helpRerender" /> -->
+                </div>
+                </div>
+            <!--PD-8766 - To get version of the product from Static Resource-->
+            <apex:includescript value="{!URLFOR($Resource.Version)}" />
+                <apex:includescript value="{!URLFOR($Resource.LS_JQuery)}" />
+                <apex:includescript value="{!URLFOR($Resource.AngularJs,'angular.min.js')}" />
+                <apex:includescript value="{!URLFOR($Resource.AngularJs,'angular-route.min.js')}" />
+                <apex:includescript value="{!URLFOR($Resource.AngularJs,'angular-sanitize.min.js')}" />
+                <script type="text/javascript">
+                    var DAZN_help = {
+                        strPageLanguage: '{!JSENCODE(strPageLanguage)}', 
+                        cookieCountry: "{!HTMLENCODE(cookieCountry)}",
+                        paramLang: "{!JSENCODE($CurrentPage.parameters.lang)}",
+                        paramCountry: "{!JSENCODE($CurrentPage.parameters.country)}" ,
+                        paramTitle: "{!JSENCODE($CurrentPage.parameters.title)}" ,
+                        paramSearchText: "{!JSENCODE($CurrentPage.parameters.searchText)}" ,
+                        trackingParam: "{!JSENCODE($CurrentPage.parameters.TrakingParams)}",
+                        url: "{!JSENCODE($CurrentPage.URL)}",
+                        relatedArticleLabel: "{!RelatedArticleLabel}",
+                        homepageDataCategory: "{!HomepageDataCategory}",
+                        faqDataCategory: "{!FAQDataCategory}",
+                        LS_Help_Link_See_All: '{!HTMLENCODE($Label.LS_Help_Link_See_All)}',
+                        LS_Help_Label_See_All_FAQs: '{!HTMLENCODE($Label.LS_Help_Label_See_All_FAQs)}',
+                        DfDDataCategory: '{DAZN_for_Docomo=DAZN for Docomo}',
+                        DfDDataCategoryLabel: '{!$Label.LS_Help_Label_DfD}',
+                        LS_Help_Title: " {!$Label.LS_Help_Title}",
+                        LS_Home_Help_Title: " {!$Label.LS_Home_Help_Title}"
+                    };
+
+                    //jQuery.loadScript = function (url, callback) {
+                    //    jQuery.ajax({
+                    //        url: url,
+                    //        dataType: 'script',
+                    //        success: callback,
+                    //        async: true
+                    //    });
+                    //}
+
+                    //$.loadScript("{!URLFOR($Resource.AngularJs, 'angular.min.js')}", function() {
+                    //    console.log('angular.min.js');
+                    //});
+                    //$.loadScript("{!URLFOR($Resource.AngularJs, 'angular-route.min.js')}", function() {
+                    //    console.log('angular-route.min.js');
+                    //});
+                    //$.loadScript("{!URLFOR($Resource.AngularJs, 'angular-sanitize.min.js')}", function() {
+                    //    console.log('angular-sanitize.min.js');
+                    //});
+
+                    // loadScript function is placed in LS_Help_Footer component
+                    //$.loadScript("{!URLFOR($Resource.DAZN_VF_Assets, 'DAZN_VF_Assets/js/DAZN_help.js')}", function() {
+                    //    console.log('DAZN_VF_Assets/js/DAZN_help.js');
+                    //});
+
+                    var maxHeight1 = 0, height = 0,
+    getArticlesOnHome = {};
+Visualforce.remoting.timeout = 120000;
+var app = angular.module('myApp', ['ngSanitize']);
+app.filter('unique', function() {
+   return function(collection, keyname) {
+      var output = [], 
+          keys = [];
+
+      angular.forEach(collection, function(item) {
+          var key = item[keyname];
+          if(keys.indexOf(key) === -1) {
+              keys.push(key);
+              output.push(item);
+          }
+      });
+
+      return output;
+   };
+});
+app.controller('myCtrl', function($scope, $sce, $window, $location) {
+
+    $scope.mapAllCategories = [];
+    $scope.mapArticleSeeAllLabel;
+    $scope.sDataCategory = '';
+    $scope.sLanguage = DAZN_help.paramLang;
+    $scope.sCountry = DAZN_help.paramCountry;
+    $scope.sTitle = DAZN_help.paramTitle;
+    $scope.sSearchTextParam = DAZN_help.paramSearchText;
+    $scope.sTrakingParams = DAZN_help.trackingParam;
+    $scope.sURL = DAZN_help.url;
+    $scope.sRelatedArticleLabel = DAZN_help.relatedArticleLabel;
+    $scope.sLanguagetoDisplay;
+    $scope.sCountrytoDisplay;
+    $scope.sSelectedDataCategoryLabel;
+    $scope.sSelectedDataCategoryName;
+    $scope.sSearchText;
+    $scope.FAQCategories = [];
+    $scope.FAQCategoryKey;
+    $scope.DFDCategories = [];
+    $scope.DFDCategoryKey;
+    $scope.mapHomeCategories = [];
+    $scope.mapHomeArticles = [];
+    $scope.lstAllArticles = [];
+    $scope.lstRelatedArticles;
+    $scope.lstSearchedArticles;
+    $scope.lstFilteredArticles = [];
+    $scope.lstAllFilteredArticles = [];
+    $scope.oSelectedArticle;
+    $scope.oSystemUpdate;
+    $scope.bArticleSelected;
+    $scope.bSeeAllFlag;
+    $scope.bArticleVoting;
+    $scope.bShowThanksFeedback;
+    $scope.bArticleSearching;
+    $scope.bShowSearchArticle;
+    $scope.bSeeAllURL;
+    $scope.articleCountFlag;
+    $scope.helpCategoryName = '';
+    $scope.dfdName = null;
+    $scope.title = DAZN_help.LS_Home_Help_Title;
+    $scope.setUpParams = function(result) {
+        $scope.sURL = $scope.sURL.substr(0, $scope.sURL.indexOf('?'));
+
+        if ($scope.sLanguage.length == 0 && $scope.sCountry.length == 0) {
+            $scope.sLanguagetoDisplay = result.split(':')[0];
+            $scope.sCountrytoDisplay = result.split(':')[1];
+            $scope.sLanguage = $scope.sLanguagetoDisplay;
+            if ($scope.sLanguagetoDisplay == 'en_GB')
+                $scope.sLanguagetoDisplay = 'en';
+            if ($scope.sCountrytoDisplay.indexOf('__c') > 0) {
+                $scope.sCountry = $scope.sCountrytoDisplay;
+                $scope.sCountrytoDisplay = $scope.sCountrytoDisplay.replace('__c', '');
+            }
+        } else {
+            $scope.sLanguagetoDisplay = $scope.sLanguage;
+            $scope.sCountrytoDisplay = $scope.sCountry;
+            if ($scope.sLanguage == 'en')
+                $scope.sLanguage = 'en_GB';
+            if ($scope.sCountry != '')
+                $scope.sCountry = $scope.sCountry + '__c';
+        }
+    }
+    $scope.isArticleVoted = function(sArticleID) {
+        TestWillBeDeleted.isArticleVoted(
+            sArticleID,
+            function(result, event) {
+                if (event.status) {
+                    $scope.bArticleVoting = result;
+                    $scope.$apply();
+                }
+            });
+    };
+    $scope.getHomePage = function() {
+        result = getArticlesOnHome.getUserCountryAndLanguage;
+        $scope.setUpParams(result);
+        $scope.getAllArticleCount();
+        $scope.getmapHomeCategories('Homepage');
+        $scope.getmapHomeCategories('FAQs');
+        $scope.getmapHomeCategories('DAZN for Docomo');
+        $scope.getmapHomeArticles();
+        $scope.getAllArticlesForSearch();
+        $scope.getSystemUpdateArticle();
+        $scope.bArticleSelected = false;
+        $scope.bSeeAllFlag = false;
+        $scope.bArticleVoting = false;
+        $scope.bShowSearchArticle = false;
+        $scope.$apply();
+    };
+    $scope.getArticle = function() {
+        result = getArticlesOnHome.getUserCountryAndLanguage;
+        $scope.setUpParams(result);
+        $scope.getAllArticleCount();
+        $scope.displayArticleWithTitle();
+    };
+    $scope.getmapHomeCategories = function(categoryName) {
+        var strCategories;
+        if (categoryName == 'Homepage') {
+            $scope.mapHomeCategories = new Object();
+            strCategories = DAZN_help.homepageDataCategory;
+            strCategories = strCategories.replace('{', '').replace('}', '');
+            categoryFlag = true;
+        } else if(categoryName == 'FAQs') {
+            $scope.FAQCategories = new Object();
+            strCategories = DAZN_help.faqDataCategory;
+            strCategories = strCategories.replace('{', '').replace('}', '');
+            categoryFlag = true;
+        } else {
+            $scope.DFDCategories = new Object();
+            strCategories = DAZN_help.DfDDataCategory;
+            strCategories = strCategories.replace('{', '').replace('}', '');
+            categoryFlag = true;
+        }
+
+        $.map(strCategories.split(','), function(strDataCategory) {
+            var arrDataCategory = strDataCategory.split('=');
+            if (categoryName == 'Homepage')
+                $scope.mapHomeCategories[$.trim(arrDataCategory[0])] = $.trim(arrDataCategory[1]).replace('|', ',');
+            else if(categoryName == 'FAQs') {
+                $scope.FAQCategoryKey = $.trim(arrDataCategory[0]);
+                $scope.FAQCategories[$.trim(arrDataCategory[0])] = $.trim(arrDataCategory[1]);
+            } else {
+                $scope.DFDCategoryKey = $.trim(arrDataCategory[0]);
+                $scope.DFDCategories[$.trim(arrDataCategory[0])] = $.trim(arrDataCategory[1]);
+            }
+        });
+    };
+    $scope.getmapHomeArticles = function() {
+        result = getArticlesOnHome.GetArticleCountWrapper[0].getHomepageArticles;
+        $scope.mapHomeArticles = result;
+        $('#searchArticleDiv').css('display', 'block');
+        $('#divSearchbox').css('display', 'block');
+        $scope.$apply();
+        var windowWidth = $('body').outerWidth();
+        if (windowWidth >= 723) {
+            $('#searchArticleDiv .articleDivs .articleCol').each(function(i) {
+                maxHeight1 = Math.max(maxHeight1, $(this).height());
+            });
+            $('.articleCol').css('min-height', maxHeight1 + 'px');
+        }
+        else {
+            $('#searchArticleDiv .articleDivs .articleCol').each(function(i) {
+                height = $(this).height();
+                $(this).css('min-height', height + 'px');
+            });
+        }
+    };
+    $scope.getRelatedArticles = function(homePageCategory, articleID, articleType, MasterVersionId) {
+        TestWillBeDeleted.getRelatedArticles(
+            $scope.sLanguage, $scope.sCountry, homePageCategory, articleID, articleType, MasterVersionId,
+            function(result, event) {
+                if (event.status) {
+                    $scope.sDataCategory = '';
+                    var sSelectedDataCategory = '';
+                    $.each(result, function(key, value) {
+                        sSelectedDataCategory = key.replace('RC__c', 'HP');
+                        $scope.helpCategoryName = key.replace('_RC__c', '');
+                    });
+                    $.each($scope.mapHomeCategories, function(key, value) {
+                        if (key == sSelectedDataCategory)
+                            $scope.sDataCategory = value;
+                    });
+                    if ($scope.sDataCategory.length <= 0)
+                        $.each($scope.FAQCategories, function(key, value) {
+                            if (key == sSelectedDataCategory.replace('_HP', ''))
+                                $scope.sDataCategory = value;
+                        });
+                    $.each($scope.DFDCategories, function(key, value) {
+                        if (key == sSelectedDataCategory.replace('_HP', ''))
+                            $scope.sDataCategory = DAZN_help.DfDDataCategoryLabel;
+                    });
+                    $scope.lstRelatedArticles = result;
+                    $scope.$apply();
+                }
+            });
+    }
+    $scope.displayArticleWithTitle = function() {
+        TestWillBeDeleted.displayArticleWithTitle(
+            $scope.sLanguage, $scope.sCountry, $scope.sTitle, $scope.dfdName, 
+            function(result, event) {
+                if (event.status && result != null) {
+                    $scope.oSelectedArticle = result;
+                    $scope.bArticleSelected = true;
+                    $scope.isArticleVoted($scope.oSelectedArticle.KnowledgeArticleId);
+                    $scope.getRelatedArticles('', $scope.oSelectedArticle.Id, $scope.oSelectedArticle.ArticleType, $scope.oSelectedArticle.MasterVersionId);
+                    $scope.title = $scope.oSelectedArticle.Title + DAZN_help.LS_Help_Title;
+                    setTitle($scope.title);
+                    $('#divSelectedArticle').css('display', 'block');
+                    $('.DisplaySmall').css('display', 'block');
+                    $('.helpFooterHrDiv').css('display', 'block');
+                    $scope.$apply();
+                }
+                else {
+                    $window.location.href = "/PageNotFound?language="+ $scope.sLanguagetoDisplay;
+                }
+            });
+        $scope.sSearchText = '';
+    };
+    $scope.VoteForArticle = function(userInput, knowledgeArticleID) {
+        TestWillBeDeleted.VoteForArticle(
+            userInput, knowledgeArticleID,
+            function(result, event) {
+                if (event.status) {
+                    $scope.bArticleVoting = !result;
+                    $scope.bShowThanksFeedback = result;
+                    $scope.$apply();
+                }
+            });
+    };
+    $scope.seeAllArticles = function(sDataCategoryName, sDataCategoryLabel) {
+        TestWillBeDeleted.seeAllArticles(
+            $scope.sLanguage, $scope.sCountry, sDataCategoryName,
+            function(result, event) {
+                if (event.status) {
+                    console.log("seeAllArticles");
+                    $scope.bArticleSelected = false;
+                    $scope.bSeeAllFlag = true;
+                    $scope.lstAllArticles = result;
+                    $scope.sSelectedDataCategoryName = sDataCategoryName;
+                    $scope.sSelectedDataCategoryLabel = sDataCategoryLabel;
+                    $scope.title = $scope.sSelectedDataCategoryLabel + DAZN_help.LS_Help_Title;
+                    setTitle($scope.title);
+                    $('#divSeeAllArticles').css('display', 'block');
+                    $('#divSearchbox').css('display', 'block');
+                    $('.DisplaySmall').css('display', 'block');
+                    $('.helpFooterHrDiv').css('display', 'block');
+                    TestWillBeDeleted.getArticlesOnHome($scope.sLanguage, $scope.sCountry, DAZN_help.LS_Help_Link_See_All, DAZN_help.LS_Help_Label_See_All_FAQs, $scope.dfdName, function(){
+                            console.log($scope.dfdName)
+                    });
+                    $scope.$apply();
+                }
+            });
+    };
+    $scope.searchArticle = function() {
+        $scope.lstFilteredArticles = new Array();
+        var templstFilteredArticles = jQuery.extend(true, {}, $scope.lstSearchedArticles);
+        if ($scope.sSearchText.length >= 2) {
+            angular.forEach(templstFilteredArticles, function(value, key) {
+                if (value.Title != undefined && $scope.lstFilteredArticles.length <= 4) {
+                    var text = value.Title.toLowerCase();
+                    var valThis = $scope.sSearchText.toLowerCase();
+                    var bMatchFound = false;
+                    if (text.indexOf(valThis) != -1) {
+                        bMatchFound = true;
+                        if (text.indexOf(valThis) > -1)
+                            value.Title = value.Title.substr(0, text.indexOf(valThis)) + '<span class="spanHighlight">' + value.Title.substr(text.indexOf(valThis), valThis.length)
+
+                        +
+                        '</span>' + value.Title.substr(text.indexOf(valThis) + valThis.length);
+                        else
+                            value.Title = text;
+                    }
+                    if (bMatchFound)
+                        $scope.lstFilteredArticles.push(value);
+                }
+            });
+
+            if ($scope.lstFilteredArticles.length > 0) {
+                $scope.bArticleSearching = true;
+                $scope.bSeeAllFlag = false;
+                if ($scope.bShowSearchArticle)
+                    $scope.bShowSearchArticle = false;
+            }
+        } else {
+            $scope.bArticleSearching = false;
+            $scope.bSeeAllFlag = true;
+        }
+    };
+    $scope.getAllArticlesForSearch = function() {
+        $scope.lstSearchedArticles = getArticlesOnHome.GetArticleCountWrapper[0].getAllArticlesForSearch;
+        $('#divPredictiveSearch').css('display', 'block');
+        // TestWillBeDeleted.getAllArticlesForSearch($scope.sLanguage, $scope.sCountry, $scope.dfdName);
+        $scope.$apply();
+    };
+    $scope.getSystemUpdateArticle = function() {
+        $scope.oSystemArticle = getArticlesOnHome.GetArticleCountWrapper[0].getSystemUpdateArticle;
+        $('#mainHelpDiv').css('display', 'block');
+        $scope.$apply();
+    };
+    $scope.getAllArticleCount = function() {
+        TestWillBeDeleted.getAllArticleCount($scope.sLanguage, $scope.sCountry, DAZN_help.LS_Help_Link_See_All, DAZN_help.LS_Help_Label_See_All_FAQs,
+            function(result, event) {
+                if (event.status) {
+                    $scope.mapArticleSeeAllLabel = result;
+                   /* $scope.articleCountFlag = 'Count' in $scope.mapArticleSeeAllLabel;
+                    if($scope.articleCountFlag) {
+                        window.location.href = '/InternalServerError';
+                    }*/
+                    $scope.$apply();
+                }
+            });
+    };
+
+    $scope.findAllArticles = function(event) {
+        if (event.keyCode == 13) {
+            event.preventDefault();
+            var scurrentURL = $location.absUrl();
+            if($scope.sSearchText == null || $scope.sSearchText == " " || $scope.sSearchText == undefined || $scope.sSearchText == "") {
+                $scope.sSearchText = '';
+                var sNavigationURL = scurrentURL.substr(0, scurrentURL.indexOf('help/')) + 'help/' + $scope.sCountrytoDisplay + '-' + $scope.sLanguagetoDisplay + '/search/' +'NoArticleFound/';  
+            } else {
+                var sNavigationURL = scurrentURL.substr(0, scurrentURL.indexOf('help/')) + 'help/' + $scope.sCountrytoDisplay + '-' + $scope.sLanguagetoDisplay + '/search/' +$scope.sSearchText ;
+            }
+            $window.location.href = sNavigationURL;
+        }
+    };
+    $scope.showHelpPage = function() {
+        $scope.bShowThanksFeedback = false;
+        var currentURL = $location.absUrl();
+        var daznForDocomo = currentURL.split("/").pop();
+        if(daznForDocomo != "DAZN-for-Docomo"){
+            $scope.dfdName = null;
+        } else {
+            $scope.dfdName = daznForDocomo;
+        }
+        TestWillBeDeleted.getArticlesOnHome($scope.sLanguage, $scope.sCountry, DAZN_help.LS_Help_Link_See_All, DAZN_help.LS_Help_Label_See_All_FAQs, $scope.dfdName,
+            function(result, event) {
+                if (event.status) {
+                    getArticlesOnHome = result[0];
+                    $scope.mapAllCategories = getArticlesOnHome.getDataCategories;
+                    if ($scope.sTitle.length > 0) {
+                        $scope.getmapHomeCategories('Homepage');
+                        $scope.getmapHomeCategories('FAQs');
+                        $scope.getmapHomeCategories('DAZN for Docomo');
+                        var sDataCategoryName;
+                        var sDataCategoryLabel;
+                        angular.forEach($scope.mapAllCategories, function(value, key) {
+                            if (value.toLowerCase().replace(/\ /g, '-') == $scope.sTitle.toLowerCase()) {
+                                sDataCategoryName = key;
+                                if (key in $scope.mapHomeCategories) {
+                                    sDataCategoryLabel = $scope.mapHomeCategories[key];
+                                    $scope.dfdName = null;
+                                }
+                                else if(key in $scope.FAQCategories) {
+                                    sDataCategoryLabel = $scope.FAQCategories[key];
+                                    $scope.dfdName = null;
+                                }
+                                else {
+                                   sDataCategoryLabel = DAZN_help.DfDDataCategoryLabel;
+                                   $scope.dfdName =  daznForDocomo;
+                                }
+                            }
+                        });
+
+                        if (sDataCategoryName != undefined && sDataCategoryName.length > 0) {
+                            $scope.bSeeAllURL = true;
+                            $scope.sDataCategory = sDataCategoryLabel;
+                            $scope.setUpParams(result[0].getUserCountryAndLanguage);
+                            $scope.getAllArticleCount();
+                            $scope.getAllArticlesForSearch();
+                            $scope.seeAllArticles(sDataCategoryName, sDataCategoryLabel);
+                        } else
+                            $scope.getArticle();
+                    } else if ($scope.sSearchTextParam.length > 0) {
+                        $scope.setUpParams(null);
+                        TestWillBeDeleted.searchArticles(
+                            $scope.sLanguage, $scope.sCountry, $scope.sSearchTextParam,
+                            function(result, event) {
+                                if (event.status) {
+                                    if($scope.sSearchTextParam.toLowerCase() == "noarticlefound") {
+                                        $scope.sSearchText = ' ';
+                                    } else {
+                                        $scope.sSearchText = $scope.sSearchTextParam;
+                                    }
+                                    $scope.getAllArticleCount();
+                                    $scope.getmapHomeCategories('FAQs');
+                                    $scope.getmapHomeCategories('DAZN for Docomo');
+                                    $scope.getAllArticlesForSearch();
+                                    $scope.lstAllFilteredArticles = result;
+                                    $scope.bShowSearchArticle = true;
+                                    $scope.bArticleSearching = false;
+                                    $('#divSuggestions').css('display', 'block');
+                                    $('#divSearchbox').css('display', 'block');
+                                    $scope.$apply();
+                                }
+                            });
+                    } else
+                        $scope.getHomePage();
+                }
+            });
+    };
+    $scope.getHTML = function(x) {
+        return $sce.trustAsHtml($($.parseHTML(x)).text());
+    };
+    $scope.getSeeAllURL = function(sDataCategoryName) {
+        return sDataCategoryName ? sDataCategoryName.replace(/\ /g, '-') : '';
+    };
+    $scope.showHelpPage();
+
+});
+                
+/* Added as part of PD-10946 */
+var setTitle = function (title) {
+    document.title = title || ((DAZN_help.paramSearchText !='' && DAZN_help.paramSearchText !=null) ? DAZN_help.paramSearchText + DAZN_help.LS_Help_Title : DAZN_help.LS_Home_Help_Title);
+}
+window.onload = function () {
+    setTitle();
+};
+/* End of PD-10946 */
+
+$(window).bind("pageshow", function(event) {
+    if (event.originalEvent.persisted) {
+        window.location.reload()
+    }
+});
+
+//$(document).ready(function() {
+    var sLang = DAZN_help.strPageLanguage,
+    sCountry = DAZN_help.paramCountry;
+    if ((sLang.toLowerCase() === "ja" && sCountry.toLowerCase() === "jp") || (sLang.toLowerCase() === "en" && sCountry.toLowerCase() === "jp") || DAZN_help.cookieCountry.toLowerCase() === "japan") {
+        $("#helpFooter").addClass("helpFooterSection");
+        $(".footerSec").removeClass("pull-right").addClass("pull-left");
+    } else {
+        $("#helpFooter").removeClass("helpFooterSection");
+        $(".footerSec").addClass("pull-right").removeClass("pull-left");
+    }
+    if (sLang == 'ja') {
+        $('body').addClass('langJa');
+    }
+    if (sLang == 'de') {
+        $('body').addClass('langDe');
+    }
+    $(window).resize(function() {
+        var windowWidth = $('body').outerWidth(), 
+            maxHeight1 = 0, height = 0;
+        if (windowWidth >= 760) {
+            $('#searchArticleDiv .articleDivs .articleCol').each(function(i) {
+                maxHeight1 = Math.max(maxHeight1, $(this).height());
+            });
+            $('.articleCol').css('min-height', maxHeight1 + 'px');
+        } else if (windowWidth < 760) {
+            $('#searchArticleDiv .articleDivs .articleCol').each(function(i) {
+                height = $(this).height();
+                $(this).css('min-height', height + 'px');
+            });
+        }
+    });
+     $(window).resize();
+    $("span.currentBCPiece, .categorySeprator, .sp1Icon .sp2Icon").css("visibility", "visible");
+//});
+                </script>
+                <!-- <apex:includescript value="{!URLFOR($Resource.DAZN_VF_Assets, 'DAZN_VF_Assets/js/DAZN_help.js')}" /> -->
+            </apex:form>
+       </div>
+        <c:CookiesComponent rendered="{!if(((cookieCountry == 'Japan') || (cookieCountry == 'JP')),false,true)}" />
+        <apex:stylesheet value="{!$Resource.LS_MyAccount_Css}" />
+        <apex:stylesheet value="{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/css/base-method-ember-styleguide.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/css/vendor.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/css/styles_v1.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.DAZN_VF_Assets, 'DAZN_VF_Assets/css/DAZN_help.css')}" />
+    </body>
+
+<!-- </apex:outputPanel> -->
+
+</apex:page>

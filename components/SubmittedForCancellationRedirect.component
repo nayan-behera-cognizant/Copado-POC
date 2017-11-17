@@ -1,0 +1,9 @@
+<apex:component controller="SubmittedForCancelRedirectController" >
+
+	<script>
+		if ({! oAccount != null && oAccount.Submitted_for_cancellation__c }) {
+			window.location = '/myaccount';
+		}
+	</script>
+
+</apex:component>

@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value><!-- Billing Account --></value>
+    </caseValues>
+    <fields>
+        <label>アカウントのEメールアドレス</label>
+        <name>Account_Email__c</name>
+    </fields>
+    <fields>
+        <label>Eメール</label>
+        <name>Email__c</name>
+    </fields>
+    <fields>
+        <label>最終支払い（無料体験）</label>
+        <name>Final_Payment_Trial__c</name>
+    </fields>
+    <fields>
+        <label><!-- First Payment Trial --></label>
+        <name>First_Payment_Trial__c</name>
+    </fields>
+    <fields>
+        <label>支払いに成功</label>
+        <name>Payment_Success__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retrive Email --></label>
+        <name>Retrive_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Zuora Account --></label>
+        <name>Zuora_Account__c</name>
+    </fields>
+    <fields>
+        <label>アカウント番号</label>
+        <name>Zuora__AccountNumber__c</name>
+    </fields>
+    <fields>
+        <label>アカウント</label>
+        <name>Zuora__Account__c</name>
+        <relationshipLabel><!-- Billing Accounts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Additional Email Addresses --></label>
+        <name>Zuora__AdditionalEmailAddresses__c</name>
+    </fields>
+    <fields>
+        <label><!-- Allow Invoice Edit --></label>
+        <name>Zuora__AllowInvoiceEdit__c</name>
+    </fields>
+    <fields>
+        <label>自動支払い</label>
+        <name>Zuora__AutoPay__c</name>
+    </fields>
+    <fields>
+        <label>請求先のアカウント残高</label>
+        <name>Zuora__Balance__c</name>
+    </fields>
+    <fields>
+        <label>バッチ</label>
+        <name>Zuora__Batch__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bcd Setting Option --></label>
+        <name>Zuora__BcdSettingOption__c</name>
+    </fields>
+    <fields>
+        <label>請求書締め日</label>
+        <name>Zuora__BillCycleDay__c</name>
+    </fields>
+    <fields>
+        <label>請求先住所（行1）</label>
+        <name>Zuora__BillToAddress1__c</name>
+    </fields>
+    <fields>
+        <label>請求先住所（行2）</label>
+        <name>Zuora__BillToAddress2__c</name>
+    </fields>
+    <fields>
+        <label>請求先住所（市区町村）</label>
+        <name>Zuora__BillToCity__c</name>
+    </fields>
+    <fields>
+        <label>請求先住所（国）</label>
+        <name>Zuora__BillToCountry__c</name>
+    </fields>
+    <fields>
+        <label>請求先のファックス</label>
+        <name>Zuora__BillToFax__c</name>
+    </fields>
+    <fields>
+        <label>請求先の担当者ID</label>
+        <name>Zuora__BillToId__c</name>
+    </fields>
+    <fields>
+        <label>請求先の氏名</label>
+        <name>Zuora__BillToName__c</name>
+    </fields>
+    <fields>
+        <label>請求先住所（郵便番号）</label>
+        <name>Zuora__BillToPostalCode__c</name>
+    </fields>
+    <fields>
+        <label>請求先住所（都道府県）</label>
+        <name>Zuora__BillToState__c</name>
+    </fields>
+    <fields>
+        <label>請求先の勤務先Eメール</label>
+        <name>Zuora__BillToWorkEmail__c</name>
+    </fields>
+    <fields>
+        <label>請求先の勤務先電話番号</label>
+        <name>Zuora__BillToWorkPhone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Communication Profile Id (deprecated) --></label>
+        <name>Zuora__CommunicationProfileId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Communication Profile Id --></label>
+        <name>Zuora__Communication_Profile_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Credit Balance( Deprecated ) --></label>
+        <name>Zuora__CreditBalance__c</name>
+    </fields>
+    <fields>
+        <label><!-- Credit Card Expiration( Deprecated ) --></label>
+        <name>Zuora__CreditCardExpiration__c</name>
+    </fields>
+    <fields>
+        <label><!-- Credit Card Number( Deprecated ) --></label>
+        <name>Zuora__CreditCardNumber__c</name>
+    </fields>
+    <fields>
+        <label>クレジットカードの種類</label>
+        <name>Zuora__CreditCardType__c</name>
+    </fields>
+    <fields>
+        <label>クレジットカードの有効期限</label>
+        <name>Zuora__CreditCard_Expiration__c</name>
+    </fields>
+    <fields>
+        <label>クレジットカード番号</label>
+        <name>Zuora__CreditCard_Number__c</name>
+    </fields>
+    <fields>
+        <help><!-- The total credit balance for the account in Currency representation. --></help>
+        <label>クレジット残高</label>
+        <name>Zuora__Credit_Balance__c</name>
+    </fields>
+    <fields>
+        <label>通貨</label>
+        <name>Zuora__Currency__c</name>
+    </fields>
+    <fields>
+        <label><!-- CSR --></label>
+        <name>Zuora__CustomerServiceRepName__c</name>
+    </fields>
+    <fields>
+        <label>デフォルトの支払い方法</label>
+        <name>Zuora__DefaultPaymentMethod__c</name>
+    </fields>
+    <fields>
+        <label>デフォルトの支払い方法</label>
+        <name>Zuora__Default_Payment_Method__c</name>
+        <relationshipLabel><!-- Billing Accounts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Entity ID --></label>
+        <name>Zuora__EntityID__c</name>
+    </fields>
+    <fields>
+        <label><!-- External Id --></label>
+        <name>Zuora__External_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Invoice Delivery Prefs Email --></label>
+        <name>Zuora__InvoiceDeliveryPrefsEmail__c</name>
+    </fields>
+    <fields>
+        <label><!-- Invoice Delivery Prefs Print --></label>
+        <name>Zuora__InvoiceDeliveryPrefsPrint__c</name>
+    </fields>
+    <fields>
+        <label><!-- Invoice Template Id --></label>
+        <name>Zuora__InvoiceTemplateId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Crm Id Change Processed --></label>
+        <name>Zuora__Is_Crm_Id_Change_Processed__c</name>
+    </fields>
+    <fields>
+        <label>前回請求日</label>
+        <name>Zuora__LastInvoiceDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- CMRR --></label>
+        <name>Zuora__MRR__c</name>
+    </fields>
+    <fields>
+        <label><!-- Notes --></label>
+        <name>Zuora__Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Parent --></label>
+        <name>Zuora__Parent__c</name>
+        <relationshipLabel><!-- Child Billing Accounts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Payment Gateway --></label>
+        <name>Zuora__PaymentGateway__c</name>
+        <relationshipLabel><!-- Billing Accounts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Credit Card Type( Deprecated) --></label>
+        <name>Zuora__PaymentMethodType__c</name>
+    </fields>
+    <fields>
+        <label>支払い方法の種類</label>
+        <name>Zuora__PaymentMethod_Type__c</name>
+    </fields>
+    <fields>
+        <label>支払い期限</label>
+        <name>Zuora__PaymentTerm__c</name>
+    </fields>
+    <fields>
+        <label>支払い期限</label>
+        <name>Zuora__Payment_Term_Formula__c</name>
+    </fields>
+    <fields>
+        <label>支払い期限</label>
+        <name>Zuora__Payment_Term__c</name>
+        <relationshipLabel><!-- Billing Accounts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- PO Number --></label>
+        <name>Zuora__PurchaseOrderNumber__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sales Representative --></label>
+        <name>Zuora__SalesRepName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sold To Address1 --></label>
+        <name>Zuora__SoldToAddress1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sold To Address2 --></label>
+        <name>Zuora__SoldToAddress2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sold To City --></label>
+        <name>Zuora__SoldToCity__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sold To Country --></label>
+        <name>Zuora__SoldToCountry__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sold To Fax --></label>
+        <name>Zuora__SoldToFax__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sold To Contact Id --></label>
+        <name>Zuora__SoldToId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sold To Name --></label>
+        <name>Zuora__SoldToName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sold To Postal Code --></label>
+        <name>Zuora__SoldToPostalCode__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sold To State --></label>
+        <name>Zuora__SoldToState__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sold To Work Email --></label>
+        <name>Zuora__SoldToWorkEmail__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sold To Work Phone --></label>
+        <name>Zuora__SoldToWorkPhone__c</name>
+    </fields>
+    <fields>
+        <label>ステータス</label>
+        <name>Zuora__Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tax Exempt Certificate ID --></label>
+        <name>Zuora__TaxExemptCertificateID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tax Exempt Certificate Type --></label>
+        <name>Zuora__TaxExemptCertificateType__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tax Exempt Description --></label>
+        <name>Zuora__TaxExemptDescription__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tax Exempt Effective Date --></label>
+        <name>Zuora__TaxExemptEffectiveDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tax Exempt Expiration Date --></label>
+        <name>Zuora__TaxExemptExpirationDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tax ExemptIssuing Jurisdiction --></label>
+        <name>Zuora__TaxExemptIssuingJurisdiction__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tax Exempt Status --></label>
+        <name>Zuora__TaxExemptStatus__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Invoice Balance --></label>
+        <name>Zuora__TotalInvoiceBalance__c</name>
+    </fields>
+    <fields>
+        <help><!-- The Zuora Id (external primary key) of this Billing Account. --></help>
+        <label>Zuora ID</label>
+        <name>Zuora__Zuora_Id__c</name>
+    </fields>
+    <nameFieldLabel><!-- Billing Account Name --></nameFieldLabel>
+    <webLinks>
+        <label><!-- Sync_Data_from_ZBilling --></label>
+        <name>Zuora__Sync_Data_from_ZBilling</name>
+    </webLinks>
+</CustomObjectTranslation>

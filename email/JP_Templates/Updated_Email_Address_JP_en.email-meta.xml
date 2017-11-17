@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Updated Email Address -JP-en</name>
+    <style>none</style>
+    <subject>Email Address has been updated</subject>
+    <textOnly>DAZN
+
+
+Your email address has been updated on your DAZN account. We’ll use this to get in touch with you from now on.
+
+If you didn&apos;t change your email address, or if you have any questions, contact our Customer Support who will be happy to help.
+
+Ensuring that you enjoy DAZN is our priority.
+
+Privacy Policy | Terms of Use | Unsubscribe
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

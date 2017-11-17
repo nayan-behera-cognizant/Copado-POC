@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Notification when case is closed</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Case Closed For Non-Members -DE-DE</name>
+    <style>none</style>
+    <subject>Wir haben deinen Fall (ID {!Case.Thread_Id}) geschlossen.</subject>
+    <textOnly>Hey Sportsfan,
+
+wir hoffen, dass wir all deine Fragen beantworten konnten.
+
+Deine Anfrage mit der ID {!Case.CaseNumber} wurde geschlossen. Natürlich kannst du trotzdem jederzeit auf diese E-Mail antworten, sollte dir noch etwas einfallen womit wir dir helfen können.
+
+Solltest du weitere Fragen haben oder falls du nach mehr Infos zu DAZN suchst, dann besuche doch gerne auch unsere Homepage unter https://www.DAZN.com oder unseren Hilfebereich unter https://my.dazn.com/help/DE-de.
+
+Sportliche Grüße,
+dein DAZN Team
+
+Case Thread ID: {!Case.Thread_Id} 
+DATENSCHUTZ: https://my.dazn.com/help/de-de/privacy 
+NUTZUNGSBEDINGUNGEN: https://my.dazn.com/help/de-de/terms 
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

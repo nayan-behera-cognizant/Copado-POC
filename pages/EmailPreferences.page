@@ -1,0 +1,104 @@
+<apex:page controller="EmailPreferencesController"
+    showHeader="false"
+    standardStylesheets="false"
+    action="{!navigateToErrorPage}"
+    language="{! IF(BEGINS(UPPER($CurrentPage.parameters.lang), 'EN'), IF($CurrentPage.parameters.Country == 'CA', 'en_US', 'en_GB'), $CurrentPage.parameters.lang) }"
+    applyHtmlTag="false"
+    docType="html-5.0"
+>
+
+    <head>
+        <meta name="google-site-verification" content="1m_JV80vU3gln3KyYeAm5woixeUHQOvhrbGjS-0g6J0" />
+        <title>{!$Label.LS_EmailPreferences_Title}</title>
+        <link REL="SHORTCUT ICON" HREF="{!URLFOR($Resource.DAZN_favicon_default)}" />
+        <link REL="apple-touch-icon" sizes="57x57" HREF="{!URLFOR($Resource.DAZN_appletouchicon57_57 )}" />
+        <link REL="apple-touch-icon" sizes="60x60" HREF="{!URLFOR($Resource.DAZN_appletouchicon60_60 )}" />
+        <link REL="apple-touch-icon" sizes="72x72" HREF="{!URLFOR($Resource.DAZN_appletouchicon72_72 )}" />
+        <link REL="apple-touch-icon" sizes="76x76" HREF="{!URLFOR($Resource.DAZN_appletouchicon76_76 )}" />
+        <link REL="apple-touch-icon" sizes="114x114" HREF="{!URLFOR($Resource.DAZN_appletouchicon144_144 )}" />
+        <link REL="apple-touch-icon" sizes="120x120" HREF="{!URLFOR($Resource.DAZN_appletouchicon120_120 )}" />
+        <link REL="apple-touch-icon" sizes="144x144" HREF="{!URLFOR($Resource.DAZN_appletouchicon144_144 )}" />
+        <link REL="apple-touch-icon" sizes="152x152" HREF="{!URLFOR($Resource.DAZN_appletouchicon152_152 )}" />
+        <link REL="apple-touch-icon" sizes="180x180" HREF="{!URLFOR($Resource.DAZN_appletouchicon180_180 )}" />
+        <link REL="icon" type="image/png" HREF="{!URLFOR($Resource.DAZN_favicon_32_32 )}"  sizes="32x32"/>
+        <link REL="icon" type="image/png" HREF="{!URLFOR($Resource.DAZN_androidchrome192_192 )}"  sizes="192x192" />
+        <link REL="icon" type="image/png" HREF="{!URLFOR($Resource.DAZN_favicon_96_96 )}"  sizes="96x96" />
+        <link REL="icon" type="image/png" HREF="{!URLFOR($Resource.DAZN_favicon_16_16 )}"  sizes="16x16" />
+        <link rel="mask-icon" href="{!URLFOR($Resource.DAZN_favicon_svg16_16 )}"  color="#000" />
+        <link rel="icon" type="image/svg" sizes="any" href="{!URLFOR($Resource.DAZN_favicon_svg16_16 )}" />  
+        <apex:stylesheet value="{!$Resource.LS_MyAccount_Css}" />
+        <apex:stylesheet value="{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/css/base-method-ember-styleguide.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/css/vendor.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/css/styles.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.DAZN_VF_Assets, 'DAZN_VF_Assets/css/DAZN_emailPreference.css')}"/>
+        <apex:includescript value="{!URLFOR($Resource.Version)}"/>  <!--PD-8766 - To get version of the product from Static Resource-->
+    </head>
+
+    <c:FetchLanguageCookie myPageName="EmailPreferences" areaToRefreshName="fEmailPreferences" />
+
+    <body>
+ <c:GTMHeader sPageName="EmailPreferences"></c:GTMHeader>
+        <apex:form id="fEmailPreferences" >
+            <div class="container">
+                <div class="unsubscribeContainer col-sm-9 col-md-7 col-lg-6">
+                    <div class="row headerCont">
+                        <c:LS_HelpHeader />
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
+                            <h1>{!$Label.LS_EmailPreference_Label_Unsubscribe}</h1>
+                            <p>{!sPersonEmail}{!$Label.LS_EmailPreferences_UnSubscribe_Message}</p>
+                            
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="row">
+                        <apex:outputPanel rendered="{!bIsUnsubscribe == false}">
+                            <div class="col-xs-12 col-sm-8 pull-right ember-view form-fields--form-button-e53320ec primary">
+                                <a href="javascript:void(0);" class="btn txtUpperCase custStyleBtn wrapper btnUnsub">
+                                    <apex:commandButton rendered="{!bShowUnsubscribeButton}" value="{!$Label.LS_EmailPreference_Label_Confirm_Unsubscribe}" action="{!unSubscribe}" />
+                                </a>
+                            </div>
+                            <div class="col-xs-12 col-sm-4">
+                                <a href="{!sHomepageURL}" class="link desktop">{!$Label.LS_EmailPreferences_Back_To_DAZN}</a>
+                            </div>
+                            <div class="clearfix"></div>
+                        </apex:outputPanel>  
+                    </div>
+                    <div class="row">
+                    <apex:outputPanel rendered="{!bIsUnsubscribe == true}">
+                        <div class="unsubscription">
+                            <div class="col-xs-12 col-sm-8 pull-right btnText">
+                                <span class="iconfont iconfont-ls_icon_check"></span>
+                                <span class="unsubSuc">{!$Label.LS_EmailPreference_Label_Sucessfully_Unsubscribe}</span>
+                            </div>
+                            <div class="col-xs-12 col-sm-4">
+                                <a href="{!sHomepageURL}" class="link">{!$Label.LS_EmailPreferences_Back_To_DAZN}</a>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </apex:outputPanel>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <p>{!$Label.LS_EmailPreferences_Change_Preferences} <a class="link" href="/MyAccount">{!$Label.LS_EmailPreferences_My_Account}</a>.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="langSwitcher">
+                <c:LS_FooterCookie renderLangSwitcher="true" areaToRefreshName="fEmailPreferences" />
+            </div>
+            <apex:includescript value="{!URLFOR($Resource.AngularJs,'angular.min.js')}"/>
+            <apex:includescript value="{!URLFOR($Resource.AngularJs,'angular-sanitize.min.js')}"/>
+            <apex:includescript value="{!URLFOR($Resource.LS_JQuery)}"/>
+            <script type="text/javascript">
+                var DAZN_emailPreferences = {
+                    sCountry: '{!sCountry}'
+                };
+            </script>
+            <apex:includescript value="{!URLFOR($Resource.DAZN_VF_Assets, 'DAZN_VF_Assets/js/DAZN_emailPreferences.js')}"/>
+        </apex:form>
+        <c:CookiesComponent rendered="{!if(((cookieCountry == 'Japan') || (cookieCountry == 'JP')),false,true)}"/>
+    </body>
+</apex:page>

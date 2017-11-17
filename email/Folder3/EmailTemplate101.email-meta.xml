@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>false</available>
+    <description>※退会したのに課金された方への返金完了メールです。1/1解決済みのため無効へ（長谷川）</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>【10月15･16･17日課金分】返金手続き完了のメール</name>
+    <style>none</style>
+    <subject>【DAZNカスタマーサービス】より至急のご連絡です。</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

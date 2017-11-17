@@ -1,0 +1,3200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>ChangeStatus</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CloneAsChild</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CloseCase</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>MassClose</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>NewCase</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <content>CasePage</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <businessProcesses>
+        <fullName>Livesport Customer Support</fullName>
+        <isActive>true</isActive>
+        <values>
+            <fullName>Being Handled</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Closed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Escalated</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>In Progress</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>On-Hold</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Open</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Resolved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Waiting for Customer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Waiting for Support</fullName>
+            <default>false</default>
+        </values>
+    </businessProcesses>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <enableFeeds>true</enableFeeds>
+    <externalSharingModel>Private</externalSharingModel>
+    <fields>
+        <fullName>AccountId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Account_Name_JA__c</fullName>
+        <externalId>false</externalId>
+        <formula>Account.LastName &amp;&quot; &quot; &amp; Account.FirstName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Account Name JA</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>AssetId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Browser_Information__c</fullName>
+        <description>This field is used to capture browser information for the case created from web form.</description>
+        <externalId>false</externalId>
+        <label>Browser Information</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BusinessHoursId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Campaign__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Campaign</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Campaign.Status</field>
+                <operation>equals</operation>
+                <value>In Progress</value>
+            </filterItems>
+            <isOptional>true</isOptional>
+        </lookupFilter>
+        <referenceTo>Campaign</referenceTo>
+        <relationshipLabel>Cases</relationshipLabel>
+        <relationshipName>Cases</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Case_First_Response_Time__c</fullName>
+        <externalId>false</externalId>
+        <label>Case First Response Time</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Case_PTC__c</fullName>
+        <description>Shows the difference between case creation date and account creation date in days. If no account was found the result will be shown as &quot;0&quot;.</description>
+        <externalId>false</externalId>
+        <formula>value(IF(ISBLANK( AccountId ),&quot;0&quot;,text(CreatedDate - Account.CreatedDate)))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Case PTC</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>4</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Case_REF__c</fullName>
+        <externalId>false</externalId>
+        <formula>&quot;ref:_&quot;&amp;LEFT( $Organization.Id,5)&amp;SUBSTITUTE(RIGHT($Organization.Id,10),&quot;0&quot;,&quot;&quot;)&amp;&quot;._&quot;&amp;LEFT(Id,5)&amp;SUBSTITUTE(LEFT(RIGHT(Id,10),5),&quot;0&quot;,&quot;&quot;)&amp;RIGHT(Id,5)&amp;&quot;:ref&quot;</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Cases REF</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ClosedDate</fullName>
+        <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
+        <fullName>Comments</fullName>
+        <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
+        <fullName>ContactEmail</fullName>
+        <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
+        <fullName>ContactFax</fullName>
+        <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
+        <fullName>ContactId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ContactMobile</fullName>
+        <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
+        <fullName>ContactPhone</fullName>
+        <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
+        <fullName>Contact_us_email__c</fullName>
+        <externalId>false</externalId>
+        <label>Contact us email</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CurrencyIsoCode</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
+        <fullName>Description</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
+        <fullName>Emails_Received__c</fullName>
+        <externalId>false</externalId>
+        <label>Emails Received</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Emails_Sent__c</fullName>
+        <externalId>false</externalId>
+        <label>Emails Sent</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Hour_DACH__c</fullName>
+        <description>Case Open Hour in CET</description>
+        <externalId>false</externalId>
+        <formula>MID ( TEXT ( CreatedDate + 0.0416666+ 0.0416666  ) , 12 , 2 )</formula>
+        <label>Hour DACH</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IsClosedOnCreate</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
+        <fullName>IsEscalated</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
+        <fullName>IsGuestUser__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Checks if the user is a guest user or a logged in user.</description>
+        <externalId>false</externalId>
+        <label>IsGuestUser</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Mass_Response__c</fullName>
+        <externalId>false</externalId>
+        <label>Mass Response</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>GAMBA KOFU game error</fullName>
+                    <default>false</default>
+                    <label>GAMBA, EHIME</label>
+                </value>
+                <value>
+                    <fullName>J2 CATCH UP</fullName>
+                    <default>false</default>
+                    <label>J2 CATCH UP</label>
+                </value>
+                <value>
+                    <fullName>Buffering, quality issue</fullName>
+                    <default>false</default>
+                    <label>Buffering, quality issue</label>
+                </value>
+                <value>
+                    <fullName>Issue Compensation</fullName>
+                    <default>false</default>
+                    <label>Issue Compensation</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>New_Case_Comment__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>New Case Comment</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Notification_Country_Code__c</fullName>
+        <externalId>false</externalId>
+        <label>Notification Country Code</label>
+        <length>25</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Notification_Language_Code__c</fullName>
+        <externalId>false</externalId>
+        <label>Notification Language Code</label>
+        <length>25</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Origin</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>OwnerId</fullName>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ParentId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Partner_Id__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( Account.Partner_ID__c  &lt;&gt;  null, Account.Partner_ID__c, null)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Partner Id</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Previous_Customer_Comments__c</fullName>
+        <externalId>false</externalId>
+        <label>Previous Customer Comments</label>
+        <length>131072</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Priority</fullName>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Provider_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Provider Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>DAZN</fullName>
+                    <default>false</default>
+                    <label>DAZN</label>
+                </value>
+                <value>
+                    <fullName>Docomo</fullName>
+                    <default>false</default>
+                    <label>Docomo</label>
+                </value>
+                <value>
+                    <fullName>Non-member</fullName>
+                    <default>false</default>
+                    <label>Non-member</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Public_Case_Comments__c</fullName>
+        <externalId>false</externalId>
+        <label>Public Case Comments</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Rating__c</fullName>
+        <externalId>false</externalId>
+        <label>Rating</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>1</fullName>
+                    <default>false</default>
+                    <label>1</label>
+                </value>
+                <value>
+                    <fullName>2</fullName>
+                    <default>false</default>
+                    <label>2</label>
+                </value>
+                <value>
+                    <fullName>3</fullName>
+                    <default>false</default>
+                    <label>3</label>
+                </value>
+                <value>
+                    <fullName>4</fullName>
+                    <default>false</default>
+                    <label>4</label>
+                </value>
+                <value>
+                    <fullName>5</fullName>
+                    <default>false</default>
+                    <label>5</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Reason</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>SLA_DACH__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF ( ISPICKVAL (Type, &quot;Live Stream Issue&quot;), 
+(LastModifiedDate - NOW()) * 24 + 1, 
+(LastModifiedDate - NOW()) * 24 + 6)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>SLA DACH</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SourceId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Status</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Sub_Type_Formula__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISPICKVAL( Sub_Type__c , &apos;&apos;),&apos;&apos;,&apos;-&apos;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Sub Type Formula</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sub_Type__c</fullName>
+        <description>Case sub-types, this field is dependent on case type field.</description>
+        <externalId>false</externalId>
+        <label>Sub-Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Type</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Cancellation</fullName>
+                    <default>false</default>
+                    <label>Cancellation</label>
+                </value>
+                <value>
+                    <fullName>Device Specific Log in Issue</fullName>
+                    <default>false</default>
+                    <label>Device Specific Log in Issue</label>
+                </value>
+                <value>
+                    <fullName>Error Message</fullName>
+                    <default>false</default>
+                    <label>Error Message</label>
+                </value>
+                <value>
+                    <fullName>Feedback</fullName>
+                    <default>false</default>
+                    <label>Feedback</label>
+                </value>
+                <value>
+                    <fullName>Forgotten Password</fullName>
+                    <default>false</default>
+                    <label>Forgotten Password</label>
+                </value>
+                <value>
+                    <fullName>Forgotten Username</fullName>
+                    <default>false</default>
+                    <label>Forgotten Username</label>
+                </value>
+                <value>
+                    <fullName>Geoblocking Query</fullName>
+                    <default>false</default>
+                    <label>Geoblocking Query</label>
+                </value>
+                <value>
+                    <fullName>Live Event</fullName>
+                    <default>false</default>
+                    <label>Live Event</label>
+                </value>
+                <value>
+                    <fullName>Not Available on Site</fullName>
+                    <default>false</default>
+                    <label>Not Available on Site</label>
+                </value>
+                <value>
+                    <fullName>Not loading</fullName>
+                    <default>false</default>
+                    <label>Not loading</label>
+                </value>
+                <value>
+                    <fullName>Platform Compatibility Query</fullName>
+                    <default>false</default>
+                    <label>Platform Compatibility Query</label>
+                </value>
+                <value>
+                    <fullName>Quality Issue</fullName>
+                    <default>false</default>
+                    <label>Quality Issue</label>
+                </value>
+                <value>
+                    <fullName>Rebill Issue</fullName>
+                    <default>false</default>
+                    <label>Rebill Issue</label>
+                </value>
+                <value>
+                    <fullName>Refund Request</fullName>
+                    <default>false</default>
+                    <label>Refund Request</label>
+                </value>
+                <value>
+                    <fullName>Spinning Circle</fullName>
+                    <default>false</default>
+                    <label>Spinning Circle</label>
+                </value>
+                <value>
+                    <fullName>Unable to Sign In</fullName>
+                    <default>false</default>
+                    <label>Unable to Sign In</label>
+                </value>
+                <value>
+                    <fullName>Unable to Subscribe</fullName>
+                    <default>false</default>
+                    <label>Unable to Subscribe</label>
+                </value>
+                <value>
+                    <fullName>Update Account Settings</fullName>
+                    <default>false</default>
+                    <label>Update Account Settings</label>
+                </value>
+                <value>
+                    <fullName>Update Personal Information</fullName>
+                    <default>false</default>
+                    <label>Update Personal Information</label>
+                </value>
+                <value>
+                    <fullName>Video not working</fullName>
+                    <default>false</default>
+                    <label>Video not working</label>
+                </value>
+                <value>
+                    <fullName>VOD</fullName>
+                    <default>false</default>
+                    <label>VOD</label>
+                </value>
+                <value>
+                    <fullName>Other General Enquiry</fullName>
+                    <default>false</default>
+                    <label>Other General Enquiry</label>
+                </value>
+                <value>
+                    <fullName>Schedule/Content General Enquiry</fullName>
+                    <default>false</default>
+                    <label>Schedule/Content General Enquiry</label>
+                </value>
+                <value>
+                    <fullName>Account, Payments &amp; Billing General Enquiry</fullName>
+                    <default>false</default>
+                    <label>Account, Payments &amp; Billing General Enquiry</label>
+                </value>
+                <value>
+                    <fullName>Catch Up General enquiry</fullName>
+                    <default>false</default>
+                    <label>Catch Up General enquiry</label>
+                </value>
+                <value>
+                    <fullName>Live Stream General enquiry</fullName>
+                    <default>false</default>
+                    <label>Live Stream General enquiry</label>
+                </value>
+                <value>
+                    <fullName>Login General equiry</fullName>
+                    <default>false</default>
+                    <label>Login General equiry</label>
+                </value>
+                <value>
+                    <fullName>PS Beta Feedback</fullName>
+                    <default>false</default>
+                    <label>PS Beta Feedback</label>
+                </value>
+                <value>
+                    <fullName>About DAZN</fullName>
+                    <default>false</default>
+                    <label>About DAZN</label>
+                </value>
+                <value>
+                    <fullName>Supported country</fullName>
+                    <default>false</default>
+                    <label>Supported country</label>
+                </value>
+                <value>
+                    <fullName>Available content</fullName>
+                    <default>false</default>
+                    <label>Available content</label>
+                </value>
+                <value>
+                    <fullName>System requirement</fullName>
+                    <default>false</default>
+                    <label>System requirement</label>
+                </value>
+                <value>
+                    <fullName>Recommended devices</fullName>
+                    <default>false</default>
+                    <label>Recommended devices</label>
+                </value>
+                <value>
+                    <fullName>Unsupported devices</fullName>
+                    <default>false</default>
+                    <label>Unsupported devices</label>
+                </value>
+                <value>
+                    <fullName>Free trial question</fullName>
+                    <default>false</default>
+                    <label>Free trial question</label>
+                </value>
+                <value>
+                    <fullName>How to register with docomo</fullName>
+                    <default>false</default>
+                    <label>How to register with docomo</label>
+                </value>
+                <value>
+                    <fullName>How to register</fullName>
+                    <default>false</default>
+                    <label>How to register</label>
+                </value>
+                <value>
+                    <fullName>Registration process via app</fullName>
+                    <default>false</default>
+                    <label>Registration process via app</label>
+                </value>
+                <value>
+                    <fullName>Can&apos;t register via app</fullName>
+                    <default>false</default>
+                    <label>Can&apos;t register via app</label>
+                </value>
+                <value>
+                    <fullName>Finding DAZN app</fullName>
+                    <default>false</default>
+                    <label>Finding DAZN app</label>
+                </value>
+                <value>
+                    <fullName>Accepted payment methods</fullName>
+                    <default>false</default>
+                    <label>Accepted payment methods</label>
+                </value>
+                <value>
+                    <fullName>Payment method is not accepted</fullName>
+                    <default>false</default>
+                    <label>Payment method is not accepted</label>
+                </value>
+                <value>
+                    <fullName>Unable to register</fullName>
+                    <default>false</default>
+                    <label>Unable to register</label>
+                </value>
+                <value>
+                    <fullName>Forgotten E-mail Address</fullName>
+                    <default>false</default>
+                    <label>Forgotten E-mail Address</label>
+                </value>
+                <value>
+                    <fullName>Partial subscribers</fullName>
+                    <default>false</default>
+                    <label>Partial subscribers</label>
+                </value>
+                <value>
+                    <fullName>Refer to docomo</fullName>
+                    <default>false</default>
+                    <label>Refer to docomo</label>
+                </value>
+                <value>
+                    <fullName>App doesn&apos;t launch</fullName>
+                    <default>false</default>
+                    <label>App doesn&apos;t launch</label>
+                </value>
+                <value>
+                    <fullName>App takes a long time to launch</fullName>
+                    <default>false</default>
+                    <label>App takes a long time to launch</label>
+                </value>
+                <value>
+                    <fullName>Schedule</fullName>
+                    <default>false</default>
+                    <label>Schedule</label>
+                </value>
+                <value>
+                    <fullName>How to use the app</fullName>
+                    <default>false</default>
+                    <label>How to use the app</label>
+                </value>
+                <value>
+                    <fullName>Concurreny limits</fullName>
+                    <default>false</default>
+                    <label>Concurreny limits</label>
+                </value>
+                <value>
+                    <fullName>Adaptive bit rate</fullName>
+                    <default>false</default>
+                    <label>Adaptive bit rate</label>
+                </value>
+                <value>
+                    <fullName>Delayed game</fullName>
+                    <default>false</default>
+                    <label>Delayed game</label>
+                </value>
+                <value>
+                    <fullName>Video doesn&apos;t start</fullName>
+                    <default>false</default>
+                    <label>Video doesn&apos;t start</label>
+                </value>
+                <value>
+                    <fullName>Buffering issues</fullName>
+                    <default>false</default>
+                    <label>Buffering issues</label>
+                </value>
+                <value>
+                    <fullName>Device specific Issue</fullName>
+                    <default>false</default>
+                    <label>Device specific Issue</label>
+                </value>
+                <value>
+                    <fullName>Video quality Issue</fullName>
+                    <default>false</default>
+                    <label>Video quality Issue</label>
+                </value>
+                <value>
+                    <fullName>Audio quality issue</fullName>
+                    <default>false</default>
+                    <label>Audio quality issue</label>
+                </value>
+                <value>
+                    <fullName>Update Payment Settings</fullName>
+                    <default>false</default>
+                    <label>Update Payment Settings</label>
+                </value>
+                <value>
+                    <fullName>Other payment methods</fullName>
+                    <default>false</default>
+                    <label>Other Payment Method Requests</label>
+                </value>
+                <value>
+                    <fullName>Question about bill</fullName>
+                    <default>false</default>
+                    <label>Question about bill</label>
+                </value>
+                <value>
+                    <fullName>Payment date</fullName>
+                    <default>false</default>
+                    <label>Payment date</label>
+                </value>
+                <value>
+                    <fullName>Invoice request</fullName>
+                    <default>false</default>
+                    <label>Invoice request</label>
+                </value>
+                <value>
+                    <fullName>Incorrectly billed</fullName>
+                    <default>false</default>
+                    <label>Incorrectly billed</label>
+                </value>
+                <value>
+                    <fullName>Reactivating frozen account</fullName>
+                    <default>false</default>
+                    <label>Reactivating frozen account</label>
+                </value>
+                <value>
+                    <fullName>Request to delete personal information</fullName>
+                    <default>false</default>
+                    <label>Request to delete personal information</label>
+                </value>
+                <value>
+                    <fullName>Product feedback</fullName>
+                    <default>false</default>
+                    <label>Product feedback</label>
+                </value>
+                <value>
+                    <fullName>Production feedback</fullName>
+                    <default>false</default>
+                    <label>Production feedback</label>
+                </value>
+                <value>
+                    <fullName>Rights feedback</fullName>
+                    <default>false</default>
+                    <label>Rights feedback</label>
+                </value>
+                <value>
+                    <fullName>Geo-blocking query</fullName>
+                    <default>false</default>
+                    <label>Geo-blocking query</label>
+                </value>
+                <value>
+                    <fullName>Platform Compatibility</fullName>
+                    <default>false</default>
+                    <label>Platform Compatibility</label>
+                </value>
+                <value>
+                    <fullName>DAZN for business</fullName>
+                    <default>false</default>
+                    <label>DAZN for business</label>
+                </value>
+                <value>
+                    <fullName>Business contract request</fullName>
+                    <default>false</default>
+                    <label>Business contract request</label>
+                </value>
+                <value>
+                    <fullName>Tests</fullName>
+                    <default>false</default>
+                    <label>Tests</label>
+                </value>
+                <value>
+                    <fullName>About DAZN for docomo</fullName>
+                    <default>false</default>
+                    <label>About DAZN for docomo</label>
+                </value>
+                <value>
+                    <fullName>Switching to DAZN for docomo</fullName>
+                    <default>false</default>
+                    <label>Switching to DAZN for docomo</label>
+                </value>
+                <value>
+                    <fullName>2 week free trial</fullName>
+                    <default>false</default>
+                    <label>2 week free trial</label>
+                </value>
+                <value>
+                    <fullName>Wrong content</fullName>
+                    <default>false</default>
+                    <label>Wrong content</label>
+                </value>
+                <value>
+                    <fullName>Incomplete game</fullName>
+                    <default>false</default>
+                    <label>Incomplete game</label>
+                </value>
+                <value>
+                    <fullName>Spam email</fullName>
+                    <default>false</default>
+                    <label>Spam email</label>
+                </value>
+                <value>
+                    <fullName>Illegal Restreaming Report</fullName>
+                    <default>false</default>
+                    <label>Illegal Restreaming Report</label>
+                </value>
+                <value>
+                    <fullName>Multiple Accounts</fullName>
+                    <default>false</default>
+                    <label>Multiple Accounts</label>
+                </value>
+                <value>
+                    <fullName>JLeague Feedback</fullName>
+                    <default>false</default>
+                    <label>JLeague Feedback</label>
+                </value>
+                <value>
+                    <fullName>Annual Sub Cancellation</fullName>
+                    <default>false</default>
+                    <label>Annual Sub Cancellation</label>
+                </value>
+                <value>
+                    <fullName>Annual Sub Refund Request</fullName>
+                    <default>false</default>
+                    <label>Annual Sub Refund Request</label>
+                </value>
+                <value>
+                    <fullName>Request to switch from Monthly to Annual Sub</fullName>
+                    <default>false</default>
+                    <label>Request to switch from Monthly to Annual Sub</label>
+                </value>
+                <value>
+                    <fullName>Request to switch from Annual to Monthly Sub</fullName>
+                    <default>false</default>
+                    <label>Request to switch from Annual to Monthly Sub</label>
+                </value>
+                <value>
+                    <fullName>Wants free trial on a Monthly Sub</fullName>
+                    <default>false</default>
+                    <label>Wants free trial on a Monthly Sub</label>
+                </value>
+                <value>
+                    <fullName>Question about Pause</fullName>
+                    <default>false</default>
+                    <label>Question about Pause</label>
+                </value>
+                <value>
+                    <fullName>Case Resolved Appreciation</fullName>
+                    <default>false</default>
+                    <label>Case Resolved Appreciation</label>
+                </value>
+                <value>
+                    <fullName>BILDplus escalation</fullName>
+                    <default>false</default>
+                    <label>BILDplus escalation</label>
+                </value>
+                <value>
+                    <fullName>Full-Match VOD content expired too quickly</fullName>
+                    <default>false</default>
+                    <label>Full-Match VOD content expired too quickly</label>
+                </value>
+                <value>
+                    <fullName>Annual Sub payment date clarification</fullName>
+                    <default>false</default>
+                    <label>Annual Sub payment date clarification</label>
+                </value>
+                <value>
+                    <fullName>Record Type Test</fullName>
+                    <default>false</default>
+                    <label>Record Type Test</label>
+                </value>
+                <value>
+                    <fullName>Charged by NFL for Game Pass</fullName>
+                    <default>false</default>
+                    <label>Charged by NFL for Game Pass</label>
+                </value>
+                <value>
+                    <fullName>Pixilation</fullName>
+                    <default>false</default>
+                    <label>Pixilation</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Content, app and functionality</controllingFieldValue>
+                <controllingFieldValue>Getting started in registration</controllingFieldValue>
+                <valueName>Available content</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Content, app and functionality</controllingFieldValue>
+                <valueName>App doesn&apos;t launch</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Content, app and functionality</controllingFieldValue>
+                <valueName>App takes a long time to launch</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Content, app and functionality</controllingFieldValue>
+                <valueName>Schedule</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Content, app and functionality</controllingFieldValue>
+                <valueName>How to use the app</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Content, app and functionality</controllingFieldValue>
+                <valueName>Concurreny limits</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Content, app and functionality</controllingFieldValue>
+                <valueName>Adaptive bit rate</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Content, app and functionality</controllingFieldValue>
+                <valueName>Full-Match VOD content expired too quickly</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Catch Up Issue</controllingFieldValue>
+                <controllingFieldValue>Live Stream Issue</controllingFieldValue>
+                <valueName>Error Message</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Catch Up Issue</controllingFieldValue>
+                <controllingFieldValue>Live Stream Issue</controllingFieldValue>
+                <valueName>Not Available on Site</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Catch Up Issue</controllingFieldValue>
+                <controllingFieldValue>Live Stream Issue</controllingFieldValue>
+                <valueName>Video doesn&apos;t start</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Catch Up Issue</controllingFieldValue>
+                <controllingFieldValue>Live Stream Issue</controllingFieldValue>
+                <valueName>Buffering issues</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Catch Up Issue</controllingFieldValue>
+                <controllingFieldValue>Live Stream Issue</controllingFieldValue>
+                <valueName>Device specific Issue</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Catch Up Issue</controllingFieldValue>
+                <controllingFieldValue>Live Stream Issue</controllingFieldValue>
+                <valueName>Video quality Issue</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Catch Up Issue</controllingFieldValue>
+                <controllingFieldValue>Live Stream Issue</controllingFieldValue>
+                <valueName>Audio quality issue</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Catch Up Issue</controllingFieldValue>
+                <controllingFieldValue>Live Stream Issue</controllingFieldValue>
+                <valueName>Wrong content</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Catch Up Issue</controllingFieldValue>
+                <valueName>Incomplete game</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Catch Up Issue</controllingFieldValue>
+                <controllingFieldValue>Live Stream Issue</controllingFieldValue>
+                <valueName>Pixilation</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Live Stream Issue</controllingFieldValue>
+                <valueName>Delayed game</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Feedback</controllingFieldValue>
+                <valueName>Product feedback</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Feedback</controllingFieldValue>
+                <valueName>Production feedback</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Feedback</controllingFieldValue>
+                <valueName>Rights feedback</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Feedback</controllingFieldValue>
+                <valueName>Geo-blocking query</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Feedback</controllingFieldValue>
+                <valueName>Platform Compatibility</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Feedback</controllingFieldValue>
+                <valueName>DAZN for business</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Feedback</controllingFieldValue>
+                <valueName>Business contract request</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Feedback</controllingFieldValue>
+                <valueName>Tests</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Feedback</controllingFieldValue>
+                <valueName>Illegal Restreaming Report</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Feedback</controllingFieldValue>
+                <valueName>JLeague Feedback</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Feedback</controllingFieldValue>
+                <valueName>Case Resolved Appreciation</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Getting started in registration</controllingFieldValue>
+                <valueName>About DAZN</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Getting started in registration</controllingFieldValue>
+                <valueName>Supported country</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Getting started in registration</controllingFieldValue>
+                <valueName>System requirement</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Getting started in registration</controllingFieldValue>
+                <valueName>Recommended devices</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Getting started in registration</controllingFieldValue>
+                <valueName>Unsupported devices</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Getting started in registration</controllingFieldValue>
+                <valueName>Free trial question</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Getting started in registration</controllingFieldValue>
+                <valueName>How to register with docomo</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Getting started in registration</controllingFieldValue>
+                <valueName>How to register</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Getting started in registration</controllingFieldValue>
+                <valueName>Registration process via app</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Getting started in registration</controllingFieldValue>
+                <valueName>Can&apos;t register via app</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Getting started in registration</controllingFieldValue>
+                <valueName>Finding DAZN app</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Getting started in registration</controllingFieldValue>
+                <valueName>Accepted payment methods</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Getting started in registration</controllingFieldValue>
+                <valueName>Payment method is not accepted</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Getting started in registration</controllingFieldValue>
+                <valueName>Unable to register</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Getting started in registration</controllingFieldValue>
+                <valueName>About DAZN for docomo</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Log in issue</controllingFieldValue>
+                <valueName>Forgotten Password</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Log in issue</controllingFieldValue>
+                <valueName>Unable to Sign In</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Log in issue</controllingFieldValue>
+                <valueName>Forgotten E-mail Address</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Log in issue</controllingFieldValue>
+                <valueName>Partial subscribers</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Log in issue</controllingFieldValue>
+                <controllingFieldValue>My Account and payment</controllingFieldValue>
+                <valueName>Refer to docomo</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>My Account and payment</controllingFieldValue>
+                <valueName>Cancellation</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>My Account and payment</controllingFieldValue>
+                <valueName>Refund Request</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>My Account and payment</controllingFieldValue>
+                <valueName>Update Account Settings</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>My Account and payment</controllingFieldValue>
+                <valueName>Update Payment Settings</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>My Account and payment</controllingFieldValue>
+                <valueName>Other payment methods</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>My Account and payment</controllingFieldValue>
+                <valueName>Question about bill</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>My Account and payment</controllingFieldValue>
+                <valueName>Payment date</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>My Account and payment</controllingFieldValue>
+                <valueName>Invoice request</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>My Account and payment</controllingFieldValue>
+                <valueName>Incorrectly billed</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>My Account and payment</controllingFieldValue>
+                <valueName>Reactivating frozen account</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>My Account and payment</controllingFieldValue>
+                <valueName>Request to delete personal information</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>My Account and payment</controllingFieldValue>
+                <valueName>Switching to DAZN for docomo</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>My Account and payment</controllingFieldValue>
+                <valueName>Multiple Accounts</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>My Account and payment</controllingFieldValue>
+                <valueName>Annual Sub Cancellation</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>My Account and payment</controllingFieldValue>
+                <valueName>Annual Sub Refund Request</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>My Account and payment</controllingFieldValue>
+                <valueName>Request to switch from Monthly to Annual Sub</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>My Account and payment</controllingFieldValue>
+                <valueName>Request to switch from Annual to Monthly Sub</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>My Account and payment</controllingFieldValue>
+                <valueName>Wants free trial on a Monthly Sub</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>My Account and payment</controllingFieldValue>
+                <valueName>Question about Pause</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>My Account and payment</controllingFieldValue>
+                <valueName>BILDplus escalation</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>My Account and payment</controllingFieldValue>
+                <valueName>Annual Sub payment date clarification</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>My Account and payment</controllingFieldValue>
+                <valueName>Charged by NFL for Game Pass</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Subject</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
+        <fullName>SuppliedCompany</fullName>
+        <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
+        <fullName>SuppliedEmail</fullName>
+        <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
+        <fullName>SuppliedName</fullName>
+        <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
+        <fullName>SuppliedPhone</fullName>
+        <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
+        <fullName>Type</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>User_internal__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Case Owner</label>
+        <lookupFilter>
+            <active>true</active>
+            <errorMessage>Value does not exist or does not match filter criteria.</errorMessage>
+            <filterItems>
+                <field>User.Profile.UserType</field>
+                <operation>equals</operation>
+                <value>Standard</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Cases</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>hourly_report__c</fullName>
+        <externalId>false</externalId>
+        <formula>MID ( TEXT ( CreatedDate + 0.375 ) , 12 , 2 )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>hourly report</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>mail__c</fullName>
+        <externalId>false</externalId>
+        <formula>1</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>メール平均送受信回数</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <listViews>
+        <fullName>Add_to_Mass_Email_List</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CASES.EMAIL</columns>
+        <columns>Notification_Language_Code__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>Add to Mass Email List</label>
+        <language>en_GB</language>
+    </listViews>
+    <listViews>
+        <fullName>CA_Escalated</fullName>
+        <booleanFilter>1 AND (2 OR 3)</booleanFilter>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>NAME</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>CASES.PRIORITY</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CASES.STATUS</field>
+            <operation>equals</operation>
+            <value>Escalated</value>
+        </filters>
+        <filters>
+            <field>Notification_Country_Code__c</field>
+            <operation>equals</operation>
+            <value>CA</value>
+        </filters>
+        <filters>
+            <field>OWNER_NAME</field>
+            <operation>equals</operation>
+            <value>New cases Canada</value>
+        </filters>
+        <label>(CA) Escalated</label>
+        <language>en_GB</language>
+        <sharedTo>
+            <group>CA_Group</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>CA_IN_PROGRESS</fullName>
+        <booleanFilter>1 AND (2 OR 3)</booleanFilter>
+        <columns>CASES.LAST_UPDATE</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>NAME</columns>
+        <columns>CASES.EMAIL</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>CASES.PRIORITY</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CASES.STATUS</field>
+            <operation>equals</operation>
+            <value>Being Handled,In Progress</value>
+        </filters>
+        <filters>
+            <field>Notification_Country_Code__c</field>
+            <operation>equals</operation>
+            <value>CA</value>
+        </filters>
+        <filters>
+            <field>OWNER_NAME</field>
+            <operation>equals</operation>
+            <value>New cases Canada</value>
+        </filters>
+        <label>(CA) In progress / Being handled</label>
+        <language>en_GB</language>
+        <sharedTo>
+            <group>CA_Group</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>CA_New_Cases</fullName>
+        <booleanFilter>1 AND (2 OR 3)</booleanFilter>
+        <columns>CASES.LAST_UPDATE</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>CASES.EMAIL</columns>
+        <columns>NAME</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CASES.STATUS</field>
+            <operation>equals</operation>
+            <value>Open,Waiting for Support</value>
+        </filters>
+        <filters>
+            <field>Notification_Country_Code__c</field>
+            <operation>equals</operation>
+            <value>CA,unknown</value>
+        </filters>
+        <filters>
+            <field>OWNER_NAME</field>
+            <operation>equals</operation>
+            <value>New cases Canada</value>
+        </filters>
+        <label>(CA) New Cases</label>
+        <language>en_GB</language>
+        <sharedTo>
+            <group>CA_Group</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>CA_ON_HOLD</fullName>
+        <booleanFilter>1 AND (2 OR 3)</booleanFilter>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>NAME</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>CASES.PRIORITY</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CASES.STATUS</field>
+            <operation>equals</operation>
+            <value>On-Hold</value>
+        </filters>
+        <filters>
+            <field>Notification_Country_Code__c</field>
+            <operation>equals</operation>
+            <value>CA</value>
+        </filters>
+        <filters>
+            <field>OWNER_NAME</field>
+            <operation>equals</operation>
+            <value>New cases Canada</value>
+        </filters>
+        <label>(CA) On Hold</label>
+        <language>en_GB</language>
+        <sharedTo>
+            <group>CA_Group</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>DACH_DE</fullName>
+        <booleanFilter>1 AND (2 AND 3)</booleanFilter>
+        <columns>SLA_DACH__c</columns>
+        <columns>CASES.LAST_UPDATE</columns>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>NAME</columns>
+        <columns>CASES.EMAIL</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>CASES.PRIORITY</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CASES.STATUS</field>
+            <operation>equals</operation>
+            <value>Open,Waiting for Support</value>
+        </filters>
+        <filters>
+            <field>Notification_Country_Code__c</field>
+            <operation>equals</operation>
+            <value>DE,CH,AT,unknown</value>
+        </filters>
+        <filters>
+            <field>Notification_Language_Code__c</field>
+            <operation>equals</operation>
+            <value>de,unknown,en,en_GB</value>
+        </filters>
+        <label>(DACH) New Cases - DE</label>
+        <language>en_US</language>
+        <sharedTo>
+            <group>DACH_Group</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>DACH_EN</fullName>
+        <booleanFilter>1 AND (2 AND 3)</booleanFilter>
+        <columns>SLA_DACH__c</columns>
+        <columns>CASES.LAST_UPDATE</columns>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>NAME</columns>
+        <columns>CASES.EMAIL</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>CASES.PRIORITY</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CASES.STATUS</field>
+            <operation>equals</operation>
+            <value>Open,Waiting for Support</value>
+        </filters>
+        <filters>
+            <field>Notification_Country_Code__c</field>
+            <operation>equals</operation>
+            <value>DE,AT,CH,unknown</value>
+        </filters>
+        <filters>
+            <field>Notification_Language_Code__c</field>
+            <operation>equals</operation>
+            <value>en,en_GB,unknown</value>
+        </filters>
+        <label>(DACH) New Cases - EN</label>
+        <language>en_US</language>
+        <sharedTo>
+            <group>DACH_Group</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>DACH_ESCALATED</fullName>
+        <booleanFilter>1 AND 2 and 3</booleanFilter>
+        <columns>CASES.LAST_UPDATE</columns>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>NAME</columns>
+        <columns>CASES.EMAIL</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>CASES.PRIORITY</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CASES.STATUS</field>
+            <operation>equals</operation>
+            <value>Escalated</value>
+        </filters>
+        <filters>
+            <field>Notification_Country_Code__c</field>
+            <operation>equals</operation>
+            <value>DE,AT,CH,unknown</value>
+        </filters>
+        <filters>
+            <field>Notification_Language_Code__c</field>
+            <operation>equals</operation>
+            <value>de,en,en_GB,unknown</value>
+        </filters>
+        <label>(DACH) Escalated</label>
+        <language>en_US</language>
+        <sharedTo>
+            <group>DACH_Group</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>DACH_In_Progress</fullName>
+        <booleanFilter>1 AND (2 or 3)</booleanFilter>
+        <columns>CASES.LAST_UPDATE</columns>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>NAME</columns>
+        <columns>CASES.EMAIL</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>CASES.PRIORITY</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CASES.STATUS</field>
+            <operation>equals</operation>
+            <value>Being Handled,In Progress</value>
+        </filters>
+        <filters>
+            <field>Notification_Country_Code__c</field>
+            <operation>equals</operation>
+            <value>DE,CH,AT</value>
+        </filters>
+        <filters>
+            <field>OWNER_NAME</field>
+            <operation>equals</operation>
+            <value>New Cases DACH</value>
+        </filters>
+        <label>(DACH) In Progress/Being Handled</label>
+        <language>en_US</language>
+        <sharedTo>
+            <group>DACH_Group</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>DACH_On_Hold</fullName>
+        <booleanFilter>1 and (2 or 3)</booleanFilter>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>NAME</columns>
+        <columns>CASES.EMAIL</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>CASES.PRIORITY</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CASES.STATUS</field>
+            <operation>equals</operation>
+            <value>On-Hold</value>
+        </filters>
+        <filters>
+            <field>Notification_Country_Code__c</field>
+            <operation>equals</operation>
+            <value>DE,AT,CH,unknown</value>
+        </filters>
+        <filters>
+            <field>OWNER_NAME</field>
+            <operation>equals</operation>
+            <value>New Cases DACH</value>
+        </filters>
+        <label>(DACH) On-Hold</label>
+        <language>en_US</language>
+        <sharedTo>
+            <group>DACH_Group</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Global_All_Cases</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>NAME</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>CASES.PRIORITY</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <label>(Global) All Cases</label>
+        <language>en_GB</language>
+        <sharedTo>
+            <group>CS_Regional_Manager</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>JP_Escalated</fullName>
+        <booleanFilter>1 AND (2 OR 3)</booleanFilter>
+        <columns>CASES.LAST_UPDATE</columns>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CASES.STATUS</field>
+            <operation>equals</operation>
+            <value>Escalated</value>
+        </filters>
+        <filters>
+            <field>Notification_Country_Code__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </filters>
+        <filters>
+            <field>OWNER_NAME</field>
+            <operation>equals</operation>
+            <value>New Cases Japan</value>
+        </filters>
+        <label>(JP) Escalated</label>
+        <language>ja</language>
+        <sharedTo>
+            <group>JP_Group</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>JP_ON_HOLD</fullName>
+        <booleanFilter>1 AND (2 or 3)</booleanFilter>
+        <columns>CASES.LAST_UPDATE</columns>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CASES.STATUS</field>
+            <operation>equals</operation>
+            <value>On-Hold</value>
+        </filters>
+        <filters>
+            <field>Notification_Country_Code__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </filters>
+        <filters>
+            <field>OWNER_NAME</field>
+            <operation>equals</operation>
+            <value>New Cases Japan</value>
+        </filters>
+        <label>(JP) On Hold</label>
+        <language>ja</language>
+        <sharedTo>
+            <group>JP_Group</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MyCases</fullName>
+        <columns>CASES.LAST_UPDATE</columns>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>CASES.ORIGIN</columns>
+        <columns>Sub_Type__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CASES.LAST_UPDATE_DATE_ONLY</field>
+            <operation>greaterOrEqual</operation>
+            <value>10/17/2017 12:00 AM</value>
+        </filters>
+        <label>My Cases</label>
+        <language>en_GB</language>
+        <sharedTo>
+            <group>CA_Group</group>
+            <group>DACH_Group</group>
+            <group>JP_Group</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MyOpenCases</fullName>
+        <columns>CASES.LAST_UPDATE</columns>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>CASES.TYPE</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>CASES.ORIGIN</columns>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>CASES.STATUS</field>
+            <operation>notEqual</operation>
+            <value>Closed,Escalated,Resolved,Waiting for Customer</value>
+        </filters>
+        <label>My Open Cases</label>
+        <language>en_US</language>
+        <sharedTo>
+            <group>CA_Group</group>
+            <group>DACH_Group</group>
+            <group>JP_Group</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>New_Cases_Japan</fullName>
+        <booleanFilter>1 and (2 or 3)</booleanFilter>
+        <columns>CASES.LAST_UPDATE</columns>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CASES.STATUS</field>
+            <operation>equals</operation>
+            <value>Open,Waiting for Support</value>
+        </filters>
+        <filters>
+            <field>Notification_Country_Code__c</field>
+            <operation>equals</operation>
+            <value>JP,unknown</value>
+        </filters>
+        <filters>
+            <field>OWNER_NAME</field>
+            <operation>equals</operation>
+            <value>New Cases Japan</value>
+        </filters>
+        <label>(JP) New Cases</label>
+        <language>en_US</language>
+        <sharedTo>
+            <group>JP_Group</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>No_Country_Code</fullName>
+        <booleanFilter>(1 OR 2)AND (3 OR 4) AND 5</booleanFilter>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>OWNER_NAME</columns>
+        <columns>Notification_Country_Code__c</columns>
+        <columns>Notification_Language_Code__c</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>NAME</columns>
+        <columns>CASES.EMAIL</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>CASES.CREATED_DATE_DATE_ONLY</columns>
+        <columns>CASES.LAST_UPDATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CASES.STATUS</field>
+            <operation>equals</operation>
+            <value>Being Handled,Escalated,In Progress,On-Hold,Open</value>
+        </filters>
+        <filters>
+            <field>CASES.STATUS</field>
+            <operation>equals</operation>
+            <value>Waiting for Customer,Waiting for Support</value>
+        </filters>
+        <filters>
+            <field>Notification_Country_Code__c</field>
+            <operation>equals</operation>
+        </filters>
+        <filters>
+            <field>Notification_Country_Code__c</field>
+            <operation>equals</operation>
+            <value>unknown</value>
+        </filters>
+        <filters>
+            <field>CASES.CREATED_DATE_DATE_ONLY</field>
+            <operation>greaterOrEqual</operation>
+            <value>1/1/2017 12:00 AM</value>
+        </filters>
+        <label>(Global) No Country Code</label>
+        <language>en_GB</language>
+        <sharedTo>
+            <group>CS_Regional_Manager</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>jp_in_progress</fullName>
+        <booleanFilter>1 AND (2 or 3)</booleanFilter>
+        <columns>CASES.LAST_UPDATE</columns>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>CASES.PRIORITY</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CASES.STATUS</field>
+            <operation>equals</operation>
+            <value>Being Handled,In Progress</value>
+        </filters>
+        <filters>
+            <field>Notification_Country_Code__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </filters>
+        <filters>
+            <field>OWNER_NAME</field>
+            <operation>equals</operation>
+            <value>New Cases Japan</value>
+        </filters>
+        <label>(JP) In progress / Being handled</label>
+        <language>en_GB</language>
+        <sharedTo>
+            <group>JP_Group</group>
+        </sharedTo>
+    </listViews>
+    <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
+    <recordTypeTrackHistory>true</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>DFD_Customer</fullName>
+        <active>true</active>
+        <businessProcess>Livesport Customer Support</businessProcess>
+        <label>DFD Customer</label>
+        <picklistValues>
+            <picklist>Mass_Response__c</picklist>
+            <values>
+                <fullName>Buffering%2C quality issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GAMBA KOFU game error</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Issue Compensation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>J2 CATCH UP</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Origin</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Live Agent</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Web</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Priority</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Provider_Type__c</picklist>
+            <values>
+                <fullName>DAZN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Docomo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Non-member</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Rating__c</picklist>
+            <values>
+                <fullName>1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Reason</picklist>
+            <values>
+                <fullName>Complex functionality</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Existing problem</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Instructions not clear</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New problem</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>User didn%27t attend training</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sub_Type__c</picklist>
+            <values>
+                <fullName>2 week free trial</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>About DAZN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Accepted payment methods</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Account%2C Payments %26 Billing General Enquiry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Adaptive bit rate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>App doesn%27t launch</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>App takes a long time to launch</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Audio quality issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Available content</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Buffering issues</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Business contract request</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Can%27t register via app</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancellation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Case Resolved Appreciation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Catch Up General enquiry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Concurreny limits</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DAZN for business</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Delayed game</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Device Specific Log in Issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Device specific Issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Error Message</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Feedback</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finding DAZN app</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Forgotten E-mail Address</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Forgotten Password</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Forgotten Username</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Free trial question</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Geo-blocking query</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Geoblocking Query</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>How to register</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>How to register with docomo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>How to use the app</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Illegal Restreaming Report</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incomplete game</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incorrectly billed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Invoice request</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JLeague Feedback</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Live Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Live Stream General enquiry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Login General equiry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Multiple Accounts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Available on Site</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not loading</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other General Enquiry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PS Beta Feedback</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partial subscribers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Payment date</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Payment method is not accepted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Platform Compatibility</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Platform Compatibility Query</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product feedback</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Production feedback</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quality Issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Question about Pause</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Question about bill</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reactivating frozen account</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rebill Issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recommended devices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Refer to docomo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Refund Request</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Registration process via app</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Request to delete personal information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rights feedback</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Schedule</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Schedule%2FContent General Enquiry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Spinning Circle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Supported country</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>System requirement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tests</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unable to Sign In</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unable to Subscribe</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unable to register</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unsupported devices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Update Account Settings</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Update Payment Settings</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Update Personal Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VOD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Video doesn%27t start</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Video not working</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Video quality Issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Wrong content</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Catch Up Issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Content%2C app and functionality</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Feedback</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Getting started in registration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Live Stream Issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Log in issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Account and payment</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>General_Process</fullName>
+        <active>true</active>
+        <businessProcess>Livesport Customer Support</businessProcess>
+        <label>General Process</label>
+        <picklistValues>
+            <picklist>Mass_Response__c</picklist>
+            <values>
+                <fullName>Buffering%2C quality issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GAMBA KOFU game error</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Issue Compensation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>J2 CATCH UP</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Origin</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Live Agent</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Web</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Priority</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Provider_Type__c</picklist>
+            <values>
+                <fullName>DAZN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Docomo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Non-member</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Rating__c</picklist>
+            <values>
+                <fullName>1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Reason</picklist>
+            <values>
+                <fullName>Complex functionality</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Existing problem</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Instructions not clear</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New problem</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>User didn%27t attend training</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sub_Type__c</picklist>
+            <values>
+                <fullName>2 week free trial</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>About DAZN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>About DAZN for docomo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Accepted payment methods</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Account%2C Payments %26 Billing General Enquiry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Adaptive bit rate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>App doesn%27t launch</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>App takes a long time to launch</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Audio quality issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Available content</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Buffering issues</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Business contract request</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Can%27t register via app</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancellation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Case Resolved Appreciation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Catch Up General enquiry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Concurreny limits</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DAZN for business</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Delayed game</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Device Specific Log in Issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Device specific Issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Error Message</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Feedback</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finding DAZN app</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Forgotten E-mail Address</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Forgotten Password</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Forgotten Username</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Free trial question</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Geo-blocking query</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Geoblocking Query</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>How to register</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>How to register with docomo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>How to use the app</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Illegal Restreaming Report</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incomplete game</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incorrectly billed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Invoice request</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JLeague Feedback</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Live Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Live Stream General enquiry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Login General equiry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Multiple Accounts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Available on Site</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not loading</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other General Enquiry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PS Beta Feedback</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partial subscribers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Payment date</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Payment method is not accepted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Platform Compatibility</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Platform Compatibility Query</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product feedback</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Production feedback</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quality Issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Question about Pause</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Question about bill</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reactivating frozen account</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rebill Issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recommended devices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Refer to docomo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Refund Request</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Registration process via app</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Request to delete personal information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rights feedback</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Schedule</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Schedule%2FContent General Enquiry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Spinning Circle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Supported country</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Switching to DAZN for docomo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>System requirement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tests</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unable to Sign In</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unable to Subscribe</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unable to register</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unsupported devices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Update Account Settings</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Update Payment Settings</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Update Personal Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VOD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Video doesn%27t start</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Video not working</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Video quality Issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Wrong content</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Catch Up Issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Content%2C app and functionality</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Feedback</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Getting started in registration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Live Stream Issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Log in issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Account and payment</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts>
+        <customTabListAdditionalFields>CASES.CASE_NUMBER</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CASES.SUBJECT</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CASES.CREATED_DATE</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CASES.PRIORITY</customTabListAdditionalFields>
+        <listViewButtons>Add_To_Mass_Email_List</listViewButtons>
+        <lookupDialogsAdditionalFields>CASES.CASE_NUMBER</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>CASES.SUBJECT</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>NAME</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ACCOUNT.NAME</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>CASES.STATUS</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CASES.CASE_NUMBER</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CASES.SUBJECT</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>NAME</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ACCOUNT.NAME</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CASES.STATUS</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>CASES.STATUS</searchFilterFields>
+        <searchFilterFields>PARENT.CASE_NUMBER</searchFilterFields>
+        <searchFilterFields>Notification_Country_Code__c</searchFilterFields>
+        <searchFilterFields>Notification_Language_Code__c</searchFilterFields>
+        <searchFilterFields>CASES.CREATED_DATE</searchFilterFields>
+        <searchFilterFields>CASES.LAST_UPDATE</searchFilterFields>
+        <searchResultsAdditionalFields>ACCOUNT.NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CASES.CASE_NUMBER</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CASES.SUBJECT</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CASES.STATUS</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CASES.CREATED_DATE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CASES.LAST_UPDATE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CORE.USERS.ALIAS</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CONTACT.LAST_NAME</searchResultsAdditionalFields>
+        <searchResultsCustomButtons>Add_To_Mass_Email_List</searchResultsCustomButtons>
+    </searchLayouts>
+    <sharingModel>Private</sharingModel>
+    <validationRules>
+        <fullName>Agent_can_assign_case_to_Queue</fullName>
+        <active>false</active>
+        <description>Agent can assign case to queue only: This validation is deactivated as part of PD-12279 ticket</description>
+        <errorConditionFormula>NOT(ISBLANK(Owner:User.Id )) &amp;&amp; ($UserRole.Name = &apos;Customer Services Agent Germany&apos; || $UserRole.Name = &apos;Customer Services Agent Japan&apos;) &amp;&amp; Owner:User.Id &lt;&gt; $User.Id &amp;&amp;  ISCHANGED(OwnerId)</errorConditionFormula>
+        <errorDisplayField>AccountId</errorDisplayField>
+        <errorMessage>As a Customer Service Agent, you can only assign cases to Queues and not individual users.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Notification_CountryLanguage_Code</fullName>
+        <active>true</active>
+        <description>To make sure country and langauge codes are correctly filled</description>
+        <errorConditionFormula>AND(OR($Profile.Id = $Setup.CustomerServiceProfileId__c.CustomerServiceTeamMemberProfileId__c,$Profile.Id = $Setup.CustomerServiceProfileId__c.CustomerServiceTeamMemberJapanProfileId__c),NOT(OR( 
+AND(Notification_Country_Code__c = &apos;JP&apos;, OR(Notification_Language_Code__c = &apos;ja&apos; , Notification_Language_Code__c = &apos;en&apos;)), 
+AND(OR(Notification_Country_Code__c = &apos;DE&apos;, Notification_Country_Code__c = &apos;AT&apos;, Notification_Country_Code__c = &apos;CH&apos;) , 
+OR(Notification_Language_Code__c = &apos;de&apos; , Notification_Language_Code__c = &apos;en&apos;)) 
+)))</errorConditionFormula>
+        <errorMessage>Please enter valid Country and Language Codes</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Required_Field</fullName>
+        <active>false</active>
+        <description>Validation to check all required fields are populated while creating and modifying case.</description>
+        <errorConditionFormula>OR(ISBLANK( TRIM( Subject ) ), ISBLANK( TRIM(Description) ) )</errorConditionFormula>
+        <errorMessage>Subject and Description must have content.</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>Add_To_Mass_Email_List</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Add To Mass Email</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT(&quot;/support/console/26.0/integration.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/soap/ajax/36.0/connection.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/soap/ajax/36.0/apex.js&quot;)} 
+
+var records = {!GETRECORDIDS($ObjectType.Case)};
+
+var newRecords = [];
+if (records.length&lt;1) {
+	alert(&quot;{!$Label.ME_Choose_cases}&quot;);
+} else {
+	var result = sforce.apex.execute(&quot;MassEmailHelper&quot;,&quot;addToMassEmail&quot;,{caseId: records});
+	if (result == &apos;success&apos;){ 
+	alert(&quot;{!$Label.ME_added_successfully}&quot;);	
+location.reload(); 
+	} else {
+		alert(result);
+	}
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Assign_Case</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Assign Case</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/support/console/26.0/integration.js&quot;)}
+{!REQUIRESCRIPT(&quot;/soap/ajax/22.0/apex.js&quot;)}
+
+var url = &apos;/apex/ChangeCaseOwner?Id={!Case.Id}&apos;; 
+if (sforce.console.isInConsole()) { 
+srcUp(url);
+} else { 
+window.open(url,&apos;_blank&apos;,&apos;height=600,width=800&apos;); 
+
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Assign_Country_Language</fullName>
+        <availability>online</availability>
+        <description>To update country code and language code</description>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Assign Country &amp; Language</masterLabel>
+        <openType>sidebar</openType>
+        <page>CaseCountryLanguage</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>Escalate</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Escalate</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/support/console/26.0/integration.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/soap/ajax/36.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/soap/ajax/36.0/apex.js&quot;)} 
+
+var caseObj = new sforce.SObject(&quot;Case&quot;); 
+caseObj.Id = &apos;{!Case.Id}&apos;; 
+
+caseObj.Status = &apos;Escalated&apos;; 
+caseObj.OwnerId =&apos;{!Case.OwnerId}&apos;; 
+var result = sforce.connection.update([caseObj]) 
+
+
+if (result[0].success==&apos;false&apos;) { 
+alert(result[0].errors.message); 
+} else { 
+if (sforce.console.isInConsole()) {
+location.reload();
+} else {
+window.parent.location.href=&quot;/{!Case.Id}&quot;;
+} 
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>On_Hold</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>On-Hold</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/support/console/26.0/integration.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/soap/ajax/36.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/soap/ajax/36.0/apex.js&quot;)} 
+
+var caseObj = new sforce.SObject(&quot;Case&quot;); 
+caseObj.Id = &apos;{!Case.Id}&apos;; 
+caseObj.OwnerId =&apos;{!Case.OwnerId}&apos;
+caseObj.Status = &apos;On-Hold&apos;; 
+
+var result = sforce.connection.update([caseObj]) 
+
+
+if (result[0].success==&apos;false&apos;) { 
+alert(result[0].errors.message); 
+} else { 
+if (sforce.console.isInConsole()) {
+location.reload();
+} else {
+window.parent.location.href=&quot;/{!Case.Id}&quot;;
+}
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Resolve</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Resolve</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/flow/Resolve_Case?CaseId={!Case.Id}&amp;UserId={!$User.Id}&amp;retURL={!Case.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Take_Ownership</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Take Ownership</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/31.0/connection.js&quot;)}
+try{
+    var caseToUpdate = new sforce.SObject(&quot;Case&quot;);
+    
+    caseToUpdate.Id = &quot;{!Case.Id}&quot;;
+    caseToUpdate.OwnerId = &quot;{!$User.Id}&quot;;
+
+    if(&quot;{!Case.Status}&quot; == &quot;Open&quot;){
+       caseToUpdate.Status = &quot;In Progress&quot;
+    }
+    else{
+       caseToUpdate.Status = &quot;Being Handled&quot;;
+    }  
+
+    var result = sforce.connection.update([caseToUpdate]);
+
+    if(result[0].success == &quot;true&quot;){
+        location.reload();
+    }
+    else{
+        alert(
+            &quot;An Error has Occurred. Error: &quot; + 
+            result[0].errors.message
+        );
+    }
+}
+catch(e){
+    alert(
+        &quot;An Error has Occurred. Error: &quot; + 
+        e
+    );
+}</url>
+    </webLinks>
+</CustomObject>

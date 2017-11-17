@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>UTF-8</encodingKey>
+    <name>【Apple】メールアドレスを変更したい　1次対応（2点確認:氏名・アドレス）</name>
+    <style>none</style>
+    <subject>【DAZNカスタマーサービス】お問い合わせ頂きありがとうございます</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

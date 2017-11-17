@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Mass Email Request</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Mass Email Requests</value>
+    </caseValues>
+    <fields>
+        <label><!-- English email template --></label>
+        <name>English_email_template__c</name>
+    </fields>
+    <fields>
+        <label><!-- French email template --></label>
+        <name>French_email_template__c</name>
+    </fields>
+    <fields>
+        <label><!-- German email template --></label>
+        <name>German_email_template__c</name>
+    </fields>
+    <fields>
+        <label><!-- Japanese email template --></label>
+        <name>Japanese_email_template__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of Emails not sent --></label>
+        <name>Number_of_Emails_not_sent__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of Emails sent --></label>
+        <name>Number_of_Emails_sent__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Draft</masterLabel>
+            <translation><!-- Draft --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In process</masterLabel>
+            <translation><!-- In process --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Total --></label>
+        <name>Total__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label><!-- Send_Email --></label>
+        <name>Send_Email</name>
+    </webLinks>
+</CustomObjectTranslation>

@@ -1,0 +1,21 @@
+*** ケースが更新されました *** 
+
+
+
+下記のケースが更新されました。
+
+ケーススレッドＩＤ番号: {!Case.Thread_Id}
+
+顧客氏名: {!Account.Name} 
+
+ケース番号: {!Case.CaseNumber}: {!Case.Subject} 
+
+ケース担当者: {!Case.OwnerFullName} 
+
+
+
+最終更新者: {!Case.OwnerFullName} 
+
+****************************************************************************** 
+
+{!Case.Last_Case_Comment}

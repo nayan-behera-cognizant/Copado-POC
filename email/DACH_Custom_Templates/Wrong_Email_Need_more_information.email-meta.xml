@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Requesting registration details from customer</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Wrong Email - Need more information</name>
+    <style>none</style>
+    <subject>Probleme mit der Anmeldung</subject>
+    <textOnly>Hallo Sportsfreund,
+
+Natürlich möchte ich dir gerne helfen und herausfinden, weshalb du dich gerade nicht anmelden kannst. Leider kann ich mit deinen aktuellen Daten keinen Account bei uns im System finden. Bitte teile mir möglichst viele der folgenden Daten mit, damit ich deinen Account finden und dir dann hoffentlich weiterhelfen kann.
+
+Die E-Mailadresse, mit der du dich registriert hast
+Den Vor- und Nachnamen, mit dem du dich registriert hast
+Das Anmeldedatum
+Die letzten 4 Ziffern deiner Kontonummer oder deiner Kreditkartennummer
+
+Ich freue mich auf deine Antwort.
+
+Schöne Grüße,
+Dein DAZN Team</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

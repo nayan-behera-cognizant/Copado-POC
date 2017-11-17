@@ -1,0 +1,688 @@
+<apex:component controller="TestWillBeDeleted">
+
+    <apex:attribute name="myPageName" description="current page name" type="String" required="true" />
+
+    <head>
+        <style type="text/css">
+            .helpHr {
+                border-bottom: 1px solid #808080;
+                border-top: 0px;
+                margin-bottom: 0;
+            }
+            
+            .iconfont-ls_icon_email3 {
+                font-size: 35px;
+            }
+            
+            .iconfont-ls_icon_email3:before {
+                cursor: pointer;
+            }
+            
+            .fontSz14 {
+                font-size: 14px;
+                letter-spacing: 0.2px;
+            }
+            
+            .customLbl {
+                margin-top: 10px;
+                cursor: pointer;
+                margin-left: 10px;
+                padding-left: 0px;
+                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+                text-transform: uppercase;
+            }
+            
+            .customLbl:hover {
+                text-decoration: none;
+            }
+            
+            .helpFooter {
+                margin-top: 20px;
+                margin-bottom: 13px;
+            }
+            
+            .helpFooter .faqIcon {
+                margin-top: 5px;
+                text-align: left;
+            }
+            
+            .helpFooter .iconfont-ls_icon_faq {
+                font-size: 40px;
+            }
+            
+            .helpFooter .conIconContainer {
+                display: inline-block;
+                left: 5px;
+            }
+            
+            html body.langJa .helpFooter .conIconContainer {
+                display: inline-block;
+                left: 0px;
+            }
+            
+            .helpFooter .iconfont-ls_icon_livechat {
+                margin-left: -15px;
+            }
+            
+            .helpFooter .iconfont-ls_icon_livechat:before {
+                font-size: 40px;
+            }
+            /*.emailLinkSec {
+            padding-left: 55px;
+            }*/
+            
+            .conContactUs {
+                padding: 0;
+            }
+            
+            .iconFormat {
+                width: 20%;
+                font-size: 40px;
+                float: left;
+                margin-right: 10px;
+                height: 40px;
+                cursor: pointer;
+            }
+            
+            .chatStyle {
+                margin-top: 7px;
+                display: inline-block;
+                padding-left: 8px;
+                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+                font-size: 14px;
+            }
+            
+            .margAlign {
+                margin-top: -4px;
+            }
+            
+            .labelFormat {
+                width: 70%;
+                float: left;
+                margin-top: 10px;
+                text-transform: uppercase;
+                font-weight: normal;
+                cursor: pointer;
+                font-size: 14px;
+            }
+            
+            .mL15 {
+                margin-left: 0.5%;
+            }
+            
+            .helpFooter .margTop0 {
+                margin-top: 0px;
+            }
+            
+            .helpFooter .margBot0 {
+                margin-top: 0px;
+            }
+            
+            .helpFooter .link-unique::after {
+                display: none;
+            }
+            
+            .conIconContainer {
+                font-weight: bold;
+                position: relative;
+                color: #aaa;
+                font-size: 18px;
+                left: 0px;
+                top: 8px;
+            }
+            
+            .sp1Icon {
+                position: relative;
+                top: -8px;
+                left: 0px;
+            }
+            
+            .sp2Icon {
+                position: relative;
+                top: -8px;
+                left: -6px;
+            }
+            
+            .helpFooter .conIconContainer,
+            .helpFooter .customLbl {
+                margin-top: 7px;
+            }
+            
+            .helpFooter .updateFAQ {
+                font-size: 14px;
+                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+                display: inline-block;
+                padding-left: 13px;
+                white-space: nowrap;
+                text-decoration: none;
+            }
+            
+            .helpFooter .updateFAQ:hover {
+                text-decoration: underline;
+            }
+            
+            .helpFooter .iconfont-ls_icon_faq {
+                display: inline-block !important;
+                font-size: 35px;
+            }
+            
+            /*html body.langJa .sp1Icon,
+            html body.langJa .sp2Icon {
+                font-family: FoundryGridnikMedium !important;
+            }*/
+            
+            .helpDocomoLink {
+                font-size: 14px;
+                font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            }
+            
+            .helpDocomoLink:hover,
+            .pull-left.customLbl.desktopMail:hover,
+            .pull-left.customLbl.mobileMail:hover,
+            .chatStyle:hover {
+                text-decoration: underline;
+            }
+            
+            .largeDevice .sp2Icon {
+                left: -12px;
+            }
+            
+            .desktopMail,
+            .mobileMail {
+                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            }
+            
+            .liveAgentSec .pullRight {
+                margin-top: 7px;
+            }
+            
+            @media screen and (min-width: 320px) and (max-width:759px) {
+                .helpFooter .customLbl {
+                    margin-left: 7px;
+                    padding-right: 0px;
+                    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+                    font-size: 14px;
+                }
+                .chatStyle {
+                    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+                    font-size: 14px;
+                    padding-left: 5px;
+                }
+                .iconfont-ls_icon_livechat:before {
+                    font-size: 30px;
+                }
+                html body.langJa .padding5 {
+                    padding-right: 0 !important;
+                    width: 55%;
+                }
+                .helpFooter .updateFAQ {
+                    padding-left: 7px;
+                }
+                .customLbl {
+                    margin-left: -35px;
+                    cursor: pointer;
+                }
+                .helpFooter .conIconContainer,
+                .helpFooter .customLbl {
+                    margin-top: 5px;
+                }
+                .desktopMail {
+                    display: none;
+                }
+                .mobileMail {
+                    display: block;
+                }
+                .margAlign {
+                    margin-top: 0;
+                }
+                .faqIcon {
+                    margin-top: 10px;
+                }
+                .rowWidth {
+                    width: 50%;
+                }
+                .fltLeft {
+                    float: left;
+                }
+                .liveAgentSec {
+                    float: left;
+                    margin-top: 0;
+                }
+                .helpFooter .iconfont-ls_icon_faq {
+                    font-size: 30px;
+                }
+                .helpFooter .conIconContainer {
+                    margin-top: 7px;
+                }
+                .helpFooter .fontSz,
+                .fontSz {
+                    font-size: 30px;
+                }
+                .conContactUs {
+                    margin: 25px auto 15px auto;
+                }
+                .helpFooter .iconfont-ls_icon_email3 {
+                    font-size: 30px;
+                }
+                .helpFooter .liveChatIcon {
+                    margin-left: -12px;
+                    padding-right: 0px;
+                }
+                .iconFormat {
+                    margin-left: 0px;
+                    font-size: 30px;
+                }
+                .labelFormat {
+                    font-size: 14px;
+                    margin-top: 7px;
+                }
+                .faqIcon {
+                    margin-bottom: 0px;
+                }
+                .pullRight {
+                    padding-left: 0px;
+                }
+                .helpFooter {
+                    margin-top: 12px;
+                    margin-bottom: 15px;
+                }
+                .emailTxt {
+                    float: left;
+                }
+                .emailTxt span {
+                    line-height: 30px;
+                }
+                .padRight {
+                    padding-right: 10px !important;
+                }
+                .emailLinkSec {
+                    padding-left: 15px;
+                }
+                html body.langJa .emailLinkSec {
+                    padding-left: 0;
+                    padding-right: 0 !important;
+                    width: 45%;
+                }
+                html body.langJa .helpFooterSection .emailLinkSec {
+                    padding-left: 0;
+                    padding-right: 0 !important;
+                    width: 100%;
+                }
+                .helpHr {
+                    width: auto;
+                    margin: 0 15px;
+                }
+                .customLbl {
+                    margin-left: 0px;
+                    cursor: pointer;
+                }
+                .rowWidth {
+                    width: 50%;
+                }
+                .fltLeft {
+                    float: left;
+                }
+                .footerSpacing {
+                    margin-bottom: 40px;
+                }
+                .helpFooter .fontSz {
+                    font-size: 30px;
+                }
+                .conContactUs {
+                    margin: 25px auto 15px auto;
+                }
+                .helpFooter .iconfont-ls_icon_email3 {
+                    font-size: 30px;
+                }
+                .helpFooter .liveChatIcon {
+                    margin-left: -12px;
+                    padding-right: 0px;
+                }
+                .fontSz {
+                    font-size: 30px;
+                }
+                .iconFormat {
+                    width: 14%;
+                    margin-left: 0px;
+                    font-size: 30px;
+                }
+                .labelFormat {
+                    font-size: 14px;
+                    margin-top: 7px;
+                }
+                .faqIcon {
+                    margin-bottom: 0px;
+                }
+                .emailLinkSec {
+                    padding-left: 0;
+                    padding-right: 0;
+                    width: 100%;
+                }
+                .helpFooterSection .emailLinkSec {
+                    width: 100%;
+                }
+                .daznDocomoLink {
+                    margin-left: 5px;
+                    margin-bottom: 10px;
+                }
+                .helpFooterSection .liveAgentSec {
+                    padding: 0;
+                }
+                .helpFooterSection .liveAgentSec .pullRight {
+                    margin-left: -6px;
+                    margin-top: -5px;
+                }
+                .helpFooterSection .liveAgentSec .pullRight .iconfont-ls_icon_livechat.customLbl {
+                    margin-left: 0;
+                }
+                
+                .langDe .helpFooter .iconfont-ls_icon_livechat:before {
+                    font-size: 35px;
+                }
+                
+                .langDe .liveAgentSec .pullRight {
+                    margin-top: 0;
+                }
+                .langDe .helpFooterSection .liveAgentSec {
+                    margin-left: 5px;
+                }
+            }
+            
+            @media screen and (min-width: 760px) and (max-width: 1199px) {
+                .rowWidth {
+                    width: 50%;
+                }
+                .helpFooterSection .rowWidth {
+                    width: 49%;
+                    margin-left: -3px;
+                }
+                .fltLeft {
+                    float: left;
+                }
+                .liveAgentSec {
+                    float: right;
+                    margin-top: 0px;
+                    margin-right: 11px;
+                }
+                .helpFooter .updateFAQ {
+                    margin-top: 2px;
+                    padding-left: 10px;
+                }
+                .DisplaySmall {
+                    display: block;
+                }
+                html body.langJa .padding5 {
+                    padding-left: 5px;
+                    padding-right: 5px;
+                }
+                .padding5 {
+                    margin-left: -8px;
+                }
+                .desktopMail {
+                    display: block;
+                }
+                .mobileMail {
+                    display: none;
+                }
+                .footerSec {
+                    margin-top: 12px;
+                    padding-left: 0;
+                }
+                .margBot {
+                    margin-bottom: 18px;
+                }
+                .marginTop20 {
+                    margin-top: 20px
+                }
+                .marginTop50 {
+                    margin-top: 20px;
+                }
+                .faqIcon {
+                    margin-top: 5px;
+                }
+                .emailTxt {
+                    float: left;
+                    margin-left: 58px;
+                }
+                .emailTxt span {
+                    line-height: 30px;
+                }
+                .pull-left.customLbl.desktopMail {
+                    margin-top: 5px;
+                }
+                .helpFooterSection .iconfont-ls_icon_livechat {
+                    margin-left: 0px;
+                }
+                .liveAgentSec .pullRight {
+                    margin-top: -4px;
+                    margin-left: -6px;
+                }
+                .chatStyle {
+                    margin-top: 9px;
+                }
+            }
+            
+            @media screen and (min-width: 1200px) {
+                .helpFooterSection .faqSec {
+                    width: 25%;
+                }
+                body.langja .helpFooterSection .faqSec {
+                    width: 26%;
+                }
+                .footerSec {
+                    margin-top: 5px;
+                }
+                .marginTop5 {
+                    margin-top: 5px;
+                    display: inline-block;
+                }
+                .DisplaySmall {
+                    display: block;
+                }
+                .margBot {
+                    margin-bottom: 35px;
+                }
+                .padding5 {
+                    margin-left: -3px;
+                }
+                .marginTop20 {
+                    margin-top: 15px
+                }
+                .marginTop50 {
+                    margin-top: 20px;
+                }
+                .helpFooter .updateFAQ {
+                    margin-top: 0;
+                }
+                body.langJa .helpFooter .updateFAQ {
+                    padding-left: 0;
+                }
+                .liveAgentSec {
+                    margin-top: -8px;
+                }
+                body.langja .liveAgentSec {
+                    margin-top: 0px;
+                }
+                .desktopMail {
+                    display: block;
+                }
+                .mobileMail {
+                    display: none;
+                }
+                .emailTxt {
+                    float: left;
+                    margin-left: 88px;
+                    margin-top: 5px;
+                }
+                .emailTxt span {
+                    line-height: 33px;
+                }
+                .pull-left.customLbl.desktopMail {
+                    margin-top: 5px;
+                }
+                .langDe .pull-left.customLbl.desktopMail {
+                    margin-left: 5px;
+                }
+                .liveAgentSec .pullRight {
+                    margin-left: 20px;
+                }
+                .helpFooter .faqIcon, .liveAgentSec .pullRight {
+                    margin-top: 2px;
+                }
+                .chatStyle {
+                    margin-top: 11px;
+                }
+                .langJa .helpFooterSection .faqSec {
+                    width: 26%;
+                }
+                .langJa .helpFooterSection .col-lg-6.col-md-6.foundryFontRegular.fontSz14.footerSec.pull-left {
+                    width: 49%;
+                }
+                .langDe .rowWidth.emailLinkSec { 
+                    padding-right:0 ;
+                }
+            }
+        </style>
+    </head>
+    
+    <script type='text/javascript'>
+        isClicked = function() {
+            if ($(".iconfont-ls_icon_livechat").hasClass("disabled")) {
+                return false;
+            } else {
+                $(".iconfont-ls_icon_livechat").addClass("disabled");
+                return true;
+            }
+        }
+    </script>
+
+    <!-- <p>lang = {! $CurrentPage.parameters.lang }</p>
+    <p>Country = {! $CurrentPage.parameters.Country }</p>
+    <p>liveChatButtonId = {! liveChatButtonId }</p>
+    <p>showLiveChat = {! showLiveChat }</p>
+    <p>showEmailLink = {! showEmailLink }</p>
+    <p>sTrakingParams = {! sTrakingParams }</p>
+    <p>faqLinkLabel = {! faqLinkLabel }</p>
+    <p>---</p>
+    <p>sURL = {{sURL}}</p>
+    <p>DFDCategoryKey = {{DFDCategoryKey}}</p>
+    <p>sTrakingParams = {{sTrakingParams}}</p>
+    <p>mapAllCategories[DFDCategoryKey] = {{mapAllCategories[DFDCategoryKey]}}</p>
+    <p>mapAllCategories = {{mapAllCategories}}</p>
+    <p>getSeeAllURL(mapAllCategories[DFDCategoryKey]) = {{getSeeAllURL(mapAllCategories[DFDCategoryKey])}}</p>
+    <p>FAQCategoryKey = {{FAQCategoryKey}}</p>
+    <p>getSeeAllURL(mapAllCategories[FAQCategoryKey]) = {{getSeeAllURL(mapAllCategories[FAQCategoryKey])}}</p>
+    <p>mapArticleSeeAllLabel[FAQCategoryKey] = {{mapArticleSeeAllLabel[FAQCategoryKey]}}</p>
+    <p>mapArticleSeeAllLabel = {{mapArticleSeeAllLabel}}</p> -->
+
+    <hr class="helpHr" />
+    <!-- <apex:actionFunction name="emailHelpNavigation" action="{!navigateToEmailHelp}" /> -->
+    <div class="container">
+        <div class="col-md-12 col-sm-12 helpFooter" id="helpFooter">
+            <div class="row">
+                <!-- Japanese Docomo -->
+                <apex:outputPanel rendered="{! $CurrentPage.parameters.Country == 'JP' }">
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 daznDocomoLink">
+                        <div class="row">
+                            <a href="/help/DAZN-for-Docomo" class="helpDocomoLink">{!$Label.LS_help_dazn_docomo_link}</a>
+                            <span class="conIconContainer"><span class="sp1Icon">&gt;</span><span class="sp2Icon">&gt;</span></span>
+                        </div>
+                    </div>
+                </apex:outputPanel>
+                <!-- See All FAQ's -->
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 padding0 faqSec">
+                    <apex:outputPanel >
+                        <!-- See All FAQ section -->
+                        <div class="iconSection pull-left faqIcon">
+                            <span class="icon-x2"><span class="iconfont iconfont-ls_icon_faq"></span></span>
+                        </div>
+                        <div class="pull-left">
+                            <a href="/help/FAQ" class="link-unique spanLink pull-left updateFAQ">
+                                {! faqLinkLabel }
+                                <div class="conIconContainer">
+                                    <span class="sp1Icon">&gt;</span><span class="sp2Icon">&gt;</span>
+                                </div>
+                            </a>
+                        </div>
+                    </apex:outputPanel>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 foundryFontRegular fontSz14 pull-right  footerSec">
+                    <div class="row">
+                        <!-- Message US section -->
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 rowWidth fltLeft emailLinkSec padRight">
+                            <apex:outputPanel id="EmailLink" rendered="{! showEmailLink }">
+                                <a href="/contactus" class="pull-left customLbl desktopMail">
+                                	<div class="pull-left margAlign">
+                                        <span class="icon-x2"><span class="iconfont iconfont-ls_icon_email3"></span></span>
+                                    </div>
+                                    {!$Label.LS_Help_Label_Email}
+                                </a>
+                                <a href="/contactus" class="pull-left customLbl mobileMail">
+                                	<div class="pull-left margAlign">
+                                        <span class="icon-x2"><span class="iconfont iconfont-ls_icon_email3"></span></span>
+                                    </div>
+                                    {!$Label.LS_Help_Label_Email_For_Mobile_Device}
+                                </a>
+                            </apex:outputPanel>
+                        </div>
+                        <!-- Live Agent section -->
+                        <apex:outputPanel id="deLiveChatButton" rendered="{! showLiveChat }">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 rowWidth liveAgentSec padding5">
+                                <div class="pullRight">
+                                    <span class="icon-x2 fontSz14">
+                                        <span class="iconfont iconfont-ls_icon_livechat customLbl" id="{! 'liveagent_button_online_' + liveChatButtonId }" style="display: none; cursor: pointer" onclick="startChat()">
+                                            <span class="chatStyle">
+                                                {!$Label.LS_Help_Label_LiveChat}
+                                            </span>
+                                        </span>
+                                    </span>
+                                    <span class="icon-x2 fontSz14">
+                                        <span class="iconfont iconfont-ls_icon_livechat customLbl" id="{! 'liveagent_button_offline_' + liveChatButtonId }" style="display: none; border: 0px none;">
+                                            <span class="chatStyle">
+                                                {!$Label.LS_Help_Label_LiveChat}
+                                            </span>
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <script type="text/javascript">
+                                jQuery.loadScript = function (url, callback) {
+                                    jQuery.ajax({
+                                        url: url,
+                                        dataType: 'script',
+                                        success: callback,
+                                        async: true
+                                    });
+                                }
+
+                                delete liveagent;
+                                delete liveAgentDeployment;
+
+                                $.loadScript('https://c.la1-c1-par.salesforceliveagent.com/content/g/js/40.0/deployment.js', function() {
+
+                                    liveagent.init('{! $Setup.LiveChatSettings__c.URL__c }', '{! $Setup.LiveChatSettings__c.Deployment_Id__c }', '{! $Setup.LiveChatSettings__c.Org_Id__c }');
+
+                                    window._laq = [];
+
+                                    window._laq.push(function() {
+                                        liveagent.showWhenOnline(
+                                            '{! liveChatButtonId }',
+                                            document.getElementById("{! 'liveagent_button_online_' + liveChatButtonId }")
+                                        );
+                                        liveagent.showWhenOffline(
+                                            '{! liveChatButtonId }',
+                                            document.getElementById("{! 'liveagent_button_offline_' + liveChatButtonId }")
+                                        );
+                                    });
+                                });
+                            </script>
+                        </apex:outputPanel>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</apex:component>

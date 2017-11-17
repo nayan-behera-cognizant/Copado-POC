@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>PaymentMethodOptionConfig</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>PaymentMethodOptionConfig</value>
+    </caseValues>
+    <fields>
+        <label><!-- Billing Batch --></label>
+        <name>Billing_Batch__c</name>
+    </fields>
+    <fields>
+        <label><!-- CardsPaymentGateway --></label>
+        <name>CardsPaymentGateway__c</name>
+    </fields>
+    <fields>
+        <label><!-- CountryCode --></label>
+        <name>CountryCode__c</name>
+    </fields>
+    <fields>
+        <label><!-- Credit Card --></label>
+        <name>Credit_Card__c</name>
+    </fields>
+    <fields>
+        <label><!-- Currency Format --></label>
+        <name>Currency_Format__c</name>
+    </fields>
+    <fields>
+        <label><!-- DefaultPaymentMethod --></label>
+        <name>DefaultPaymentMethod__c</name>
+    </fields>
+    <fields>
+        <label><!-- Direct Debit --></label>
+        <name>Direct_Debit__c</name>
+    </fields>
+    <fields>
+        <label><!-- PaypalMerchantPassword --></label>
+        <name>PaypalMerchantPassword__c</name>
+    </fields>
+    <fields>
+        <label><!-- PaypalMerchantSignature --></label>
+        <name>PaypalMerchantSignature__c</name>
+    </fields>
+    <fields>
+        <label><!-- PaypalMerchantUsername --></label>
+        <name>PaypalMerchantUsername__c</name>
+    </fields>
+    <fields>
+        <label><!-- PaypalPaymentGateway --></label>
+        <name>PaypalPaymentGateway__c</name>
+    </fields>
+    <fields>
+        <label><!-- Paypal --></label>
+        <name>Paypal__c</name>
+    </fields>
+    <fields>
+        <label><!-- ZuoraCreditCardPageId --></label>
+        <name>ZuoraCreditCardPageId__c</name>
+    </fields>
+    <fields>
+        <label><!-- ZuoraDirectDebitPageId --></label>
+        <name>ZuoraDirectDebitPageId__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

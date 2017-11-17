@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>UTF-8</encodingKey>
+    <name>System Update DE de</name>
+    <style>none</style>
+    <subject>WICHTIG: ÄNDERE DEIN PASSWORT</subject>
+    <textOnly>Hey Beta Tester!,
+
+Hast du Probleme, dich in die DAZN App einzuloggen? Keine Sorge, die Lösung ist ganz einfach und du hast schnell wieder Zugang zu deinem Lieblingssport.
+
+Du musst nur dein Passwort ändern. Dieser Link führt dich direkt auf die richtige Seite
+Am besten wählst du ein Passwort, das du dir gut merken kannst.
+Natürlich stehen wir dir weiterhin zur Verfügung, falls du Fragen hast oder uns auf einen Fehler hinweisen möchtest. Melde dich einfach bei unserem Kundendienst hier[link to https://my.dazn.com/ContactUs/de-de] und wir werden dir so schnell wie möglich antworten.
+Vielen Dank und viel Spaß beim Anschauen!
+Dein DAZN-Team
+
+DATENSCHUTZ | NUTZUNGSBEDINGUNGEN</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

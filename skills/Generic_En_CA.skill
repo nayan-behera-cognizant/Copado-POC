@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Skill xmlns="http://soap.sforce.com/2006/04/metadata">
+    <assignments>
+        <profiles>
+            <profile>customer service team member canada</profile>
+        </profiles>
+    </assignments>
+    <label>Generic En CA</label>
+</Skill>

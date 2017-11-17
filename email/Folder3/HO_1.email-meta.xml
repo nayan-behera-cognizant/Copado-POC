@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>要カード更新のメールを見て、ハードオファーページにてカード更新（変更）するが登録できないお問合せに返信の際に使用10/11岡</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>HOページでカードの更新（変更が出来ない）方へ1</name>
+    <style>none</style>
+    <subject>【DAZNカスタマーサービス】お問合せありがとうございます</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>UTF-8</encodingKey>
+    <name>New Case -JP-EN</name>
+    <style>none</style>
+    <subject>【We have received your inquiry】from DAZN - {!Case.Thread_Id}</subject>
+    <textOnly>Dear {!IF(Account.Partner_ID__c == &quot;&quot;,Account.FirstName, &quot;DAZN for docomo user&quot;)}, 
+
+Thank you very much for your inquiry. 
+
+We&apos;ve received your inquiry ID: {!Case.CaseNumber}. 
+
+Customer Inquiry: &apos;{!Case.Description}&apos; 
+
+A member of our customer service team will be in touch within 24 hours regarding your inquiry. In the meantime, you may find some helpful information on our help page (https://my.dazn.com/help/JP-en).
+
+Ensuring that you enjoy DAZN is our priority.
+
+
+Privacy Policy 
+https://my.dazn.com/help/jp-en/privacy
+
+Terms of Use 
+https://my.dazn.com/help/jp-en/terms
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

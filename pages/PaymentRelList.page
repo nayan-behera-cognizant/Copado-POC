@@ -1,0 +1,78 @@
+<apex:page standardController="account" extensions="paymentRelListController" tabStyle="Zuora__Payment__c" showHeader="false" sidebar="false">
+<apex:includeScript value="/support/console/39.0/integration.js"/>
+    <apex:form id="paymentForm">
+        <apex:pageMessages ></apex:pageMessages>
+        <apex:commandLink rendered="{!isShowTable == false}" action="{!refreshPage}"  value="Back" reRender="paymentForm"/>
+    
+        <apex:pageBlock title="{!$Label.Payment_ReList_Tittle}" mode="edit" rendered="{!isShowTable}" id="paymentTable">     
+        
+            <apex:outputText rendered="{!(payRelList.size = 0)}" value="No records to display." />
+
+            <apex:pageBlockTable value="{!paymentWrp}" var="payRec" rendered="{!(paymentWrp.size != 0)}" > 
+                <apex:column >
+                    <apex:facet name="header">{!$Label.Payment_ReList_Number}</apex:facet>                    
+                    <a onclick="openPrimaryTab(this)" name="{!payRec.Id}" class="link">{!payRec.name}</a>     
+                </apex:column> 
+
+                <apex:column >
+                    <apex:facet name="header"></apex:facet>
+                    <apex:outputPanel rendered="{!payRec.isRefund}">
+                        <input type="button" name="{!payRec.Id}" value="Refund" onclick="refund(this);" />
+                    </apex:outputPanel>     
+                </apex:column>
+
+                <apex:column >
+                    <apex:facet name="header">{!$Label.Payment_ReList_Amount}</apex:facet>
+                    <apex:outputText value="{!payRec.amount}"/>                
+                </apex:column> 
+           
+                <apex:column >
+                    <apex:facet name="header">{!$Label.Payment_ReList_Effective_Date}</apex:facet>
+                    <apex:outputText value="{!payRec.effectiveDate}"/>                
+                </apex:column> 
+           
+                <apex:column >
+                    <apex:facet name="header">{!$Label.Payment_ReList_Payment_Method}</apex:facet>
+                    <apex:outputText value="{!payRec.paymentMethod}"/>
+                </apex:column> 
+           
+                <apex:column >
+                    <apex:facet name="header">{!$Label.Payment_ReList_Status}</apex:facet>
+                    <apex:outputText value="{!payRec.status}"/>                
+                </apex:column> 
+           
+                <apex:column >
+                    <apex:facet name="header">{!$Label.Payment_ReList_Created_Date}</apex:facet>
+                    <apex:outputText value="{!payRec.creaeDate}"/>                
+                </apex:column> 
+            </apex:pageBlockTable>
+
+            <apex:actionFunction action="{!refundProcess}" name="refundProcess" reRender="paymentForm">
+                <apex:param name="choosePaymentId" assignTo="{!choosePaymentId}" value=""/>
+            </apex:actionFunction>
+    </apex:pageBlock>
+
+    <script>     
+        function refund(element) {
+            refundProcess(element.name);
+        }
+
+        function openPrimaryTab(element) {
+            var id = element.name
+            if (sforce.console.isInConsole()) {
+                sforce.console.openPrimaryTab(null,'/'+id, true);
+            } else {
+                window.open('/'+id, target='_blank');
+            }
+        }
+    </script>    
+    <style type="text/css">
+        .link {
+            text-decoration: underline;
+            cursor: pointer
+        }
+    </style>
+
+  </apex:form>
+
+</apex:page>

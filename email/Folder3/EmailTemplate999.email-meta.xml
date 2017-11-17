@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>返金手続の不備により、再度返金した後の完了メール</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>返金手続き失敗</name>
+    <style>none</style>
+    <subject>【DAZNカスタマーサービス】突然のご連絡となり申し訳ございません。</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

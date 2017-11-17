@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Custom Provider</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Custom Providers</value>
+    </caseValues>
+    <fields>
+        <label><!-- Country Code --></label>
+        <name>Country_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Language --></label>
+        <name>Language__c</name>
+        <picklistValues>
+            <masterLabel>de</masterLabel>
+            <translation><!-- de --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>en</masterLabel>
+            <translation><!-- en --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>fr</masterLabel>
+            <translation><!-- fr --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ja</masterLabel>
+            <translation><!-- ja --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Provider Type --></label>
+        <name>Provider_Type__c</name>
+        <picklistValues>
+            <masterLabel>DAZN</masterLabel>
+            <translation><!-- DAZN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Docomo</masterLabel>
+            <translation><!-- Docomo --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Non-member</masterLabel>
+            <translation><!-- Non-member --></translation>
+        </picklistValues>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

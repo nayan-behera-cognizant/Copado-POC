@@ -1,0 +1,266 @@
+<apex:page showHeader="false"
+    controller="InternalServerErrorController"
+    standardStylesheets="false"
+    language="{! IF(BEGINS(UPPER($CurrentPage.parameters.lang), 'EN'), IF($CurrentPage.parameters.Country == 'CA', 'en_US', 'en_GB'), $CurrentPage.parameters.lang) }"
+    applyHtmlTag="false"
+    docType="html-5.0"
+>
+
+<c:FetchLanguageCookie myPageName="InternalServerError" areaToRefreshName="internalServerErrorRerender" />
+<apex:outputPanel id="internalServerErrorRerender">
+    <head>
+        <title>{!$Label.LS_InternalServerError_Title}</title>
+        <meta name="google-site-verification" content="1m_JV80vU3gln3KyYeAm5woixeUHQOvhrbGjS-0g6J0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale = 1.0" />
+        <meta name="description" content="{$Label.LS_InternalServerError_Description}" />
+        <meta name="keywords" content="{$Label.LS_InternalServerError_Keywords}" />
+        <apex:stylesheet value="{!$Resource.LS_MyAccount_Css}"/>
+        <apex:stylesheet value="{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/css/base-method-ember-styleguide.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/css/vendor.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/css/styles.css')}" />
+        <apex:includescript value="{!URLFOR($Resource.LS_JQuery)}"/>    
+        <apex:includescript value="{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/js/jquery.min.js')}"/>
+        <link REL="SHORTCUT ICON" HREF="{!URLFOR($Resource.DAZN_favicon_default)}" />
+        <link REL="apple-touch-icon" sizes="57x57" HREF="{!URLFOR($Resource.DAZN_appletouchicon57_57 )}" />
+        <link REL="apple-touch-icon" sizes="60x60" HREF="{!URLFOR($Resource.DAZN_appletouchicon60_60 )}" />
+        <link REL="apple-touch-icon" sizes="72x72" HREF="{!URLFOR($Resource.DAZN_appletouchicon72_72 )}" />
+        <link REL="apple-touch-icon" sizes="76x76" HREF="{!URLFOR($Resource.DAZN_appletouchicon76_76 )}" />
+        <link REL="apple-touch-icon" sizes="114x114" HREF="{!URLFOR($Resource.DAZN_appletouchicon144_144 )}" />
+        <link REL="apple-touch-icon" sizes="120x120" HREF="{!URLFOR($Resource.DAZN_appletouchicon120_120 )}" />
+        <link REL="apple-touch-icon" sizes="144x144" HREF="{!URLFOR($Resource.DAZN_appletouchicon144_144 )}" />
+        <link REL="apple-touch-icon" sizes="152x152" HREF="{!URLFOR($Resource.DAZN_appletouchicon152_152 )}" />
+        <link REL="apple-touch-icon" sizes="180x180" HREF="{!URLFOR($Resource.DAZN_appletouchicon180_180 )}" />
+        <link REL="icon" type="image/png" HREF="{!URLFOR($Resource.DAZN_favicon_32_32 )}"  sizes="32x32"/>
+        <link REL="icon" type="image/png" HREF="{!URLFOR($Resource.DAZN_androidchrome192_192 )}"  sizes="192x192" />
+        <link REL="icon" type="image/png" HREF="{!URLFOR($Resource.DAZN_favicon_96_96 )}"  sizes="96x96" />
+        <link REL="icon" type="image/png" HREF="{!URLFOR($Resource.DAZN_favicon_16_16 )}"  sizes="16x16" />
+        <link rel="mask-icon" href="{!URLFOR($Resource.DAZN_favicon_svg16_16 )}"  color="#000" />
+        <link rel="icon" type="image/svg" sizes="any" href="{!URLFOR($Resource.DAZN_favicon_svg16_16 )}" />  
+        <apex:includescript value="{!URLFOR($Resource.Version)}"/> <!--PD-8766 - To get version of the product from Static Resource-->
+        
+        <style type="text/css">
+            .label-heading {
+                font-family: "FoundryGridnik W01-Bold";
+                font-size: 42px;
+                color: #FFFFFF;
+                text-transform: uppercase;
+            }
+            
+            .label-subtext {
+                font-family: helvetica, Arial;
+                font-size: 18px;
+                color: #FFFFFF;
+            }
+            
+            .label-subtext a {
+                color: #FFFFFF;
+                border-bottom: 1px solid #FFFFFF;
+                cursor: pointer;
+            }
+            
+            .label-subtext a:focus, .label-subtext a:active, .label-subtext a:visited, .label-subtext a:hover {
+                text-decoration: none;
+            }
+            
+            .spanImag {
+                display: block;
+                width: 80px;
+                height: 80px;
+                background: url("{!URLFOR($Resource.loginpage, 'images/dazn_logo_80px.png')}");
+            }
+            
+            .spanImageUpdated {
+                display: block;
+                width: 80px;
+                height: 80px;
+                background-repeat: no-repeat;
+                background-position: 0px 0px;
+                background-size: cover;
+                margin-top: 20px;
+                margin-left: 0px;
+            }
+            
+            .errorPage #helpHomeWrapper .spanImageUpdated {
+                width: 80px;
+                height: 80px;
+                background-position: 0px -17px;
+            }
+            
+            .backToHomeLink,
+            .txtAlignCtr,
+            .help.accHdr {
+                display: none;
+            }
+            
+            .errorPageBg {
+                background-image: url("{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/images/LS_helpAccountError.jpg')}");
+                background-repeat: no-repeat;
+                background-position: left center;
+                background-size: cover;
+                width: 100%;
+                height: 491px;
+            }
+            .hrSectionGrey.updateHrGrey {
+                width: 100%;
+                margin-left: 0 !important;
+                margin-bottom: 0;
+            }
+            .row.col-md-12.col-xs-12.col-sm-12.col-lg-12.padding0 {
+                width: auto;
+                float: none;
+                margin: 0;
+                display: none;
+            }
+            .errorPage .container.foundryFontMedium {
+                width: auto;
+                padding: 0;
+                margin: 10px 0;
+            }
+            .errorFooter {
+                background-color: #000000;
+            }
+            .errorPage>row {
+                position: relative;
+            }
+            .blackBg {
+                position: absolute;
+                background-color: #000;
+                width: 100%;
+                min-height: 52px;
+            } 
+            .form-fields--form-button-e53320ec.primary .wrapper::after, .form-fields--form-button-e53320ec.primary .wrapper::before{
+                margin-top:-10px;
+            }
+            .form-fields--form-button-e53320ec.primary .wrapper.custStyleBtn {
+                background-color: #ffffff;
+                font-family: "FoundryGridnik W01-Regular";
+                color: #1d1d1d !important;
+                letter-spacing: 0;
+                text-decoration: none;
+                font-size: 18px;
+                padding: 0;
+                line-height:54px;
+                text-align: center;
+                border-radius: 0px;
+                width: 288px;
+                height: 60px;
+                margin: 10px 0 30px;
+                text-transform: uppercase;
+            }
+            .form-fields--form-button-e53320ec.primary {
+                margin-top: 1em;
+            }
+            .form-fields--form-button-e53320ec.primary .wrapper:before {
+                border-left: 10px solid #92A3C2;
+            }
+            .form-fields--form-button-e53320ec.primary .wrapper:after {
+                border-right: 10px solid #92A3C2;
+            }
+            .tradeList {
+                font-size: 16px;
+            }
+            
+            @media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
+                #helpHomeWrapper {
+                    margin: 5px auto;
+                }
+                .errorContent {
+                    min-height: 392px;
+                }
+                .label-heading {
+                    margin-top: 0;
+                }
+            }
+            
+            @media only screen and (min-device-width: 768px)  {
+                .errorPage {
+                    height: 785px;
+                } 
+                .errorContent {
+                    min-height: 700px;
+                }
+                .label-heading {
+                    font-size: 52px;
+                }
+                .form-fields--form-button-e53320ec.primary .wrapper.custStyleBtn {
+                    font-size: 20px;
+                    width: 275px;
+                }
+                .label-heading {
+                    margin-top: 0;
+                }
+            }
+            
+            @media only screen and (min-device-width: 992px)  {
+                .label-heading {
+                    font-size: 58px;
+                }
+                .label-subtext {
+                    font-size: 28px;
+                }
+                .errorContent {
+                   padding: 0 3em;
+                }
+                .form-fields--form-button-e53320ec.primary .wrapper.custStyleBtn {
+                    font-size: 20px;
+                    width: 227px;
+                }
+                .langDe .form-fields--form-button-e53320ec.primary .wrapper.custStyleBtn {
+                    font-size: 20px;
+                    width: 250px;
+                }
+                .form-fields--form-button-e53320ec.primary {
+                    margin-top: 1em;
+                }
+            }
+        </style>
+    </head>
+    <body bgcolor="black">
+        <!-- Google Tag Manager -->
+        <c:GTMHeader sPageName="InternalServerError"></c:GTMHeader>
+        <apex:form id="ISEfrm" >
+                <div class="errorPage errorPageBg">
+                <div class="blackBg">&nbsp;</div>
+                <div class="container">
+                    <c:LS_HelpHeader />
+                    <div class="row errorContent"  >
+                        <div class="col-xs-12">
+                            <h1 class="label-heading">{!$Label.LS_ErrorPage_Label_Internal_Server_Error}</h1>
+                            <p>
+                                <apex:outputText escape="false" value="{! $Label.LS_ErrorPage_Label_Internal_Server_Error_Message }" styleClass="label-subtext" >
+                                    <apex:param value="{! $CurrentPage.parameters.Country }" />
+                                    <apex:param value="{! $CurrentPage.parameters.lang }" />
+                                </apex:outputText>
+                            </p>
+                        </div>
+                        <div class="col-xs-12 col-sm-8 ember-view form-fields--form-button-e53320ec primary">
+                            <a href="http://www.dazn.com" class="btn txtUpperCase custStyleBtn wrapper" id="backToDazn">{!$Label.LS_ErrorPage_Button_Refresh_Page}</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!--<div class="errorFooter langSwitcher" style="display:none">
+                    <c:LS_Footer renderLangSwitcher="false"/>
+                </div>-->
+            </div>
+            <script type="text/javascript">
+            $(document).ready(function() {
+                var countryName = '{!sCountryName}'.toLowerCase();
+                if(countryName == 'jp' || countryName == 'japan') {
+                   $(".cookieFooterbg").hide(); 
+                   $('body').css("padding-bottom", "0");
+                } else {
+                   $(".cookieFooterbg").show(); 
+                   $('body').css("padding-bottom", "65px");
+                }
+                //'$CurrentPage.parameters.errormsg' = "{!JSENCODE($CurrentPage.parameters.errormsg)}"
+            });
+            
+        </script>
+        </apex:form>
+        <c:CookiesComponent rendered="{!if(((cookieCountry == 'Japan') || (cookieCountry == 'JP')),false,true)}"/>
+    </body>
+
+</apex:outputPanel>
+
+</apex:page>

@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>DAZN User Feed</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>DAZN User Feed</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account --></label>
+        <name>AccountId__c</name>
+        <relationshipLabel><!-- DAZN User Feed --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Account Status --></label>
+        <name>Account_Status__c</name>
+        <picklistValues>
+            <masterLabel>Active Paid</masterLabel>
+            <translation><!-- Active Paid --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Frozen</masterLabel>
+            <translation><!-- Frozen --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Account Type --></label>
+        <name>Account_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Alias --></label>
+        <name>Alias__c</name>
+    </fields>
+    <fields>
+        <label><!-- Auth Key --></label>
+        <name>Auth_Key__c</name>
+    </fields>
+    <fields>
+        <label><!-- BillingCountryCode --></label>
+        <name>BillingCountryCode__c</name>
+    </fields>
+    <fields>
+        <label><!-- CommunityNickname --></label>
+        <name>CommunityNickname__c</name>
+    </fields>
+    <fields>
+        <label><!-- DAZN Id --></label>
+        <name>DAZN_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- EmailEncodingKey --></label>
+        <name>EmailEncodingKey__c</name>
+        <picklistValues>
+            <masterLabel>UTF-8</masterLabel>
+            <translation><!-- UTF-8 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Email Preferences --></label>
+        <name>Email_Preferences__c</name>
+    </fields>
+    <fields>
+        <label><!-- Email --></label>
+        <name>Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Error Message --></label>
+        <name>Error_Message__c</name>
+    </fields>
+    <fields>
+        <label><!-- First Name --></label>
+        <name>First_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- IP address --></label>
+        <name>IP_address__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Password Set --></label>
+        <name>Is_Password_Set__c</name>
+    </fields>
+    <fields>
+        <label><!-- LanguageLocaleKey --></label>
+        <name>LanguageLocaleKey__c</name>
+        <picklistValues>
+            <masterLabel>en_GB</masterLabel>
+            <translation><!-- en_GB --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ja</masterLabel>
+            <translation><!-- ja --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Last Name --></label>
+        <name>Last_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- LocaleSidKey --></label>
+        <name>LocaleSidKey__c</name>
+        <picklistValues>
+            <masterLabel>ja_JP</masterLabel>
+            <translation><!-- ja_JP --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Num Retries --></label>
+        <name>Num_Retries__c</name>
+    </fields>
+    <fields>
+        <label><!-- Partner Id --></label>
+        <name>Partner_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Partner Registration status --></label>
+        <name>Partner_Registration_status__c</name>
+        <picklistValues>
+            <masterLabel>Complete</masterLabel>
+            <translation><!-- Complete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Incomplete</masterLabel>
+            <translation><!-- Incomplete --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Request Type --></label>
+        <name>Request_Type__c</name>
+        <picklistValues>
+            <masterLabel>Insert</masterLabel>
+            <translation><!-- Insert --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Update</masterLabel>
+            <translation><!-- Update --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Secondary Email --></label>
+        <name>Secondary_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Failed</masterLabel>
+            <translation><!-- Failed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In progress</masterLabel>
+            <translation><!-- In progress --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Started</masterLabel>
+            <translation><!-- Not Started --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Successful</masterLabel>
+            <translation><!-- Successful --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>To be retried</masterLabel>
+            <translation><!-- To be retried --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Subscription End Date --></label>
+        <name>Subscription_End_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Subscription Start Date --></label>
+        <name>Subscription_Start_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- TimeZoneSidKey --></label>
+        <name>TimeZoneSidKey__c</name>
+        <picklistValues>
+            <masterLabel>Asia/Tokyo</masterLabel>
+            <translation><!-- Asia/Tokyo --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Portal user id of the account created --></help>
+        <label><!-- User --></label>
+        <name>UserId__c</name>
+        <relationshipLabel><!-- DAZN User Feed --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- User Type --></label>
+        <name>User_Type__c</name>
+        <picklistValues>
+            <masterLabel>Docomo</masterLabel>
+            <translation><!-- Docomo --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- ViewerId --></label>
+        <name>ViewerId__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

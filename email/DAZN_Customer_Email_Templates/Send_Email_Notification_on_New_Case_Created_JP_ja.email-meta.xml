@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>New customer case submitted</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Send Email Notification on New Case Created JP_ja</name>
+    <style>none</style>
+    <subject>【お問い合わせを承りました】 DAZNからのご連絡</subject>
+    <textOnly>○○様{!Case.Account}
+
+この度は、お問い合わせいただきありがとうございます。
+
+お客様より{!Case.CaseNumber} about {!Case.Type}.について、お問い合わせ番号{!Case.CaseNumber}を承りました。
+
+お問い合わせの件につきましては、あらためて弊社カスタマーサービス担当者より24時間以内に連絡致しますので、恐れ入りますが今しばらくお待ちくださいませ。
+
+担当者からの返答をお待ちの間に、こちらのリンクにアクセスいただければ幸いでございます（一部ご確認いただけない環境・状況もございます）。
+
+ご不便をおかけして申し訳ございませんが、少々お待ちいただけますようお願い申し上げます。</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

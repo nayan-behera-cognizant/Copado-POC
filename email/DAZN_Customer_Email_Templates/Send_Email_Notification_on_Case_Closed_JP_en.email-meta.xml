@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Case status changed to closed due to elapsed time from resolved</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Send Email Notification on Case Closed JP_en</name>
+    <style>none</style>
+    <subject>【Thank you very much】from DAZN</subject>
+    <textOnly>Hi {!Case.Account},  Thank you very much for your inquiry.  Thank you for your inquiry ID: {!Case.CaseNumber} about {!Case.Type}.  We hope your question was satisfactorily answered by our Customer Support team, and you&apos;re now using DAZN without any issues. We have now closed your inquiry ID:{!Case.CaseNumber} about {!Case.Type}.  If you are still having problems, there&apos;s some helpful information here https://stag.dazn.com/help. Or please contact Customer Support directly https://stag.dazn.com/contactus who are happy to help.  Ensuring that you enjoy DAZN is our priority.</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

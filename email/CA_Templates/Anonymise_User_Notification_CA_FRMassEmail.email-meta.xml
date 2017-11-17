@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Anonymise User Notification</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Anonymise User Notification -CA-FR Mass Email</name>
+    <style>none</style>
+    <subject>{!Account.Cached_FirstName__c} : {!Account.Cached_LastName__c} was anonymised</subject>
+    <textOnly>{!Account.Cached_FirstName__c} {!Account.Cached_LastName__c} your account was anonymized Privacy Policy https://my.dazn.com/help/jp-ja/privacy Terms of Use https://my.dazn.com/help/jp-ja/terms</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

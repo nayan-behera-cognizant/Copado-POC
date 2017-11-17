@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>DAZN Beta Configuration</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>DAZN Beta Configuration</value>
+    </caseValues>
+    <fields>
+        <label><!-- CountryCode --></label>
+        <name>CountryCode__c</name>
+    </fields>
+    <fields>
+        <label><!-- Country --></label>
+        <name>Country__c</name>
+    </fields>
+    <fields>
+        <label><!-- IsBeta --></label>
+        <name>IsBeta__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Error message: Das Konto muss in dem Land sein, in dem du dich gerade befindest</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Das Konto muss in dem Land sein, in dem du dich gerade befindest</name>
+    <style>none</style>
+    <subject>Das Konto muss in dem Land sein, in dem du dich gerade befindest</subject>
+    <textOnly>Hallo Sportsfreund,
+
+Du meldest dich bei uns, weil du die Fehlermeldung „Das Konto muss in dem Land sein, in dem du dich gerade befindest.“ angezeigt bekommst, wenn du dich registrieren möchtest.
+
+Leider handelt es sich dabei um ein Problem an dem unsere Techniker bereits arbeiten. Wann es behoben sein wird, wissen wir im Moment leider noch nicht.
+
+Du kannst versuchen dich von einer anderen Internetverbindung, wie z.B. deinem Handy, anzumelden. Ich kann dir leider nicht versprechen, dass das für dich funktionieren wird, aber es hat für viele andere funktioniert.
+
+Wenn das nicht klappen sollte, dann können wir dich im Moment leider nur um ein wenig mehr Geduld bitten, bis unsere Techniker das Problem gelöst haben.
+
+Schöne Grüße,
+Dein DAZN Team</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

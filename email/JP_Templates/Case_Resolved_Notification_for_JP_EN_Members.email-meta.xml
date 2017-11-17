@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>JP_EN</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Case Resolved Notification for JP_EN Members</name>
+    <style>none</style>
+    <subject>{!Case.Subject} has been resolved- Thread Id - {!Case.Thread_Id} : Case # {!Case.CaseNumber}</subject>
+    <textOnly>Dear {!IF(Account.Partner_ID__c == &quot;&quot;,Account.FirstName, &quot;DAZN for docomo user&quot;)}, 
+
+Thank you very much for your inquiry.
+
+We sent a response to your enquiry regarding {!Case.Type} 48 hours ago. We just wanted to check if we were able to assist you correctly or if you needed any further assistance. 
+
+Please be noted that your case will be closed in 24 hours if we don&apos;t hear back from you. 
+
+Thank you very much for being a valuable member of our team.
+
+
+Privacy Policy 
+https://my.dazn.com/help/jp-en/privacy 
+
+Terms of Use 
+https://my.dazn.com/help/jp-en/terms 
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

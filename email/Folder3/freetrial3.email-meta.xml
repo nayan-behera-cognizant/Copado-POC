@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>UTF-8</encodingKey>
+    <name>バグで退会後、カード更新メールが届く_Freetrial_削除済返信</name>
+    <style>none</style>
+    <subject>【DAZNカスタマーサービス】ご登録情報削除完了のご連絡</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

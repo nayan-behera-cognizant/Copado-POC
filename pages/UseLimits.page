@@ -1,0 +1,44 @@
+<apex:page controller="UseLimitsController" action="{!execute}">
+	<apex:form >
+		
+		<apex:pageBlock title="Summary of Salesforce Governer limit ">
+			<apex:commandButton value="Refresh" action="{!execute}" reRender="blockOfInfo, dateTimeRefresh"/>
+			
+			<apex:outputPanel id="dateTimeRefresh">
+				<apex:outputLabel for="Refresh: " value="Last Refresh: "/>
+				<apex:outputText id="lastRefresh" value="{0,date,yyyy.MM.dd 'at' HH:mm:ss }">
+					<apex:param value="{!lastRefresh}"/>
+				</apex:outputText>
+			</apex:outputPanel>
+		</apex:pageBlock>
+		<apex:pageBlock >
+			<apex:pageBlockTable id="blockOfInfo" value="{!inf}" var="i">
+				<apex:column headerValue="Salesfroce Limits" value="{!i.name}"/>
+				<apex:column headerValue="Total">
+					<apex:outputText value="{0,number,0}">
+					    <apex:param value="{!i.max}"/>
+					</apex:outputText>
+				</apex:column>
+
+				<apex:column headerValue="Remaining" >
+					<apex:outputText value="{0,number,0}">
+					    <apex:param value="{!i.remaining}"/>
+					</apex:outputText>
+				</apex:column>
+				
+				<apex:column headerValue="Remaining (%)" >
+					<apex:outputText value="{0,number,0.00}">
+					    <apex:param value="{!i.percent}"/>
+					</apex:outputText>
+				</apex:column>
+				
+				<apex:column headerValue="Status">
+					<apex:image url="{!URLFOR($Resource.pictureForStatus, 'picture/red.png')}" rendered="{!i.isRed}"/>
+					<apex:image url="{!URLFOR($Resource.pictureForStatus, 'picture/yellow.png')}" rendered="{!i.isYellow}"/>
+					<apex:image url="{!URLFOR($Resource.pictureForStatus, 'picture/green.png')}" rendered="{!i.isGreen}"/>
+				</apex:column>
+			</apex:pageBlockTable>
+		</apex:pageBlock>
+
+	</apex:form>
+</apex:page>

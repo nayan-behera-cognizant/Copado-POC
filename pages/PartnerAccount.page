@@ -1,0 +1,952 @@
+<apex:page controller="PartnerAccountController" showHeader="false" cache="false" expires="0" standardStylesheets="false" action="{!navigateUser}" applyHtmlTag="false" docType="html-5.0">
+
+    <head>
+        <meta name="google-site-verification" content="1m_JV80vU3gln3KyYeAm5woixeUHQOvhrbGjS-0g6J0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8" />
+        <link REL="SHORTCUT ICON" HREF="{!URLFOR($Resource.DAZN_favicon_default)}" />
+        <link REL="apple-touch-icon" sizes="57x57" HREF="{!URLFOR($Resource.DAZN_appletouchicon57_57 )}" />
+        <link REL="apple-touch-icon" sizes="60x60" HREF="{!URLFOR($Resource.DAZN_appletouchicon60_60 )}" />
+        <link REL="apple-touch-icon" sizes="72x72" HREF="{!URLFOR($Resource.DAZN_appletouchicon72_72 )}" />
+        <link REL="apple-touch-icon" sizes="76x76" HREF="{!URLFOR($Resource.DAZN_appletouchicon76_76 )}" />
+        <link REL="apple-touch-icon" sizes="114x114" HREF="{!URLFOR($Resource.DAZN_appletouchicon144_144 )}" />
+        <link REL="apple-touch-icon" sizes="120x120" HREF="{!URLFOR($Resource.DAZN_appletouchicon120_120 )}" />
+        <link REL="apple-touch-icon" sizes="144x144" HREF="{!URLFOR($Resource.DAZN_appletouchicon144_144 )}" />
+        <link REL="apple-touch-icon" sizes="152x152" HREF="{!URLFOR($Resource.DAZN_appletouchicon152_152 )}" />
+        <link REL="apple-touch-icon" sizes="180x180" HREF="{!URLFOR($Resource.DAZN_appletouchicon180_180 )}" />
+        <link REL="icon" type="image/png" HREF="{!URLFOR($Resource.DAZN_favicon_32_32 )}" sizes="32x32" />
+        <link REL="icon" type="image/png" HREF="{!URLFOR($Resource.DAZN_androidchrome192_192 )}" sizes="192x192" />
+        <link REL="icon" type="image/png" HREF="{!URLFOR($Resource.DAZN_favicon_96_96 )}" sizes="96x96" />
+        <link REL="icon" type="image/png" HREF="{!URLFOR($Resource.DAZN_favicon_16_16 )}" sizes="16x16" />
+        <link rel="mask-icon" href="{!URLFOR($Resource.DAZN_favicon_svg16_16 )}" color="#000" />
+        <link rel="icon" type="image/svg" sizes="any" href="{!URLFOR($Resource.DAZN_favicon_svg16_16 )}" />
+        <!-- PD-8777 start -->
+        <c:GoogleAnalytics />
+        <!-- PD-8777 end -->
+        <!--<title>{!$Label.LS_My_Account_Title}</title>-->
+        <title>{!pageData.myAccountTitle}</title>
+
+        <!-- PD-10030 start  
+        <c:DeviceRegistrator />
+         PD-10030 end -->
+
+    </head>
+
+    <body bgcolor="black" class="myAct">
+
+        <!-- Google Tag Manager START -->
+        <c:GTMHeader sPageName="partnerAccount"></c:GTMHeader>
+        <!-- Google Tag Manager END -->
+
+        <apex:form id="frmMyAccount" html-autocomplete="false">
+            <div ng-app="myApp" ng-controller="myCtrl" id="partnerAcct">
+                <apex:actionFunction name="saveNameChanges" action="{! saveNameChanges }" reRender="idMyDetail,idName,idErrorMsg" />
+                <apex:actionFunction name="saveEmailChanges" action="{! saveEmailChanges }" reRender="idMyDetail,idEmail,idErrorMsg, idEmailInput" oncomplete="saveEmailChangesOnComplete()" />
+                <apex:actionFunction name="signoutAllDevices" action="{! signoutAllDevices }" reRender="idMyDevices" oncomplete="return false;" />
+                <apex:actionFunction name="showSignOutBanner" action="{! showSignOutBanner }" />
+                <apex:actionFunction name="SaveLanguageChanges" action="{! updateUserLanguage }" oncomplete="window.location.reload();">
+                    <apex:param name="language" value="" assignTo="{! strSelectedLanguage }" />
+                </apex:actionFunction>
+                <apex:actionFunction name="savePasswordChanges" action="{!savePasswordChanges}" reRender="idMyDetail,idPassword,idErrorMsg, idPasswordEdit" />
+
+                <apex:actionFunction name="refreshDeviceSection" action="{! showAllUserDevices }" reRender="idMyDevices" />
+
+                <!-- Panel for Banner -->
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="row">
+                        <apex:outputPanel rendered="{!showbanner}">
+                            <div class="alert alert-warning bannerContainer" id="myAlert">
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+                                        <h1 class="banner ">{!HTMLENCODE(sBannerHeader)}</h1>
+                                        <p class="alertStat CustomLabels">{!HTMLENCODE(sBanner)}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-12 col-md-12 signOutAllBtn">
+                                        <span class="form-fields--form-button-e53320ec primary frtBtn">
+                                            <apex:commandLink value="{!pageData.button_OK}" onclick="updatedataLayerAttribute(event)" rendered="{!bShowSignOutButton == false}" action="{!closeBanner}" styleClass="wrapper btn txtUpperCase okBtn"/>
+                                            <apex:commandLink value="{!pageData.button_Cancel}" onclick="updatedataLayerAttribute(event)" rendered="{!bShowSignOutButton}" action="{!closeBanner}" styleClass="wrapper btn txtUpperCase okBtn"/>
+                                        </span>
+                                        <span class="ember-view ember-view form-fields--form-button-e53320ec form-fields--form-button-ae71fbed reverse primary">
+                                            <apex:commandLink onclick="updatedataLayerAttribute(event)" value="{!pageData.myAccount_Banner_Button_Start_Watching_DAZN}" rendered="{!showStartWatchingDAZN}" action="{!DAZNHomePageNavigationHandler}" styleClass="reverse wrapper btn txtUpperCase btn-text startBtn"/>
+                                        </span>
+                                        <apex:outputPanel rendered="{!bShowSignOutButton}" styleClass="ember-view ember-view form-fields--form-button-e53320ec form-fields--form-button-ae71fbed reverse primary">
+                                            <apex:commandLink action="{!signoutAllDevices}" onclick="updatedataLayerAttribute(event)" id="btnSignUp" value="{!pageData.button_YesDeregister}" styleClass="reverse wrapper btn txtUpperCase btn-text" />
+                                        </apex:outputPanel>
+                                    </div>
+                                </div>
+                            </div>
+                        </apex:outputPanel>
+                    </div>
+                </div>
+
+                <!-- Panel for Banner for single device-->
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="row">
+                        <apex:outputPanel rendered="{! showbannerforSingledevice }" id="bannerforSingledevice">
+                            <div class="alert alert-warning bannerContainer" id="myAlert">
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                        <h1 class="banner">{! HTMLENCODE(sBannerHeader) } </h1>
+                                        <p class="alertStat">{! HTMLENCODE(sBanner) }</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-12 col-md-12 dereg1Dvc">
+                                        <span class="form-fields--form-button-e53320ec primary">
+                                            <apex:commandLink value="{!pageData.button_Cancel}" action="{! closeBanner }" styleClass="btn txtUpperCase okBtn cancelBtn"/>
+                                        </span>
+                                        <apex:outputPanel rendered="{! bShowSignOutButton }" styleClass="ember-view ember-view form-fields--form-button-e53320ec form-fields--form-button-ae71fbed reverse primary">
+                                            <apex:commandLink action="{! deregisterSingelUserDevice }" id="btnSignUp1" value="{!pageData.button_YesDeregister}" styleClass="reverse wrapper btn txtUpperCase btn-text" />
+                                        </apex:outputPanel>
+                                    </div>
+                                </div>
+                            </div>
+                        </apex:outputPanel>
+                    </div>
+                </div>
+
+                <div class="container wrapperMyAccount">
+                    <c:LS_Header />
+
+                    <!-- PERSONAL DETAILS Section START -->
+                    <apex:outputPanel rendered="{! partnerAccConfig.Show_Personal_Details__c }" id="idMyDetail">
+                        <div class="col-sm-12 col-md-12 padding0">
+                            <div class="panel-body personalDetails">
+                                <div class="row mrtop_22">
+                                    <div class="col-sm-12 col-md-4 col-lg-4 myacctHeading padding0">
+                                        <label for="input-id" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 foundryFontRegular padding0 detailsHdr">{! $Label.LS_MyAccount_Label_My_Details }</label>
+                                    </div>
+                                    <div class="col-sm-12 col-md-8 col-lg-8 padding0">
+                                        <!-- Username display and edit Subsection Start -->
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
+                                                <apex:outputPanel rendered="{!isAppleUser == false}">
+                                                    <apex:outputPanel rendered="{!if((strSelectedLanguage == 'ja'), false, true) }">
+                                                        <p>{!pageData.partnerAcc_Label_PersonalDesc} <a href="{! termsURL }">{!pageData.partnerAcc_Label_termsofUse}</a> {!pageData.partnerAcc_Label_PersonalDescAnd} <a href="{! privacyURL }">{!pageData.partnerAcc_Label_PrivacyPolicy}</a>.</p>
+                                                    </apex:outputPanel>
+                                                    <apex:outputPanel rendered="{!if((strSelectedLanguage == 'ja'), true, false) }">
+                                                        <p>{!pageData.partnerAcc_Label_PersonalDesc_Part1}<a href="{! termsURL }">{!pageData.partnerAcc_Label_termsofUse}</a> {!pageData.partnerAcc_Label_PersonalDescAnd} <a href="{! privacyURL }">{!pageData.partnerAcc_Label_PrivacyPolicy}</a>{!pageData.partnerAcc_Label_PersonalDesc_Part1}</p>
+                                                    </apex:outputPanel>
+                                                </apex:outputPanel>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                <apex:outputPanel id="idName">
+                                                    <apex:outputPanel rendered="{! NOT(isNameEdit)  && NOT(isNameEditForJP)}">
+                                                        <div class="row">
+                                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 myAccountlabelTxt1">
+                                                                {!pageData.myAccount_Name}
+                                                            </div>
+                                                        </div>
+                                                        <div class="row mrtop_12">
+                                                            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 inptValue displayValue">
+                                                                <apex:outputText escape="false" Value="{!HTMLENCODE(sAccountName)}" />
+                                                            </div>
+                                                            <div class="col-xs-4 col-sm-4 col-md-2 txtUpperCase foundryFontRegular" style="text-align:right;">
+                                                                <apex:commandLink rendered="{! partnerAccConfig.First_Name_Editable__c || partnerAccConfig.Last_Name_Editable__c }" value="{!pageData.button_Edit}" onclick="updatedataLayerAttribute(event)" action="{! edit }" rerender="idName,idEmail" styleClass="edit-button link-unique">
+                                                                    <apex:param value="Name" name="field" />
+                                                                </apex:commandLink>
+                                                            </div>
+                                                        </div>
+                                                    </apex:outputPanel>
+                                                    <apex:outputPanel id="idNameInput" rendered="{! isNameEdit }">
+                                                        <div class="row foundryFontRegular  ">
+                                                            <div class="mt-row col-xs-12 col-sm-6 FnLnameBlk">
+                                                                <div class="bp1-col-4 style-row inputEditable">
+                                                                    <div id="ember1099" class="ember-view form-fields--text-input-71621ee4 is-passive-content focus-out">
+                                                                        <label class="label">
+                                                                            <span class="label-text spanMarg">
+                                                                                <apex:outputText Value="{!pageData.myAccount_Label_Firstname}"/>
+                                                                            </span>
+                                                                        </label>
+                                                                        <div class="input-wrapper"></div>
+                                                                        <apex:inputText disabled="{! NOT(partnerAccConfig.First_Name_Editable__c) }" styleclass="form-control customStyle customFormInput" id="idFirstname" style="margin-bottom: 2%" value="{! strFirstName }" onblur="return validateFirstNameNew();"></apex:inputText>
+                                                                        <span class="error-message customErrorMessage" id="idFirstNameValidation">
+                                                                            <apex:outputText value="{! sNameValidFirstNameErrMsg }" styleclass="errMsg" ></apex:outputText>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="mt-row col-xs-12 col-sm-6 FnLnameBlk ln">
+                                                                <div class="bp1-col-4 style-row inputEditable lastNameFld">
+                                                                    <div id="ember1099" class="ember-view form-fields--text-input-71621ee4 is-passive-content focus-out">
+                                                                        <label class="label">
+                                                                            <span class="label-text spanMarg">
+                                                                                <apex:outputText Value="{!pageData.myAccount_Label_Surname}"/>
+                                                                            </span>
+                                                                        </label>
+                                                                        <div class="input-wrapper"></div>
+                                                                        <apex:inputText disabled="{! NOT(partnerAccConfig.Last_Name_Editable__c) }" styleclass="form-control customStyle customFormInput" id="idSurname" style="margin-bottom: 2%" value="{! strLastName }" onblur="return validateSurNameNew();"></apex:inputText>
+                                                                        <span class="error-message customErrorMessage" id="idSurNameValidation">
+                                                                            <apex:outputText value="{! sNameValidSurNameErrMsg }"></apex:outputText>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="mt-row hidden-xs col-sm-6 FnLnameBlk">&nbsp;</div>
+                                                            <div class="mt-row col-xs-12 col-sm-16 FnLnameBlk canSavBtn">
+                                                                <ul class="cancelSaveSec">
+                                                                    <li class="sveBtnNew">
+                                                                        <apex:outputPanel styleClass="ember-view form-fields--form-button-e53320ec primary">
+                                                                            <apex:commandLink id="btnSaveNameChanges" value="{!pageData.button_Save}" onclick="return validateNSaveNameChanges(event, this);" rerender="idName" styleClass="wrapper btn txtUpperCase customStyleBtn saveName" />
+                                                                            <div id="preloadSpinner"></div>
+                                                                        </apex:outputPanel>
+                                                                    </li>
+                                                                    <li class="cancelBtnNew">
+                                                                        <apex:commandLink value="{!pageData.button_Cancel}" action="{! cancelEdit }" onclick="updatedataLayerAttribute(event)" rerender="idName" styleClass="cancelLink link-unique foundryFontRegular">
+                                                                            <apex:param value="Name" name="field" />
+                                                                        </apex:commandLink>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </apex:outputPanel>
+                                                    <apex:outputPanel id="idNameInputForJPJA" rendered="{!isNameEditForJP}">
+                                                        <div class="mt-row col-xs-12 col-sm-6 FnLnameBlk">
+                                                            <div class="bp1-col-4 style-row inputEditable">
+                                                                <div id="ember1099" class="ember-view form-fields--text-input-71621ee4 is-passive-content focus-out">
+                                                                    <label class="label"><span class="label-text spanMarg"><apex:outputText escape="false" Value="{!$Label.LS_MyAccount_Label_Surname}"/></span></label>
+                                                                    <div class="input-wrapper"></div>
+                                                                    <apex:inputText styleclass="form-control customStyle customFormInput" id="idSurnameJPJA" style="margin-bottom: 2%" value="{!strLastName}" onblur="return validateSurNameNew();"></apex:inputText>
+                                                                    <span class="error-message customErrorMessage" id="idSurNameValidation">
+                                                                        <apex:outputText escape="false" value="{!sNameValidSurNameErrMsg}"></apex:outputText>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row foundryFontRegular margBot20 ">
+                                                            <div class="mt-row col-xs-12 col-sm-6 FnLnameBlk ln">
+                                                                <div class="bp1-col-4 style-row inputEditable lastNameFld">
+                                                                    <div id="ember1099" class="ember-view form-fields--text-input-71621ee4 is-passive-content focus-out">
+
+                                                                        <label class="label"><span class="label-text spanMarg"><apex:outputText escape="false" Value="{!$Label.LS_MyAccount_Label_Firstname}"/></span></label>
+                                                                        <div class="input-wrapper"></div>
+                                                                        <apex:inputText styleclass="form-control customStyle customFormInput" id="idFirstnameJPJA" style="margin-bottom: 2%" value="{!strFirstName}" onblur="return validateFirstNameNew();"></apex:inputText>
+                                                                        <span class="error-message customErrorMessage" id="idFirstNameValidation">
+                                                                        <apex:outputText escape="false" value="{!sNameValidFirstNameErrMsg}" styleclass="errMsg" ></apex:outputText>
+                                                                    </span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="mt-row hidden-xs col-sm-6 FnLnameBlk">&nbsp;</div>
+                                                            <div class="mt-row col-xs-12 col-sm-16  FnLnameBlk ln canSavBtn">
+                                                                <ul class="cancelSaveSec">
+                                                                    <li class="sveBtnNew">
+                                                                        <apex:outputPanel styleClass="ember-view form-fields--form-button-e53320ec primary">
+                                                                            <apex:commandLink value="{!$Label.LS_Button_Save}" onclick="return validateNSaveNameChanges(event, this);" rerender="idName" styleClass="wrapper btn txtUpperCase customStyleBtn saveName" id="SaveNameJPJA" />
+                                                                            <div id="preloadSpinner"></div>
+                                                                        </apex:outputPanel>
+                                                                    </li>
+                                                                    <li class="cancelBtnNew">
+                                                                        <apex:commandLink value="{!$Label.LS_Button_Cancel}" action="{!cancelEdit}" onclick="updatedataLayerAttribute(event)" rerender="idName" styleClass="cancelLink link-unique foundryFontMedium" id="NameCancelJPJA">
+                                                                            <apex:param value="Name" name="field" />
+                                                                        </apex:commandLink>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </apex:outputPanel>
+                                                </apex:outputPanel>
+                                            </div>
+                                        </div>
+                                        <!-- Username display and edit Subsection End -->
+
+                                        <!-- Email display and edit Subsection Start -->
+                                        <div class="row foundryFontRegular">
+                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                <apex:outputPanel id="idEmail">
+                                                    <apex:outputPanel rendered="{! NOT(isEmailEdit) }">
+                                                        <div class="row foundryFontRegular">
+                                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 myAccountlabelTxt">
+                                                                {!pageData.myAccount_EmailAddress}
+                                                            </div>
+                                                        </div>
+                                                        <div class="row mrtop_12">
+                                                            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 inptValue displayValue">
+                                                                <span class="mailLink">
+                                                                    <apex:outputText value="{! emailAccount }"/>
+                                                                </span>
+                                                            </div>
+                                                            <div class="col-xs-4 col-sm-4 col-md-2 txtUpperCase foundryFontRegular" style="text-align:right">
+                                                                <apex:commandLink rendered="{! partnerAccConfig.Email_Editable__c }" value="{!pageData.button_Edit}" action="{! edit }" onclick="updatedataLayerAttribute(event)" rerender="idEmail,idName" styleClass="edit-button link-unique">
+                                                                    <apex:param value="Email" name="field" />
+                                                                </apex:commandLink>
+                                                            </div>
+                                                        </div>
+                                                    </apex:outputPanel>
+                                                    <apex:outputPanel id="idEmailInput" rendered="{! isEmailEdit}">
+                                                        <div class="row foundryFontRegular">
+                                                            <div class="col-xs-12 emailPwdFlds">
+                                                                <div id="ember1037" class="ember-view form-fields--text-input-71621ee4 is-passive focus-out">
+                                                                    <label class="label">
+                                                                        <span class="label-text">{!pageData.myAccount_EmailAddress}</span>
+                                                                    </label>
+                                                                    <div class="input-wrapper"></div>
+                                                                    <apex:inputText styleclass="form-control customFormInput emailFld" html-autocomplete="off" value="{! strNewEmail }" id="email" onblur="return validateEmail();" />
+                                                                    <span class="error-message customErrorMessage" id="emailvalidation">
+                                                                        <apex:outputText id="idEmailError" value="{! sEmailProvideNewEmailErrorMsg }"></apex:outputText>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <apex:outputPanel rendered="{!isAppleUser}">
+                                                            <div class="row ">
+                                                                <div class="col-xs-12 emailPwdFlds">
+                                                                    <div id="ember1037" class="ember-view form-fields--text-input-71621ee4 is-passive focus-out">
+                                                                        <label class="label">
+                                                                            <span class="label-text">{!$Label.LS_MyAccount_Label_Password}</span>
+                                                                        </label>
+                                                                        <div class="input-wrapper"></div>
+                                                                        <apex:inputSecret styleclass="form-control customFormInput" value="{!strPassword}" id="idEmailPwd" onblur="return validateEmailPassword();" onfocus="return validateEmailPasswordFocus();" />
+                                                                        <div class="col-xs-8 col-sm-8 col-md-12 col-lg-12 errorpanelwithforgotpasserr" id="divemailPwdValidation">
+                                                                            <span class="error-message customErrorMessage" id="emailPwdValidation">
+                                                                                <apex:outputText id="idEmailPasswordError" value="{!sEmailIncorrectPasswordErrorMsg}"></apex:outputText>
+                                                                            </span>
+                                                                        </div>
+                                                                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 ember-view foundryFontMedium errorpanelwithforgotpasslink">
+                                                                            <div class="displayBlock  errorpanelwithforgotpass ">
+                                                                                <a id="aForgotPassword" href="{!sForgotPasswordURL}" class="link-unique" onclick="updatedataLayerAttribute(event)">{!$Label.LS_MyAccount_Link_ForgotPassword}</a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </apex:outputPanel>
+
+                                                        <div class="row">
+                                                            <div class="hidden-xs hidden-sm hidden-md hidden-lg">&nbsp;</div>
+                                                            <div class="col-xs-12 emailPwdFlds foundryFontRegular ember-view form-fields--form-button-e53320ec savecancel">
+                                                                <ul class="cancelSaveSec">
+                                                                    <li class="sveBtnNew">
+                                                                        <apex:outputPanel styleClass="ember-view form-fields--form-button-e53320ec primary">
+                                                                            <apex:commandLink id="btnSaveEmail" value="{!pageData.button_Save}" onclick="return validateNSaveEmailChanges(event,this);" rerender="idEmail" styleClass="wrapper btn txtUpperCase customStyleBtn saveEmail" />
+                                                                            <div id="preloadSpinner"></div>
+                                                                        </apex:outputPanel>
+                                                                    </li>
+                                                                    <li class="cancelBtnNew">
+                                                                        <apex:commandLink value="{!pageData.button_Cancel}" action="{! cancelEdit }" rerender="idEmail" onclick="updatedataLayerAttribute(event)" styleClass="customSpanStyle cancelLink link-unique foundryFontRegular">
+                                                                            <apex:param value="Email" name="field" />
+                                                                        </apex:commandLink>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </apex:outputPanel>
+                                                </apex:outputPanel>
+                                            </div>
+                                        </div>
+                                        <!-- Password display and edit Section -->
+                                        <apex:outputPanel rendered="{!isAppleUser}">
+                                            <apex:outputPanel id="idPassword">
+                                                <apex:outputPanel rendered="{!NOT(isPasswordEdit)}">
+                                                    <div class="row">
+                                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 txtUpperCase myAccountlabelTxt">
+                                                            {!$Label.LS_MyAccount_Label_Password}
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mrtop_12">
+                                                        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 inptValuePwd">
+                                                            <apex:outputText value="{!$Label.LS_MyAccount_Placeholder_EncryptedPassword}" />
+                                                        </div>
+                                                        <div class="col-xs-4 col-sm-4 col-md-2 txtUpperCase foundryFontRegular" style="text-align:right">
+                                                            <apex:commandLink value="{!$Label.LS_Button_Change}" action="{! edit }" styleClass="edit-button link-unique" reRender="idPassword">
+                                                                <apex:param value="Password" name="field" />
+                                                            </apex:commandLink>
+                                                        </div>
+                                                    </div>
+                                                </apex:outputPanel>
+                                                <apex:outputPanel id="idPasswordEdit" rendered="{!isPasswordEdit}">
+                                                    <div class="row">
+                                                        <div class="col-xs-12 emailPwdFlds editPwd">
+                                                            <div id="ember1037" class="ember-view form-fields--text-input-71621ee4 is-passive focus-out currentPwdFld">
+                                                                <label class="label">
+                                                                    <span class="label-text">{!$Label.LS_MyAccount_Label_Current_Password}</span>
+                                                                </label>
+                                                                <div class="input-wrapper"></div>
+                                                                <apex:inputSecret styleclass="form-control customFormInput" value="{!strPassword}" id="idCurrentPassword" onblur="return validateCurrentPassword();" onfocus="validateCurrentPasswordFocus();" />
+                                                                <div class="col-xs-8 col-sm-8 col-md-12 col-lg-12 errorpanelwithforgotpasserr" id="divcurrentPwdValidation">
+                                                                    <span class="error-message customErrorMessage" id="currentPwdValidation">
+                                                                        <apex:outputText value="{!sPasswordIncorrectCurrentPasswordErrMsg}"></apex:outputText>
+                                                                    </span>
+                                                                </div>
+                                                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ember-view foundryFontMedium errorfpanelwithforgotpasslink text-right padding0">
+                                                                    <span class="displayBlock errorpanelwithforgotpass">
+                                                                        <a href="{!sForgotPasswordURL}" onclick="updatedataLayerAttribute(event)" id="ForgotPassword" class="link-unique">{!$Label.LS_MyAccount_Link_ForgotPassword}TEST</a>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-xs-12 emailPwdFlds editPwd">
+                                                            <div id="ember1037" class="ember-view form-fields--text-input-71621ee4 is-passive focus-out">
+                                                                <label class="label">
+                                                                    <span class="label-text">{!$Label.LS_MyAccount_Label_NewPassword} </span>
+                                                                </label>
+                                                                <div class="input-wrapper"></div>
+                                                                <apex:inputSecret styleclass="form-control customFormInput" value="{!strNewPassword}" id="password" onblur="return validateNewPassword();" onfocus="validateNewPasswordFocus();" />
+                                                                <div class="col-xs-8 col-sm-8 col-md-12 col-lg-12 errorpanelwithforgotpasserr" id="divpwdValidation">
+                                                                    <span class="error-message customErrorMessagepass" id="pwdValidation">
+                                                                        <apex:outputText value="{!sPasswordProvideValidNewPasswordErrMsg}"></apex:outputText>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row ">
+                                                        <div class="col-xs-12 emailPwdFlds editPwd">
+                                                            <div id="ember1037" class="ember-view form-fields--text-input-71621ee4 is-passive focus-out">
+                                                                <label class="label">
+                                                                    <span class="label-text">{!$Label.LS_MyAccount_Label_ConfirmPassword}</span>
+                                                                </label>
+                                                                <div class="input-wrapper"></div>
+                                                                <apex:inputSecret styleclass="form-control customFormInput" value="{!strRepeatPassword}" id="confirmPassword" onblur="return validateConfirmPassword();" onfocus="validateConfirmPasswordFocus();" />
+                                                                <div class="col-xs-8 col-sm-8 col-md-12 col-lg-12 errorpanelwithforgotpasserr" id="divconfirmPwdValidation">
+                                                                    <span class="error-message customErrorMessage" id="confirmPwdValidation">
+                                                                        <apex:outputText id="idPasswordError" value="{!sPasswordProvideValidNewPasswordErrMsg}"></apex:outputText>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-xs-12 emailPwdFlds txtUpperCase foundryFontMedium ember-view form-fields--form-button-e53320ec pwdCanSavBtn">
+                                                            <ul class="cancelSaveSec">
+                                                                <li class="sveBtnNew">
+                                                                    <apex:outputPanel styleClass="ember-view form-fields--form-button-e53320ec primary">
+                                                                        <apex:commandLink id="SavePasswordBtn" value="{!$Label.LS_Button_Save}" onclick="return validateNSavePasswordChanges1(event);" rerender="idPassword" styleClass="wrapper btn txtUpperCase customStyleBtn" />
+                                                                    </apex:outputPanel>
+                                                                </li>
+                                                                <li class="cancelBtnNew">
+                                                                    <apex:commandLink value="{!$Label.LS_Button_Cancel}" action="{!cancelEdit}" onclick="updatedataLayerAttribute(event)" rerender="idPassword" styleClass="cancelLink link-unique foundryFontMedium" id="PasswordCancel">
+                                                                        <apex:param value="Password" name="field" />
+                                                                    </apex:commandLink>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </apex:outputPanel>
+                                            </apex:outputPanel>
+
+                                        </apex:outputPanel>
+
+                                        <!-- Password display and edit Section -->
+
+                                        <hr class="hrSection hrSectionGrey" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </apex:outputPanel>
+                    <!-- PERSONAL DETAILS Section END -->
+
+                    <!-- SUBSCRIPTION Section START -->
+                    <apex:outputPanel rendered="{! partnerAccConfig.Show_Subscription__c }" id="idSubscription">
+                        <div class="col-sm-12 col-md-12 padding0">
+                            <div class="panel-body mrtop_22">
+                                <div class="row subscriptionSec">
+                                    <div class="col-sm-12 col-md-4 col-lg-4 myacctHeading padding0">
+                                        <label for="input-id" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 foundryFontRegular padding0 subscriptionHdr">
+                                            {!pageData.myAccount_Label_Membership}
+                                        </label>
+                                    </div>
+                                    <div class="col-sm-12 col-md-8 col-lg-8 padding0">
+                                        <!-- Subscription Type Subsection Start for DOCOMO-->
+                                        <apex:outputPanel rendered="{!isAppleUser == false}">
+                                            <div class="row">
+                                                <apex:outputPanel rendered="{! showCancelSubscription }">
+                                                    <div class="col-xs-6 col-sm-8 col-md-6 col-lg-6 inptValue">
+                                                        <!--Start Part of 10449-->
+                                                        <apex:outputText styleClass="docomoHdr" value="{!$Label[subscriptionTypeText]}" />
+                                                        <!--End Part of 10449-->
+                                                    </div>
+                                                    <div class="col-xs-6 col-sm-4 col-md-4 foundryFontRegular" style="text-align: right;">
+                                                        <a href="" class="edit-button link-unique" onclick="ManageAccount()">{!pageData.button_Manage}</a>
+                                                        <div id="preloadSpinner"></div>
+                                                    </div>
+                                                </apex:outputPanel>
+                                                <apex:outputPanel rendered="{! showCancelSubscription == false }">
+                                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inptValue">
+                                                        <!--Start Part of 10449-->
+                                                        <apex:outputText styleClass="docomoHdr" value="{!$Label[subscriptionTypeText]}" />
+                                                        <!--End Part of 10449-->
+                                                    </div>
+                                                </apex:outputPanel>
+                                            </div>
+                                            <!-- Subscription Type Subsection End -->
+
+                                            <!-- Subscription Type Subheading Subsection Start -->
+                                            <div class="row">
+                                                <div class="col-xs-12 col-sm-12 col-md-10 col-lg-12 inptValue">
+                                                    <!--Start Part of 10449-->
+                                                    <apex:outputText styleClass="docomoHdr" value="{!$Label[subscriptionSubTypeText]}" />
+                                                    <!--End Part of 10449-->
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inptValue">
+                                                    <p>{!pageData.myAccount_Cancelling_Subscription_Info}</p>
+                                                </div>
+                                            </div>
+                                        </apex:outputPanel>
+                                        <!-- Subscription Type Subheading Subsection End -->
+
+                                        <!--PaymentvPD-10449-->
+                                        <div class="col-md-12 col-lg-12 padding0">
+                                            <apex:outputPanel id="idSubscription2">
+                                                <apex:outputPanel id="idshowOnlyError">
+                                                    <!-- Payment History Section -->
+                                                    <apex:outputPanel rendered="{!isAppleUser}">
+
+                                                        <!--    <div class="row">
+                                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 myAccountlabelTxt1 payMethodHdr">
+                                                                {!pageData.subscriptionType}
+                                                            </div>
+                                                            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 inptValue displayValue">
+                                                                <span>Your free trail ends on 01/01/2017</span>
+                                                            </div>
+                                                            <div class="col-xs-12 col-sm-4 col-md-4  foundryFontRegular" style="text-align:right">
+                                                                <span id="j_id0:frmMyAccount:j_id191" class="ember-view form-fields--form-button-e53320ec primary"><a class="wrapper btn txtUpperCase custStyleBtn canSignOut" href="#" id="j_id0:frmMyAccount:IdSignOutBtn" name="j_id0:frmMyAccount:IdSignOutBtn" onclick="updatedataLayerAttribute(event);if(window != window.top){var f = document.getElementById('j_id0:frmMyAccount');f.action += (f.action.indexOf('?') == -1 ? '?' : '&amp;');};A4J.AJAX.Submit('j_id0:frmMyAccount',event,{'similarityGroupingId':'j_id0:frmMyAccount:IdSignOutBtn','oncomplete':function(request,event,data){return showSignOutBannerJs();},'parameters':{'j_id0:frmMyAccount:IdSignOutBtn':'j_id0:frmMyAccount:IdSignOutBtn'} } );return false;">Sign Out Of All Devices</a>
+                                                                  <div id=""></div></span>
+                                                            </div>
+                                                        </div>
+                                                        -->
+
+                                                        <div class="row">
+                                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 myAccountlabelTxt1 payMethodHdr">
+                                                                {!pageData.subscriptionType}
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inptValue">
+                                                                <span><apex:outputText value="{!accountStatus}"/></span>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8  fnt_txtSub mrtop_5">
+                                                                <span><apex:outputText value="{!description}"/></span>
+
+                                                            </div>
+
+                                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 viewHisty ">
+                                                                <a href="{!paymentHistoryLink}" class="edit-button link-unique">{!pageData.myAccount_Link_ViewPaymentHistory}</a>
+                                                            </div>
+                                                        </div>
+
+                                                        <apex:outputPanel id="idViewPaymenthistory" rendered="{!(oZPayment!=NULL)}">
+                                                            <div class="row">
+                                                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 myAccountlabelTxt lstPaymt">
+                                                                    {!pageData.myAccount_Label_LastPayment}
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row ">
+                                                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inptValue">
+                                                                    <span><apex:outputText value="{!lastPaymentInfo}"></apex:outputText></span>
+                                                                </div>
+                                                            </div>
+                                                        </apex:outputPanel>
+                                                        <!-- Payment Method Section -->
+                                                        <apex:outputPanel id="idPaymentMethodInformation">
+                                                            <div class="row">
+                                                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 myAccountlabelTxt payMethodHdr">
+                                                                    {!pageData.myAccount_Label_PaymentMethod}
+                                                                </div>
+                                                            </div>
+                                                            <div class="row ">
+                                                                <!-- <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 ">
+
+                                                                    <apex:outputpanel styleClass="payMethd" >
+                                                                        <span><apex:outputText > 
+                                                                        {!if(paymentDetails != null, paymentDispay, showPayerror)}
+                                                                        </apex:outputText></span>
+                                                                    </apex:outputpanel> 
+
+                                                                </div>-->
+                                                                <div class="col-xs-12 col-sm-8 col-md-6 col-lg-6 fnt_txtSub">
+                                                                    {!pageData.paymentmethod_description_apple}
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="row mrtop_12">
+                                                                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 inptValue">
+                                                                    {!pageData.paymentmethod_title_apple}
+                                                                </div>
+                                                                <div class="col-xs-4 col-sm-4 col-md-2 txtUpperCase foundryFontMedium " style="text-align:right">
+                                                                    <apex:outputPanel rendered="{!showCancelSubscription}">
+                                                                        <a href="{!changePaymentMethodLink}" class="edit-button link-unique">{!pageData.button_Change}</a>
+                                                                    </apex:outputPanel>
+                                                                </div>
+
+                                                            </div>
+                                                        </apex:outputPanel>
+                                                    </apex:outputPanel>
+                                                </apex:outputPanel>
+                                            </apex:outputPanel>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-12 col-md-10 foundryFontRegular mrtop_25" style="text-align:right" id="idbtnReactivateSubscription">
+                                                <apex:outputPanel rendered="{! showCancelSubscription }" styleClass="ember-view form-fields--form-button-e53320ec primary">
+                                                    <apex:outputPanel rendered="{!isAppleUser == false}">
+                                                        <a href="" class="wrapper btn txtUpperCase custStyleBtn cancelSub" onclick="subscriptionCancellation()">{!pageData.button_CancelSubscription}</a>
+                                                    </apex:outputPanel>
+                                                    <apex:outputPanel rendered="{!isAppleUser}">
+                                                        <a href="{!cancelSubscriptionLink}" class="wrapper btn txtUpperCase custStyleBtn cancelSub">{!pageData.button_CancelSubscription}</a>
+                                                    </apex:outputPanel>
+                                                    <div id="preloadSpinner"></div>
+                                                </apex:outputPanel>
+                                            </div>
+                                        </div>
+
+                                        <!-- Cancel Subscription Subsection End -->
+
+                                        <hr class="hrSection hrSectionGrey" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </apex:outputPanel>
+                    <!-- SUBSCRIPTION Section END -->
+
+                    <!-- DEVICES Section START -->
+                    <apex:outputPanel rendered="{! partnerAccConfig.Show_Device_Section__c }" id="idMyDevices">
+                        <div class="col-sm-12 col-md-12 padding0">
+                            <div class="panel-body mrtop_22">
+                                <div class="row myDevice">
+                                    <div class="col-sm-12 col-md-4 col-lg-4 myacctHeading padding0">
+                                        <label for="input-id" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 foundryFontRegular myDevicesList padding0">{!pageData.myAccount_Label_MyDevices}</label>
+                                    </div>
+
+
+
+                                    <!--Devices section PD-12480-->
+                                    <div class="loader">
+                                        <div class="lazy" data-loader="lazyLoader">
+                                            
+                                        
+                                            <div class="col-md-8 col-lg-8">
+                                                <apex:outputPanel id="lstDevices">
+                                                    <apex:repeat value="{!wrapUDList}" var="uDevices" id="theRepeat">
+                                                        <div class="row margBot20">
+                                                            <div class="col-xs-10 col-sm-6 col-md-6 col-lg-6">
+                                                                <apex:outputText rendered="{!uDevices.typeOfDevice =='Mobile'}">
+                                                                    <span class="icon-x2"><span class="iconfont iconfont-ls_icon_mobile"></span></span>
+                                                                </apex:outputText>
+                                                                <apex:outputText rendered="{!uDevices.typeOfDevice=='Desktop'}">
+                                                                    <span class="icon-x2"><span class="iconfont iconfont-ls_icon_desktop"></span></span>
+                                                                </apex:outputText>
+                                                                <apex:outputText rendered="{!uDevices.typeOfDevice=='Laptop'}">
+                                                                    <span class="icon-x2"><span class="iconfont iconfont-ls_icon_desktop"></span></span>
+                                                                </apex:outputText>
+                                                                <apex:outputText rendered="{!uDevices.typeOfDevice=='Tablet'}">
+                                                                    <span class="icon-x2"><span class="iconfont iconfont-ls_icon_tablet"></span></span>
+                                                                </apex:outputText>
+                                                                <apex:outputText rendered="{!uDevices.typeOfDevice=='TV'}">
+                                                                    <span class="icon-x2"><span class="iconfont iconfont-ls_icon_tv"></span></span>
+                                                                </apex:outputText>
+                                                                <apex:outputText rendered="{!uDevices.typeOfDevice=='Console'}">
+                                                                    <span class="icon-x2"><span class="iconfont iconfont-ls_icon_console"></span></span>
+                                                                </apex:outputText>
+                                                                <span class="deviceNamed"><apex:outputText value="{!uDevices.typeOfDevice}" id="theValue" styleClass="foundryFontMedium"/></span>
+                                                                <apex:outputLabel styleClass="deviceRegdDate">{!pageData.myAccount_Label_Registered}:&nbsp;</apex:outputLabel>
+                                                                <apex:outputLabel value="{!uDevices.registrationDate}" styleClass="deviceRegdDate" />
+                                                            </div>
+                                                            
+                                                            <div class="col-xs-2 col-sm-6 col-md-4 mber-view form-fields--text-input-71621ee4 trashSymbl">
+                                                                <apex:outputText >
+                                                                    <div class="col-xs-12 col-sm-12 col-md-10 margBot20 foundryFontMedium padding0 signOutAllBtn" id="idbtnSignoutAllDevices1">
+                                                                        <apex:outputPanel styleClass="trashBtn  1ember-view 1form-fields--form-button-e53320ec 1right-btn 1primary">
+                                                                            <apex:commandLink action="{!showSignOutBannersinledevice}" value="{!pageData.button_Deregister_Single_Device} " rendered="{!wrapUDList.size>1}" styleClass="custStyleBtn1">
+                                                                                <apex:param name="firstparam" assignto="{!selectedDeviceID}" value="{!uDevices.idDevice}" />
+                                                                            </apex:commandLink>
+                                                                        </apex:outputPanel>
+                                                                    </div>
+                                                                </apex:outputText>
+                                                            </div>
+                                                        </div>
+                                                    </apex:repeat>
+
+                                                    <apex:outputLabel value="{!pageData.myAccount_InfoMsg_NoRegisteredDevices}" rendered="{!wrapUDList.size==0 && isDevicesFromMISLError == false}"></apex:outputLabel>
+                                                    <apex:outputLabel value="{!$Label.DECoup_Unable_to_getting_user_devices}" rendered="{!isDevicesFromMISLError}"></apex:outputLabel>
+
+                                                    <div class="row">
+                                                        <div class="hidden-xs col-sm-6 col-md-4">&nbsp;</div>
+                                                        <div class="col-xs-12 col-sm-6 col-md-6 viewMoreDev">
+                                                            <apex:commandLink rendered="{!bshowAllUserDevicesButton}" action="{!showAllUserDevices}" reRender="lstDevices" value="{!showAllUserDevicesLabel}" styleClass="edit-button link-unique" />
+                                                        </div>
+                                                        <div class="hidden-xs hidden-sm col-md-2">&nbsp;</div>
+                                                    </div>
+                                                </apex:outputPanel>
+                                                <div class="row">
+                                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"> &nbsp; </div>
+                                                </div>
+                                                <div class="row margBot20">
+                                                    <div class="col-xs-12 col-sm-12 col-md-10 margBot20 foundryFontMedium" id="idbtnSignoutAllDevices">
+                                                        <apex:outputPanel styleClass="ember-view form-fields--form-button-e53320ec right-btn primary">
+                                                            <apex:commandLink id="ConfirmDevicesSignOut" onclick="updatedataLayerAttribute(event)" value="{!pageData.myAccount_Button_SignOutAllDevices}" styleClass="wrapper btn txtUpperCase custStyleBtn canSignOut" oncomplete="return showSignOutBannerJs();" />
+                                                            <div id="preloadSpinner"></div>
+                                                        </apex:outputPanel>
+                                                    </div>
+                                                </div>
+                                                <hr class="hrSection hrSectionGrey" />
+                                            </div>
+
+                                        </div>
+                                        <div id="preloadSpinner"></div>
+                                    </div>
+                                    <!--End devices section PD-12480-->
+                                    
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </apex:outputPanel>
+                    <!-- DEVICES Section END -->
+
+                    <!-- LANGUAGE Section START -->
+                    <apex:outputPanel rendered="{! partnerAccConfig.Show_Language_Section__c }" id="idUserLanguage">
+                        <div class="col-sm-12 col-md-12 padding0">
+                            <div class="row panel-body mrtop_30">
+                                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 myacctHeading padding0">
+                                    <label for="input-id" class="foundryFontRegular laguageLbl col-xs-12 padding0">
+                                        {!pageData.myAccount_Label_Language}
+                                    </label>
+                                </div>
+                                <div class="col-sm-12 col-md-8 col-lg-8 padding0 mrtop_15">
+                                    <div class="row langSecs">
+                                        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 padrgt0">
+                                            <div class="mrbtm_22">
+                                                <apex:outputText value="{!pageData.myaccount_Label_LanguageSection}" />
+                                            </div>
+                                            <apex:repeat value="{! Languages }" var="lang" id="theLangRepeat">
+                                                <apex:outputPanel id="iRow">
+                                                    <li class="list-group-item foundryFontRegular">
+                                                        <div class="ember-view form-fields--radio-button-0438d941 " style="margin-left: -18px;">
+                                                            <input type="radio" name="LanguageGrp" value="{! lang.language }" id="{! lang.language }" class="RadioOption" />
+                                                            <label for="{! lang.language }">
+                                                                <div class="radio-selector-wrapper">
+                                                                    <div class="radio-selector"></div>
+                                                                </div>
+                                                                {! lang.label }
+                                                            </label>
+                                                        </div>
+                                                    </li>
+                                                </apex:outputPanel>
+                                            </apex:repeat>
+                                        </div>
+                                    </div>
+                                    <div class="row ">
+                                        <div class="col-xs-12 col-sm-12 col-md-10 ">
+                                            <div class="saveLanguageBtnSec">
+                                                <apex:outputPanel styleClass="ember-view form-fields--form-button-e53320ec primary">
+                                                    <apex:commandLink id="idSaveLanguageBtn" value="{!pageData.myAccount_Label_Save_Language}" onclick="return languageUpdateRequest();" styleClass="wrapper btn txtUpperCase custStyleBtn svLngBtn" />
+                                                    <div id="preloadSpinner"></div>
+                                                </apex:outputPanel>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr class="hrSection hrSectionGrey" />
+                                </div>
+                            </div>
+                        </div>
+                    </apex:outputPanel>
+                    <!-- LANGUAGE Section END -->
+
+                    <!-- FROM DAZN Section START -->
+                    <apex:outputPanel rendered="{!isAppleUser == false}">
+                        <apex:outputPanel rendered="{! partnerAccConfig.Show_Marketing_Opt_In_Section__c }" id="idMarketingOpt">
+                            <div class="col-sm-12 col-md-12 padding0" id="emailPreferences">
+                                <div class="row panel-body mrtop_22">
+                                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 myacctHeading padding0">
+                                        <label for="input-id" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 foundryFontRegular padding0">
+                                            {!pageData.partnerAcc_Label_EmailPref}
+                                        </label>
+                                    </div>
+                                    <div class="loader">
+                                        <div class="lazy" data-loader="lazyLoader">
+                                            <div class="col-sm-12 col-md-8 col-lg-8">
+                                                <div class="row" id="docomoPreferences">
+                                                    <div class="col-xs-12 col-sm-12 col-md-10 col-lg-12 padding0">
+                                                        <div class="styleguide--page-wrapper-55709bc3">
+                                                            <div id="ember1340" class="ember-view form-fields--check-box-e8e4c00f">
+                                                                <div id="checkboxDWrapper" ng-click="respToSetTheDocomo();">
+                                                                    <apex:inputCheckbox value="{! bEmailPreference }" styleclass="chkBox" />
+                                                                    <div class="checkbox-layer-1"></div>
+                                                                    <div class="checkbox-layer-2"></div>
+                                                                    <apex:actionFunction name="setEmailPreferences" action="{! setEmailPreferences }" reRender="idEmailPreferences" />
+                                                                </div>
+                                                                <label for="cb-ember1340" style="padding-bottom:2px;" class="emailPrfLbl">
+                                                                    <p><apex:outputText escape="false" value="{!pageData.partnerAcc_Label_DAZNComm}" /></p>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="preloadSpinner"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </apex:outputPanel>
+                    </apex:outputPanel>
+
+                    <apex:outputPanel rendered="{!isAppleUser}">
+                        <div class="panel-body">
+                            <div class="row emailPreferenceSec mrtop_10">
+                                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 mrtop_22 padding0 myacctHeading">
+                                    <label for="input-id" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 foundryFontMedium laguageLbl padding0">{!pageData.partnerAcc_Label_EmailPref} </label>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 ">
+                                    <div class="row mrtop_27" id="idEmailPreferences">
+                                        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 padding0">
+                                            <div class="styleguide--page-wrapper-55709bc3">
+                                                <div id="ember1340" class="ember-view form-fields--check-box-e8e4c00f">
+                                                    <div id="checkboxWrapper" onclick="checkboxWrapper(this);">
+                                                        <apex:inputCheckbox value="{!bEmailPreference}" styleclass="chkBox" />
+                                                        <div class="checkbox-layer-1"></div>
+                                                        <div class="checkbox-layer-2"></div>
+                                                        <apex:actionFunction name="setEmailPreferences" action="{!setEmailPreferences}" reRender="idEmailPreferences" />
+                                                    </div>
+                                                    <label for="cb-ember1340" style="padding-bottom:2px;" class="emailPrfLbl">
+                                                        <p><apex:outputText escape="false" value="{!pageData.partnerAcc_Label_DAZNComm}" /></p>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </apex:outputPanel>
+
+                    <!-- FROM DAZN Section END -->
+
+                    <div class="col-md-12 padding0">
+                    </div>
+
+                    <!--div class="row">
+                        <c:LS_Footer renderLangSwitcher="false"/>
+                    </div-->
+                </div>
+
+                <c:LS_Footer renderLangSwitcher="false" />
+
+            </div>
+
+            <apex:includescript value="{!URLFOR($Resource.LS_JQuery)}" />
+            <apex:includescript value="{!URLFOR($Resource.Version)}" />
+            <!--PD-8766 - To get version of the product from Static Resource-->
+            <apex:includescript value="{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/js/jquery.min.js')}" />
+            <apex:includescript value="{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/js/vendor.js')}" />
+            <script type="text/javascript">
+                function subscriptionCancellation() {
+                    var screenWidth = window.screen.availWidth;
+                    if (screenWidth >= 1200) {
+                        window.location = '{! partnerAccConfig.Cancel_Subscription_URL_Large__c }';
+                    } else if (screenWidth >= 760) {
+                        window.location = '{! partnerAccConfig.Cancel_Subscription_URL_Medium__c }';
+                    } else {
+                        window.location = '{! partnerAccConfig.Cancel_Subscription_URL_Small__c }';
+                    }
+                }
+
+                function ManageAccount() {
+                    var screenWidth = window.screen.availWidth;
+                    if (screenWidth >= 1200) {
+                        window.location = '{! partnerAccConfig.Manage_Account_URL_Large__c }';
+                    } else if (screenWidth >= 760) {
+                        window.location = '{! partnerAccConfig.Manage_Account_URL_Medium__c }';
+                    } else {
+                        window.location = '{! partnerAccConfig.Manage_Account_URL_Small__c }';
+                    }
+                }
+                // storing backend variables in an object for use in js file
+                var DAZN_myAccount = {
+                    sLang: '{! JSENCODE(user.LanguageLocaleKey) }',
+                    cookieCountry: '{!JSENCODE(cookieCountry)}',
+                    bEmailPreference: '{! bEmailPreference }',
+                    bDocomotest: '{!bDocomotest}',
+                    strDocomoStatus: '{!strDocomoStatus}',
+                    strDocomoPartnerId: '{!strDocomoPartnerId}',
+                    strSelectedLanguage: '{! JSENCODE(strSelectedLanguage) }',
+                    LS_MyAccount_ErrMsg_Valid_Firstname: '{!pageData.myAccount_ErrMsg_Valid_Firstname}',
+                    LS_MyAccount_ErrMsg_Valid_Surname: '{!pageData.myAccount_ErrMsg_Valid_Surname}',
+                    LS_MyAccount_ErrMsg_InvalidEmailID: '{!pageData.myAccount_ErrMsg_InvalidEmailID}',
+                    LS_MyAccount_ErrMsg_NoMatch: '{!pageData.myAccount_ErrMsg_NoMatch}',
+                    LS_MyAccount_ErrMsg_Min5Chars: '{!pageData.myAccount_ErrMsg_Min5Chars}',
+                    LS_MyAccount_ErrMsg_AtleastOneChar: '{!pageData.myAccount_ErrMsg_AtleastOneChar}',
+                    LS_MyAccount_ErrMsg_InvalidPassword: '',
+                    FirstName: '{! JSENCODE(sFirstNameForPage) }',
+                    LastName: '{! JSENCODE(sLastNameForPage) }',
+                    PersonEmail: '{! JSENCODE(oAccount.Secondary_Email__c) }',
+                    LS_MyAccount_ErrMsg_PasswordLength: '',
+                    LS_MyAccount_Msg_WeakPassword: '',
+                    LS_MyAccount_ErrMsg_NewPwdAndRepeatPwdDoNotMatch: '{!pageData.myAccount_ErrMsg_NewPwdAndRepeatPwdDoNotMatch}',
+                    sEmailProvideNewEmailErrorMsg: '{! JSENCODE(sEmailProvideNewEmailErrorMsg) }',
+                    sEmailIncorrectPasswordErrorMsg: '',
+                    sPasswordIncorrectCurrentPasswordErrMsg: '',
+                    LS_MyAccount_ErrMsg_BlankPassword: '',
+                    LS_MyAccount_ErrMsg_PasswordLength: '',
+                    LS_PartnerAcct_URL: '{!pageData.partnerAcct_URL}',
+                    LS_PartnerAcc_Label_ErrorMsg: '{!pageData.partnerAcc_Label_ErrorMsg}',
+                    isAppleUser: {!isAppleUser}
+                };
+
+                function saveEmailChangesOnComplete() {
+                    if ($('#emailvalidation').html()) {
+                        $('#emailvalidation').parent().removeClass('is-passive focus-out').addClass('is-error');
+                    }
+                }
+            </script>
+
+            <apex:includescript value="{! URLFOR($Resource.DAZN_VF_Assets, 'DAZN_VF_Assets/js/lazyLoad.js') }" />
+            <apex:includescript value="{! URLFOR($Resource.DAZN_VF_Assets, 'DAZN_VF_Assets/js/DAZN_partnerAccount.js') }" />
+            <apex:includescript value="{! URLFOR($Resource.DAZN_VF_Assets, 'DAZN_VF_Assets/js/DAZN_browserHistoryStealer.js') }" />
+        </apex:form>
+        <c:CookiesComponent rendered="{! if(((cookieCountry == 'Japan') || (cookieCountry == 'JP')),false,true) }" />
+        <apex:stylesheet value="{!$Resource.LS_MyAccount_Css}" />
+        <apex:stylesheet value="{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/css/base-method-ember-styleguide.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/css/styles_v1.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.DAZN_VF_Assets, 'DAZN_VF_Assets/css/DAZN_partnerAccount.css')}" />
+        <script>
+            //(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            //    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            //    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            //    '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            //})(window,document,'script','dataLayer','{! $Setup.Google_Analytics_Settings__c.Google_Tag_Manager_Container_Id__c }');
+
+            //dataLayer.push(
+            //    {'event': 'virtualPageView'}
+            //)
+        </script>
+
+        <script type="text/javascript">
+            function validateNSavePasswordChanges1(oevent) {
+                console.log('validateNSavePasswordChanges1');
+                // dataLayer.push({'event':'buttonClick','button':{'title':oevent.target.innerHTML}});
+                updatedataLayerAttribute(oevent);
+                validateCurrentPassword();
+                validateNewPassword();
+                validateConfirmPassword();
+                if (validateCurrentPassword() && validateNewPassword() && validateConfirmPassword()) {
+                    $(".pwdCanSavBtn.form-fields--form-button-e53320ec .wrapper").removeClass("disabled");
+                    console.log('this');
+                    savePasswordChanges();
+                    return true;
+                }
+                $(".pwdCanSavBtn.form-fields--form-button-e53320ec .wrapper").addClass("disabled");
+                return false;
+            }
+        </script>
+    </body>
+</apex:page>

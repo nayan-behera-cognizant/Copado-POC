@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Notification when case is resolved</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Case Resolved Notification for CA_FR Members</name>
+    <style>none</style>
+    <subject>Rappel du cas {!Case.Thread_Id}</subject>
+    <textOnly>Bonjour {!Account.FirstName},
+
+Il y a deux jours, nous vous avons envoyé un courriel au sujet de votre demande : {!Case.CaseNumber}. Nous voulions vous aider avec cette demande, mais nous n’avons pas eu de vos nouvelles.
+
+Si votre demande a déjà été traitée, ne répondez pas à ce courriel et nous fermerons votre cas dans 24 heures.
+
+Cordialement,
+Votre équipe DAZN
+
+Suivi du cas : {!Case.Thread_Id} 
+Politique de confidentialité : https://my.dazn.com/help/ca-fr_CA/privacy
+Conditions d&apos;utilisation : https://my.dazn.com/help/ca-fr_CA/terms
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

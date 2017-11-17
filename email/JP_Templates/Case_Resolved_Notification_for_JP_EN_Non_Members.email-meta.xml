@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>JP_EN Non Members</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Case Resolved Notification for JP_EN Non-Members</name>
+    <style>none</style>
+    <subject>{!Case.Subject} has been resolved- Thread Id - {!Case.Thread_Id} : Case # {!Case.CaseNumber}</subject>
+    <textOnly>Hey {Username} 
+
+As we didn&apos;t heard back from you for 48hours, We hope your question was answered, and any issues resolved. We will close this case if we do not get any response from you within the next 24 hours.
+
+If you are still having problems, there are some helpful information on our help page. Or please reply to this email directly, so that we can further assist you regarding any issues.
+
+Ensuring that you enjoy DAZN is our priority.
+
+
+Privacy Policy 
+https://my.dazn.com/help/jp-en/privacy 
+
+Terms of Use 
+https://my.dazn.com/help/jp-en/terms 
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

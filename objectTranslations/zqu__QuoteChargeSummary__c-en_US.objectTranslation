@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Apply Discount To One Time Charges --></label>
+        <name>zqu__Apply_Discount_To_One_Time_Charges__c</name>
+    </fields>
+    <fields>
+        <label><!-- Apply Discount To Recurring Charges --></label>
+        <name>zqu__Apply_Discount_To_Recurring_Charges__c</name>
+    </fields>
+    <fields>
+        <label><!-- Apply Discount To Usage Charges --></label>
+        <name>zqu__Apply_Discount_To_Usage_Charges__c</name>
+    </fields>
+    <fields>
+        <help><!-- The text describing the change of Amendment or Renewal --></help>
+        <label><!-- Change Log --></label>
+        <name>zqu__ChangeLog__c</name>
+    </fields>
+    <fields>
+        <help><!-- Description field of Product Rate Plan Charge in product catalog --></help>
+        <label><!-- Description --></label>
+        <name>zqu__Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Discount Level --></label>
+        <name>zqu__Discount_Level__c</name>
+        <picklistValues>
+            <masterLabel>Account</masterLabel>
+            <translation><!-- Account --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RatePlan</masterLabel>
+            <translation><!-- RatePlan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Subscription</masterLabel>
+            <translation><!-- Subscription --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Discount of the charge price --></help>
+        <label><!-- Discount --></label>
+        <name>zqu__Discount__c</name>
+    </fields>
+    <fields>
+        <help><!-- The effective price of this charge --></help>
+        <label><!-- Effective Price --></label>
+        <name>zqu__EffectivePrice__c</name>
+    </fields>
+    <fields>
+        <help><!-- The included units of this charge --></help>
+        <label><!-- Included Units --></label>
+        <name>zqu__IncludedUnits__c</name>
+    </fields>
+    <fields>
+        <help><!-- List price field of Product Rate Plan Charge in product catalog --></help>
+        <label><!-- List Price --></label>
+        <name>zqu__ListPrice__c</name>
+    </fields>
+    <fields>
+        <help><!-- The list total price for the charge --></help>
+        <label><!-- List Total --></label>
+        <name>zqu__ListTotal__c</name>
+    </fields>
+    <fields>
+        <help><!-- Monthly Recurring Revenue of this charge --></help>
+        <label><!-- MRR --></label>
+        <name>zqu__MRR__c</name>
+    </fields>
+    <fields>
+        <help><!-- Model field of Product Rate Plan Charge in product catalog --></help>
+        <label><!-- Model --></label>
+        <name>zqu__Model__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity --></label>
+        <name>zqu__Opportunity__c</name>
+        <relationshipLabel><!-- Quote Charge Summaries --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Period of this charge --></help>
+        <label><!-- Period --></label>
+        <name>zqu__Period__c</name>
+    </fields>
+    <fields>
+        <help><!-- MRR value calculated by previewing the quote from Zuora --></help>
+        <label><!-- MRR --></label>
+        <name>zqu__PreviewedMRR__c</name>
+    </fields>
+    <fields>
+        <help><!-- TCV value calculated by previewing the quote from Zuora --></help>
+        <label><!-- TCV --></label>
+        <name>zqu__PreviewedTCV__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product Name --></label>
+        <name>zqu__Product_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product Rate Plan Name --></label>
+        <name>zqu__Product_Rate_Plan_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Quantity --></label>
+        <name>zqu__Quantity__c</name>
+    </fields>
+    <fields>
+        <label><!-- Quote Rate Plan Charge --></label>
+        <name>zqu__QuoteRatePlanCharge__c</name>
+        <relationshipLabel><!-- Quote Charge Summarys --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- The Quote rateplan this charge belongs to --></help>
+        <label><!-- Quote Rate Plan --></label>
+        <name>zqu__QuoteRatePlan__c</name>
+        <relationshipLabel><!-- Quote Charge Summarys --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Quote Charge --></label>
+        <name>zqu__Quote_Charge__c</name>
+        <relationshipLabel><!-- Quote Charge Summaries --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Total Contact Value of this charge --></help>
+        <label><!-- TCV --></label>
+        <name>zqu__TCV__c</name>
+    </fields>
+    <fields>
+        <help><!-- Total price of this charge --></help>
+        <label><!-- Total Price --></label>
+        <name>zqu__TotalPrice__c</name>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>zqu__Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- UOM --></label>
+        <name>zqu__UOM__c</name>
+    </fields>
+    <fields>
+        <label><!-- Upto How Many Periods --></label>
+        <name>zqu__Upto_How_Many_Periods__c</name>
+    </fields>
+</CustomObjectTranslation>

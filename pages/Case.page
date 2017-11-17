@@ -1,0 +1,226 @@
+<apex:page action="{!doInit}" standardController="Case" extensions="CaseExt">
+    <div id="pageLayout" style="display: none;">
+        <apex:detail relatedList="true" showChatter="true" rendered="{!isShowCase}" inlineEdit="true"/>
+    </div>
+    <apex:includeScript value="/support/console/29.0/integration.js"/>
+    <apex:includescript value="//code.jquery.com/jquery-1.11.1.min.js" / >
+
+    <script type="text/javascript">
+    j$ = jQuery.noConflict();
+        console.log('###### isShowContactEmail = ' + {!isShowContactEmail});
+        if ({!isShowContactEmail} == true) {
+            var hideChatter = document.getElementsByClassName('linkText');
+            for (var k = 0; k < hideChatter.length; k++) {
+                hideChatter[k].innerHTML = '';
+            }
+
+            var hideTopics = document.getElementsByClassName('view topic-widgetWithInfoBubble');
+            for (var l = 0; l < hideTopics.length; l++) {
+                hideTopics[l].innerHTML = '';
+            }
+            
+            hideTopics = document.getElementsByClassName('hideFeedLink');
+            for (var l = 0; l < hideTopics.length; l++) {
+                hideTopics[l].innerHTML = '';
+            }
+
+            hideTopics = document.getElementsByClassName('showFeedLink');
+            for (var l = 0; l < hideTopics.length; l++) {
+                hideTopics[l].innerHTML = '';
+            }
+            
+            hideTopics = document.getElementsByClassName('chatterfeedshell');
+            for (var l = 0; l < hideTopics.length; l++) {
+                hideTopics[l].innerHTML = '';
+            }
+
+            var nameElem = document.getElementsByTagName('td');
+            for (var i=0; i < nameElem.length; i++) {
+                if (nameElem[i].innerHTML === 'Contact Email') {
+                    nameElem[i].innerHTML = '';
+                    nameElem[i+1].innerHTML = '';
+                }
+                if (nameElem[i].innerHTML === '取引先責任者 メール') {
+                    console.log('>>>');
+                    nameElem[i].innerHTML = '';
+                    nameElem[i+1].innerHTML = '';
+                }
+                if (nameElem[i].innerHTML === 'Contact Name') {
+                    nameElem[i].innerHTML = '';
+                    nameElem[i+1].innerHTML = '';
+                }
+                if (nameElem[i].innerHTML === '取引先責任者名') {
+                    console.log('>>>');
+                    nameElem[i].innerHTML = '';
+                    nameElem[i+1].innerHTML = '';
+                }
+                if (nameElem[i].innerHTML === 'Web Email') {
+                    nameElem[i].innerHTML = '';
+                    nameElem[i+1].innerHTML = '';
+                }
+                if (nameElem[i].innerHTML === 'Account Name') {
+                    nameElem[i].innerHTML = '';
+                    nameElem[i+1].innerHTML = '';
+                }
+                if (nameElem[i].innerHTML === 'Web メール') {
+                    nameElem[i].innerHTML = '';
+                    nameElem[i+1].innerHTML = '';
+                }
+                if (nameElem[i].innerHTML === 'ケース Web メール') {
+                    nameElem[i].innerHTML = '';
+                    nameElem[i+1].innerHTML = '';
+                }
+                if (nameElem[i].innerHTML === 'メール') {
+                    nameElem[i].innerHTML = '';
+                    nameElem[i+1].innerHTML = '';
+                }
+                if (nameElem[i].innerHTML === '取引先名') {
+                    nameElem[i].innerHTML = '';
+                    nameElem[i+1].innerHTML = '';
+                }
+                if (nameElem[i].innerHTML === 'Partner ID') {
+                    nameElem[i].innerHTML = '';
+                    nameElem[i+1].innerHTML = '';
+                }
+                if (nameElem[i].innerHTML === 'パートナー ID') {
+                    nameElem[i].innerHTML = '';
+                    nameElem[i+1].innerHTML = '';
+                }
+            }
+
+            ovverideEmailInEmailRelated();
+            ovverideChangeOwner();
+        }
+
+        function ovverideChangeOwner() {
+            var changeOwnerLink = document.getElementById('cas1j_id0_j_id2_ileinner');
+            var test = changeOwnerLink.getElementsByTagName('a');
+            var tempStr;
+            if (test[1]) {
+                tempStr = test[1].innerHTML;
+                if (tempStr.indexOf('[') + 1) {
+                    var link = test[1];
+                    link.remove();
+                }
+            }
+            
+            if (test[2]) {
+                tempStr = test[2].innerHTML;
+                if (tempStr.indexOf('[') + 1) {
+                    var link = test[2];
+                    link.remove();
+                }
+            }
+            
+            
+        }
+        
+        function MassiveOfLink() {
+            this.link = null;
+            this.caseId = null;
+        }
+        var massiveOfLink = [];
+        var ovverideButtonReply = document.getElementsByClassName('actionLink actionLink');
+
+        for (var l=0; l < ovverideButtonReply.length; l++) {
+            if (ovverideButtonReply[l].innerHTML == 'Reply') {
+                var newSingleLink = new MassiveOfLink();
+                newSingleLink.link = decodeURIComponent(ovverideButtonReply[l].href);
+                newSingleLink.caseId = "{!JSENCODE($CurrentPage.parameters.Id)}";
+                massiveOfLink.push(newSingleLink);
+            }
+        }
+        Visualforce.remoting.Manager.invokeAction(
+            
+            '{!$RemoteAction.CaseExt.ovverideStandardReplyLink}', JSON.stringify(massiveOfLink),
+            function(result, event) {
+                var newRes = result.replace(/(&quot\;)/g,"\"");
+                newRes = newRes.replace(/(amp\;)/g,"");
+                newRes = newRes.replace(/(%20)/g,"%20");
+                var arr_from_json = JSON.parse(newRes);
+
+                for (var i=0; i < arr_from_json.length; i++) {
+                    for (var l=0; l < ovverideButtonReply.length; l++) {
+                        if ((ovverideButtonReply[l].innerHTML == 'Reply' || ovverideButtonReply[l].innerHTML == 'To All') && ovverideButtonReply[l].href.indexOf(arr_from_json[i].outBoundEmail) + 1) {
+                            ovverideButtonReply[l].href = arr_from_json[i].link.replace('javascript:srcUp(&#39;','');
+                        }
+                    }
+                }
+            },
+            {escape: true}
+        );
+
+        function ovverideEmailInEmailRelated() {
+            var relatedList = document.getElementsByClassName('bRelatedList');
+            var tableColumnsEmail;
+            var valueOfDocomoEmail;
+            for (var i=0; i<relatedList.length; i++) {
+                if (relatedList[i].getElementsByTagName('h3')[0].innerHTML == 'Emails' || relatedList[i].getElementsByTagName('h3')[0].innerHTML == 'メール') {
+                    tableColumnsEmail = relatedList[i].getElementsByClassName('dataCell');
+                }
+            }
+            if (tableColumnsEmail && tableColumnsEmail[3]) {
+                valueOfDocomoEmail = tableColumnsEmail[3].innerHTML;
+                tableColumnsEmail[3].innerHTML = '##########';
+
+                if (valueOfDocomoEmail.length > 2) {
+                    for (var i=0; i<tableColumnsEmail.length; i++) {
+                        if (tableColumnsEmail[i].innerHTML == valueOfDocomoEmail) {
+                            tableColumnsEmail[i].innerHTML = '##########';
+                        }
+                    }
+                }
+                for (var i=0; i<tableColumnsEmail.length; i++) {
+                    var tempIndex;
+                    if (i == 8) {
+                        tableColumnsEmail[i].innerHTML = '##########';
+                        tempIndex = i;
+                    }
+                    if (tempIndex != null) {
+                        if (i == tempIndex) {
+                            tableColumnsEmail[i].innerHTML = '##########';
+                            tempIndex = tempIndex + 5;
+                        }
+                    }
+                }
+            }
+        }
+
+        document.getElementById('pageLayout').style.display = "block";
+            
+    </script>
+    
+    <script type="text/javascript">
+        function testSetTabTitle() {
+            //Set the current tab's title
+            sforce.console.setTabTitle('{!Case.CaseNumber}');
+        }
+        var pageLoad = window.onload;
+          window.onload = function() {
+                if (pageLoad) {
+                        pageLoad();
+                }
+                  testSetTabTitle();
+                 caseCommentModify();
+                  sforce.console.setTabLink();
+
+        }
+         j$( document ).ready(function() { 
+         console.log('Dom Read!');
+         //caseCommentModify();
+         
+         
+         });
+    
+        
+         function caseCommentModify(){      
+    var atr = j$("input[name^='newComment']").attr('onclick');
+    var str = atr.split('/00a/e?');
+    var natr = str.join('/apex/casecomment?');
+    j$("input[name^='newComment']").attr('onclick',natr);
+
+   }    
+        
+    </script>
+       
+</apex:page>

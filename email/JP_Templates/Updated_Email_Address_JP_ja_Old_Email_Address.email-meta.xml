@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Updated Email Address -JP-ja Old Email Address</name>
+    <style>none</style>
+    <subject>メールアドレスが更新されました</subject>
+    <textOnly>DAZN
+
+
+DAZNアカウントでEメールアドレスが更新されました。今後はこちらのEメールアドレス {!Account.PersonEmail} 宛てにご連絡させていただきます。
+
+Eメールアドレスを変更されていない場合や、その他ご質問がございましたら、弊社のカスタマーサービス までお気軽にお問い合わせください。
+
+今後ともDAZNをご愛顧賜りますよう、よろしくお願い申し上げます。
+
+Privacy Policy | Terms of Use | Unsubscribe
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

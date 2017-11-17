@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Notification when case is closed</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Case Closed _JP-JA</name>
+    <style>none</style>
+    <subject>【ご質問に対するお礼】DAZNからのご連絡</subject>
+    <textOnly>{!IF(Account.Partner_ID__c == &quot;&quot;,Account.FirstName, &quot;DAZN for docomo&quot;)}様
+
+この度は、お問い合わせいただきありがとうございました。
+
+お客様からお問い合わせいただいた、お問い合わせ番号{!Case.CaseNumber}についての対応を完了とさせていただきます。
+その他にご質問がございましたら、弊社ヘルプページにアクセスいただき必要な情報をご確認いただくか、メールもしくはライブチャットにて改めてお問い合わせいただきますようお願い申し上げます。
+
+今後ともDAZNをご愛顧賜りますよう、よろしくお願い申し上げます。
+
+※このメールは配信専用ですので返信することはできません。ご了承ください。
+
+
+プライバシーポリシー 
+https://my.dazn.com/help/jp-ja/privacy
+
+利用規約 
+https://my.dazn.com/help/jp-ja/terms
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

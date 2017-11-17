@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Template to inform users about the refund for the incorrect charged amount</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Payment Problem - DE</name>
+    <style>none</style>
+    <subject>{!Case.Subject} - {!Case.Thread_Id}</subject>
+    <textOnly>Hi {!Account.FirstName},
+
+aufgrund eines Verarbeitungsfehlers wurde dir ein falscher Monatsbetrag für DAZN berechnet.
+
+Selbstverständlich bekommst du den zuviel erhobenen Beitrag direkt zurückerstattet. Dieser Vorfall tut uns außerordentlich leid.
+Aufgrund von Bankbuchungsvorgängen kann es bei einigen Kunden bis zu zwei Wochen dauern, bis die Rückerstattung dem Konto gutgeschrieben wird. Du solltest die Rückerstattung allerdings schon in der Kontoübersicht deiner gewählten Zahlungsmethode angezeigt bekommen.
+
+Wir entschuldigen uns aufrichtig für die Unannehmlichkeiten, die dir dadurch entstanden sind.
+Du hast weitere Fragen? Dann besuche unsere Hilfe- und FAQ-Seiten unter https://my.dazn.com/help/ oder antworte direkt auf diese E-Mail.
+
+Schöne Grüße
+Dein DAZN Team</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

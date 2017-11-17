@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LiveChatButton xmlns="http://soap.sforce.com/2006/04/metadata">
+    <autoGreeting>&quot;お問合せありがとうございます。DAZNカスタマーサービス{!User_LastName}です。
+なにかお困りですか？
+
+またチャットを終了する際は、必ず【チャットを終了する】ボタンを押して下さい。ブラウザの×ボタンで画面を閉じた場合、正しくチャットが終了しない場合があります。&quot;</autoGreeting>
+    <deployments/>
+    <enableQueue>true</enableQueue>
+    <isActive>true</isActive>
+    <label>DAZN</label>
+    <optionsCustomRoutingIsEnabled>false</optionsCustomRoutingIsEnabled>
+    <optionsHasChasitorIdleTimeout>false</optionsHasChasitorIdleTimeout>
+    <optionsHasInviteAfterAccept>false</optionsHasInviteAfterAccept>
+    <optionsHasInviteAfterReject>false</optionsHasInviteAfterReject>
+    <optionsHasRerouteDeclinedRequest>false</optionsHasRerouteDeclinedRequest>
+    <optionsIsAutoAccept>false</optionsIsAutoAccept>
+    <optionsIsInviteAutoRemove>false</optionsIsInviteAutoRemove>
+    <overallQueueLength>50</overallQueueLength>
+    <preChatFormUrl>http://lsqa-dazn.cs88.force.com//PreChatForm</preChatFormUrl>
+    <pushTimeOut>30</pushTimeOut>
+    <routingType>MostAvailable</routingType>
+    <skills>
+        <skill>Generic_JA</skill>
+    </skills>
+    <type>Standard</type>
+    <windowLanguage>ja</windowLanguage>
+</LiveChatButton>

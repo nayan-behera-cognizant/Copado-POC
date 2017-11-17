@@ -1,0 +1,120 @@
+<apex:page controller="FinalCancellationConfirmationController" showHeader="false" standardStylesheets="false" sidebar="false" >
+    <head>
+        <apex:includescript value="{!URLFOR($Resource.LS_JQuery)}"/>
+        <style>
+        @font-face {
+          font-family: FoundryGridnikMedium;
+          src: url("{!URLFOR($Resource.LS_Fonts, 'fonts/e166cc28-0998-4899-95b7-a7e10c43f5b4.woff')}") format('woff'),
+               url("{!URLFOR($Resource.LS_Fonts, 'fonts/e5fe4185-5567-4a59-92fb-932786fb141a.ttf')}") format('ttf'), 
+              }
+        
+        .foundryFontMedium{
+             font-family: FoundryGridnikMedium;
+        }
+        
+        @font-face {
+              font-family: FoundryGridnikRegular;
+              src: url("{!URLFOR($Resource.LS_Fonts, 'fonts/0a356e3d-6631-41d7-947c-97ee6fa9bdb3.woff')}") format('woff'),
+                   url("{!URLFOR($Resource.LS_Fonts, 'fonts/e5fe4185-5567-4a59-92fb-932786fb141a.ttf')}") format('ttf'),
+                  }
+
+        .foundryFontRegular{
+        
+            font-family: FoundryGridnikRegular;
+        }
+         
+       <!--body{
+
+            font-family: FoundryGridnikMedium;
+        }-->
+            .panel-body {
+                background-color: black;
+            }
+                
+            .btn-primary {
+                color: black;
+                background-color: white;
+                border-color: black;
+                border-radius:0px;
+            }
+            body{
+                background-color:black;
+                color:white;
+            }
+            
+            .btn-primary:hover {
+                color: black;
+                background-color: white;
+                border-color: black;
+            }
+            
+            h3 {
+                text-decoration: underline;
+            }
+            .hrMenu { 
+              display: block;
+              margin-top: 0.5em;
+              margin-bottom: 0.5em;
+              margin-left: auto;
+              margin-right: auto;
+              border-width: 5px;
+              border-color: white;
+          } 
+          .hrSection { 
+              display: block;
+              margin-top: 0.5em;
+              margin-bottom: 0.5em;
+              margin-left: auto;
+              margin-right: auto;
+              border-width: 1px;
+              border-color: white;
+          } 
+        </style>
+        <apex:stylesheet value="{!URLFOR($Resource.LS_Styles, 'styles.css')}" />
+    </head>
+    <body>
+        <!-- Google Tag Manager -->
+        <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MCBGVB"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-MCBGVB');</script>
+        <!-- End Google Tag Manager -->
+        <apex:form >
+            <div class ="container">
+                <!--<div class="row">
+                    <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5"></div>
+                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                      <apex:image styleClass="img-responsive" value="{!$Resource.LS_DAZN_Icon}"/>
+                    </div>
+                    <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5"></div>
+                </div>-->
+                <div class="row"><c:LS_Header /></div>
+                
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <label>{!$Label.LS_FinalConfirmation_Label_FinalConfirmation_Header}</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <apex:outputText value="{!sCancelSubscriptionMsg}" escape="false" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <label>{!$Label.LS_FinalConfirmation_Label_Message}</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <apex:commandButton value="My Account" action="{!redirectToMyAccountPage}" styleClass="btn btn-primary "/> &nbsp;
+                        <apex:commandButton value="Home" action="{!redirectToHomePage}" styleClass="btn btn-primary "/>
+                    </div>
+                </div>
+            </div>
+        </apex:form>
+    </body>
+</apex:page>

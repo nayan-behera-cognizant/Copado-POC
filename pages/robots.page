@@ -1,0 +1,7 @@
+<apex:page contentType="text/plain">
+User-agent: *
+Disallow: /myaccount/
+Disallow: /login
+Disallow: /unsubscribe/
+
+</apex:page>

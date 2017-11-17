@@ -1,0 +1,719 @@
+<apex:page controller="ContactUsController"
+    showHeader="false"
+    cache="false"
+    expires="0"
+    standardStylesheets="false"
+    language="{! IF(BEGINS(UPPER($CurrentPage.parameters.lang), 'EN'), IF($CurrentPage.parameters.Country == 'CA', 'en_US', 'en_GB'), $CurrentPage.parameters.lang) }"
+    applyHtmlTag="false"
+    docType="html-5.0"
+>
+
+<c:FetchLanguageCookie myPageName="contactUs" areaToRefreshName="contactUsRerender" />
+<apex:outputPanel id="contactUsRerender">
+
+    <head>
+        <meta name="google-site-verification" content="1m_JV80vU3gln3KyYeAm5woixeUHQOvhrbGjS-0g6J0" />
+        <title>{!$Label.LS_ContactUs_Title}</title>
+        <!--PD-8766 - To get version of the product from Static Resource-->
+        <apex:includescript value="{!URLFOR($Resource.Version)}" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="{!$Label.LS_ContactUs_Description}" />
+        <meta name="keywords" content="{!$Label.LS_ContactUs_Keywords}" />
+        <link REL="SHORTCUT ICON" HREF="{!URLFOR($Resource.DAZN_favicon_default)}" />
+        <link REL="apple-touch-icon" sizes="57x57" HREF="{!URLFOR($Resource.DAZN_appletouchicon57_57 )}" />
+        <link REL="apple-touch-icon" sizes="60x60" HREF="{!URLFOR($Resource.DAZN_appletouchicon60_60 )}" />
+        <link REL="apple-touch-icon" sizes="72x72" HREF="{!URLFOR($Resource.DAZN_appletouchicon72_72 )}" />
+        <link REL="apple-touch-icon" sizes="76x76" HREF="{!URLFOR($Resource.DAZN_appletouchicon76_76 )}" />
+        <link REL="apple-touch-icon" sizes="114x114" HREF="{!URLFOR($Resource.DAZN_appletouchicon144_144 )}" />
+        <link REL="apple-touch-icon" sizes="120x120" HREF="{!URLFOR($Resource.DAZN_appletouchicon120_120 )}" />
+        <link REL="apple-touch-icon" sizes="144x144" HREF="{!URLFOR($Resource.DAZN_appletouchicon144_144 )}" />
+        <link REL="apple-touch-icon" sizes="152x152" HREF="{!URLFOR($Resource.DAZN_appletouchicon152_152 )}" />
+        <link REL="apple-touch-icon" sizes="180x180" HREF="{!URLFOR($Resource.DAZN_appletouchicon180_180 )}" />
+        <link REL="icon" type="image/png" HREF="{!URLFOR($Resource.DAZN_favicon_32_32 )}" sizes="32x32" />
+        <link REL="icon" type="image/png" HREF="{!URLFOR($Resource.DAZN_androidchrome192_192 )}" sizes="192x192" />
+        <link REL="icon" type="image/png" HREF="{!URLFOR($Resource.DAZN_favicon_96_96 )}" sizes="96x96" />
+        <link REL="icon" type="image/png" HREF="{!URLFOR($Resource.DAZN_favicon_16_16 )}" sizes="16x16" />
+    </head>
+
+    <body>
+        <!-- Google Tag Manager -->
+        <c:GTMHeader sPageName="contactus"></c:GTMHeader>
+        <!-- End Google Tag Manager -->
+        <apex:form id="contactUsFrm" >
+            <apex:actionFunction name="createCase" action="{!createCase}" oncomplete="">
+                <apex:param name="a" value="" assignTo="{!sCaseType}" />
+                <apex:param name="b" value="" assignTo="{!sCaseSubject}" />
+                <apex:param name="c" value="" assignTo="{!strNewEmail}" />
+                <apex:param name="d" value="{! $CurrentPage.parameters.lang }" assignTo="{!sCaseLanguage}" />
+                <apex:param name="e" value="{! $CurrentPage.parameters.Country }" assignTo="{!sCaseCountry}" />
+            </apex:actionFunction>
+            <apex:actionFunction name="rerenderSubjectPanel" rerender="subjectPanel" oncomplete="addSubjectEvents()">
+                <apex:param name="provider" value="" assignTo="{!selectedProvider}" />
+                <apex:param name="strCountry" value="{!$CurrentPage.parameters.Country}" assignTo="{!strCountry}" />
+                <apex:param name="strLanguage" value="{!$CurrentPage.parameters.lang}" assignTo="{!strLanguage}" />
+            </apex:actionFunction>
+            <apex:actionFunction name="daznSignIn" action="{!daznSignIn}" oncomplete="">
+                <apex:param name="subject" value="" assignTo="{!selectedSubject}" />
+            </apex:actionFunction>
+            <apex:actionFunction name="docomoSignIn" action="{!redirectToDocomoSignInPage}" oncomplete="">      
+                <apex:param name="subject" value="" assignTo="{!selectedSubject}" />        
+            </apex:actionFunction> 
+
+            <div class="contactUsCont" >
+                <div class="contactUsContainer ">
+                    <div class="container">
+                        <div class="row">
+                            <c:LS_HelpHeader />
+                            <div class="contactUs">
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <hr class="hrSection hrSectionGrey BCSeperator" />
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 padding0">
+                                        <div class="col-xs-8 col-sm-8 col-md-12 col-lg-12 marginTop10">
+                                            <span class="EHContactUsViaEmail">{!$Label.LS_Email_Help_label_Contact_Us_Via_Email}</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7 contactUSContent">
+                                        <div class="contactusInnerContainer">
+                                            <div class="row hidden mrT" id="useTypeSendPanelTitle">
+                                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                    <span class="inputHeader dropDownSec">{! If(strCountry=='JP' , $Label.LS_Provider, $Label.LS_Are_You_Subscriber) }</span>
+                                                </div>
+                                            </div>
+                                            <div class="row hidden" id="userTypeSendPanel">
+                                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                    <div class="ember-view">
+                                                        <div class="custom-dropdown" id="custom-provider-dropdown">
+                                                            <i class="iconfont iconfont-ls_icon_arrow_small" style="touch-action: manipulation; -ms-touch-action: manipulation"></i>
+                                                            <span onclick="showProviderMenu()" class="label-text dropdown-text" id="providerText" style="touch-action: manipulation; -ms-touch-action: manipulation">{!$Label.LS_ContactUs_Select_Provider}</span>
+                                                            <div class="dropdown-menu" style="touch-action: manipulation; -ms-touch-action: manipulation">
+                                                                <ul class="option-list" id="ddProviderMenu" onmouseleave="ddLeaveMenu()">
+                                                                    <apex:variable var="providerRowCount" value="{!0}" />
+                                                                    <apex:repeat value="{!userTypes}" var="ut" id="theUTRepeat">
+                                                                        <apex:outputPanel id="idProviderRow1" rendered="{!providerRowCount == 0}">
+                                                                            <li class="provider-dropdown-option" name="{!ut.Name}" subject="{!ut.Provider_Type__c}" id="{!ut.Name}" style="touch-action: manipulation; -ms-touch-action: manipulation">
+                                                                                <div onclick="selectProvider(this)">{!ut.Name}</div>
+                                                                            </li>
+                                                                        </apex:outputPanel>
+                                                                        <apex:outputPanel id="idOtherProviderRow" rendered="{!providerRowCount> 0}">
+                                                                            <li class="provider-dropdown-option" subject="{!ut.Provider_Type__c}" id="{!ut.Name}" style="touch-action: manipulation; -ms-touch-action: manipulation">
+                                                                                <div>{!ut.Name}</div>
+                                                                            </li>
+                                                                        </apex:outputPanel>
+                                                                        <apex:variable var="rowCount" value="{!providerRowCount+1}" />
+                                                                    </apex:repeat>
+                                                                </ul>
+                                                            </div>
+                                                            <span class="error-message" id="providerDropDownDesc"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row  hidden mrTnB" id="caseTypeSendPanelTitle">
+                                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                    <span class="inputHeader dropDownSec">{!$Label.LS_EmailHelp_Label_SelectTheSubject}</span>
+                                                </div>
+                                            </div>
+                                            <div class="row hidden" id="caseTypeSendPanel">
+                                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                    <div class="ember-view">
+                                                        <div class="custom-dropdown" id="custom-dropdown" onblur="return validateDropDown();">
+                                                            <i class="iconfont iconfont-ls_icon_arrow_small" style="touch-action: manipulation; -ms-touch-action: manipulation"></i>
+                                                            <span onclick="showMenu()" class="label-text dropdown-text" id="caseTypeText" style="touch-action: manipulation; -ms-touch-action: manipulation">{!$Label.LS_ContactUs_Select}</span>
+                                                            <div class="dropdown-menu" style="touch-action: manipulation; -ms-touch-action: manipulation">
+                                                                <ul class="option-list" id="ddMenu" onmouseleave="ddLeaveMenu()">
+                                                                    <apex:outputPanel id="subjectPanel">
+                                                                        <apex:variable var="rowCount" value="{!0}" />
+                                                                        <!--PD-5938-->
+                                                                        <apex:repeat value="{!typeOfCase}" var="ct">
+                                                                            <apex:outputPanel id="idRow1" rendered="{!rowCount == 0}">
+                                                                                <li onclick="selectSubject(this)" class="dropdown-option" name="{!ct.Name}" subject="{!ct.Type__c}" id="{!ct.Name}" resolutionText="{!ct.Case_Resolution_Text__c}" signInNeeded="{!ct.Sign_in_Needed__c}" resolutionOwner="{!ct.Case_Resolution_Owner__c}" data-id="{!ct.Id}" style="touch-action: manipulation; -ms-touch-action: manipulation">
+                                                                                    <div>{!ct.Type__c}</div>
+                                                                                </li>
+                                                                            </apex:outputPanel>
+                                                                            <apex:outputPanel id="idOtherRow" rendered="{!rowCount> 0}">
+                                                                                <li onclick="selectSubject(this)" class="dropdown-option" subject="{!ct.Type__c}" id="{!ct.Name}" resolutionText="{!ct.Case_Resolution_Text__c}" signInNeeded="{!IF(ct.Sign_in_Needed__c, 'true', 'false')}" resolutionOwner="{!ct.Case_Resolution_Owner__c}" data-id="{!ct.Id}" style="touch-action: manipulation; -ms-touch-action: manipulation">
+                                                                                    <div>{!ct.Type__c}</div>
+                                                                                </li>
+                                                                            </apex:outputPanel>
+                                                                            <apex:variable var="rowCount" value="{!rowCount+1}" />
+                                                                        </apex:repeat>
+                                                                    </apex:outputPanel>
+
+                                                                </ul>
+                                                            </div>
+                                                            <span class="error-message" id="dropDownDesc"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row hidden mrTnB" id="emailSendPanel">
+                                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                    <apex:outputPanel id="emailEdit">
+                                                        <div class="row">
+                                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                                <div class="ember-view form-fields--text-input-71621ee4 is-passive focus-out">
+                                                                    <span class="inputHeader dropDownSec">{!$Label.LS_EmailHelp_Label_FROM}</span>
+                                                                    <div class="input-wrapper">
+                                                                        <apex:inputText styleclass="form-control customStyle email1 appWidthEmail" id="emailAddress" value="{!strNewEmail}" onkeyup="validateKeyup(event);" onblur="return validateEmail();" onfocus="return validateEmailFocus();" />
+                                                                    </div>
+                                                                    <span id="emailvalidation" class="error-message"></span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </apex:outputPanel>
+                                                </div>
+                                            </div>
+                                            <div class="row hidden" id="contactDocomoSendPanel">
+                                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 margin30" id="resolutionText">
+                                                </div>
+                                            </div>
+                                            <div class="row hidden mrTnB" id="descriptionSendPanel">
+                                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                    <div class="ember-view form-fields--text-input-71621ee4 is-passive focus-out">
+                                                        <span class="inputHeader dropDownSec">{!$Label.LS_EmailHelp_Label_DESCRIBE_YOUR_ISSUE}</span>
+                                                        <apex:inputTextarea styleclass="form-control custTextarea desc1" rows="6" id="comment" value="{!caseDescription}" onblur="return validateDescription();" onfocus="return validateDescriptionFocus();" />
+                                                        <span id="descvalidation" class="error-message"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row hidden" id="signInHelpMessage">
+                                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 margin30">
+                                                    {!$Label.LS_Sign_In_Help_Message}
+                                                </div>
+                                            </div>
+                                            <div class="row loginSec loginSecBtn hidden" id='daznSignIn'>
+                                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 divwidth1 linksSec">
+                                                    <span id="" class="ember-view form-fields--form-button-e53320ec primary">
+                                                      <apex:commandLink value="{!$Label.LS_SignIn_Title}" id="daznSignInButton" onclick="signinClick('dazn'); return daznLoginRequest();"  styleClass="signIn_btn wrapper btn customStyleBtn loginSubmit"/>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="row hidden" id='docomoSignIn'>
+                                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 btns_width">
+                                                    <apex:commandLink id="docomoSignInButton" onclick="signinClick('docomo'); return docomoLoginRequest();" styleClass="docomoBtn">
+                                                        <span class="btnleft"></span>
+                                                        <span class="btncenter"><span class="daccount"></span></span>
+                                                        <span class="btnright"></span>
+                                                    </apex:commandLink>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 btns">
+                                                    <apex:outputPanel styleClass="ember-view form-fields--form-button-e53320ec primary sendBtn">
+                                                        <apex:commandLink value="{!$Label.LS_EmailHelp_Button_Send}" id="sendButton" onclick="return sendCaseCreationRequest();" styleClass="btn txtUpperCase customStyleBtn sendButton hidden" />
+                                                    </apex:outputPanel>
+                                                    <div id="preloadSpinner"></div>
+                                                    <apex:outputLink value="{! '/help/' + $CurrentPage.parameters.Country + '-' + $CurrentPage.parameters.lang + IF(sTrakingParams == '', '', '/' + sTrakingParams) }" styleClass="cancelLink" >{! $Label.LS_HELP_BACKTOHELP }</apex:outputLink>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="hidden-xs hidden-sm col-md-1 col-lg-1">&nbsp;</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    <c:LS_Help_Footer myPageName="contactus" />
+                <div class="langSwitcher">
+                   <c:LS_FooterCookie renderLangSwitcher="true" areaToRefreshName="contactUsRerender" />
+                </div>
+            </div>
+
+            <apex:includescript value="{!URLFOR($Resource.LS_JQuery)}" />
+            <!-- <apex:includescript value="{!URLFOR($Resource.AngularJs,'angular.min.js')}" /> -->
+            <script type="text/javascript">
+                var DAZN_contactUs = {
+                    langParameters: "{!JSENCODE($CurrentPage.parameters.lang)}",
+                    countryParameters: "{!JSENCODE($CurrentPage.parameters.country)}",
+                    currentUrl: "{!JSENCODE($CurrentPage.URL)}",
+                    trackingParams: "{!JSENCODE($CurrentPage.parameters.TrakingParams)}",
+                    seeAll: '{!$Label.LS_Help_Link_See_All}',
+                    seeAllFaqs: '{!$Label.LS_Help_Label_See_All_FAQs}',
+                    sCountry: "{!JSENCODE(strCountry)}",
+                    strLanguage: "{!JSENCODE($CurrentPage.parameters.lang)}",
+                    sUniqueCaseType: "{!sUniqueCaseType}",
+                    LS_MyAccount_ErrMsg_InvalidEmailID: "{!$Label.LS_MyAccount_ErrMsg_InvalidEmailID}",
+                    LS_Email_Help_Describe_Your_Issue_ErrMsg: "{!$Label.LS_Email_Help_Describe_Your_Issue_ErrMsg}",
+                    LS_ContactUs_Please_select_a_subject: "{!$Label.LS_ContactUs_Please_select_a_subject}",
+                    LS_ContactUs_Select: "{!$Label.LS_ContactUs_Select}",
+                    isDfDUser: '{!isDfDUser}' == 'true',
+                    isGuestUser: '{!bIsGuestUser}' == 'true',
+                    selectedSubject: "{!selectedSubject}",
+                    defaultEmail: "{!strNewEmail}",
+                    sCaseType: "{!sCaseType}",
+                    DfDDataCategoryLabel: '{!$Label.LS_Help_Label_DfD}'
+                };
+
+                var userType = '';
+                var subjectType = '';
+                var clickFlag = false,
+                    code;
+
+// PD-9184 START
+var idle_timeout = 3600; 
+var constant_time = 0;
+document.onclick = function() {
+    constant_time = 0;
+};
+document.onmousemove = function() {
+    constant_time = 0;
+};
+document.onkeypress = function() {
+    constant_time = 0;
+};
+window.setInterval(checkIdleTime, 1000);
+function checkIdleTime() {
+    constant_time++;
+    if (constant_time >= idle_timeout) {
+        document.location.href = "/secur/logout.jsp";
+    }
+}
+// PD-9184 END
+
+function providerWasChanged(){
+    $("#caseTypeSendPanel").removeClass('hidden');
+    $("#caseTypeSendPanelTitle").removeClass('hidden');
+    $('span#caseTypeText').html(DAZN_contactUs.LS_ContactUs_Select);
+
+    subjectWasChanged();
+}
+
+function addSubjectEvents(){
+    $('li.dropdown-option').click(function() {
+
+        clickFlag = true;
+
+        $('div#custom-dropdown').removeClass('active').addClass('selected');
+        $('li.dropdown-option').removeClass('selected-item');
+
+        $('#dropDownDesc').parent().parent().removeClass('is-error');
+        $(".inputHeader.dropDownSec").parent().removeClass('is-error');
+
+        var optionValue = $(this).find('div').html();
+        $('span#caseTypeText').html(optionValue);
+        $(this).addClass('selected-item');
+
+        subjectType = $(this).attr("id");
+
+        if(userType != 'Non-member'){
+            subjectWasChanged();
+
+            var resolutionOwner = $(this).attr("resolutionOwner");
+            var signInNeeded = $(this).attr("signInNeeded") == 'true';
+            if(userType == 'Docomo'){
+                if(resolutionOwner == 'External'){
+                    $("#contactDocomoSendPanel").removeClass('hidden');
+
+                    var resolutionText = $(this).attr("resolutionText");    
+                    document.getElementById("resolutionText").innerHTML = resolutionText;
+                }
+                else{
+                    if(DAZN_contactUs.isGuestUser){
+                        $("#docomoSignIn").removeClass('hidden');
+                        $("#signInHelpMessage").removeClass('hidden');
+                    }
+                    else{
+                        userWasLogged();
+                    }
+                }
+            }
+            else{
+                if(userType == 'DAZN'){
+                    if(subjectType == 'Log in issue'){
+                        $("#emailSendPanel").removeClass('hidden');
+                        $("#descriptionSendPanel").removeClass('hidden');
+                        $('[id*="sendButton"]').removeClass('hidden').addClass('wrapper');
+                        $("#contactDocomoSendPanel").addClass('hidden');
+                    }
+                    else{
+                        if(signInNeeded){
+                            if(DAZN_contactUs.isGuestUser){
+                                $("#daznSignIn").removeClass('hidden');
+                                $("#signInHelpMessage").removeClass('hidden');
+                            }
+                            else{
+                                userWasLogged();
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return false;
+    });
+}
+
+function subjectWasChanged(){
+    $("#emailSendPanel").addClass('hidden');
+    $("#descriptionSendPanel").addClass('hidden');
+    $("#contactDocomoSendPanel").addClass('hidden');
+    $('[id*="sendButton"]').removeClass('wrapper').addClass('hidden');  
+    $("#daznSignIn").addClass('hidden');
+    $("#signInHelpMessage").addClass('hidden');
+    $("#docomoSignIn").addClass('hidden');
+
+    $(".desc1").val('');
+    $('#descvalidation').parent().removeClass('is-error focus-out').addClass('is-passive');
+    $('#descvalidation').parent().find('textarea').removeClass('borderError');
+    if(DAZN_contactUs.isGuestUser){
+        $(".email1").val('');
+    }
+    else{
+        if(DAZN_contactUs.isDfDUser){
+            $(".email1").val('');
+        }
+        else{
+            $(".email1").val(DAZN_contactUs.defaultEmail);
+        }
+    }
+    $('#emailvalidation').parent().removeClass('is-error focus-out').addClass('is-passive');  
+}
+
+function userWasLogged(){
+    $("#emailSendPanel").removeClass('hidden');
+    $("#descriptionSendPanel").removeClass('hidden');
+    $('[id*="sendButton"]').removeClass('hidden').addClass('wrapper');
+    $("#contactDocomoSendPanel").addClass('hidden');
+}
+
+function showMenu() {
+    $("#ddMenu").show();
+}
+
+//function to validate dropDown. 
+function validateDropDown() {
+    $('#dropDownDesc').parent().parent().removeClass('is-error');
+    $(".inputHeader.dropDownSec").parent().removeClass('is-error');
+    if (DAZN_contactUs.sUniqueCaseType == "" || DAZN_contactUs.sUniqueCaseType == "Select") {
+        if (!clickFlag) {
+            $(".primary").removeClass("selfLoad");
+            $('#dropDownDesc').html(DAZN_contactUs.LS_ContactUs_Please_select_a_subject);
+            $('#dropDownDesc').parent().parent().addClass('is-error');
+            $(".inputHeader.dropDownSec").parent().addClass('is-error');
+            return false;
+        }
+    }
+    return true;
+}
+
+function showProviderMenu() {
+    $("#ddProviderMenu").show();
+}
+
+//$(document).ready(function() {
+    var countryName = DAZN_contactUs.sCountry.toLowerCase();
+    var sLang = DAZN_contactUs.strLanguage;
+    if ((sLang.toLowerCase() === "ja" && countryName === "jp") || (sLang.toLowerCase() === "en" && countryName === "jp")) {
+        $("#helpFooter").addClass("helpFooterSection");
+        $(".footerSec").removeClass("pull-right").addClass("pull-left");
+    } else {
+        $("#helpFooter").removeClass("helpFooterSection");
+        $(".footerSec").addClass("pull-right").removeClass("pull-left");
+    }
+    if (countryName == 'jp' || countryName == 'japan') {
+        $(".cookieFooterbg").hide();
+        $('body').css("padding-bottom", "0");
+    } else {
+        $(".cookieFooterbg").show();
+        $('body').css("padding-bottom", "65px");
+    }
+    var sLang = DAZN_contactUs.strLanguage;
+    if (sLang == 'ja') {
+        // add lang class in body
+        $('body').addClass('langJa');
+    }
+    if (sLang == 'de') {
+        // add lang class in body
+        $('body').addClass('langDe');
+    }
+
+    $(".primary").removeClass("selfLoad");
+    //Format HTML inside custom labels
+    $('.EHContactUsViaEmail').html($('.EHContactUsViaEmail').text());
+
+    $('li.provider-dropdown-option').click(function() {
+        userType = $(this).attr("subject");
+        rerenderSubjectPanel(userType);
+        $('li.provider-dropdown-option').removeClass('selected-item');
+
+        $('#providerDropDownDesc').parent().parent().removeClass('is-error');
+        $(".inputHeader.dropDownSec").parent().removeClass('is-error');
+
+        var optionValue = $(this).find('div').html();
+        $('span#providerText').html(optionValue);
+        
+        $('div.custom-dropdown').removeClass('active').addClass('selected');
+        $(this).addClass('selected-item');
+
+        providerWasChanged();
+
+        if(userType == 'Non-member'){
+            $("#contactDocomoSendPanel").addClass('hidden');
+            $("#emailSendPanel").removeClass('hidden');
+            $("#descriptionSendPanel").removeClass('hidden');
+            $('[id*="sendButton"]').removeClass('hidden').addClass('wrapper');
+        }
+        return false;
+    });
+
+    $('#custom-provider-dropdown').click(function() {
+        $('#providerDropDownDesc').parent().parent().removeClass('is-error');
+        $(".inputHeader.dropDownSec").parent().removeClass('is-error');
+        if ($('div#custom-provider-dropdown').hasClass('active')) {
+            $('div#custom-provider-dropdown').removeClass('active');
+            $('#ddProviderMenu').hide();
+            $('#ddMenu').hide();
+        } else {
+            $('#ddMenu').hide();
+            $('div#custom-dropdown').removeClass('active');
+            $('div#custom-provider-dropdown').addClass('active');
+            $("#ddProviderMenu").show();
+        }   
+        return false;
+    });
+
+    $('#custom-dropdown').click(function() {
+        $('#dropDownDesc').parent().parent().removeClass('is-error');
+        $(".inputHeader.dropDownSec").parent().removeClass('is-error');
+        if ($('div#custom-dropdown').hasClass('active')) {
+            $('#ddMenu').hide();
+            $('div#custom-dropdown').removeClass('active');
+        } else {
+            $('#ddProviderMenu').hide();
+            $('div#custom-provider-dropdown').removeClass('active');
+            $('div#custom-dropdown').addClass('active');
+            $("#ddMenu").show();
+        }
+        return false;
+    });
+
+    var selectedLabelID, sCaseType;
+
+    if(DAZN_contactUs.isGuestUser){
+        $("#useTypeSendPanelTitle").removeClass('hidden');
+        $("#userTypeSendPanel").removeClass('hidden');
+    }
+    else{
+        if (DAZN_contactUs.isDfDUser){
+            userType = 'Docomo';
+        }
+        else{
+            userType = 'DAZN';
+        }
+
+        providerWasChanged();
+        addSubjectEvents();
+
+        if(DAZN_contactUs.sCaseType){
+            var selectedCaseType = document.getElementById(DAZN_contactUs.sCaseType);
+            if(selectedCaseType){
+                selectedCaseType.click();
+            }
+        }
+    }
+//});
+
+function ddLeaveMenu(){
+    $("#ddMenu").hide();
+    $("#ddProviderMenu").hide();
+    $('div.custom-dropdown').removeClass('active');
+}
+
+function validateKeyup(event) {
+    code = event.keyCode;
+    if (code == 13) {
+        e.preventDefault();
+        return false;
+    }
+}
+// function to validate email id.
+function validateEmail() {
+    if (code == 13) {
+        e.preventDefault();
+        return false;
+    } else {
+        var sEmail1 = $(".email1").val(),
+        regexJa = /[\u3000-\u303F]|[\u3040-\u309F]|[\u30A0-\u30FF]|[\uFF00-\uFFEF]|[\u4E00-\u9FAF]|[\u2605-\u2606]|[\u2190-\u2195]|\u203B/g,
+        regexDa = /[\u00C0-\u00FF]/g;
+        if (!sEmail1) {
+            sEmail1 = $($(".email1").find('a')).text();
+        }
+        $('#emailvalidation').parent().removeClass('is-error is-focus').addClass('is-passive');
+        $('#emailvalidation').html('');
+        if (!sEmail1.match(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/) || regexJa.test(sEmail1) || regexDa.test(sEmail1)) {
+            $(".primary").removeClass("selfLoad");
+            $('#emailvalidation').html(DAZN_contactUs.LS_MyAccount_ErrMsg_InvalidEmailID);
+            $('#emailvalidation').parent().removeClass('is-passive focus-out').addClass('is-error');
+            return false;
+        }
+        return true;
+    }
+}
+
+function validateEmailFocus() {
+    $('#emailvalidation').parent().removeClass('is-error is-focus').addClass('is-passive');
+    return true;
+}
+
+// function to validate description.
+function validateDescription() {
+    var sDesc = $(".desc1").val();
+    $('#descvalidation').parent().removeClass('is-error is-focus').addClass('is-passive');
+    $('#descvalidation').parent().find('textarea').removeClass('borderError');
+    if (sDesc == '') {
+        $(".primary").removeClass("selfLoad");
+        $('#descvalidation').html(DAZN_contactUs.LS_Email_Help_Describe_Your_Issue_ErrMsg);
+        $('#descvalidation').parent().removeClass('is-passive focus-out').addClass('is-error');
+        $('#descvalidation').parent().find('textarea').addClass('borderError');
+        var strEmailTemplateType = strEmailTemplateType;
+        return false;
+    }
+    return true;
+}
+
+function validateDescriptionFocus() {
+    $('#descvalidation').parent().removeClass('is-error is-focus').addClass('is-passive');
+    $('#descvalidation').parent().find('textarea').removeClass('borderError');
+    return true;
+}
+
+
+// function to create issue in system by calling service side createcase method.
+function sendCaseCreationRequest() {
+    if ($('a.sendButton').hasClass('submitDone')) {
+        return false
+    } else {
+        //$(document).find('.sendButton').parent().addClass("selfLoad");
+        $('a.sendButton').addClass('submitDone');
+        validateEmail();
+        // commented for back end work PD-7605
+        //validateDropDown();
+        validateDescription();
+        var type = $(document).find('li.dropdown-option.selected-item').attr("id");
+        var subject = $(document).find('li.dropdown-option.selected-item').attr("subject");
+        var email = $(document).find(".appWidthEmail").val();
+        if ($('.contactUSContent').find('.is-error').length > 0) {
+            $('a.sendButton').removeClass('submitDone');
+            return false
+        } else {
+            createCase(type, subject, email);
+        }
+        return false;
+    }
+}
+
+function daznLoginRequest(){
+    daznSignIn(subjectType);
+
+    return false;
+}
+
+function docomoLoginRequest(){
+    docomoSignIn(subjectType);
+
+    return false;
+}
+            </script>
+            <!--<apex:includescript value="{!URLFOR($Resource.DAZN_VF_Assets, 'DAZN_VF_Assets/js/DAZN_contactUs.js')}" />-->
+        </apex:form>
+        <c:CookiesComponent />
+        <apex:stylesheet value="{!$Resource.LS_MyAccount_Css}" />
+        <apex:stylesheet value="{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/css/base-method-ember-styleguide.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/css/vendor.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/css/styles_v1.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.DAZN_VF_Assets, 'DAZN_VF_Assets/css/DAZN_contactUs.css')}" />
+    </body>
+
+    <!-- Google Analytics -->
+    <script>
+        var customerId = ('{! TEXT($User.UserType) }' === 'Guest') ? '' : '{! $User.Id }';
+        var customerType = ({! isDfDUser } === true) ? 'DfD' : 'DAZN';
+
+        var selectedProvider;
+        var selectedSubject;
+
+        window.ga = window.ga || function() {
+            (ga.q = ga.q || []).push(arguments)
+        };
+        ga.l = +new Date;
+        ga('create', '{! $Setup.Google_Analytics_Settings__c.Tracking_Id__c }', 'auto');
+        ga('send', 'pageview', {
+            '{! $Setup.Google_Analytics_Settings__c.Customer_Id_Dimension__c }': customerId,
+            '{! $Setup.Google_Analytics_Settings__c.Customer_Type_Dimension__c }': customerType
+        });
+
+        //1. How many times a each customer type is selected from the Provider Type in the dropdown menu on contact us (to measure switching between the items in the dropdown)
+        function selectProvider(providerBlock) {
+            selectedProvider = providerBlock.innerHTML;
+            dataLayer.push({'event': 'buttonClick', 'eventCategory': 'Button', 'eventAction': 'Provider Click', 'eventLabel': selectedProvider});
+        }
+
+        //2. How many times the 'Provider' is displayed
+        if ('{! TEXT($User.UserType) }' === 'Guest') {
+            dataLayer.push({'event': 'buttonClick', 'eventCategory': 'Button', 'eventAction': 'Provider Display', 'eventLabel': ''});
+        }
+
+        function selectSubject(subjectBlock) {
+            selectedSubject = subjectBlock.getAttribute('subject');
+            var resolutionOwner = subjectBlock.getAttribute('resolutionowner');
+            var signInNeeded = subjectBlock.getAttribute('signinneeded');
+
+            //3. How many times each subject type is selected from the Subject menu (per Provider / customer type)
+            dataLayer.push({'event': 'buttonClick', 'eventCategory': 'Button', 'eventAction': 'Subject Selected', 'eventLabel': selectedSubject});
+
+            // ‘contact Docomo’ message is shown
+            var isContactDocomoShown = selectedProvider.toUpperCase() === 'DOCOMO' &&
+                resolutionOwner.toUpperCase() === 'EXTERNAL';
+            if (isContactDocomoShown === true) {
+                dataLayer.push({'event': 'buttonClick', 'eventCategory': 'Button', 'eventAction': 'ja-JP/contactUs/Docomo/partnerDocomo Click', 'eventLabel': 'ContactUS/Docomo/partnerDocomo'});
+            }
+            // 'Sign into Docomo' message is shown
+            var isSignIntoDocomoShown = '{! TEXT($User.UserType) }' === 'Guest' &&
+                selectedProvider.toUpperCase() === 'DOCOMO' &&
+                resolutionOwner.toUpperCase() === 'EXTERNAL' &&
+                signInNeeded === 'true';
+            if (isSignIntoDocomoShown === true) {
+                dataLayer.push({'event': 'buttonClick', 'eventCategory': 'Button', 'eventAction': 'ja-JP/account/signin/Docomo/partnerDocomo Click', 'eventLabel': 'account/signin/Docomo/partnerDocomo'});
+            }
+            // 'Sign into DAZN' message is shown
+            var isSignIntoDAZNShown = '{! TEXT($User.UserType) }' === 'Guest' &&
+                selectedProvider.toUpperCase() === 'DAZN' &&
+                resolutionOwner.toUpperCase() === 'EXTERNAL' &&
+                signInNeeded === 'true';
+            if (isSignIntoDAZNShown === true) {
+                dataLayer.push({'event': 'buttonClick', 'eventCategory': 'Button', 'eventAction': 'ja-JP/account/signin/DAZN/partnerDocomo Click', 'eventLabel': 'account/signin/DAZN/partnerDocomo'});
+            }
+        }
+
+        //4. On final page of Contact Us form, distinguish between clicks on BACK TO HELP vs HELP in breadcrumbs
+        var elHelpHeader = document.getElementsByClassName('navHelpHeader')[0];
+        elHelpHeader.addEventListener('click', function() {
+            dataLayer.push({'event': 'buttonClick', 'eventCategory': 'Button', 'eventAction': 'Help Click', 'eventLabel': 'HELP in breadcrumbs'});
+        });
+        var elBackToHelp = document.getElementsByClassName('cancelLink')[0];
+        elBackToHelp.addEventListener('click', function() {
+            dataLayer.push({'event': 'buttonClick', 'eventCategory': 'Button', 'eventAction': 'Help Click', 'eventLabel': 'BACK TO HELP'});
+        });
+    </script>
+    <script async="true" src='https://www.google-analytics.com/analytics.js'></script>
+    <script>
+        function signinClick(signinType) {
+            if (signinType === 'dazn') {
+                dataLayer.push(
+                    { 'event': 'buttonClick','title': '{! $Label.LS_Dazn }' }
+                );
+                console.log('{! $Label.LS_Dazn }');
+            } else if (signinType === 'docomo') {
+                dataLayer.push(
+                    { 'event': 'buttonClick', 'title': '{! $Label.daznui_signinSelector_Docomo  }' }
+                );
+            }
+        }
+    </script>
+    <!-- End Google Analytics -->
+</apex:outputPanel>
+
+</apex:page>

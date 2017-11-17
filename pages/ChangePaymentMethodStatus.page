@@ -1,0 +1,201 @@
+<apex:page controller="ChangePaymentMethodStatusController" showHeader="false" standardStylesheets="false" sidebar="false" action="{!createPaymentTask}" applyHtmlTag="false" docType="html-5.0" >
+    <head>
+        <meta name="google-site-verification" content="1m_JV80vU3gln3KyYeAm5woixeUHQOvhrbGjS-0g6J0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <apex:includescript value="{!URLFOR($Resource.LS_JQuery)}"/>    
+        <apex:includescript value="{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/js/jquery.min.js')}"/>
+        <apex:includescript value="{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/js/base-method-ember-styleguide.js')}"/>
+        <apex:includescript value="{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/js/vendor.js')}"/>
+        
+        <apex:stylesheet value="{!$Resource.LS_MyAccount_Css}"/>
+        <apex:stylesheet value="{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/css/base-method-ember-styleguide.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/css/vendor.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/css/styles.css')}" />
+        <link REL="SHORTCUT ICON" HREF="{!URLFOR($Resource.DAZN_Favicon )}"/> 
+
+        
+        <style>
+            .panel-body {
+                background-color: black;
+            }
+            h3 {
+                text-decoration: underline;
+            }
+            .jumbotron {
+                background-color: black;
+            }
+            .success {
+                font-weight: bold;
+                font-size: 50px;
+            }
+            .fontSz {
+                font-size: 20px;
+            }
+            .marginTop {
+                margin-top: 70px;
+            }
+            .marginBottom {
+                margin-bottom: 40px;
+            }
+            .customStyleBtn {
+                background-color: #fff;
+                border-radius: 0;
+                color: #000;
+            }
+            .icon-x2 {
+                font-size: 100px;
+            }
+            .custStyleBtn {
+                background-color: #fff;
+                border-radius: 0px;
+                color: #000;
+                font-size: 1em;
+                padding-top: 15px !important;
+                pointor: cursor;
+                text-decoration: none;
+                width: 250px !important;
+            }
+            .customSpanStyle {            
+                position: relative;
+                right: 10px;
+                top: -20px;
+            }      
+            .wrapper.btn.txtUpperCase.custStyleBtn {
+                line-height: 42px;
+                padding-top: 0 !important;
+                text-transform: capitalize;
+            }
+            @media (min-width : 320px) and (max-width : 768px) {
+                
+                .thanks {
+                    margin-top: 240px;
+                }
+                .fontSz {
+                    font-size:12px;
+                }
+                .icon-x2 {
+                    font-size: 80px;
+                }
+                .success {
+                    font-size: 30px;
+                }
+            }
+        </style>
+        
+        <script type="text/javascript">
+                $(document).ready(function(){
+                    $('#paymentSuccessDiv').css('display', 'none');            
+                    $('#paymentFailureDiv').css('display', 'none');
+                    
+                    switch("{!sStatus }"){
+                        case "true":
+                                $('#paymentSuccessDiv').css('display', 'inline');           
+                                $('#paymentFailureDiv').css('display', 'none');
+                            break;
+                        case "false":
+                                $('#paymentFailureDiv').css('display', 'inline'); 
+                                $('#paymentSuccessDiv').css('display', 'none');         
+                            break;
+                    }
+                });
+        </script>
+        <title>{!$Label.LS_Change_Payment_Method_Status_Title}</title> 
+    </head>
+    <body>
+        <!-- Google Tag Manager -->
+        <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MCBGVB"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-MCBGVB');</script>
+        <!-- End Google Tag Manager -->
+        <apex:form >
+            <div class="container">
+                <c:LS_Header />                
+                <div class="row"  id="paymentSuccessDiv"> 
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 marginTop">
+                        <div class="row">
+                            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">                            
+                                <span class="icon-x2">
+                                    <span class="iconfont iconfont-ls_icon_arrow_brand-2"></span>
+                                </span>
+                                <!--apex:image styleClass="img-responsive" value="{!$Resource.LS_PaymentChangeSuccess_Icon1}" /-->
+                            </div>
+                            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" style="text-align:center;">
+                                <Label class="success">{!$Label.LS_ChangePaymentMethodStatus_Success}</label>
+                            </div> 
+                            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" style="text-align:center;">
+                                <span class="icon-x2">
+                                    <span class="iconfont iconfont-ls_icon_arrow_brand"></span>
+                                </span>    
+                                <!--apex:image styleClass="img-responsive" value="{!$Resource.LS_PaymentChangeSuccess_Icon2}"/-->
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="text-align:center;">
+                                {!$Label.LS_PaymentChangeSuccess_InfoMsg_PaymentMethodChanged}
+                            </div>
+                        </div>
+                        <div class="row"> &nbsp; </div>
+                        <div class = "row">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="text-align:center;">
+                                {!sPaymentRenewalMessage}
+                            </div>
+                        </div>
+                        <div class="row"> &nbsp; </div>
+                        <div class= "row">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="text-align:center;">
+                                
+                                <apex:outputPanel styleClass="ember-view form-fields--form-button-e53320ec primary">
+                                    <apex:commandLink id="backToMyAccButton" value="{!$Label.LS_PaymentChangeSuccess_Button_BackToMyAccount}" action="{!redirectToMyAccount}" styleClass="wrapper btn txtUpperCase custStyleBtn"></apex:commandLink>
+                                </apex:outputPanel>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="paymentFailureDiv" class="row" style="display: block;"> 
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="row">
+                            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                                <span class="icon-x2">
+                                    <span class="iconfont iconfont-ls_icon_arrow_brand-2"></span>
+                                </span>
+                                <!--<apex:image styleClass="img-responsive" value="{!$Resource.LS_PaymentChangeSuccess_Icon1}"/>-->
+                            </div>
+                            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" style="text-align:center;">
+                                <div>
+                                    <Label class="success">{!$Label.LS_ChangePaymentMethodStatus_Failure}</label>
+                                </div>
+                            </div> 
+                            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" style="text-align:center">
+                                <span class="icon-x2">
+                                    <span class="iconfont iconfont-ls_icon_arrow_brand"></span>
+                                </span>  
+                                <!--<apex:image styleClass="img-responsive" value="{!$Resource.LS_PaymentChangeSuccess_Icon2}"/>-->
+                            </div>
+                        </div>
+                        <div class = "row marginBottom ">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="text-align:center;">
+                                {!sFailureMessage}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"></div>                                                    
+                            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ember-view form-fields--form-button-e53320ec primary" style="text-align:center;">
+                                <apex:commandLink id="tryAgain" value="{!$Label.LS_ChangePaymentMethodStatus_TryAgain}" action="{!redirectToChangePaymentMethod}" styleClass="wrapper btn txtUpperCase custStyleBtn"></apex:commandLink>
+                            </div>
+                            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ember-view form-fields--form-button-e53320ec primary" style="text-align:center;">
+                                <apex:commandLink id="cancelUpdate" value="{!$Label.LS_ChangePaymentMethodStatus_CancelUpdate}" action="{!redirectToMyAccount}" styleClass="wrapper btn txtUpperCase custStyleBtn"></apex:commandLink>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--<div class="langSwitcher">-->
+                    <c:LS_Footer renderLangSwitcher="false"/>
+                <!--</div>-->
+            </div>
+        </apex:form>
+    </body>
+</apex:page>

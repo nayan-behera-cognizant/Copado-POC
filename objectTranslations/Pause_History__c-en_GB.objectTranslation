@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Pause History</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Pause History</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- Pause History --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Action Performed --></label>
+        <name>Action_Performed__c</name>
+        <picklistValues>
+            <masterLabel>Cancel scheduled pause</masterLabel>
+            <translation><!-- Cancel scheduled pause --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cancel subscription</masterLabel>
+            <translation><!-- Cancel subscription --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cancel subscription in pause</masterLabel>
+            <translation><!-- Cancel subscription in pause --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Early resume</masterLabel>
+            <translation><!-- Early resume --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Edit Pause</masterLabel>
+            <translation><!-- Edit Pause --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Edit resume dates in pause</masterLabel>
+            <translation><!-- Edit resume dates in pause --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Set Pause</masterLabel>
+            <translation><!-- Set Pause --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Pause From --></label>
+        <name>Pause_From__c</name>
+    </fields>
+    <fields>
+        <label><!-- Pause Until --></label>
+        <name>Pause_Until__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Success</masterLabel>
+            <translation><!-- Success --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unknown</masterLabel>
+            <translation><!-- Unknown --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Subscription Cancellation Date --></label>
+        <name>Subscription_Cancellation_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Workflow Id --></label>
+        <name>Workflow_Id__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

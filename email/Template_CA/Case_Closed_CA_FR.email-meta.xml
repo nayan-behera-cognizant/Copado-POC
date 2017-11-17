@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Notification when case is closed</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Case Closed CA FR</name>
+    <style>none</style>
+    <subject>Le cas {!Case.Thread_Id} est fermé</subject>
+    <textOnly>Bonjour {!Account.FirstName},
+
+Nous espérons avoir répondu à toutes vos questions d’une manière satisfaisante.
+
+Référence de votre demande : {!Case.CaseNumber} a été fermé, mais vous pouvez toujours répondre à ce courriel si vous avez besoin d’aide pour autre chose.
+
+Si vous avez d&apos;autres questions ou que vous voulez en savoir davantage sur DAZN, rendez-vous sur notre page d’accueil : https://www.dazn.com/ et sur nos pages d’aide : https://my.dazn.com/help/CA-fr_CA, où vous trouverez des informations et des solutions aux problèmes les plus fréquents.
+
+Cordialement,
+Votre équipe DAZN
+
+Suivi du cas : {!Case.Thread_Id} 
+Politique de confidentialité : https://my.dazn.com/help/ca-fr_CA/privacy
+Conditions d&apos;utilisation : https://my.dazn.com/help/ca-fr_CA/terms
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

@@ -1,0 +1,333 @@
+<apex:component controller="LS_HeaderComponentController">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale = 1.0" />
+        <apex:stylesheet value="{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/css/base-method-ember-styleguide.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/css/vendor.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/css/styles.css')}" />
+        <apex:includescript value="{!URLFOR($Resource.AngularJs,'angular.min.js')}"/>
+        <apex:includescript value="{!URLFOR($Resource.AngularJs,'angular-route.min.js')}"/>
+        <apex:includescript value="{!URLFOR($Resource.AngularJs,'angular-sanitize.min.js')}"/>
+        <apex:includescript value="{!URLFOR($Resource.LS_JQuery)}"/>
+        <style>
+             @font-face {
+                font-family: FoundryGridnikMedium;
+                src: url("{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/fonts/FoundryGridnikW03Medium.woff')}") format('woff'),
+                     url("{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/fonts/FoundryGridnikW03Medium.ttf')}") format('ttf');
+            }     
+            .foundryFontMedium{
+                font-family: FoundryGridnikMedium;
+            }
+            
+            @font-face {
+                font-family: FoundryGridnikRegular;
+                src: url("{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/fonts/FoundryGridnikW03Regular.woff')}") format('woff'),
+                     url("{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/fonts/FoundryGridnikW03Regular.ttf')}") format('ttf');
+            }
+            .foundryFontRegular {        
+                font-family: FoundryGridnikRegular;
+            }
+            
+            body {
+                font-family: FoundryGridnikMedium;
+                background-color: black;
+                color:white;                
+            }
+            @font-face {
+                font-family: AxisStdRegular;
+                src: url("{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/fonts/AxisStd-Regular.eot')}") format('eot'),
+                     url("{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/fonts/AxisStd-Regular.ttf')}") format('ttf');
+                     url("{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/fonts/AxisStd-Regular.woff')}") format('woff');
+                     url("{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/fonts/AxisStd-Regular.woff2')}") format('woff2');
+            }
+            html body.langJa, body.langJa, body.langJa *{
+                font-family:"AxisStdRegular",Helvetica,Arial,sans-serif !important;
+            }
+            .navMyAcc{
+                    /*border-bottom:1px solid #fff;*/
+                    margin:0px auto 10px;
+                    display:inline-block;
+                }
+            @media only screen and (min-width : 320px),only screen and (min-device-width: 320px){
+                /*Mobile latest Updated->Priyanka*/
+                #helpHomeWrapper{
+                    margin:5px auto;
+                }
+                .backToHomeLink{
+                    margin-top:10px;
+                    color : white;
+                    text-align:center;
+                    text-decoration:none;
+                    display: inline-block;
+                    font-family: "FoundryGridnik W01-Bold";
+                    font-size: 14px;
+                }
+                
+                #helpHomeWrapper .spanImageUpdated {
+                    display: block;
+                    width: 50px;
+                    height: 50px;
+                    background-repeat: no-repeat;
+                    background-position: 0px -5px;
+                    background-size: cover;
+                    margin-top:4px;
+                }
+                #helpHomeWrapper .backToHomeUpdated{
+                    font-size:8px !important;
+                    font-size: 12px !important;
+                    height: 15px;
+                    margin-top: 14.5%;
+                }
+                #helpHomeWrapper .minHeight{
+                    min-height:264px;
+                }
+                #helpHomeWrapper .minDivHeight{
+                    min-height:400px;
+                }
+                .minDivHeight{
+                    min-height:360px;
+                }
+                .footerUpdated .iconfont-ls_icon_faq{
+                    font-size:30px;
+                }
+                .footerUpdated .updateFAQ{
+                    margin-top:7px;
+                }
+                .mbSectionDataHead{
+                    margin-left: 45px;
+                    margin-top: -35px;
+                }
+                #helpHomeWrapper .upHeadHelp a.navHelp{
+                    font-size:18px;
+                }
+                #helpHomeWrapper .currentBCPiece,.greyHelpSepe{
+                    font-size:18px;
+                    font-weight:bold;
+                }
+                #helpHomeWrapper .backToHomeUpdated{
+                    font-size:8px !important;
+                    font-size: 12px !important;
+                    height: 15px;
+                    margin-top: 14.5%;
+                }
+                .updatedIconSection{
+                    width:100%;
+                }
+                .updatedIconSection span.icon-x2{
+                    float:left;
+                    margin:0px 15px 0px 10px;
+                }
+                .updatedIconSection .mLineHeight{
+                    text-align:left;
+                }
+                .lnkContinue{
+                    float:left;
+                }
+               .BCSeperator{
+                clear:both;
+                }
+                
+                .margTop{
+                    margin-top:15px;
+                }
+            }
+            
+            .spanImag {
+                display: block;
+                width: 31px;
+                height: 30px;
+                background: url("{!URLFOR($Resource.DAZN_Styleguide, 'DAZN_Styleguide/images/logo-04.png')}") 61px -32px;
+            }            
+            a.navHome  { 
+                color: white;
+                font-size: 13px;
+                text-decoration:none;
+                border-bottom : 2px solid grey;
+                font-weight:bold;                
+            }
+            a.navMyAcc{
+                color : #ffffff;
+                text-align:left;
+                font-size: 18px;
+                text-decoration:none;
+            }
+            .help{
+                font-size: 20px;
+            }
+            .help.accHdr{
+                margin-top:8px;
+            }
+            .padding0{
+                padding:0px
+            }
+            .marginLeft {
+                margin-left: -20px;
+            }  
+            .btn-primary {
+                color: black;
+                background-color: white;
+                border-color: black;
+            }
+            .btn-primary:hover {
+                color: black;
+                background-color: white;
+                border-color: black;
+            }
+            .hrSectionGrey{
+                border-bottom: 0.7px solid #808080;
+                border-top: 0px;
+                margin-bottom:0px;
+                margin-top:0px;
+            }
+            .marginTop20 {
+                margin-top:20px
+            }
+            .marginLeft {
+                margin-left: -20px;
+            }
+            label {
+                font-weight: normal;
+            }
+            .spanImageUpdated{
+                display: block;
+                width: 50px;
+                height: 50px;
+                background-repeat: no-repeat;
+                background-position: 0px -5px;
+                background-size: cover;
+                margin-top:20px;
+            }
+            .txtAlignCtr{
+                text-align:center;
+            }
+            .backToHome {
+                font-size: 8px !important;
+                font-weight: normal;
+            }
+            .backToHomeUpdated{
+                font-size: 12px !important;
+                font-weight: bold;
+                text-decoration: none;
+                display: inline-block;
+                border-bottom: 1px solid #fff;
+                height:20px;
+                text-align:center;
+                margin-top:10.5%;
+                position:relative;
+            }
+            .backToHomeLink{
+                margin-top:5px;
+                color : white;
+                text-align:center;
+                text-decoration:none;
+                display: inline-block;
+            }
+            .backToHomeLink.link-unique {
+                text-decoration: none !important;
+                border-bottom: 1px solid #ffffff;
+                padding-bottom: 5px;
+            }
+            @media only screen and (min-width: 320px) and (max-width: 759px) {
+                .backToHomeLink.link-unique {
+                    text-decoration: none !important;
+                    border-bottom: 1px solid #ffffff;
+                    font-size: 14px;
+                    padding-bottom: 2px;
+                }
+            }
+            @media only screen and (min-width : 760px),only screen and (min-device-width: 760px) {
+                .help.accHdr{
+                    margin-top:9px;
+                }
+                .backToHome {
+                    font-size: 14px !important;
+                    font-weight:500;
+                }
+                .backToHomeLink {
+                    
+                    margin-top:7px;
+                    line-height:1;
+                }
+                .margTop{
+                    margin-top:9px;
+                }
+                #helpHomeWrapper  .spanImageUpdated {
+                    display: block;
+                    width: 50px;
+                    height: 50px;
+                    background-repeat: no-repeat;
+                    background-position: 0px -5px;
+                    background-size: cover;
+                    margin-top:5px;
+                }
+                
+            }
+            
+            @media only screen and (min-width : 1200px),only screen and (min-device-width: 1200px) {
+                #continueReadingdiv{text-align:left}
+                .mLineHeight{line-height:1}
+                .iconSection, .textSection{text-align: center;}
+                .backToHome {font-size: 14px !important;
+                    font-weight:normal;
+                }
+                #helpHomeWrapper .spanImageUpdated{
+                    margin-top:5px;
+                }
+                .margTop{
+                    margin-top:15px;
+                }
+                .backToHomeLink{
+                    font-family: "FoundryGridnikMedium";
+                    font-size: 18px;
+                }
+                /*Updated css 22-02-2016*/
+                
+            }
+            
+            
+             
+            
+        </style>
+        <script>
+        function updatedataLayerAttribute(oevent)
+        {
+            var targetName = (oevent.srcElement === undefined || oevent.srcElement === null) ? oevent.target.name : oevent.srcElement.name;
+            var targetId = (oevent.srcElement === undefined || oevent.srcElement === null) ? oevent.target.id : oevent.srcElement.id;
+
+            targetName = targetName.split(':').pop();
+            if (targetName == '') {
+                targetName = targetId;
+                if (targetName.indexOf(':') > -1) {
+                    targetName = targetId;
+                    targetName = targetName.split(':').pop();
+                } else {
+                    targetName = targetId;
+                }
+            }
+            console.log("targetName: "+targetName);
+            dataLayer.push({'event':'buttonClick','button':targetName});
+        }
+        </script>
+    </head>
+    <div class="col-md-12 padding0" id="helpHomeWrapper">    
+        <div class="col-md-12 col-sm-12 col-xs-12 foundryFontMedium padding0">
+            <div class="col-md-12 padding0">
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 padding0">
+                    <apex:commandLink styleClass="spanImag spanImageUpdated" action="{!redirectToHomePage}"/>
+                </div>
+                <div class="col-xs-5 col-sm-5 col-md-4 col-lg-4 foundryFontMedium txtAlignCtr padding0">
+                    <a href="{!homePageURL}" onclick="updatedataLayerAttribute(event)" class="backToHomeLink link-unique" id="BackToHome">{!$Label.LS_Help_Link_BackToHome}</a>
+                </div>
+                <div class="col-xs-3 col-sm-3 col-md-4 col-lg-4 ">
+                </div>
+            </div>
+            
+            <div class="help col-md-12 col-sm-12 col-xs-12 padding0 margTop accHdr">
+                <a href="/MyAccount" class="navMyAcc" onclick="updatedataLayerAttribute(event)" id="BackToMyAccount" >{!$Label.LS_Label_MY_ACCOUNT}</a>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 padding0">
+                <hr class="hrSection hrSectionGrey BCSeperator"/>
+            </div>
+               
+         </div>
+     </div>   
+</apex:component>

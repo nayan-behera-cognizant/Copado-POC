@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Notification when case is resolved</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Case Resolved Notification for AT_DE Non-Members</name>
+    <style>none</style>
+    <subject>Kleine Erinnerung! {!Case.Thread_Id}</subject>
+    <textOnly>Hey Sportsfan,
+
+Vor zwei Tagen haben wir dir eine E-Mail zu deiner Anfrage mit der ID {!Case.CaseNumber} geschickt. Bisher haben wir nichts mehr von dir gehört. Wir wollen natürlich sichergehen, dass dein Anliegen geklärt werden konnte. Falls das noch nicht der Fall ist, dann gib uns gerne Bescheid.
+
+Sollten alle deine Fragen beantwortet sein brauchst du natürlich nicht mehr auf diese E-Mail zu antworten. Wir werden deinen Fall dann in 24 Stunden schließen.
+
+Sportliche Grüße,
+dein DAZN-Team
+
+Case Thread ID: {!Case.Thread_Id} 
+DATENSCHUTZ: https://my.dazn.com/help/at-de/privacy 
+NUTZUNGSBEDINGUNGEN: https://my.dazn.com/help/at-de/terms 
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

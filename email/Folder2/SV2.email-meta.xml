@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>UTF-8</encodingKey>
+    <name>【英語】退会希望（退会ボタンの表示がない）※退会代理はSV以上</name>
+    <style>none</style>
+    <subject>[DAZN Customer Services] Your enquiry regarding cancellation</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

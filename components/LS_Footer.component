@@ -1,0 +1,446 @@
+<apex:component controller="LS_FooterComponentController" language="{!JSENCODE(sLanguage)}" >
+    <apex:attribute name="renderLangSwitcher" description="current language attribute" type="Boolean" required="true" assignTo="{!renderdLangSwitcher}" />
+    <apex:attribute name="pageCustomName" description="custom name of the page" type="String" required="false" assignTo="{!nameOfPage}" />
+       <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale = 1.0" />
+        <style type="text/css">            
+            /* General CSS*/
+            .nopadding {
+                margin: 0px !important;
+                padding: 0px !important;
+            }
+            .marginBottom20 {
+                margin-bottom: 20px;
+            }
+            .clearfix {
+                clear: both;
+            }
+            body {
+                overflow: visible;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+            }
+            /* General CSS*/
+            
+            /* Seperation line CSS */
+            .hrSectionGrey {
+                border-bottom: 1px solid #AAAAAA;
+                border-top: 0px;
+                margin-top: 0;
+                width: 100%;
+                margin-bottom: 0;
+            }
+            /* Seperation line CSS */
+            
+            /* Language Switcher */
+            .selectLanguage {
+                display: none;
+            }
+            .langSwitcher .selectLanguage {
+                display: block;
+                margin: 30px 1em 16px;
+            }
+            .langSwitcher .standardFooter {
+                width: auto;
+                text-align: left;
+                padding: 0;
+                margin-top: 10px;
+                margin-left: 1em;
+            }
+            .selectLanguage .language {
+                font-family: "FoundryGridnik W01-Medium";
+                font-size: 16px;
+                color: #999999;
+                text-transform: uppercase;
+                float: left;
+                line-height: 1.2;
+            }
+            .selectLanguage ul,
+            .selectLanguage blockquote {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                float: left;
+                margin-left: 1em;
+                border-left: 0 none;
+            }
+            .selectLanguage ul li,
+            .selectLanguage ul li a,
+            .selectLanguage blockquote li,
+            .selectLanguage blockquote li a {
+                float: left;
+                margin-right: 10px;
+                display: inline-block;
+                color: #FFFFFF;
+                text-transform: uppercase;
+                font-size: 16px;
+                line-height: 1.1;
+                font-family: "FoundryGridnik W01-Medium";
+                text-decoration: none;
+            }
+            .selectLanguage ul li a,
+            .selectLanguage blockquote li a {
+                padding-right: 0;
+            }
+            .selectLanguage ul li span:hover,
+            .selectLanguage ul li a:hover,
+            .selectLanguage blockquote li span:hover,
+            .selectLanguage blockquote li a:hover {
+                border-bottom: 1px solid #FFFFFF;
+            }
+            .langSwitcher .standardFooter {
+                float: none;
+                text-align: center;
+            }
+            .selectLanguage ul li.firstChild, 
+            .selectLanguage blockquote li.firstChild {
+                border-bottom: 1px solid #999999;
+            }
+            /* Language Switcher */
+            
+            /* Footer links */
+            .footer {
+                margin: 25px 0 0 16px;
+            }
+            .footer ul {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+            }
+            .footer ul li {
+                width: auto;
+                margin: 0 0 20px 0;
+            }
+            .footer ul li a {
+                font-size: 16px;
+                font-family: "FoundryGridnik W01-Medium";
+                text-transform: uppercase;
+                color: #FFFFFF;
+                font-weight: normal;
+                text-align: left;
+                text-decoration: none;
+                white-space: nowrap;
+            }
+            .footer ul li.tradeList {
+                font-size: 16px;
+                font-family: "FoundryGridnik W01-Medium";
+                text-transform: uppercase;
+                color: #FFFFFF;
+            }
+            .footer ul li a:visited,
+            .footer ul li a:active,
+            .footer ul li a:focus {
+                text-decoration: none;
+            }
+            /* Footer links */
+            
+            /* Stick Footer to the bottom */
+             .changePassword, .containerLogin.container-fluid, .cancelContainer,
+            .container.wrapperMyAccount, .container.wrapMemberActivation ,.contactUsContainer {
+                min-height: calc(100vh - 170px);
+            }
+            .container.wrapperChangePayment {
+                min-height: 857px;
+            }
+            .container-fluid.loginContainer {
+                min-height: calc(100vh - 240px);
+            }
+            .helpPageContainer #helpHomeWrapper {
+                min-height: calc(100vh - 380px);
+            }
+            .docomoSignIn {
+                min-height: calc(100vh - 360px);
+                margin-bottom: 0;
+            }
+            .container.wrapPaymentHistory {
+                min-height: 814px;
+            }
+            /* Stick Footer to the bottom */
+            
+            .link-paragraph:after, .link-unique:after {
+                background-color: transparent;
+            }
+            sup {
+                top: -.4em;
+                font-size: 70%;
+            }
+            @media screen and (max-width: 759px) { /* removed from 320px as per PD-8417 comments */
+                .selectLanguage .language {
+                    float: none;
+                }
+                .selectLanguage ul,
+                .selectLanguage blockquote {
+                    float: none;
+                    margin-left: 0;
+                    margin-top: 1em;
+                }
+                .footer ul li {
+                    display: block;
+                }
+                .footer ul li a:hover,
+                .footer ul li a:active,
+                .selectLanguage ul li a:hover,
+                .selectLanguage blockquote li a:active {
+                    border-bottom: 1px solid #999999;
+                }
+                .container.docomoSignIn {
+                    margin-bottom: 73px;
+                }
+                .selectLanguage ul li, .selectLanguage blockquote li {
+                    float: none;
+                    display: inline-block;
+                    margin-bottom: 10px;
+                }
+                .selectLanguage ul li a, .selectLanguage blockquote li a {
+                    float: none;
+                }
+                .spanLi {
+                    display: block;
+                }
+                .normalFooter {
+                    height: 254px;
+                }
+                .langSwitcher {
+                    height: 494px;
+                }
+                .container.wrapperChangePayment,.container.wrapPaymentHistory {
+                    min-height: calc(100vh - 170px);
+                }
+                .langFr .rowWidth.liveAgentSec {
+                    width: 100%;
+                }
+            }
+            @media screen and (min-width: 760px) and (max-width: 1759px) {
+                .langSwitcher .standardFooter {
+                    float: none;
+                }
+                .footer ul {
+                    width: 740px;
+                }
+                .footer ul span.middle-col {
+                    display: inline-block;
+                    width: 238px;
+                    margin-right: 8px;
+                }
+                .footer ul span.first-col {
+                    width: 238px;
+                    margin-right: 8px;
+                    display: inline-block;
+                }
+                .footer ul span.last-col {
+                    width: 238px;
+                    margin-right: 0;
+                    display: inline-block;
+                }
+                /* canada French Translations - 12346*/
+                .langFr .footer ul span.middle-col {
+                    width: 295px;
+                }
+                .langFr .footer ul span.first-col {
+                    width: 180px;
+                }
+                .langFr .footer ul span.last-col {
+                    width: 238px;
+                }
+                /* canada French Translations - 12346*/
+                .footer ul span li {
+                    display: block;
+                }
+                .footer ul li a:hover,
+                .footer ul li a:active,
+                .selectLanguage ul li a:hover,
+                .selectLanguage blockquote li a:active {
+                    border-bottom: 1px solid #999999;
+                }
+                .container.docomoSignIn {
+                    margin-bottom: 296px;
+                }
+                .normalFooter {
+                    height: 133px;
+                }
+                .langSwitcher {
+                    height: 200px;
+                }
+            }
+            @media screen and (min-width: 1200px) and (max-width: 1759px) {
+                .footer ul {
+                    float: left;
+                }
+                .container.docomoSignIn {
+                    margin-bottom: 205px;
+                }
+                .footer ul li a:hover,
+                .footer ul li a:active,
+                .selectLanguage ul li a:hover,
+                .selectLanguage blockquote li a:active {
+                    border-bottom: 1px solid #999999;
+                }
+                .langSwitcher {
+                    height: 222px;
+                }
+                .langFr .rowWidth.liveAgentSec {
+                    width: 50%;
+                }
+            }
+            @media screen and (min-width: 1760px) {
+                .footer {
+                    text-align: center;
+                    clear: both;
+                }
+                .myAct .footer {
+                    padding-bottom: 50px;
+                }
+                .langSwitcher .selectLanguage {
+                    float: left;
+                    width: 25%;
+                }
+                .langSwitcher .footer {
+                    float: right;
+                    margin-bottom: 44px;
+                    margin-top: 30px;
+                    clear: right;
+                    height:auto;
+                }
+                .footer ul span li {
+                    margin: 0 16px 20px 0;
+                    display: inline;
+                }
+                .container.docomoSignIn {
+                    margin-bottom: 272px;
+                }
+                .footer ul li a:hover,
+                .footer ul li a:active,
+                .selectLanguage ul li a:hover,
+                .selectLanguage blockquote li a:active {
+                    border-bottom: 1px solid #999999;
+                }
+                .container-fluid.loginContainer {
+                    min-height: calc(100vh - 170px);
+                }
+                .normalFooter {
+                    height: 58px;
+                }
+                .helpPageContainer  {
+                    min-height: calc(100vh - 105px);
+                }
+                .helpPageContainer #helpHomeWrapper {
+                    min-height: auto;
+                }
+                .langFr .rowWidth.liveAgentSec {
+                    width: 50%;
+                }
+            }
+        </style>
+        
+        <script type="text/javascript">
+           var  sCountry = '{!JSENCODE(sCountry)}',
+                sLanguage = '{!JSENCODE(sLanguage)}';
+            $(document).ready(function(){ 
+                var $list = $(".footer ul li:visible"); 
+                for(var i = 0; i < $list.length; i++) {
+                    if(i % 3 == 0){
+                         $($list[i]).wrapAll("<span class='first-col'></span>");
+                    } else if(i % 3 == 1) {
+                         $($list[i]).wrapAll("<span class='middle-col'></span>");
+                    } else {
+                         $($list[i]).wrapAll("<span class='last-col'></span>");
+                    }
+                }
+               if(sCountry.toLowerCase() == "ca" && (sLanguage.toLowerCase() == "fr"|| sLanguage.toLowerCase() == "fr_ca")) {
+                   $('body').addClass("langFr");
+               } 
+            });
+            
+         </script>
+    </head>
+        <hr class="hrSectionGrey"/>  
+        <div id="pageFooter">
+            <apex:outputPanel rendered="{!LanguageExists && sCountryExists}"> 
+            <div class="langFooter">
+                <apex:outputPanel id="idLanguageSwitcher"  rendered="{!renderdLangSwitcher  && showSwitcher  }">
+                    <div class="selectLanguage"> 
+                        <span class="language">{!$Label.LS_Label_Footer_ChangeLanguage} </span>
+                        <ul>
+                            <apex:repeat value="{!DAZNLanguage}" var="oLang" id="theRepeat">
+                               <apex:outputPanel id="idSelectedLang" rendered="{!(selectedLanguage==DAZNLanguage[oLang])}" styleClass="spanLi">
+                                    <li class="firstChild" >{!DAZNLanguage[oLang]}</li>
+                                </apex:outputPanel>
+                                <apex:outputPanel id="idClickableLang" rendered="{!NOT(selectedLanguage==DAZNLanguage[oLang])}" styleClass="spanLi">
+                                    <li><apex:commandLink value="{!DAZNLanguage[oLang]}" id="changelang" action="{!translatePageToSelectedLanguage}" >
+                                        <apex:param name="languageSelected" value="{!oLang}" assignTo="{!oLang}"/>
+                                        <apex:param name="sCountryCode" value="{!sCountryCode}" assignTo="{!oCountry}"/>
+                                    </apex:commandLink></li>
+                                </apex:outputPanel>
+                            </apex:repeat>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                </apex:outputPanel>
+                <div class="footer normalFooter">
+                    <ul>
+                        <li class="helpLink">
+                            <a href="{!helpURL}">{!$Label.LS_Label_Help}</a>
+                        </li>
+                        <li class="termUseLink">
+                            <a href="{!termsURL}">{!$Label.LS_Footer_Label_TermsOfUse}</a>
+                        </li>
+                        <li class="imprintLink">
+                            <a href="{!aboutURL}">{!straboutURL}</a>
+                        </li> 
+                        <li class="faqLink">
+                            <a href="{!faqURL}">{!$Label.LS_Footer_Label_FAQ}</a>
+                        </li>
+                        <li class="privacyLink">
+                            <a href="{!privacyURL}">{!$Label.LS_Footer_Label_PrivacyPolicy}</a>
+                        </li>
+                        <li class="redeemLink" style="display:{!if(showAddGiftCodeFlagInFooter,'inline-block','none')};">
+                            <apex:commandLink value="{!$Label.LS_Footer_Label_Redeem}" action="{!redeemGiftCode}" />
+                        </li>
+                        <li class="mediaLink">
+                            <a href="{!$Label.LS_Footer_URL_Media}">{!$Label.LS_Footer_Label_Media}</a>
+                        </li>
+                        <li class="tradeList">
+                            <apex:outputText escape="false" value="{!$Label.LS_Footer_Label_DAZN_2015}" />
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+                <div class="clearfix"></div>
+        </apex:outputPanel>
+        </div>
+        <apex:outputPanel rendered="{!NOT(LanguageExists) || NOT(sCountryExists)}">
+            <div class="footer standardFooter">
+                <ul>
+                    <li class="helpLink">
+                        <a href="{!helpURL}">{!$Label.LS_Label_Help}</a>
+                    </li>
+                    <li class="termUseLink">
+                        <a href="{!termsURL}">{!$Label.LS_Footer_Label_TermsOfUse}</a>
+                    </li>
+                    <li class="imprintLink">
+                        <a href="{!aboutURL}">{!straboutURL}</a>
+                    </li> 
+                    <li class="faqLink">
+                        <a href="{!faqURL}">{!$Label.LS_Footer_Label_FAQ}</a>
+                    </li>
+                    <li class="privacyLink">
+                        <a href="{!privacyURL}">{!$Label.LS_Footer_Label_PrivacyPolicy}</a>
+                    </li>
+                    <li class="redeemLink" style="display:{!if(showAddGiftCodeFlagInFooter,'inline-block','none')};">
+                        <apex:commandLink value="{!$Label.LS_Footer_Label_Redeem}" action="{!redeemGiftCode}" />
+                    </li>
+                    <li class="mediaLink">
+                        <a href="{!$Label.LS_Footer_URL_Media}">{!$Label.LS_Footer_Label_Media}</a>
+                    </li>
+                    <li class="tradeList">
+                        <apex:outputText escape="false" value="{!$Label.LS_Footer_Label_DAZN_2015}" />
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+        </apex:outputPanel>
+        <div class="clearfix"></div>
+</apex:component>

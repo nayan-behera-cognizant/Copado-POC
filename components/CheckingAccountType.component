@@ -1,0 +1,8 @@
+<apex:component controller="CheckingAccountTypeController">
+	<script type="text/javascript">
+		var docomoPartnerPage = '{!docomoPartnerPage}';
+		if (docomoPartnerPage.length > 7) {
+			window.open('/' + docomoPartnerPage, target='_parent');
+		}		
+	</script>
+</apex:component>

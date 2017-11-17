@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Live Chat Settings</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Live Chat Settings</value>
+    </caseValues>
+    <fields>
+        <label><!-- Deployment Id --></label>
+        <name>Deployment_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Org Id --></label>
+        <name>Org_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- URL --></label>
+        <name>URL__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>Zuora__ZInvoice__c.Zuora__PaymentAmount__c</field>
+    </columns>
+    <columns>
+        <field>Zuora__ZInvoice__c.Zuora__Account__c</field>
+    </columns>
+    <currency>GBP</currency>
+    <filter>
+        <criteriaItems>
+            <column>Zuora__ZInvoice__c.Zuora__PaymentAmount__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>greaterThan</operator>
+            <value>GBP 0</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Zuora__ZInvoice__c.Zuora__PaymentAmount__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>greaterThan</operator>
+            <value>JPY 1890</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>CUST_CURRENCY_ISO_CODE</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>JPY</value>
+        </criteriaItems>
+        <language>ja</language>
+    </filter>
+    <format>Tabular</format>
+    <name>請求額間違い探し1890円以上</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$Zuora__ZInvoice__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <sortColumn>Zuora__ZInvoice__c.Zuora__PaymentAmount__c</sortColumn>
+    <sortOrder>Desc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>Zuora__ZInvoice__c.Zuora__Generated_Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>
